@@ -8,7 +8,7 @@ import { useCharacters } from '@/db/hooks/useCharacters'
 import { useBestSnapshots, useWorldSnapshots, upsertSnapshot } from '@/db/hooks/useSnapshots'
 import { useMapLayers } from '@/db/hooks/useMapLayers'
 import type { CharacterPin } from './LeafletMapCanvas'
-import { useBlobUrl } from '@/db/hooks/useBlobs'
+import { useBlobUrl, useWorldBlobUrls } from '@/db/hooks/useBlobs'
 import { Button } from '@/components/ui/button'
 import { EmptyState } from '@/components/EmptyState'
 import { PortraitImage } from '@/components/PortraitImage'
@@ -136,6 +136,7 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
   const activeChapterId = useActiveChapterId()
   const snapshots = useBestSnapshots(worldId, activeChapterId)
   const allSnapshots = useWorldSnapshots(worldId)
+  const blobUrls = useWorldBlobUrls(worldId)
 
   // Resolve character pins: on this layer directly, or via sub-map ancestry
   const charPins: CharacterPin[] = []
@@ -143,7 +144,11 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
     const char = characters.find((c) => c.id === snap.characterId)
     if (!char) continue
     const pin = resolveCharacterPin(snap, layerId, allLayers, allMarkers)
-    if (pin) charPins.push({ ...pin, character: char })
+    if (pin) charPins.push({
+      ...pin,
+      character: char,
+      portraitUrl: char.portraitImageId ? blobUrls.get(char.portraitImageId) ?? null : null,
+    })
   }
   const [showPanel, setShowPanel] = useState(false)
   const [isDraggingCharacter, setIsDraggingCharacter] = useState(false)

@@ -41,19 +41,46 @@ function makeLocationIcon(iconType: string, isLinked: boolean, highlighted = fal
   })
 }
 
-function makeCharacterIcon(name: string, inSubMap = false) {
-  const initials = escapeXml(name.slice(0, 2).toUpperCase())
+function makeCharacterIcon(name: string, inSubMap = false, portraitUrl?: string | null) {
   const stroke = inSubMap ? 'stroke="#94a3b8" stroke-dasharray="4,2"' : 'stroke="#60a5fa"'
-  const fill = inSubMap ? '#0f172a' : '#1e293b'
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
-    <circle cx="18" cy="18" r="17" fill="${fill}" ${stroke} stroke-width="2"/>
-    <text x="18" y="23" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="${inSubMap ? '#94a3b8' : '#e2e8f0'}">${initials}</text>
+  const strokeWidth = 2
+  const size = 36
+  const r = size / 2 - strokeWidth
+
+  let inner: string
+  if (portraitUrl) {
+    const safeUrl = escapeXml(portraitUrl)
+    inner = `
+      <defs>
+        <clipPath id="cp-${escapeXml(name)}">
+          <circle cx="18" cy="18" r="${r}"/>
+        </clipPath>
+      </defs>
+      <image href="${safeUrl}" x="${strokeWidth}" y="${strokeWidth}"
+        width="${size - strokeWidth * 2}" height="${size - strokeWidth * 2}"
+        clip-path="url(#cp-${escapeXml(name)})"
+        preserveAspectRatio="xMidYMid slice"/>
+    `
+  } else {
+    const initials = escapeXml(name.slice(0, 2).toUpperCase())
+    const fill = inSubMap ? '#0f172a' : '#1e293b'
+    const textFill = inSubMap ? '#94a3b8' : '#e2e8f0'
+    inner = `
+      <circle cx="18" cy="18" r="${r}" fill="${fill}"/>
+      <text x="18" y="23" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="${textFill}">${initials}</text>
+    `
+  }
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">
+    ${inner}
+    <circle cx="18" cy="18" r="${r}" fill="none" ${stroke} stroke-width="${strokeWidth}"/>
   </svg>`
+
   return L.divIcon({
     html: svg,
     className: '',
-    iconSize: [36, 36],
-    iconAnchor: [18, 18],
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
     popupAnchor: [0, -20],
   })
 }
@@ -76,6 +103,7 @@ export interface CharacterPin {
   x: number
   y: number
   inSubMap: boolean
+  portraitUrl?: string | null
 }
 
 interface LeafletMapCanvasProps {
@@ -211,11 +239,11 @@ export function LeafletMapCanvas({
           </Marker>
         ))}
 
-        {charPins.map(({ character, x, y, inSubMap }, idx) => (
+        {charPins.map(({ character, x, y, inSubMap, portraitUrl }, idx) => (
           <Marker
             key={`${character.id}-${idx}`}
             position={[y + 20 * idx, x + 20 * idx]}
-            icon={makeCharacterIcon(character.name, inSubMap)}
+            icon={makeCharacterIcon(character.name, inSubMap, portraitUrl)}
           >
             <Popup>
               <div>

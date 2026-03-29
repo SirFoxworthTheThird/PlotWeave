@@ -3,6 +3,20 @@ import { db } from '@/db/database'
 import type { BlobEntry } from '@/types'
 import { generateId } from '@/lib/id'
 
+/** Returns a map of blobId → object URL for all blobs in a world. */
+export function useWorldBlobUrls(worldId: string | null): Map<string, string> {
+  const entries = useLiveQuery(
+    () => (worldId ? db.blobs.where('worldId').equals(worldId).toArray() : []),
+    [worldId],
+    []
+  )
+  const map = new Map<string, string>()
+  for (const e of entries) {
+    map.set(e.id, URL.createObjectURL(e.data))
+  }
+  return map
+}
+
 export function useBlobUrl(id: string | null): string | undefined {
   const entry = useLiveQuery(() => (id ? db.blobs.get(id) : undefined), [id])
   if (!entry) return undefined
