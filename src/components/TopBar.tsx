@@ -90,6 +90,7 @@ export function TopBar() {
           onClick={() => navigate('/')}
           className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
+          <img src="/favicon.jpg" alt="WorldBreaker" className="h-7 w-7 rounded-full object-cover" />
           <span className="text-sm font-bold tracking-wide text-[hsl(var(--foreground))]">
             WorldBreaker
           </span>

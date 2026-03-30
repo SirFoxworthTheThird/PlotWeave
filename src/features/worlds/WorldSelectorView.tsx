@@ -36,9 +36,12 @@ export default function WorldSelectorView() {
     <div className="flex min-h-screen flex-col bg-[hsl(var(--background))]">
       <header className="border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-6 py-4">
         <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-bold text-[hsl(var(--foreground))]">WorldBreaker</h1>
-            <p className="text-sm text-[hsl(var(--muted-foreground))]">Story Tracker</p>
+          <div className="flex items-center gap-3">
+            <img src="/favicon.jpg" alt="WorldBreaker" className="h-10 w-10 rounded-full object-cover" />
+            <div>
+              <h1 className="text-xl font-bold text-[hsl(var(--foreground))]">WorldBreaker</h1>
+              <p className="text-sm text-[hsl(var(--muted-foreground))]">Story Tracker</p>
+            </div>
           </div>
           <div className="flex items-center gap-2">
             <Button
