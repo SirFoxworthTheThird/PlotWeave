@@ -14,7 +14,7 @@ export function AppShell() {
   }, [worldId, setActiveWorldId])
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-[hsl(var(--background))]">
+    <div className="flex h-screen flex-col overflow-hidden">
       <TopBar />
       {!isDashboard && <ChapterTimelineBar />}
       <main className={`flex-1 overflow-auto${!isDashboard ? ' pb-[3.25rem]' : ''}`}>

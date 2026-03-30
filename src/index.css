@@ -387,9 +387,18 @@
     box-sizing: border-box;
   }
 
+  html {
+    background-color: #1a2535;
+    background-image: url('/background.png');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
   body {
     margin: 0;
-    background-color: hsl(var(--background));
+    background-color: hsl(var(--background) / 0.82);
     color: hsl(var(--foreground));
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
