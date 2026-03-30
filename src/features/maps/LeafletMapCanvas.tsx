@@ -1,111 +1,163 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { MapContainer, ImageOverlay, Marker, Popup, Polyline, useMapEvents } from 'react-leaflet'
 import L from 'leaflet'
 import type { MapLayer, LocationMarker, Character } from '@/types'
 import { updateLocationMarker } from '@/db/hooks/useLocationMarkers'
 
-function escapeXml(str: string): string {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;')
+// ── Design tokens ──────────────────────────────────────────────────────────────
+const GOLD       = '#D4AF37'
+const BRONZE     = '#CD7F32'
+const CALLOUT_BG = 'rgba(26,18,11,0.9)'
+const CALLOUT_FG = '#F5F5DC'
+const SERIF      = "Cinzel,Georgia,'Times New Roman',serif"
+
+// Lazily inject Cinzel from Google Fonts (runs once on first render)
+let cinzelInjected = false
+function ensureCinzel() {
+  if (cinzelInjected || typeof document === 'undefined') return
+  cinzelInjected = true
+  const id = 'wb-cinzel-font'
+  if (!document.getElementById(id)) {
+    const link = document.createElement('link')
+    link.id = id; link.rel = 'stylesheet'
+    link.href = 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap'
+    document.head.appendChild(link)
+  }
 }
 
-function makeLocationIcon(iconType: string, isLinked: boolean, highlighted = false) {
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+}
+
+// ── Location marker: pill badge  [◇ | Name · type] ───────────────────────────
+function makeLocationIcon(iconType: string, isLinked: boolean, name: string, highlighted = false) {
+  ensureCinzel()
   const colors: Record<string, string> = {
-    city: '#60a5fa',
-    town: '#34d399',
-    dungeon: '#f87171',
-    landmark: '#fbbf24',
-    building: '#a78bfa',
-    region: '#fb923c',
-    custom: '#94a3b8',
+    city: '#60a5fa', town: '#34d399', dungeon: '#f87171',
+    landmark: '#fbbf24', building: '#a78bfa', region: '#fb923c', custom: '#94a3b8',
   }
-  const color = colors[iconType] ?? '#94a3b8'
-  const ring = isLinked ? `stroke="${color}" stroke-width="2"` : ''
-  const glow = highlighted ? `filter="url(#glow)"` : ''
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36">
-    ${highlighted ? `<defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>` : ''}
-    <circle cx="12" cy="10" r="7" fill="${color}" fill-opacity="0.9" ${ring} ${glow}/>
-    <polygon points="12,20 8,14 16,14" fill="${color}" fill-opacity="0.9"/>
-    ${isLinked ? '<circle cx="12" cy="10" r="3" fill="white" fill-opacity="0.9"/>' : ''}
-    ${highlighted ? `<circle cx="12" cy="10" r="9" fill="none" stroke="${color}" stroke-width="2" stroke-opacity="0.6"/>` : ''}
-  </svg>`
+  const color  = colors[iconType] ?? '#94a3b8'
+  const pillH  = 32       // pill height (fixed)
+  const iconW  = 28       // width of the diamond section on the left
+  const side   = 10       // diamond square side before rotation
+  const labelW = Math.max(88, name.length * 8 + 16)
+
+  const innerBg = isLinked
+    ? `radial-gradient(circle at center,#fff 20%,${color} 55%)`
+    : color
+
+  // The rotated square (diamond)
+  const diamond = `<div style="width:${side}px;height:${side}px;background:${innerBg};border:1.5px solid ${BRONZE};transform:rotate(45deg);flex-shrink:0;"></div>`
+  const iconArea = `<div style="width:${iconW}px;height:${pillH}px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${diamond}</div>`
+
+  // Vertical divider
+  const divider = `<div style="width:1px;height:${Math.round(pillH * 0.65)}px;align-self:center;background:${GOLD};opacity:0.35;flex-shrink:0;"></div>`
+
+  // Label area
+  const label = `<div style="display:flex;flex-direction:column;justify-content:center;padding:0 8px;min-width:${labelW}px;height:${pillH}px;overflow:hidden;">
+    <div style="color:${CALLOUT_FG};font-size:11px;font-family:${SERIF};line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${escapeHtml(name)}</div>
+    <div style="color:${GOLD};font-size:9px;font-family:${SERIF};line-height:1.3;text-transform:capitalize;white-space:nowrap;">${escapeHtml(iconType)}</div>
+  </div>`
+
+  // Outer glow when highlighted (drag-over)
+  const glowFilter = highlighted
+    ? `drop-shadow(0 4px 8px rgba(0,0,0,0.9)) drop-shadow(0 0 6px ${color})`
+    : 'drop-shadow(0 4px 8px rgba(0,0,0,0.9))'
+
+  // Single pill — border-radius is 4px all around (diamond sits inside, not circular)
+  const pill = `<div style="display:inline-flex;align-items:stretch;border:1px solid ${GOLD};border-radius:4px;background:${CALLOUT_BG};overflow:hidden;">${iconArea}${divider}${label}</div>`
+  const html = `<div style="display:inline-block;filter:${glowFilter};">${pill}</div>`
+
+  // iconW is the diamond section; anchor is its centre
+  const totalW = iconW + 1 + labelW + 2   // icon + divider + label + 2px border
+  const totalH = pillH + 2                // +2px border
+
   return L.divIcon({
-    html: svg,
-    className: '',
-    iconSize: [36, 36],
-    iconAnchor: [18, 30],
-    popupAnchor: [0, -30],
+    html, className: '',
+    iconSize:    [totalW, totalH],
+    iconAnchor:  [1 + Math.round(iconW / 2), Math.round(totalH / 2)],
+    popupAnchor: [totalW / 2 - Math.round(iconW / 2), -Math.round(totalH / 2)],
   })
 }
 
-function makeCharacterIcon(name: string, inSubMap = false, portraitUrl?: string | null, zoom = 0) {
-  const size = Math.max(20, Math.min(128, Math.round(36 * Math.pow(2, zoom))))
-  const border = inSubMap ? '2px dashed #94a3b8' : '2px solid #60a5fa'
-  const bg = inSubMap ? '#0f172a' : '#1e293b'
+// ── Character marker: pill badge  [○portrait | Name · sub] ───────────────────
+export interface CharacterPin {
+  character: Character
+  x: number
+  y: number
+  inSubMap: boolean
+  portraitUrl?: string | null
+}
+
+function makeCharacterGroupIcon(pins: CharacterPin[], zoom: number): L.DivIcon {
+  ensureCinzel()
+  const size  = Math.max(20, Math.min(80, Math.round(36 * Math.pow(2, zoom))))
+  const first = pins[0]
+  const n     = pins.length
+  const extra = n - 1
+
+  // Avatar content (image or initials) — no border here; the pill border + radius provides it
   const fontSize = Math.round(size * 0.36)
+  const opacity  = first.inSubMap ? '0.65' : '1'
+  const avatarContent = first.portraitUrl
+    ? `<img src="${escapeHtml(first.portraitUrl)}" style="width:100%;height:100%;object-fit:cover;display:block;">`
+    : `<span style="color:${GOLD};font-size:${fontSize}px;font-weight:bold;font-family:${SERIF};line-height:1;user-select:none;">${escapeHtml(first.character.name.slice(0, 2).toUpperCase())}</span>`
 
-  let content: string
-  if (portraitUrl) {
-    const safeUrl = escapeXml(portraitUrl)
-    content = `<img src="${safeUrl}" style="width:100%;height:100%;object-fit:cover;display:block;" />`
-  } else {
-    const initials = escapeXml(name.slice(0, 2).toUpperCase())
-    const textColor = inSubMap ? '#94a3b8' : '#e2e8f0'
-    content = `<span style="color:${textColor};font-size:${fontSize}px;font-weight:bold;font-family:sans-serif;line-height:1;user-select:none;">${initials}</span>`
-  }
+  const avatarInner = `<div style="width:${size}px;height:${size}px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#1a120b;opacity:${opacity};flex-shrink:0;">${avatarContent}</div>`
 
-  const html = `<div style="
-    width:${size}px;
-    height:${size}px;
-    border-radius:50%;
-    border:${border};
-    background:${bg};
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-sizing:border-box;
-  ">${content}</div>`
+  // "+N" badge for extra characters
+  const bs = Math.round(size * 0.38)
+  const badge = extra > 0
+    ? `<div style="position:absolute;right:-${Math.round(bs * 0.2)}px;bottom:-${Math.round(bs * 0.2)}px;width:${bs}px;height:${bs}px;border-radius:50%;background:${BRONZE};border:1px solid ${GOLD};display:flex;align-items:center;justify-content:center;font-size:${Math.max(7, Math.round(bs * 0.55))}px;font-weight:bold;font-family:${SERIF};color:#fff;z-index:10;">+${extra}</div>`
+    : ''
+
+  const avatarWrap = `<div style="position:relative;flex-shrink:0;width:${size}px;height:${size}px;">${avatarInner}${badge}</div>`
+
+  // Vertical divider
+  const divider = `<div style="width:1px;height:${Math.round(size * 0.65)}px;align-self:center;background:${GOLD};opacity:0.35;flex-shrink:0;"></div>`
+
+  // Label
+  const labelText = n === 1 ? escapeHtml(first.character.name) : `${n} characters`
+  const subText   = n === 1 && first.inSubMap ? 'In sub-map' : ''
+  const fsPrimary = Math.max(10, Math.round(size * 0.3))
+  const fsSub     = Math.max(8,  Math.round(size * 0.24))
+  const labelW    = 110
+
+  const labelBox = `<div style="display:flex;flex-direction:column;justify-content:center;padding:0 8px;min-width:${labelW}px;height:${size}px;overflow:hidden;">
+    <div style="color:${CALLOUT_FG};font-size:${fsPrimary}px;font-family:${SERIF};line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${labelText}</div>
+    ${subText ? `<div style="color:${GOLD};font-size:${fsSub}px;font-family:${SERIF};line-height:1.3;white-space:nowrap;">${subText}</div>` : ''}
+  </div>`
+
+  // Pill: left border-radius matches avatar circle curvature exactly
+  const r    = Math.round(size / 2) + 1
+  const pill = `<div style="display:inline-flex;align-items:stretch;border:1px solid ${GOLD};border-radius:${r}px 4px 4px ${r}px;background:${CALLOUT_BG};overflow:hidden;">${avatarWrap}${divider}${labelBox}</div>`
+  const html = `<div style="display:inline-block;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.9));">${pill}</div>`
+
+  const totalW = size + 1 + labelW + 2
+  const totalH = size + 2
 
   return L.divIcon({
-    html,
-    className: '',
-    iconSize: [size, size],
-    iconAnchor: [size / 2, size / 2],
-    popupAnchor: [0, -size / 2],
+    html, className: '',
+    iconSize:    [totalW, totalH],
+    // anchor = centre of avatar area (1px left border + half avatar width, half total height)
+    iconAnchor:  [1 + Math.round(size / 2), Math.round(totalH / 2)],
+    popupAnchor: [totalW / 2 - Math.round(size / 2), -Math.round(totalH / 2)],
   })
 }
 
+// ── Inner map-event components ────────────────────────────────────────────────
 function ClickHandler({ onMapClickRef }: { onMapClickRef: React.RefObject<(latlng: L.LatLng) => void> }) {
   useMapEvents({ click: (e) => onMapClickRef.current?.(e.latlng) })
   return null
 }
 
-interface ContextMenuState {
-  screenX: number
-  screenY: number
-  mapX: number
-  mapY: number
-}
+interface ContextMenuState { screenX: number; screenY: number; mapX: number; mapY: number }
 
-function ContextMenuHandler({
-  onContextMenu,
-}: {
-  onContextMenu: (state: ContextMenuState) => void
-}) {
+function ContextMenuHandler({ onContextMenu }: { onContextMenu: (s: ContextMenuState) => void }) {
   useMapEvents({
     contextmenu: (e) => {
       L.DomEvent.preventDefault(e.originalEvent)
-      onContextMenu({
-        screenX: e.containerPoint.x,
-        screenY: e.containerPoint.y,
-        mapX: e.latlng.lng,
-        mapY: e.latlng.lat,
-      })
+      onContextMenu({ screenX: e.containerPoint.x, screenY: e.containerPoint.y, mapX: e.latlng.lng, mapY: e.latlng.lat })
     },
   })
   return null
@@ -125,19 +177,11 @@ function FitBounds({ bounds }: { bounds: L.LatLngBoundsExpression }) {
   return null
 }
 
-
-export interface CharacterPin {
-  character: Character
-  x: number
-  y: number
-  inSubMap: boolean
-  portraitUrl?: string | null
-}
-
+// ── Public types ──────────────────────────────────────────────────────────────
 export interface MovementLine {
   characterId: string
   color: string
-  points: [number, number][]  // [y, x] Leaflet lat/lng pairs
+  points: [number, number][]
 }
 
 interface LeafletMapCanvasProps {
@@ -155,38 +199,42 @@ interface LeafletMapCanvasProps {
   mapRef?: React.RefObject<L.Map | null>
 }
 
+// ── Component ─────────────────────────────────────────────────────────────────
 export function LeafletMapCanvas({
-  layer,
-  imageUrl,
-  markers,
-  charPins,
-  movementLines,
-  isDraggingCharacter,
-  onMarkerClick,
-  onMapClick,
-  onDrillDown,
-  onCharacterDrop,
-  onCharacterClick,
-  mapRef: externalMapRef,
+  layer, imageUrl, markers, charPins, movementLines,
+  isDraggingCharacter, onMarkerClick, onMapClick, onDrillDown,
+  onCharacterDrop, onCharacterClick, mapRef: externalMapRef,
 }: LeafletMapCanvasProps) {
   const internalMapRef = useRef<L.Map | null>(null)
-  const mapRef = externalMapRef ?? internalMapRef
-  const [mapZoom, setMapZoom] = useState(0)
-  const [addMode, setAddMode] = useState(false)
-  const addModeRef = useRef(false)
+  const mapRef         = externalMapRef ?? internalMapRef
+  const [mapZoom, setMapZoom]         = useState(0)
+  const [addMode, setAddMode]         = useState(false)
+  const addModeRef                    = useRef(false)
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
-  const onMapClickRef = useRef<(latlng: L.LatLng) => void>(() => {})
-  const onMarkerClickRef = useRef(onMarkerClick)
+  const onMapClickRef      = useRef<(latlng: L.LatLng) => void>(() => {})
+  const onMarkerClickRef   = useRef(onMarkerClick)
   const onCharacterDropRef = useRef(onCharacterDrop)
-  const markersRef = useRef(markers)
+  const markersRef         = useRef(markers)
 
-  onMarkerClickRef.current = onMarkerClick
+  onMarkerClickRef.current   = onMarkerClick
   onCharacterDropRef.current = onCharacterDrop
-  markersRef.current = markers
+  markersRef.current         = markers
 
-  const w = layer.imageWidth
-  const h = layer.imageHeight
+  const w      = layer.imageWidth
+  const h      = layer.imageHeight
   const bounds = useMemo<L.LatLngBoundsExpression>(() => [[0, 0], [h, w]], [h, w])
+
+  // Group charPins by map position so co-located characters share one marker
+  const pinGroups = useMemo<CharacterPin[][]>(() => {
+    const groups = new Map<string, CharacterPin[]>()
+    for (const pin of charPins) {
+      const key = `${Math.round(pin.x)},${Math.round(pin.y)}`
+      const g = groups.get(key) ?? []
+      g.push(pin)
+      groups.set(key, g)
+    }
+    return Array.from(groups.values())
+  }, [charPins])
 
   onMapClickRef.current = (latlng: L.LatLng) => {
     if (!addModeRef.current) return
@@ -201,20 +249,24 @@ export function LeafletMapCanvas({
     return () => window.removeEventListener('wb:map:startAddMarker', handler)
   }, [])
 
-  function findNearestMarker(clientX: number, clientY: number, containerEl: HTMLElement): LocationMarker | null {
+  function findNearestMarker(clientX: number, clientY: number, el: HTMLElement): LocationMarker | null {
     const map = mapRef.current
     if (!map) return null
-    const rect = containerEl.getBoundingClientRect()
+    const rect   = el.getBoundingClientRect()
     const dropPt = L.point(clientX - rect.left, clientY - rect.top)
     let nearest: LocationMarker | null = null
     let minDist = Infinity
     for (const m of markersRef.current) {
-      const pt = map.latLngToContainerPoint([m.y, m.x])
+      const pt   = map.latLngToContainerPoint([m.y, m.x])
       const dist = Math.hypot(dropPt.x - pt.x, dropPt.y - pt.y)
       if (dist < minDist) { minDist = dist; nearest = m }
     }
     return minDist < 60 ? nearest : null
   }
+
+  // Suppress unused-variable warning — useCallback kept stable for future use
+  const _noop = useCallback(() => {}, [])
+  void _noop
 
   return (
     <div
@@ -243,6 +295,7 @@ export function LeafletMapCanvas({
           </div>
         </div>
       )}
+
       <MapContainer
         ref={mapRef}
         crs={L.CRS.Simple}
@@ -250,9 +303,7 @@ export function LeafletMapCanvas({
         zoom={0}
         style={{ height: '100%', width: '100%' }}
         maxBounds={[[-h * 0.2, -w * 0.2], [h * 1.2, w * 1.2]]}
-        minZoom={-3}
-        maxZoom={4}
-        zoomSnap={0.25}
+        minZoom={-3} maxZoom={4} zoomSnap={0.25}
       >
         <FitBounds bounds={bounds} />
         <ZoomTracker onZoomChange={setMapZoom} />
@@ -261,26 +312,22 @@ export function LeafletMapCanvas({
         <ContextMenuHandler onContextMenu={setContextMenu} />
 
         {/* Movement lines */}
-        {movementLines.map((line) => (
+        {movementLines.map((line) =>
           line.points.length >= 2 && (
             <Polyline
               key={line.characterId}
               positions={line.points}
-              pathOptions={{
-                color: line.color,
-                weight: 2.5,
-                opacity: 0.75,
-                dashArray: '6 4',
-              }}
+              pathOptions={{ color: line.color, weight: 2.5, opacity: 0.75, dashArray: '6 4' }}
             />
           )
-        ))}
+        )}
 
+        {/* Location markers — pill badge with diamond icon */}
         {markers.map((marker) => (
           <Marker
             key={marker.id}
             position={[marker.y, marker.x]}
-            icon={makeLocationIcon(marker.iconType, !!marker.linkedMapLayerId, isDraggingCharacter)}
+            icon={makeLocationIcon(marker.iconType, !!marker.linkedMapLayerId, marker.name, isDraggingCharacter)}
             draggable
             eventHandlers={{
               click: () => onMarkerClickRef.current(marker.id),
@@ -296,10 +343,7 @@ export function LeafletMapCanvas({
                 <p className="text-xs opacity-70 capitalize mb-1">{marker.iconType}</p>
                 {marker.description && <p className="text-xs mb-2">{marker.description}</p>}
                 {marker.linkedMapLayerId && (
-                  <button
-                    onClick={() => onDrillDown(marker.linkedMapLayerId!)}
-                    className="text-xs text-blue-400 hover:underline"
-                  >
+                  <button onClick={() => onDrillDown(marker.linkedMapLayerId!)} className="text-xs text-blue-400 hover:underline">
                     Open sub-map →
                   </button>
                 )}
@@ -308,21 +352,50 @@ export function LeafletMapCanvas({
           </Marker>
         ))}
 
-        {charPins.map(({ character, x, y, inSubMap, portraitUrl }, idx) => (
-          <Marker
-            key={`${character.id}-${idx}`}
-            position={[y + 20 * idx, x + 20 * idx]}
-            icon={makeCharacterIcon(character.name, inSubMap, portraitUrl, mapZoom)}
-            eventHandlers={{ click: () => onCharacterClick?.(character.id) }}
-          >
-            <Popup>
-              <div>
-                <p className="font-semibold text-sm">{character.name}</p>
-                {inSubMap && <p className="text-xs text-[#94a3b8] mt-0.5">In sub-map</p>}
-              </div>
-            </Popup>
-          </Marker>
-        ))}
+        {/* Character markers — pill badge with circular portrait */}
+        {pinGroups.map((group) => {
+          const first = group[0]
+          const key   = `grp-${Math.round(first.x)}-${Math.round(first.y)}`
+
+          if (group.length === 1) {
+            return (
+              <Marker
+                key={first.character.id}
+                position={[first.y, first.x]}
+                icon={makeCharacterGroupIcon(group, mapZoom)}
+                eventHandlers={{ click: () => onCharacterClick?.(first.character.id) }}
+              />
+            )
+          }
+
+          return (
+            <Marker
+              key={key}
+              position={[first.y, first.x]}
+              icon={makeCharacterGroupIcon(group, mapZoom)}
+            >
+              <Popup>
+                <div style={{ minWidth: 110 }}>
+                  <p style={{ fontSize: 11, fontWeight: 'bold', marginBottom: 4, color: GOLD, fontFamily: SERIF }}>
+                    At this location:
+                  </p>
+                  {group.map((pin) => (
+                    <button
+                      key={pin.character.id}
+                      onClick={() => onCharacterClick?.(pin.character.id)}
+                      style={{ display: 'block', width: '100%', textAlign: 'left', padding: '2px 4px', fontSize: 12, cursor: 'pointer', borderRadius: 3, background: 'none', border: 'none' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(212,175,55,0.12)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = 'none')}
+                    >
+                      {pin.character.name}
+                      {pin.inSubMap && <span style={{ fontSize: 10, opacity: 0.6, marginLeft: 4 }}>(sub-map)</span>}
+                    </button>
+                  ))}
+                </div>
+              </Popup>
+            </Marker>
+          )
+        })}
       </MapContainer>
 
       {/* Right-click context menu */}
@@ -334,10 +407,7 @@ export function LeafletMapCanvas({
         >
           <button
             className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-[hsl(var(--accent))] transition-colors"
-            onClick={() => {
-              onMapClick(contextMenu.mapX, contextMenu.mapY)
-              setContextMenu(null)
-            }}
+            onClick={() => { onMapClick(contextMenu.mapX, contextMenu.mapY); setContextMenu(null) }}
           >
             <span className="text-[hsl(var(--muted-foreground))]">＋</span>
             Add Location
