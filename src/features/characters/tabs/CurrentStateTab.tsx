@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { MapPin, Package, Plus, X, Heart, Skull } from 'lucide-react'
 import type { Character } from '@/types'
-import { useSnapshot, upsertSnapshot } from '@/db/hooks/useSnapshots'
+import { useSnapshot, useChapterSnapshots, upsertSnapshot } from '@/db/hooks/useSnapshots'
+import { removeItemPlacement } from '@/db/hooks/useItemPlacements'
 import { useItems, createItem } from '@/db/hooks/useItems'
 import { useLocationMarkers } from '@/db/hooks/useLocationMarkers'
 import { useRootMapLayers } from '@/db/hooks/useMapLayers'
@@ -19,6 +20,7 @@ interface CurrentStateTabProps {
 export function CurrentStateTab({ character }: CurrentStateTabProps) {
   const activeChapterId = useActiveChapterId()
   const snapshot = useSnapshot(character.id, activeChapterId)
+  const chapterSnapshots = useChapterSnapshots(activeChapterId)
   const items = useItems(character.worldId)
   const maps = useRootMapLayers(character.worldId)
   const firstMapId = maps[0]?.id ?? null
@@ -59,6 +61,21 @@ export function CurrentStateTab({ character }: CurrentStateTabProps) {
   }
 
   async function save() {
+    // Remove these items from any other character's snapshot in the same chapter
+    const others = chapterSnapshots.filter(
+      (s) => s.characterId !== character.id && s.inventoryItemIds.some((id) => inventoryIds.includes(id))
+    )
+    await Promise.all(
+      others.map((s) =>
+        upsertSnapshot({
+          ...s,
+          inventoryItemIds: s.inventoryItemIds.filter((id) => !inventoryIds.includes(id)),
+        })
+      )
+    )
+    // Also remove any location placements for these items in this chapter
+    await Promise.all(inventoryIds.map((id) => removeItemPlacement(id, activeChapterId!)))
+
     await upsertSnapshot({
       worldId: character.worldId,
       characterId: character.id,
@@ -172,19 +189,35 @@ export function CurrentStateTab({ character }: CurrentStateTabProps) {
           </div>
         )}
 
-        {/* Add existing item */}
-        {items.filter((i) => !inventoryIds.includes(i.id)).length > 0 && (
-          <Select onValueChange={(v) => mark(() => setInventoryIds((ids) => [...ids, v]))}>
-            <SelectTrigger className="text-xs">
-              <SelectValue placeholder="Add existing item..." />
-            </SelectTrigger>
-            <SelectContent>
-              {items.filter((i) => !inventoryIds.includes(i.id)).map((i) => (
-                <SelectItem key={i.id} value={i.id}>{i.name}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        )}
+        {/* Add existing item — exclude items already held by another character this chapter */}
+        {(() => {
+          const heldByOthers = new Set(
+            chapterSnapshots
+              .filter((s) => s.characterId !== character.id)
+              .flatMap((s) => s.inventoryItemIds)
+          )
+          const available = items.filter((i) => !inventoryIds.includes(i.id))
+          const free = available.filter((i) => !heldByOthers.has(i.id))
+          const taken = available.filter((i) => heldByOthers.has(i.id))
+          if (available.length === 0) return null
+          return (
+            <Select onValueChange={(v) => mark(() => setInventoryIds((ids) => [...ids, v]))}>
+              <SelectTrigger className="text-xs">
+                <SelectValue placeholder="Add existing item..." />
+              </SelectTrigger>
+              <SelectContent>
+                {free.map((i) => (
+                  <SelectItem key={i.id} value={i.id}>{i.name}</SelectItem>
+                ))}
+                {taken.map((i) => (
+                  <SelectItem key={i.id} value={i.id}>
+                    {i.name} <span className="opacity-50">(transfer from other character)</span>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )
+        })()}
 
         {/* Create new item */}
         <div className="flex gap-2">

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { X, Trash2, Map, Link, Upload, Users, Plus, UserMinus } from 'lucide-react'
+import { X, Trash2, Map, Link, Upload, Users, Plus, UserMinus, Package } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -10,6 +10,8 @@ import { useMapLayers } from '@/db/hooks/useMapLayers'
 import { useCharacters } from '@/db/hooks/useCharacters'
 import { useWorldSnapshots, upsertSnapshot } from '@/db/hooks/useSnapshots'
 import { useTimelines, useChapters, createTimeline, createChapter } from '@/db/hooks/useTimeline'
+import { useItems } from '@/db/hooks/useItems'
+import { useLocationItemPlacements, useWorldItemPlacements, placeItemAtLocation, removeItemPlacement } from '@/db/hooks/useItemPlacements'
 import { useAppStore } from '@/store'
 import { UploadMapDialog } from './UploadMapDialog'
 import { PortraitImage } from '@/components/PortraitImage'
@@ -30,6 +32,9 @@ export function LocationDetailPanel({ markerId, worldId, onClose, onDrillDown }:
   const firstTimelineId = timelines[0]?.id ?? null
   const chapters = useChapters(firstTimelineId)
   const { setSelectedLocationMarkerId, activeChapterId, setActiveChapterId } = useAppStore()
+  const allItems = useItems(worldId)
+  const itemsHere = useLocationItemPlacements(markerId, activeChapterId)
+  const allPlacements = useWorldItemPlacements(worldId)
   const [editing, setEditing] = useState(false)
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
@@ -260,6 +265,73 @@ export function LocationDetailPanel({ markerId, worldId, onClose, onDrillDown }:
             <p className="text-xs text-[hsl(var(--muted-foreground))]">No characters in this world yet.</p>
           )}
         </div>
+
+        {/* ── Items ── */}
+        {activeChapterId && (
+          <div className="flex flex-col gap-2">
+            <Label className="flex items-center gap-1.5">
+              <Package className="h-3.5 w-3.5" /> Items here
+            </Label>
+
+            {itemsHere.length > 0 && (
+              <div className="flex flex-col gap-1">
+                {itemsHere.map((placement) => {
+                  const item = allItems.find((i) => i.id === placement.itemId)
+                  return (
+                    <div key={placement.id} className="flex items-center gap-2 rounded-md bg-[hsl(var(--muted))] px-2 py-1.5">
+                      <Package className="h-3.5 w-3.5 shrink-0 text-[hsl(var(--muted-foreground))]" />
+                      <span className="flex-1 truncate text-xs font-medium">{item?.name ?? placement.itemId}</span>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-5 w-5 hover:text-red-400"
+                        title="Remove from location"
+                        onClick={() => removeItemPlacement(placement.itemId, activeChapterId)}
+                      >
+                        <X className="h-3 w-3" />
+                      </Button>
+                    </div>
+                  )
+                })}
+              </div>
+            )}
+
+            {(() => {
+              // Items not in any character's inventory AND not already here
+              const hereIds = new Set(itemsHere.map((p) => p.itemId))
+              const inInventory = new Set(
+                allSnapshots
+                  .filter((s) => s.chapterId === activeChapterId)
+                  .flatMap((s) => s.inventoryItemIds)
+              )
+              const elsewhereIds = new Set(
+                allPlacements
+                  .filter((p) => p.chapterId === activeChapterId && p.locationMarkerId !== markerId)
+                  .map((p) => p.itemId)
+              )
+              const free = allItems.filter((i) => !hereIds.has(i.id) && !inInventory.has(i.id) && !elsewhereIds.has(i.id))
+              const elsewhere = allItems.filter((i) => !hereIds.has(i.id) && (inInventory.has(i.id) || elsewhereIds.has(i.id)))
+              if (allItems.length === 0) return <p className="text-xs italic text-[hsl(var(--muted-foreground))]">No items in this world yet.</p>
+              return (
+                <Select onValueChange={(v) => placeItemAtLocation(worldId, v, activeChapterId, markerId)}>
+                  <SelectTrigger className="text-xs h-8">
+                    <SelectValue placeholder="Place item here..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {free.map((i) => (
+                      <SelectItem key={i.id} value={i.id}>{i.name}</SelectItem>
+                    ))}
+                    {elsewhere.map((i) => (
+                      <SelectItem key={i.id} value={i.id}>
+                        {i.name} <span className="opacity-50">(move from elsewhere)</span>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              )
+            })()}
+          </div>
+        )}
 
         {/* ── Sub-map ── */}
         <div className="flex flex-col gap-1.5">

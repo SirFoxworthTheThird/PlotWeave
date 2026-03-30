@@ -1,7 +1,7 @@
 import { db } from '@/db/database'
 import type {
   World, MapLayer, LocationMarker, Character, Item,
-  CharacterSnapshot, Relationship, Timeline, Chapter, WorldEvent,
+  CharacterSnapshot, CharacterMovement, ItemPlacement, Relationship, Timeline, Chapter, WorldEvent,
 } from '@/types'
 
 const EXPORT_VERSION = 1
@@ -23,6 +23,8 @@ export interface WorldExportFile {
   characters: Character[]
   items: Item[]
   characterSnapshots: CharacterSnapshot[]
+  characterMovements: CharacterMovement[]
+  itemPlacements: ItemPlacement[]
   relationships: Relationship[]
   timelines: Timeline[]
   chapters: Chapter[]
@@ -59,6 +61,8 @@ export async function exportWorld(worldId: string): Promise<void> {
     characters,
     items,
     characterSnapshots,
+    characterMovements,
+    itemPlacements,
     relationships,
     timelines,
     chapters,
@@ -71,6 +75,8 @@ export async function exportWorld(worldId: string): Promise<void> {
     db.characters.where('worldId').equals(worldId).toArray(),
     db.items.where('worldId').equals(worldId).toArray(),
     db.characterSnapshots.where('worldId').equals(worldId).toArray(),
+    db.characterMovements.where('worldId').equals(worldId).toArray(),
+    db.itemPlacements.where('worldId').equals(worldId).toArray(),
     db.relationships.where('worldId').equals(worldId).toArray(),
     db.timelines.where('worldId').equals(worldId).toArray(),
     db.chapters.where('worldId').equals(worldId).toArray(),
@@ -99,6 +105,8 @@ export async function exportWorld(worldId: string): Promise<void> {
     characters,
     items,
     characterSnapshots,
+    characterMovements,
+    itemPlacements,
     relationships,
     timelines,
     chapters,
@@ -128,6 +136,15 @@ function validateImport(data: unknown): asserts data is WorldExportFile {
   for (const field of arrayFields) {
     if (!Array.isArray(d[field])) throw new Error(`Invalid file: ${field} is not an array`)
   }
+  // characterMovements added in a later version; default to empty array if absent
+  if (d.characterMovements !== undefined && !Array.isArray(d.characterMovements)) {
+    throw new Error('Invalid file: characterMovements is not an array')
+  }
+  if (!d.characterMovements) (d as Record<string, unknown>).characterMovements = []
+  if (d.itemPlacements !== undefined && !Array.isArray(d.itemPlacements)) {
+    throw new Error('Invalid file: itemPlacements is not an array')
+  }
+  if (!d.itemPlacements) (d as Record<string, unknown>).itemPlacements = []
 }
 
 export async function importWorld(file: File): Promise<string> {
@@ -142,7 +159,7 @@ export async function importWorld(file: File): Promise<string> {
 
   await db.transaction('rw', [
     db.worlds, db.mapLayers, db.locationMarkers, db.characters,
-    db.items, db.characterSnapshots, db.relationships, db.timelines,
+    db.items, db.characterSnapshots, db.characterMovements, db.itemPlacements, db.relationships, db.timelines,
     db.chapters, db.events, db.blobs,
   ], async () => {
     await db.worlds.put(data.world)
@@ -151,6 +168,8 @@ export async function importWorld(file: File): Promise<string> {
     await db.characters.bulkPut(data.characters)
     await db.items.bulkPut(data.items)
     await db.characterSnapshots.bulkPut(data.characterSnapshots)
+    await db.characterMovements.bulkPut(data.characterMovements)
+    await db.itemPlacements.bulkPut(data.itemPlacements)
     await db.relationships.bulkPut(data.relationships)
     await db.timelines.bulkPut(data.timelines)
     await db.chapters.bulkPut(data.chapters)

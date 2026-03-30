@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
-import { MapContainer, ImageOverlay, Marker, Popup, useMapEvents } from 'react-leaflet'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { MapContainer, ImageOverlay, Marker, Popup, Polyline, useMapEvents } from 'react-leaflet'
 import L from 'leaflet'
 import type { MapLayer, LocationMarker, Character } from '@/types'
+import { updateLocationMarker } from '@/db/hooks/useLocationMarkers'
 
 function escapeXml(str: string): string {
   return str
@@ -90,6 +91,32 @@ function ClickHandler({ onMapClickRef }: { onMapClickRef: React.RefObject<(latln
   return null
 }
 
+interface ContextMenuState {
+  screenX: number
+  screenY: number
+  mapX: number
+  mapY: number
+}
+
+function ContextMenuHandler({
+  onContextMenu,
+}: {
+  onContextMenu: (state: ContextMenuState) => void
+}) {
+  useMapEvents({
+    contextmenu: (e) => {
+      L.DomEvent.preventDefault(e.originalEvent)
+      onContextMenu({
+        screenX: e.containerPoint.x,
+        screenY: e.containerPoint.y,
+        mapX: e.latlng.lng,
+        mapY: e.latlng.lat,
+      })
+    },
+  })
+  return null
+}
+
 function FitBounds({ bounds }: { bounds: L.LatLngBoundsExpression }) {
   const map = useMapEvents({})
   useEffect(() => {
@@ -97,6 +124,7 @@ function FitBounds({ bounds }: { bounds: L.LatLngBoundsExpression }) {
   }, [map, bounds]) // eslint-disable-line react-hooks/exhaustive-deps
   return null
 }
+
 
 export interface CharacterPin {
   character: Character
@@ -106,16 +134,25 @@ export interface CharacterPin {
   portraitUrl?: string | null
 }
 
+export interface MovementLine {
+  characterId: string
+  color: string
+  points: [number, number][]  // [y, x] Leaflet lat/lng pairs
+}
+
 interface LeafletMapCanvasProps {
   layer: MapLayer
   imageUrl: string
   markers: LocationMarker[]
   charPins: CharacterPin[]
+  movementLines: MovementLine[]
   isDraggingCharacter: boolean
   onMarkerClick: (markerId: string) => void
   onMapClick: (x: number, y: number) => void
   onDrillDown: (mapLayerId: string) => void
   onCharacterDrop: (characterId: string, markerId: string) => void
+  onCharacterClick?: (characterId: string) => void
+  mapRef?: React.RefObject<L.Map | null>
 }
 
 export function LeafletMapCanvas({
@@ -123,15 +160,20 @@ export function LeafletMapCanvas({
   imageUrl,
   markers,
   charPins,
+  movementLines,
   isDraggingCharacter,
   onMarkerClick,
   onMapClick,
   onDrillDown,
   onCharacterDrop,
+  onCharacterClick,
+  mapRef: externalMapRef,
 }: LeafletMapCanvasProps) {
-  const mapRef = useRef<L.Map | null>(null)
+  const internalMapRef = useRef<L.Map | null>(null)
+  const mapRef = externalMapRef ?? internalMapRef
   const [addMode, setAddMode] = useState(false)
   const addModeRef = useRef(false)
+  const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
   const onMapClickRef = useRef<(latlng: L.LatLng) => void>(() => {})
   const onMarkerClickRef = useRef(onMarkerClick)
   const onCharacterDropRef = useRef(onCharacterDrop)
@@ -143,7 +185,7 @@ export function LeafletMapCanvas({
 
   const w = layer.imageWidth
   const h = layer.imageHeight
-  const bounds: L.LatLngBoundsExpression = [[0, 0], [h, w]]
+  const bounds = useMemo<L.LatLngBoundsExpression>(() => [[0, 0], [h, w]], [h, w])
 
   onMapClickRef.current = (latlng: L.LatLng) => {
     if (!addModeRef.current) return
@@ -184,6 +226,7 @@ export function LeafletMapCanvas({
         const nearest = findNearestMarker(e.clientX, e.clientY, e.currentTarget)
         if (nearest) onCharacterDropRef.current(characterId, nearest.id)
       }}
+      onClick={() => setContextMenu(null)}
     >
       {addMode && (
         <div className="pointer-events-none absolute inset-0 z-[1000] flex items-start justify-center pt-4">
@@ -213,13 +256,37 @@ export function LeafletMapCanvas({
         <FitBounds bounds={bounds} />
         <ImageOverlay url={imageUrl} bounds={bounds} />
         <ClickHandler onMapClickRef={onMapClickRef} />
+        <ContextMenuHandler onContextMenu={setContextMenu} />
+
+        {/* Movement lines */}
+        {movementLines.map((line) => (
+          line.points.length >= 2 && (
+            <Polyline
+              key={line.characterId}
+              positions={line.points}
+              pathOptions={{
+                color: line.color,
+                weight: 2.5,
+                opacity: 0.75,
+                dashArray: '6 4',
+              }}
+            />
+          )
+        ))}
 
         {markers.map((marker) => (
           <Marker
             key={marker.id}
             position={[marker.y, marker.x]}
             icon={makeLocationIcon(marker.iconType, !!marker.linkedMapLayerId, isDraggingCharacter)}
-            eventHandlers={{ click: () => onMarkerClickRef.current(marker.id) }}
+            draggable
+            eventHandlers={{
+              click: () => onMarkerClickRef.current(marker.id),
+              dragend: (e) => {
+                const { lat, lng } = (e.target as L.Marker).getLatLng()
+                updateLocationMarker(marker.id, { x: lng, y: lat })
+              },
+            }}
           >
             <Popup>
               <div className="min-w-32">
@@ -244,6 +311,7 @@ export function LeafletMapCanvas({
             key={`${character.id}-${idx}`}
             position={[y + 20 * idx, x + 20 * idx]}
             icon={makeCharacterIcon(character.name, inSubMap, portraitUrl)}
+            eventHandlers={{ click: () => onCharacterClick?.(character.id) }}
           >
             <Popup>
               <div>
@@ -254,6 +322,26 @@ export function LeafletMapCanvas({
           </Marker>
         ))}
       </MapContainer>
+
+      {/* Right-click context menu */}
+      {contextMenu && (
+        <div
+          className="absolute z-[2000] min-w-[140px] overflow-hidden rounded-md border border-[hsl(var(--border))] bg-[hsl(var(--card))] py-1 shadow-lg"
+          style={{ left: contextMenu.screenX, top: contextMenu.screenY }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-[hsl(var(--accent))] transition-colors"
+            onClick={() => {
+              onMapClick(contextMenu.mapX, contextMenu.mapY)
+              setContextMenu(null)
+            }}
+          >
+            <span className="text-[hsl(var(--muted-foreground))]">＋</span>
+            Add Location
+          </button>
+        </div>
+      )}
     </div>
   )
 }

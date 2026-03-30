@@ -17,7 +17,19 @@ export interface Item {
   name: string
   description: string
   iconType: string
+  imageId: string | null
   tags: string[]
+}
+
+export interface ItemPlacement {
+  id: string
+  worldId: string
+  itemId: string
+  chapterId: string
+  locationMarkerId: string
+  notes: string
+  createdAt: number
+  updatedAt: number
 }
 
 export interface CharacterSnapshot {

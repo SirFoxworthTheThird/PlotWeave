@@ -7,6 +7,8 @@ import type {
   Character,
   Item,
   CharacterSnapshot,
+  CharacterMovement,
+  ItemPlacement,
   Relationship,
   Timeline,
   Chapter,
@@ -22,6 +24,8 @@ class WorldBreakerDB extends Dexie {
   characters!: EntityTable<Character, 'id'>
   items!: EntityTable<Item, 'id'>
   characterSnapshots!: EntityTable<CharacterSnapshot, 'id'>
+  characterMovements!: EntityTable<CharacterMovement, 'id'>
+  itemPlacements!: EntityTable<ItemPlacement, 'id'>
   relationships!: EntityTable<Relationship, 'id'>
   timelines!: EntityTable<Timeline, 'id'>
   chapters!: EntityTable<Chapter, 'id'>
@@ -44,6 +48,14 @@ class WorldBreakerDB extends Dexie {
       chapters: 'id, worldId, timelineId, number',
       events: 'id, worldId, chapterId, timelineId, sortOrder',
       blobs: 'id, worldId, createdAt',
+    })
+
+    this.version(2).stores({
+      characterMovements: 'id, worldId, characterId, chapterId, [characterId+chapterId]',
+    })
+
+    this.version(3).stores({
+      itemPlacements: 'id, worldId, itemId, chapterId, locationMarkerId, [itemId+chapterId]',
     })
   }
 }

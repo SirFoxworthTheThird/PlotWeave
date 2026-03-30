@@ -1,11 +1,47 @@
-import { Menu, BookOpen } from 'lucide-react'
+import { BookOpen, Map, Users, Network, LayoutDashboard } from 'lucide-react'
 import { useAppStore, useActiveWorldId, useActiveChapterId } from '@/store'
 import { useWorld } from '@/db/hooks/useWorlds'
 import { useTimelines, useChapters } from '@/db/hooks/useTimeline'
-import { Button } from './ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 import { ThemePicker } from './ThemePicker'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink, useParams } from 'react-router-dom'
+import { cn } from '@/lib/utils'
+
+const navItems = [
+  { to: '', label: 'Dashboard', icon: LayoutDashboard, end: true },
+  { to: 'maps', label: 'Maps', icon: Map, end: false },
+  { to: 'characters', label: 'Characters', icon: Users, end: false },
+  { to: 'relationships', label: 'Relationships', icon: Network, end: false },
+  { to: 'timeline', label: 'Timeline', icon: BookOpen, end: false },
+]
+
+function NavIcons() {
+  const { worldId } = useParams<{ worldId: string }>()
+  if (!worldId) return null
+
+  return (
+    <nav className="flex items-center gap-1">
+      {navItems.map(({ to, label, icon: Icon, end }) => (
+        <NavLink
+          key={to}
+          to={`/worlds/${worldId}/${to}`}
+          end={end}
+          title={label}
+          className={({ isActive }) =>
+            cn(
+              'flex h-8 w-8 items-center justify-center rounded-md transition-colors',
+              isActive
+                ? 'bg-[hsl(var(--accent))] text-[hsl(var(--foreground))]'
+                : 'text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))]'
+            )
+          }
+        >
+          <Icon className="h-4 w-4" />
+        </NavLink>
+      ))}
+    </nav>
+  )
+}
 
 function ChapterSelector() {
   const worldId = useActiveWorldId()
@@ -43,31 +79,36 @@ function ChapterSelector() {
 export function TopBar() {
   const worldId = useActiveWorldId()
   const world = useWorld(worldId)
-  const { toggleSidebar } = useAppStore()
   const navigate = useNavigate()
 
   return (
-    <header className="flex h-12 shrink-0 items-center gap-3 border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4">
-      <Button variant="ghost" size="icon" className="h-8 w-8" onClick={toggleSidebar}>
-        <Menu className="h-4 w-4" />
-      </Button>
+    <header className="relative flex h-12 shrink-0 items-center border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4">
+      {/* Left: brand + world name */}
+      <div className="flex items-center gap-2">
+        <button
+          onClick={() => navigate('/')}
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+        >
+          <span className="text-sm font-bold tracking-wide text-[hsl(var(--foreground))]">
+            WorldBreaker
+          </span>
+        </button>
+        {world && (
+          <>
+            <span className="text-[hsl(var(--muted-foreground))]">/</span>
+            <span className="text-sm text-[hsl(var(--foreground))]">{world.name}</span>
+          </>
+        )}
+      </div>
 
-      <button
-        onClick={() => navigate('/')}
-        className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-      >
-        <span className="text-sm font-bold tracking-wide text-[hsl(var(--foreground))]">
-          WorldBreaker
-        </span>
-      </button>
-
+      {/* Center: nav icons — absolutely centered */}
       {world && (
-        <>
-          <span className="text-[hsl(var(--muted-foreground))]">/</span>
-          <span className="text-sm text-[hsl(var(--foreground))]">{world.name}</span>
-        </>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <NavIcons />
+        </div>
       )}
 
+      {/* Right: theme + chapter */}
       <div className="ml-auto flex items-center gap-2">
         <ThemePicker />
         <ChapterSelector />

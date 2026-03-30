@@ -1,50 +1,61 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import L from 'leaflet'
 import { useParams } from 'react-router-dom'
-import { Plus, Upload, Users, Map as MapIcon } from 'lucide-react'
-import { useAppStore, useActiveMapLayerId, useActiveChapterId } from '@/store'
-import { useRootMapLayers, useMapLayer } from '@/db/hooks/useMapLayers'
+import {
+  Plus, Upload, Users, Map as MapIcon, Trash2, Undo2,
+  ChevronRight, ChevronDown, MapPin, Package, Layers,
+} from 'lucide-react'
+import { useAppStore, useActiveMapLayerId, useActiveChapterId, useMapLayerHistory } from '@/store'
+import { useRootMapLayers, useMapLayer, useMapLayers, deleteMapLayer } from '@/db/hooks/useMapLayers'
+import { useChapters, useTimelines } from '@/db/hooks/useTimeline'
 import { useLocationMarkers, useAllLocationMarkers } from '@/db/hooks/useLocationMarkers'
 import { useCharacters } from '@/db/hooks/useCharacters'
 import { useBestSnapshots, useWorldSnapshots, upsertSnapshot } from '@/db/hooks/useSnapshots'
-import { useMapLayers } from '@/db/hooks/useMapLayers'
-import type { CharacterPin } from './LeafletMapCanvas'
+import { useChapterMovements, appendWaypoint, clearMovement, removeLastWaypoint } from '@/db/hooks/useMovements'
+import { useItems } from '@/db/hooks/useItems'
+import { useChapterItemPlacements } from '@/db/hooks/useItemPlacements'
+import type { CharacterPin, MovementLine } from './LeafletMapCanvas'
 import { useBlobUrl, useWorldBlobUrls } from '@/db/hooks/useBlobs'
 import { Button } from '@/components/ui/button'
 import { EmptyState } from '@/components/EmptyState'
 import { PortraitImage } from '@/components/PortraitImage'
 import { LeafletMapCanvas } from './LeafletMapCanvas'
-import { MapTreeNav } from './MapTreeNav'
 import { LocationDetailPanel } from './LocationDetailPanel'
+import { CharacterSnapshotPanel } from './CharacterSnapshotPanel'
 import { UploadMapDialog } from './UploadMapDialog'
 import { AddLocationDialog } from './AddLocationDialog'
+import { MapTimeline } from './MapTimeline'
 import type { Character, CharacterSnapshot, LocationMarker, MapLayer } from '@/types'
 
-/** Walk up the layer hierarchy from a snapshot's layer to find the marker on `currentLayerId`
- *  that is the entry point (directly or via ancestors) to where the character actually is.
- *  Returns null if the character is not reachable from this layer. */
+// ─── Utilities ───────────────────────────────────────────────────────────────
+
+const MOVEMENT_COLORS = [
+  '#60a5fa', '#34d399', '#fbbf24', '#f87171', '#a78bfa',
+  '#fb923c', '#f472b6', '#22d3ee', '#a3e635', '#e879f9',
+]
+function characterColor(characterId: string): string {
+  let hash = 0
+  for (let i = 0; i < characterId.length; i++) hash = (hash * 31 + characterId.charCodeAt(i)) >>> 0
+  return MOVEMENT_COLORS[hash % MOVEMENT_COLORS.length]
+}
+
 function resolveCharacterPin(
   snap: CharacterSnapshot,
   currentLayerId: string,
   allLayers: MapLayer[],
   allMarkers: LocationMarker[],
 ): CharacterPin | null {
-  const char = snap.characterId // resolved by caller
   if (!snap.currentLocationMarkerId || !snap.currentMapLayerId) return null
-
-  // Character is directly on this layer
   if (snap.currentMapLayerId === currentLayerId) {
     const m = allMarkers.find((x) => x.id === snap.currentLocationMarkerId)
     if (!m) return null
     return { character: null as unknown as Character, x: m.x, y: m.y, inSubMap: false }
   }
-
-  // Walk up from the character's layer until we hit currentLayerId
   let childLayerId = snap.currentMapLayerId
   for (let depth = 0; depth < 20; depth++) {
     const childLayer = allLayers.find((l) => l.id === childLayerId)
     if (!childLayer?.parentMapId) return null
     const parentLayerId = childLayer.parentMapId
-    // Find the marker on parent that links to this child layer
     const linkMarker = allMarkers.find(
       (m) => m.mapLayerId === parentLayerId && m.linkedMapLayerId === childLayerId
     )
@@ -57,74 +68,382 @@ function resolveCharacterPin(
   return null
 }
 
-function CharactersPanel({
+// ─── SidebarSection ──────────────────────────────────────────────────────────
+
+function SidebarSection({
+  title,
+  icon: Icon,
+  children,
+  defaultOpen = true,
+  count,
+}: {
+  title: string
+  icon: React.ElementType
+  children: React.ReactNode
+  defaultOpen?: boolean
+  count?: number
+}) {
+  const [open, setOpen] = useState(defaultOpen)
+  return (
+    <div className="flex flex-col border-b border-[hsl(var(--border))]">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-2 px-3 py-2 hover:bg-[hsl(var(--muted))] transition-colors select-none"
+      >
+        <Icon className="h-3.5 w-3.5 shrink-0 text-[hsl(var(--muted-foreground))]" />
+        <span className="flex-1 text-left text-[10px] font-semibold uppercase tracking-wider text-[hsl(var(--muted-foreground))]">
+          {title}
+        </span>
+        {count !== undefined && (
+          <span className="rounded-full bg-[hsl(var(--muted))] px-1.5 text-[10px] text-[hsl(var(--muted-foreground))]">
+            {count}
+          </span>
+        )}
+        {open
+          ? <ChevronDown className="h-3 w-3 shrink-0 text-[hsl(var(--muted-foreground))]" />
+          : <ChevronRight className="h-3 w-3 shrink-0 text-[hsl(var(--muted-foreground))]" />}
+      </button>
+      {open && children}
+    </div>
+  )
+}
+
+// ─── Map Layers tree ─────────────────────────────────────────────────────────
+
+function LayerTreeNode({
+  layer,
+  allLayers,
+  activeLayerId,
+  depth,
+  onSelect,
+  onDeleted,
+}: {
+  layer: MapLayer
+  allLayers: MapLayer[]
+  activeLayerId: string | null
+  depth: number
+  onSelect: (id: string) => void
+  onDeleted: (id: string) => void
+}) {
+  const children = allLayers.filter((l) => l.parentMapId === layer.id)
+  const [open, setOpen] = useState(true)
+  const [hovered, setHovered] = useState(false)
+  const isActive = layer.id === activeLayerId
+
+  async function handleDelete(e: React.MouseEvent) {
+    e.stopPropagation()
+    const childCount = allLayers.filter((l) => l.parentMapId === layer.id).length
+    const msg = childCount > 0
+      ? `Delete "${layer.name}" and its ${childCount} sub-map(s)? This cannot be undone.`
+      : `Delete "${layer.name}"? This cannot be undone.`
+    if (!confirm(msg)) return
+    await deleteMapLayer(layer.id)
+    onDeleted(layer.id)
+  }
+
+  return (
+    <div>
+      <div
+        className={`group flex items-center gap-1 cursor-pointer select-none transition-colors rounded-sm mx-1 ${
+          isActive
+            ? 'bg-[hsl(var(--accent))] text-[hsl(var(--foreground))]'
+            : 'text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]'
+        }`}
+        style={{ paddingLeft: `${8 + depth * 12}px`, paddingRight: 4, paddingTop: 4, paddingBottom: 4 }}
+        onClick={() => onSelect(layer.id)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {children.length > 0 ? (
+          <button
+            className="shrink-0"
+            onClick={(e) => { e.stopPropagation(); setOpen((v) => !v) }}
+          >
+            {open ? <ChevronDown className="h-3 w-3" /> : <ChevronRight className="h-3 w-3" />}
+          </button>
+        ) : (
+          <MapPin className="h-3 w-3 shrink-0 opacity-40" />
+        )}
+        {depth === 0 && <MapIcon className="h-3 w-3 shrink-0 opacity-70" />}
+        <span className="flex-1 truncate text-xs">{layer.name}</span>
+        {hovered && (
+          <button
+            className="shrink-0 rounded p-0.5 hover:text-red-400 transition-colors"
+            onClick={handleDelete}
+            title="Delete map"
+          >
+            <Trash2 className="h-3 w-3" />
+          </button>
+        )}
+      </div>
+      {open && children.map((child) => (
+        <LayerTreeNode
+          key={child.id}
+          layer={child}
+          allLayers={allLayers}
+          activeLayerId={activeLayerId}
+          depth={depth + 1}
+          onSelect={onSelect}
+          onDeleted={onDeleted}
+        />
+      ))}
+    </div>
+  )
+}
+
+function LayersSection({ worldId }: { worldId: string }) {
+  const allLayers = useMapLayers(worldId)
+  const history = useMapLayerHistory()
+  const { resetMapHistory, setActiveMapLayerId } = useAppStore()
+  const activeLayerId = history[history.length - 1] ?? null
+  const roots = allLayers.filter((l) => l.parentMapId === null)
+
+  function handleDeleted(deletedId: string) {
+    if (history.includes(deletedId)) {
+      const remaining = allLayers.filter((l) => l.id !== deletedId && l.parentMapId === null)
+      if (remaining.length > 0) resetMapHistory(remaining[0].id)
+      else setActiveMapLayerId('')
+    }
+  }
+
+  return (
+    <SidebarSection title="Map Layers" icon={Layers} count={roots.length}>
+      <div className="py-1">
+        {roots.length === 0 ? (
+          <p className="px-3 py-2 text-xs italic text-[hsl(var(--muted-foreground))]">No maps yet.</p>
+        ) : (
+          roots.map((root) => (
+            <LayerTreeNode
+              key={root.id}
+              layer={root}
+              allLayers={allLayers}
+              activeLayerId={activeLayerId}
+              depth={0}
+              onSelect={(id) => resetMapHistory(id)}
+              onDeleted={handleDeleted}
+            />
+          ))
+        )}
+      </div>
+    </SidebarSection>
+  )
+}
+
+// ─── Characters section ───────────────────────────────────────────────────────
+
+function CharactersSection({
   characters,
   snapshots,
   allMarkers,
   activeChapterId,
+  worldId,
   onDragStart,
   onDragEnd,
+  onFocus,
 }: {
   characters: Character[]
   snapshots: CharacterSnapshot[]
   allMarkers: LocationMarker[]
   activeChapterId: string | null
+  worldId: string
   onDragStart: () => void
   onDragEnd: () => void
+  onFocus: (characterId: string) => void
 }) {
+  const movements = useChapterMovements(worldId, activeChapterId)
+
   return (
-    <div className="flex w-44 shrink-0 flex-col border-r border-[hsl(var(--border))] bg-[hsl(var(--card))]">
-      <div className="border-b border-[hsl(var(--border))] px-3 py-2">
-        <p className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide">
-          Characters
+    <SidebarSection title="Characters" icon={Users} count={characters.length}>
+      {!activeChapterId && (
+        <p className="px-3 pb-2 text-[10px] italic text-[hsl(var(--muted-foreground))]">
+          Select a chapter to place characters.
         </p>
-        {!activeChapterId && (
-          <p className="mt-1 text-xs text-[hsl(var(--muted-foreground))]">
-            Select a chapter to place characters
-          </p>
-        )}
-      </div>
-      <div className="flex-1 overflow-auto p-2 flex flex-col gap-1">
-        {characters.map((c) => {
-          const snap = snapshots.find((s) => s.characterId === c.id)
-          const locationName = snap?.currentLocationMarkerId
-            ? allMarkers.find((m) => m.id === snap.currentLocationMarkerId)?.name
-            : null
-          return (
-            <div
-              key={c.id}
-              draggable={!!activeChapterId}
-              onDragStart={(e) => {
-                e.dataTransfer.setData('characterId', c.id)
-                e.dataTransfer.effectAllowed = 'move'
-                onDragStart()
-              }}
-              onDragEnd={onDragEnd}
-              className={`flex items-center gap-2 rounded-md border border-[hsl(var(--border))] bg-[hsl(var(--muted))] px-2 py-1.5 select-none ${
-                activeChapterId ? 'cursor-grab active:cursor-grabbing' : 'opacity-50'
-              }`}
-            >
-              <PortraitImage
-                imageId={c.portraitImageId}
-                className="h-6 w-6 rounded-full object-cover shrink-0"
-                fallbackClassName="h-6 w-6 rounded-full shrink-0"
-              />
-              <div className="min-w-0">
-                <p className="text-xs font-medium truncate">{c.name}</p>
-                {locationName && (
-                  <p className="text-xs text-[hsl(var(--muted-foreground))] truncate">{locationName}</p>
+      )}
+      <div className="flex flex-col gap-1 px-2 pb-2">
+        {characters.length === 0 ? (
+          <p className="px-1 py-1 text-xs italic text-[hsl(var(--muted-foreground))]">No characters yet.</p>
+        ) : (
+          characters.map((c) => {
+            const snap = snapshots.find((s) => s.characterId === c.id)
+            const locationName = snap?.currentLocationMarkerId
+              ? allMarkers.find((m) => m.id === snap.currentLocationMarkerId)?.name
+              : null
+            const movement = movements.find((m) => m.characterId === c.id)
+            const color = characterColor(c.id)
+            return (
+              <div key={c.id} className="flex flex-col gap-0.5">
+                <div
+                  draggable={!!activeChapterId}
+                  onDragStart={(e) => {
+                    e.dataTransfer.setData('characterId', c.id)
+                    e.dataTransfer.effectAllowed = 'move'
+                    onDragStart()
+                  }}
+                  onDragEnd={onDragEnd}
+                  onClick={() => onFocus(c.id)}
+                  className={`flex items-center gap-2 rounded-md border bg-[hsl(var(--muted))] px-2 py-1.5 select-none cursor-pointer ${
+                    activeChapterId ? 'hover:border-[hsl(var(--ring))]' : 'opacity-60'
+                  }`}
+                  style={{ borderColor: movement ? color : 'hsl(var(--border))' }}
+                >
+                  <PortraitImage
+                    imageId={c.portraitImageId}
+                    className="h-6 w-6 rounded-full object-cover shrink-0"
+                    fallbackClassName="h-6 w-6 rounded-full shrink-0"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-xs font-medium">{c.name}</p>
+                    {locationName && (
+                      <p className="truncate text-[10px] text-[hsl(var(--muted-foreground))]">{locationName}</p>
+                    )}
+                  </div>
+                </div>
+
+                {movement && movement.waypoints.length >= 2 && activeChapterId && (
+                  <div className="flex items-center gap-1 pl-2">
+                    <span className="h-1 w-3 rounded-full shrink-0" style={{ background: color }} />
+                    <p className="flex-1 truncate text-[10px] text-[hsl(var(--muted-foreground))]">
+                      {movement.waypoints.length} stops
+                    </p>
+                    <button
+                      title="Undo last stop"
+                      className="rounded p-0.5 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                      onClick={() => removeLastWaypoint(c.id, activeChapterId)}
+                    >
+                      <Undo2 className="h-3 w-3" />
+                    </button>
+                    <button
+                      title="Clear path"
+                      className="rounded p-0.5 text-[hsl(var(--muted-foreground))] hover:text-red-400 transition-colors"
+                      onClick={() => clearMovement(c.id, activeChapterId)}
+                    >
+                      <Trash2 className="h-3 w-3" />
+                    </button>
+                  </div>
                 )}
               </div>
-            </div>
-          )
-        })}
-        {characters.length === 0 && (
-          <p className="text-xs text-[hsl(var(--muted-foreground))] italic p-1">No characters yet.</p>
+            )
+          })
         )}
       </div>
-    </div>
+    </SidebarSection>
   )
 }
+
+// ─── Locations section ────────────────────────────────────────────────────────
+
+const ICON_COLORS: Record<string, string> = {
+  city: '#60a5fa', town: '#34d399', dungeon: '#f87171',
+  landmark: '#fbbf24', building: '#a78bfa', region: '#fb923c', custom: '#94a3b8',
+}
+
+function LocationsSection({
+  markers,
+  selectedId,
+  onSelect,
+  onFocus,
+}: {
+  markers: LocationMarker[]
+  selectedId: string | null
+  onSelect: (id: string) => void
+  onFocus: (marker: LocationMarker) => void
+}) {
+  return (
+    <SidebarSection title="Locations" icon={MapPin} count={markers.length} defaultOpen={false}>
+      <div className="flex flex-col py-1">
+        {markers.length === 0 ? (
+          <p className="px-3 py-2 text-xs italic text-[hsl(var(--muted-foreground))]">No locations on this map.</p>
+        ) : (
+          markers.map((m) => (
+            <button
+              key={m.id}
+              onClick={() => { onSelect(m.id); onFocus(m) }}
+              className={`flex items-center gap-2 px-3 py-1.5 text-left transition-colors rounded-sm mx-1 ${
+                selectedId === m.id
+                  ? 'bg-[hsl(var(--accent))] text-[hsl(var(--foreground))]'
+                  : 'text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]'
+              }`}
+            >
+              <span
+                className="h-2 w-2 rounded-full shrink-0"
+                style={{ background: ICON_COLORS[m.iconType] ?? '#94a3b8' }}
+              />
+              <span className="flex-1 truncate text-xs">{m.name}</span>
+              {m.linkedMapLayerId && (
+                <MapIcon className="h-3 w-3 shrink-0 opacity-50" />
+              )}
+            </button>
+          ))
+        )}
+      </div>
+    </SidebarSection>
+  )
+}
+
+// ─── Items section ────────────────────────────────────────────────────────────
+
+function ItemsSection({
+  worldId,
+  activeChapterId,
+  allMarkers,
+  snapshots,
+  onFocus,
+}: {
+  worldId: string
+  activeChapterId: string | null
+  allMarkers: LocationMarker[]
+  snapshots: CharacterSnapshot[]
+  onFocus: (itemId: string) => void
+}) {
+  const items = useItems(worldId)
+  const placements = useChapterItemPlacements(activeChapterId)
+
+  function getItemLocation(itemId: string): string | null {
+    const placement = placements.find((p) => p.itemId === itemId)
+    if (placement) {
+      return allMarkers.find((m) => m.id === placement.locationMarkerId)?.name ?? null
+    }
+    const snap = snapshots.find((s) => s.inventoryItemIds.includes(itemId))
+    if (snap) {
+      const loc = snap.currentLocationMarkerId
+        ? allMarkers.find((m) => m.id === snap.currentLocationMarkerId)?.name
+        : null
+      return loc ?? null
+    }
+    return null
+  }
+
+  return (
+    <SidebarSection title="Items" icon={Package} count={items.length} defaultOpen={false}>
+      <div className="flex flex-col py-1">
+        {items.length === 0 ? (
+          <p className="px-3 py-2 text-xs italic text-[hsl(var(--muted-foreground))]">No items yet.</p>
+        ) : (
+          items.map((item) => {
+            const loc = getItemLocation(item.id)
+            return (
+              <button
+                key={item.id}
+                onClick={() => onFocus(item.id)}
+                className="flex items-center gap-2 px-3 py-1.5 text-left text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))] transition-colors rounded-sm mx-1"
+              >
+                <Package className="h-3 w-3 shrink-0 opacity-50" />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-xs">{item.name}</p>
+                  {loc && (
+                    <p className="truncate text-[10px] opacity-60">{loc}</p>
+                  )}
+                </div>
+              </button>
+            )
+          })
+        )}
+      </div>
+    </SidebarSection>
+  )
+}
+
+// ─── MapView ──────────────────────────────────────────────────────────────────
 
 function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
   const layer = useMapLayer(layerId)
@@ -137,8 +456,77 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
   const snapshots = useBestSnapshots(worldId, activeChapterId)
   const allSnapshots = useWorldSnapshots(worldId)
   const blobUrls = useWorldBlobUrls(worldId)
+  const movements = useChapterMovements(worldId, activeChapterId)
+  const chapterPlacements = useChapterItemPlacements(activeChapterId)
 
-  // Resolve character pins: on this layer directly, or via sub-map ancestry
+  const [isDraggingCharacter, setIsDraggingCharacter] = useState(false)
+  const [pendingPos, setPendingPos] = useState<{ x: number; y: number } | null>(null)
+  const [addLocationOpen, setAddLocationOpen] = useState(false)
+  const [uploadOpen, setUploadOpen] = useState(false)
+  const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(null)
+  const { setSelectedLocationMarkerId, selectedLocationMarkerId, pushMapLayer, setActiveMapLayerId } = useAppStore()
+  const mapRef = useRef<L.Map | null>(null)
+
+  function focusOnLocation(marker: LocationMarker) {
+    setSelectedCharacterId(null)
+    setSelectedLocationMarkerId(marker.id)
+    mapRef.current?.panTo([marker.y, marker.x])
+  }
+
+  function focusOnCharacter(characterId: string) {
+    const pin = charPins.find((p) => p.character.id === characterId)
+    setSelectedLocationMarkerId(null)
+    setSelectedCharacterId(characterId)
+
+    if (pin && !pin.inSubMap) {
+      // Character is directly on this layer — just pan
+      mapRef.current?.panTo([pin.y, pin.x])
+      return
+    }
+
+    // Navigate to the layer the character is actually on, then pan to their marker
+    const snap = snapshots.find((s) => s.characterId === characterId)
+    if (!snap?.currentMapLayerId) return
+
+    const targetMarker = allMarkers.find((m) => m.id === snap.currentLocationMarkerId)
+    pushMapLayer(snap.currentMapLayerId)
+
+    if (targetMarker) {
+      // Delay pan until after FitBounds has settled on the new layer
+      setTimeout(() => {
+        mapRef.current?.panTo([targetMarker.y, targetMarker.x])
+      }, 150)
+    }
+  }
+
+  function focusOnItem(itemId: string) {
+    // Check if item is in a character's inventory
+    const snap = snapshots.find((s) => s.inventoryItemIds.includes(itemId))
+    if (snap) { focusOnCharacter(snap.characterId); return }
+    // Check if item is placed at a location
+    const placement = chapterPlacements.find((p) => p.itemId === itemId)
+    if (placement) {
+      const marker = allMarkers.find((m) => m.id === placement.locationMarkerId)
+      if (marker) focusOnLocation(marker)
+    }
+  }
+
+  const timelines = useTimelines(worldId)
+  const chapters = useChapters(timelines[0]?.id ?? null)
+  const activeChapter = activeChapterId ? chapters.find((c) => c.id === activeChapterId) : null
+  const activeChapterTitle = activeChapter ? `Ch.${activeChapter.number} — ${activeChapter.title}` : null
+
+  function handleMarkerClick(markerId: string) {
+    setSelectedCharacterId(null)
+    setSelectedLocationMarkerId(markerId)
+  }
+
+  function handleCharacterClick(characterId: string) {
+    setSelectedLocationMarkerId(null)
+    setSelectedCharacterId((prev) => prev === characterId ? null : characterId)
+  }
+
+  // Resolve character pins
   const charPins: CharacterPin[] = []
   for (const snap of snapshots) {
     const char = characters.find((c) => c.id === snap.characterId)
@@ -150,18 +538,18 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
       portraitUrl: char.portraitImageId ? blobUrls.get(char.portraitImageId) ?? null : null,
     })
   }
-  const [showPanel, setShowPanel] = useState(false)
-  const [isDraggingCharacter, setIsDraggingCharacter] = useState(false)
-  const [pendingPos, setPendingPos] = useState<{ x: number; y: number } | null>(null)
-  const [addLocationOpen, setAddLocationOpen] = useState(false)
-  const { setSelectedLocationMarkerId, selectedLocationMarkerId, pushMapLayer } = useAppStore()
 
-  if (!layer || !imageUrl) {
-    return (
-      <div className="flex h-full items-center justify-center">
-        <div className="h-6 w-6 animate-spin rounded-full border-2 border-[hsl(var(--border))] border-t-[hsl(var(--ring))]" />
-      </div>
-    )
+  // Build movement lines
+  const movementLines: MovementLine[] = []
+  for (const mov of movements) {
+    const points: [number, number][] = []
+    for (const wId of mov.waypoints) {
+      const m = markers.find((mk) => mk.id === wId)
+      if (m) points.push([m.y, m.x])
+    }
+    if (points.length >= 2) {
+      movementLines.push({ characterId: mov.characterId, color: characterColor(mov.characterId), points })
+    }
   }
 
   async function handleCharacterDrop(characterId: string, markerId: string) {
@@ -182,37 +570,66 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
       inventoryNotes: existing?.inventoryNotes ?? '',
       statusNotes: existing?.statusNotes ?? '',
     })
+    await appendWaypoint(worldId, characterId, activeChapterId, markerId)
+  }
+
+  if (!layer || !imageUrl) {
+    return (
+      <div className="flex h-full items-center justify-center">
+        <div className="h-6 w-6 animate-spin rounded-full border-2 border-[hsl(var(--border))] border-t-[hsl(var(--ring))]" />
+      </div>
+    )
   }
 
   return (
-    <div className="flex h-full">
-      {/* Map tree navigation */}
-      <MapTreeNav worldId={worldId} />
-
-      {/* Characters drag panel */}
-      {showPanel && (
-        <CharactersPanel
+    <div className="flex h-full overflow-hidden">
+      {/* ── Left sidebar ── */}
+      <div className="flex w-52 shrink-0 flex-col overflow-y-auto border-r border-[hsl(var(--border))] bg-[hsl(var(--card))]">
+        <LayersSection worldId={worldId} />
+        <CharactersSection
           characters={characters}
           snapshots={snapshots}
           allMarkers={allMarkers}
           activeChapterId={activeChapterId}
+          worldId={worldId}
           onDragStart={() => setIsDraggingCharacter(true)}
           onDragEnd={() => setIsDraggingCharacter(false)}
+          onFocus={focusOnCharacter}
         />
-      )}
+        <LocationsSection
+          markers={markers}
+          selectedId={selectedLocationMarkerId}
+          onSelect={setSelectedLocationMarkerId}
+          onFocus={focusOnLocation}
+        />
+        <ItemsSection
+          worldId={worldId}
+          activeChapterId={activeChapterId}
+          allMarkers={allMarkers}
+          snapshots={snapshots}
+          onFocus={focusOnItem}
+        />
+      </div>
 
-      <div className="flex flex-1 flex-col">
-        {/* Toolbar */}
-        <div className="flex items-center gap-2 border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4 py-2">
-          <div className="ml-auto flex items-center gap-2">
+      {/* ── Center: header + map ── */}
+      <div className="flex flex-1 flex-col overflow-hidden">
+        {/* Map header */}
+        <div className="flex shrink-0 items-center gap-3 border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4 py-2">
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-sm font-semibold text-[hsl(var(--foreground))]">{layer.name}</p>
+            <p className="text-[10px] text-[hsl(var(--muted-foreground))]">
+              {layer.imageWidth} × {layer.imageHeight}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
             <Button
               size="sm"
-              variant={showPanel ? 'secondary' : 'outline'}
+              variant="outline"
               className="gap-1.5 text-xs"
-              onClick={() => setShowPanel((v) => !v)}
+              onClick={() => setUploadOpen(true)}
             >
-              <Users className="h-3.5 w-3.5" />
-              Characters
+              <Upload className="h-3.5 w-3.5" />
+              Sub-map
             </Button>
             <Button
               size="sm"
@@ -221,28 +638,34 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
               onClick={() => window.dispatchEvent(new CustomEvent('wb:map:startAddMarker'))}
             >
               <Plus className="h-3.5 w-3.5" />
-              Add Location
+              Location
             </Button>
           </div>
         </div>
 
-        {/* Map */}
+        {/* Map canvas */}
         <div className="flex-1 overflow-hidden">
           <LeafletMapCanvas
             layer={layer}
             imageUrl={imageUrl}
             markers={markers}
             charPins={charPins}
+            movementLines={movementLines}
             isDraggingCharacter={isDraggingCharacter}
-            onMarkerClick={setSelectedLocationMarkerId}
+            onMarkerClick={handleMarkerClick}
             onMapClick={(x, y) => { setPendingPos({ x, y }); setAddLocationOpen(true) }}
             onDrillDown={pushMapLayer}
             onCharacterDrop={handleCharacterDrop}
+            onCharacterClick={handleCharacterClick}
+            mapRef={mapRef}
           />
         </div>
+
+        {/* Timeline */}
+        <MapTimeline worldId={worldId} />
       </div>
 
-      {/* Location detail panel */}
+      {/* ── Right: detail panel ── */}
       {selectedLocationMarkerId && (
         <LocationDetailPanel
           markerId={selectedLocationMarkerId}
@@ -251,7 +674,25 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
           onDrillDown={pushMapLayer}
         />
       )}
+      {selectedCharacterId && (() => {
+        const char = characters.find((c) => c.id === selectedCharacterId)
+        const snap = snapshots.find((s) => s.characterId === selectedCharacterId)
+        if (!char) return null
+        return (
+          <CharacterSnapshotPanel
+            character={char}
+            snapshot={snap}
+            allMarkers={allMarkers}
+            allLayers={allLayers}
+            allCharacters={characters}
+            activeChapterTitle={activeChapterTitle}
+            worldId={worldId}
+            onClose={() => setSelectedCharacterId(null)}
+          />
+        )
+      })()}
 
+      {/* Dialogs */}
       {pendingPos && (
         <AddLocationDialog
           open={addLocationOpen}
@@ -261,9 +702,18 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
           position={pendingPos}
         />
       )}
+      <UploadMapDialog
+        open={uploadOpen}
+        onOpenChange={setUploadOpen}
+        worldId={worldId}
+        parentMapId={layerId}
+        onCreated={(newLayerId) => { setActiveMapLayerId(newLayerId); setUploadOpen(false) }}
+      />
     </div>
   )
 }
+
+// ─── MapExplorerView ──────────────────────────────────────────────────────────
 
 export default function MapExplorerView() {
   const { worldId } = useParams<{ worldId: string }>()
@@ -299,6 +749,7 @@ export default function MapExplorerView() {
             </Button>
           }
         />
+        <MapTimeline worldId={worldId} />
         <UploadMapDialog
           open={uploadOpen}
           onOpenChange={setUploadOpen}
@@ -314,13 +765,6 @@ export default function MapExplorerView() {
       <div className="flex-1 overflow-hidden">
         {activeLayerId ? <MapView worldId={worldId} layerId={activeLayerId} /> : null}
       </div>
-
-      <UploadMapDialog
-        open={uploadOpen}
-        onOpenChange={setUploadOpen}
-        worldId={worldId}
-        onCreated={setActiveMapLayerId}
-      />
     </div>
   )
 }

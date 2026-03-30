@@ -18,6 +18,7 @@ export function useItem(id: string | null) {
 export async function createItem(data: Pick<Item, 'worldId' | 'name' | 'description' | 'iconType' | 'tags'>): Promise<Item> {
   const item: Item = {
     id: generateId(),
+    imageId: null,
     ...data,
   }
   await db.items.add(item)
