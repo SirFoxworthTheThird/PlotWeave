@@ -64,6 +64,79 @@
     --leaflet-muted: 35, 30%, 58%;
   }
 
+  /* ── Timeline overlay variables (Default) ── */
+  :root {
+    --tl-bg:             hsl(222, 47%, 9%);
+    --tl-border:         hsl(217, 33%, 22%);
+    --tl-accent:         hsl(212, 72%, 59%);
+    --tl-glow:           rgba(88, 166, 255, 0.55);
+    --tl-text:           hsl(213, 31%, 91%);
+    --tl-text-muted:     hsl(215, 20%, 50%);
+    --tl-callout-bg:     hsl(222, 47%, 13%);
+    --tl-callout-shadow: 0 -6px 32px rgba(0,0,0,0.55), 0 0 0 1px hsl(217,33%,26%);
+    --tl-backdrop:       none;
+  }
+
+  .theme-fantasy {
+    --tl-bg:             hsl(35, 32%, 9%);
+    --tl-border:         hsl(38, 50%, 28%);
+    --tl-accent:         hsl(42, 82%, 54%);
+    --tl-glow:           rgba(210, 162, 48, 0.6);
+    --tl-text:           hsl(38, 60%, 88%);
+    --tl-text-muted:     hsl(35, 28%, 48%);
+    --tl-callout-bg:     hsl(35, 30%, 12%);
+    --tl-callout-shadow: 0 -6px 32px rgba(0,0,0,0.65), 0 0 0 1px hsl(38,50%,28%);
+    --tl-backdrop:       none;
+  }
+
+  .theme-scifi {
+    --tl-bg:             rgba(4, 9, 22, 0.9);
+    --tl-border:         rgba(0, 200, 255, 0.28);
+    --tl-accent:         hsl(190, 100%, 50%);
+    --tl-glow:           rgba(0, 215, 255, 0.72);
+    --tl-text:           hsl(195, 80%, 85%);
+    --tl-text-muted:     hsl(210, 45%, 44%);
+    --tl-callout-bg:     rgba(4, 9, 22, 0.88);
+    --tl-callout-shadow: 0 -6px 32px rgba(0,200,255,0.12), 0 0 0 1px rgba(0,200,255,0.28);
+    --tl-backdrop:       blur(18px) saturate(180%);
+  }
+
+  .theme-cyberpunk {
+    --tl-bg:             hsl(270, 22%, 5%);
+    --tl-border:         hsl(300, 100%, 44%);
+    --tl-accent:         hsl(55, 100%, 54%);
+    --tl-glow:           rgba(255, 0, 200, 0.82);
+    --tl-text:           hsl(300, 100%, 85%);
+    --tl-text-muted:     hsl(280, 30%, 48%);
+    --tl-callout-bg:     hsl(270, 20%, 7%);
+    --tl-callout-shadow: 0 -6px 32px rgba(255,0,200,0.18), 0 0 0 1px hsl(300,100%,44%);
+    --tl-backdrop:       none;
+  }
+
+  .theme-horror {
+    --tl-bg:             hsl(0, 18%, 4%);
+    --tl-border:         hsl(0, 60%, 18%);
+    --tl-accent:         hsl(0, 80%, 42%);
+    --tl-glow:           rgba(175, 0, 0, 0.68);
+    --tl-text:           hsl(0, 10%, 82%);
+    --tl-text-muted:     hsl(0, 10%, 38%);
+    --tl-callout-bg:     hsl(0, 14%, 6%);
+    --tl-callout-shadow: 0 -6px 32px rgba(100,0,0,0.45), 0 0 0 1px hsl(0,60%,18%);
+    --tl-backdrop:       none;
+  }
+
+  .theme-western {
+    --tl-bg:             hsl(25, 38%, 7%);
+    --tl-border:         hsl(33, 52%, 26%);
+    --tl-accent:         hsl(34, 82%, 50%);
+    --tl-glow:           rgba(196, 124, 28, 0.62);
+    --tl-text:           hsl(35, 50%, 84%);
+    --tl-text-muted:     hsl(30, 26%, 44%);
+    --tl-callout-bg:     hsl(25, 34%, 10%);
+    --tl-callout-shadow: 0 -6px 32px rgba(0,0,0,0.6), 0 0 0 1px hsl(33,52%,26%);
+    --tl-backdrop:       none;
+  }
+
   /* ── Sci-Fi (Deep Space) ── */
   .theme-scifi {
     --background: 220 60% 5%;
@@ -237,6 +310,43 @@
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out {
   color: hsl(var(--leaflet-fg)) !important;
+}
+
+/* ── Timeline animations ── */
+@keyframes tl-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--tl-glow), 0 0 6px 1px var(--tl-glow); }
+  50%       { box-shadow: 0 0 0 5px transparent, 0 0 14px 5px var(--tl-glow); }
+}
+
+@keyframes tl-pulse-cyber {
+  0%, 100% { box-shadow: 0 0 0 0 var(--tl-glow), 0 0 8px 2px var(--tl-glow); opacity: 1; }
+  50%       { box-shadow: 0 0 0 6px transparent, 0 0 20px 8px var(--tl-glow); opacity: 0.85; }
+}
+
+.tl-dot-active {
+  animation: tl-pulse 2.4s ease-in-out infinite;
+}
+.theme-cyberpunk .tl-dot-active {
+  animation: tl-pulse-cyber 1.6s ease-in-out infinite;
+}
+
+/* callout caret */
+.tl-caret {
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--tl-border);
+  margin: 0 auto;
+  position: relative;
+}
+.tl-caret::after {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: -6px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--tl-callout-bg);
 }
 
 /* ── Cyberpunk neon glow accents ── */

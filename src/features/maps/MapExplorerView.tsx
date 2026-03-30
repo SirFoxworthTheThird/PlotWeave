@@ -24,7 +24,6 @@ import { LocationDetailPanel } from './LocationDetailPanel'
 import { CharacterSnapshotPanel } from './CharacterSnapshotPanel'
 import { UploadMapDialog } from './UploadMapDialog'
 import { AddLocationDialog } from './AddLocationDialog'
-import { MapTimeline } from './MapTimeline'
 import type { Character, CharacterSnapshot, LocationMarker, MapLayer } from '@/types'
 
 // ─── Utilities ───────────────────────────────────────────────────────────────
@@ -661,8 +660,6 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
           />
         </div>
 
-        {/* Timeline */}
-        <MapTimeline worldId={worldId} />
       </div>
 
       {/* ── Right: detail panel ── */}
@@ -749,7 +746,6 @@ export default function MapExplorerView() {
             </Button>
           }
         />
-        <MapTimeline worldId={worldId} />
         <UploadMapDialog
           open={uploadOpen}
           onOpenChange={setUploadOpen}
