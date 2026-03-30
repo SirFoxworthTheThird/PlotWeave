@@ -12,6 +12,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
+import { PortraitImage } from '@/components/PortraitImage'
 
 interface CurrentStateTabProps {
   character: Character
@@ -173,8 +174,14 @@ export function CurrentStateTab({ character }: CurrentStateTabProps) {
             {inventoryIds.map((itemId) => {
               const item = items.find((i) => i.id === itemId)
               return (
-                <div key={itemId} className="flex items-center justify-between rounded border border-[hsl(var(--border))] bg-[hsl(var(--muted))] px-3 py-1.5">
-                  <span className="text-sm">{item?.name ?? itemId}</span>
+                <div key={itemId} className="flex items-center gap-2 rounded border border-[hsl(var(--border))] bg-[hsl(var(--muted))] px-2 py-1.5">
+                  <PortraitImage
+                    imageId={item?.imageId ?? null}
+                    fallbackIcon={Package}
+                    className="h-6 w-6 rounded object-cover shrink-0"
+                    fallbackClassName="h-6 w-6 rounded shrink-0"
+                  />
+                  <span className="flex-1 text-sm">{item?.name ?? itemId}</span>
                   <Button
                     variant="ghost"
                     size="icon"

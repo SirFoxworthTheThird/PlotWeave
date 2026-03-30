@@ -279,7 +279,12 @@ export function LocationDetailPanel({ markerId, worldId, onClose, onDrillDown }:
                   const item = allItems.find((i) => i.id === placement.itemId)
                   return (
                     <div key={placement.id} className="flex items-center gap-2 rounded-md bg-[hsl(var(--muted))] px-2 py-1.5">
-                      <Package className="h-3.5 w-3.5 shrink-0 text-[hsl(var(--muted-foreground))]" />
+                      <PortraitImage
+                        imageId={item?.imageId ?? null}
+                        fallbackIcon={Package}
+                        className="h-5 w-5 rounded object-cover shrink-0"
+                        fallbackClassName="h-5 w-5 rounded shrink-0"
+                      />
                       <span className="flex-1 truncate text-xs font-medium">{item?.name ?? placement.itemId}</span>
                       <Button
                         variant="ghost"

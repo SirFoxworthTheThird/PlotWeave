@@ -426,7 +426,12 @@ function ItemsSection({
                 onClick={() => onFocus(item.id)}
                 className="flex items-center gap-2 px-3 py-1.5 text-left text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))] transition-colors rounded-sm mx-1"
               >
-                <Package className="h-3 w-3 shrink-0 opacity-50" />
+                <PortraitImage
+                  imageId={item.imageId}
+                  fallbackIcon={Package}
+                  className="h-5 w-5 rounded object-cover shrink-0"
+                  fallbackClassName="h-5 w-5 rounded shrink-0"
+                />
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-xs">{item.name}</p>
                   {loc && (

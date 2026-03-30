@@ -164,6 +164,15 @@ function validateImport(data: unknown): asserts data is WorldExportFile {
   if (!d.relationshipSnapshots) (d as Record<string, unknown>).relationshipSnapshots = []
 }
 
+function normalizeImport(data: WorldExportFile): void {
+  // Backfill startChapterId on relationships exported before it was added
+  for (const rel of data.relationships) {
+    if ((rel as Record<string, unknown>).startChapterId === undefined) {
+      (rel as Record<string, unknown>).startChapterId = null
+    }
+  }
+}
+
 export async function importWorld(file: File): Promise<string> {
   const text = await file.text()
   let data: unknown
@@ -173,6 +182,7 @@ export async function importWorld(file: File): Promise<string> {
     throw new Error('Invalid file: could not parse JSON')
   }
   validateImport(data)
+  normalizeImport(data)
 
   await db.transaction('rw', [
     db.worlds, db.mapLayers, db.locationMarkers, db.characters,

@@ -155,7 +155,12 @@ export function CharacterSnapshotPanel({
               <div className="flex flex-col gap-1">
                 {inventoryItems.map((item) => (
                   <div key={item.id} className="flex items-center gap-2">
-                    <Package className="h-3 w-3 shrink-0 text-[hsl(var(--muted-foreground))]" />
+                    <PortraitImage
+                      imageId={item.imageId}
+                      fallbackIcon={Package}
+                      className="h-5 w-5 rounded object-cover shrink-0"
+                      fallbackClassName="h-5 w-5 rounded shrink-0"
+                    />
                     <span className="flex-1 truncate text-xs text-[hsl(var(--foreground))]">{item.name}</span>
                     {item.iconType && (
                       <span className="text-[10px] capitalize text-[hsl(var(--muted-foreground))]">{item.iconType}</span>

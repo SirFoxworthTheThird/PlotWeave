@@ -17,7 +17,7 @@ export function SnapshotCard({ snapshot }: SnapshotCardProps) {
   if (!character) return null
 
   const heldItems = snapshot.inventoryItemIds
-    .map((id) => items.find((i) => i.id === id)?.name)
+    .map((id) => items.find((i) => i.id === id))
     .filter(Boolean)
 
   return (
@@ -49,9 +49,18 @@ export function SnapshotCard({ snapshot }: SnapshotCardProps) {
       )}
 
       {heldItems.length > 0 && (
-        <div className="flex items-start gap-1.5 mt-1 text-xs text-[hsl(var(--muted-foreground))]">
-          <Package className="h-3 w-3 shrink-0 mt-0.5" />
-          <span className="line-clamp-2">{heldItems.join(', ')}</span>
+        <div className="flex flex-col gap-0.5 mt-1">
+          {heldItems.map((item) => (
+            <div key={item!.id} className="flex items-center gap-1.5 text-xs text-[hsl(var(--muted-foreground))]">
+              <PortraitImage
+                imageId={item!.imageId}
+                fallbackIcon={Package}
+                className="h-4 w-4 rounded object-cover shrink-0"
+                fallbackClassName="h-4 w-4 rounded shrink-0"
+              />
+              <span className="truncate">{item!.name}</span>
+            </div>
+          ))}
         </div>
       )}
 
