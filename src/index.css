@@ -27,7 +27,7 @@
     --font-body: ui-sans-serif, system-ui, sans-serif;
     --font-heading: ui-sans-serif, system-ui, sans-serif;
     --leaflet-bg: 222, 47%, 8%;
-    --leaflet-card: 222, 47%, 14%;
+    --leaflet-card: 222, 47%, 22%;
     --leaflet-border: 217, 33%, 22%;
     --leaflet-fg: 213, 31%, 91%;
     --leaflet-muted: 215, 20%, 65%;
@@ -58,7 +58,7 @@
     --font-body: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
     --font-heading: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
     --leaflet-bg: 35, 30%, 7%;
-    --leaflet-card: 35, 28%, 14%;
+    --leaflet-card: 35, 28%, 22%;
     --leaflet-border: 35, 28%, 24%;
     --leaflet-fg: 38, 60%, 88%;
     --leaflet-muted: 35, 30%, 58%;
@@ -89,7 +89,7 @@
     --font-body: 'Share Tech Mono', 'Courier New', monospace;
     --font-heading: 'Share Tech Mono', 'Courier New', monospace;
     --leaflet-bg: 220, 60%, 3%;
-    --leaflet-card: 220, 55%, 8%;
+    --leaflet-card: 220, 55%, 16%;
     --leaflet-border: 210, 60%, 18%;
     --leaflet-fg: 195, 80%, 85%;
     --leaflet-muted: 210, 40%, 55%;
@@ -120,7 +120,7 @@
     --font-body: 'Share Tech Mono', 'Courier New', monospace;
     --font-heading: 'Share Tech Mono', 'Courier New', monospace;
     --leaflet-bg: 270, 20%, 4%;
-    --leaflet-card: 270, 18%, 10%;
+    --leaflet-card: 270, 18%, 18%;
     --leaflet-border: 285, 40%, 22%;
     --leaflet-fg: 300, 100%, 85%;
     --leaflet-muted: 280, 30%, 55%;
@@ -151,7 +151,7 @@
     --font-body: 'Palatino Linotype', Palatino, Georgia, serif;
     --font-heading: 'Palatino Linotype', Palatino, Georgia, serif;
     --leaflet-bg: 0, 15%, 3%;
-    --leaflet-card: 0, 12%, 8%;
+    --leaflet-card: 0, 12%, 16%;
     --leaflet-border: 0, 15%, 18%;
     --leaflet-fg: 0, 10%, 85%;
     --leaflet-muted: 0, 8%, 50%;
@@ -182,7 +182,7 @@
     --font-body: 'Palatino Linotype', Palatino, Georgia, serif;
     --font-heading: 'Palatino Linotype', Palatino, Georgia, serif;
     --leaflet-bg: 25, 35%, 5%;
-    --leaflet-card: 25, 32%, 12%;
+    --leaflet-card: 25, 32%, 20%;
     --leaflet-border: 25, 30%, 22%;
     --leaflet-fg: 35, 50%, 85%;
     --leaflet-muted: 30, 25%, 52%;
