@@ -72,7 +72,35 @@ export async function createChapter(data: Pick<Chapter, 'worldId' | 'timelineId'
     createdAt: now,
     updatedAt: now,
   }
-  await db.chapters.add(chapter)
+
+  await db.transaction('rw', [db.chapters, db.characterSnapshots, db.itemPlacements], async () => {
+    await db.chapters.add(chapter)
+
+    // Find the previous chapter in the same timeline to inherit state from
+    const siblings = await db.chapters
+      .where('timelineId').equals(data.timelineId)
+      .filter((c) => c.number < data.number)
+      .sortBy('number')
+    const prev = siblings[siblings.length - 1]
+    if (!prev) return
+
+    const [prevSnapshots, prevPlacements] = await Promise.all([
+      db.characterSnapshots.where('chapterId').equals(prev.id).toArray(),
+      db.itemPlacements.where('chapterId').equals(prev.id).toArray(),
+    ])
+
+    if (prevSnapshots.length > 0) {
+      await db.characterSnapshots.bulkAdd(
+        prevSnapshots.map((s) => ({ ...s, id: generateId(), chapterId: chapter.id, createdAt: now, updatedAt: now }))
+      )
+    }
+    if (prevPlacements.length > 0) {
+      await db.itemPlacements.bulkAdd(
+        prevPlacements.map((p) => ({ ...p, id: generateId(), chapterId: chapter.id, createdAt: now, updatedAt: now }))
+      )
+    }
+  })
+
   return chapter
 }
 
