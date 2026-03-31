@@ -55,6 +55,7 @@ module.exports = {
       config: {
         options: {
           homepage: 'https://github.com/SirFoxworthTheThird/PlotWeave',
+          summary: 'A local story and world-building tracker',
           description: 'A local story and world-building tracker',
           license: 'MIT',
         },
