@@ -8,7 +8,7 @@ import { useAppStore } from '@/store'
 import { cn } from '@/lib/utils'
 
 function SnapshotRow({
-  snapshotId,
+  snapshotId: _snapshotId,
   chapterId,
   isAlive,
   locationMarkerId,

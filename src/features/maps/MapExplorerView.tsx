@@ -972,7 +972,7 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
       if (m) points.push([m.y, m.x])
     }
     if (points.length >= 2) {
-      const distanceLabel = layer.scalePixelsPerUnit && layer.scaleUnit
+      const distanceLabel = layer && layer.scalePixelsPerUnit && layer.scaleUnit
         ? formatDistance(pathPixelLength(points.map(([y, x]) => [x, y])), layer.scalePixelsPerUnit, layer.scaleUnit)
         : undefined
       movementLines.push({ characterId: mov.characterId, color: characterColor(mov.characterId), points, distanceLabel })

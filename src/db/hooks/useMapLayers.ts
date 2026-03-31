@@ -42,7 +42,7 @@ export function useChildMapLayers(parentMapId: string | null) {
 }
 
 export async function createMapLayer(
-  data: Pick<MapLayer, 'worldId' | 'parentMapId' | 'name' | 'description' | 'imageId' | 'imageWidth' | 'imageHeight'>
+  data: Pick<MapLayer, 'worldId' | 'parentMapId' | 'name' | 'description' | 'imageId' | 'imageWidth' | 'imageHeight' | 'scalePixelsPerUnit' | 'scaleUnit'>
 ): Promise<MapLayer> {
   const now = Date.now()
   const layer: MapLayer = {

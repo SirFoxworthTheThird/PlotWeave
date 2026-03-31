@@ -65,13 +65,13 @@ function RelationshipEdge({
 }: {
   id: string
   sourceX: number; sourceY: number; targetX: number; targetY: number
-  data: { label: string; sentiment: RelationshipSentiment; isInherited: boolean; onSelect: (id: string) => void }
+  data?: { label: string; sentiment: RelationshipSentiment; isInherited: boolean; onSelect: (id: string) => void }
   markerEnd?: string
 }) {
   const [edgePath, labelX, labelY] = getStraightPath({ sourceX, sourceY, targetX, targetY })
-  const color = SENTIMENT_COLORS[data.sentiment]
+  const color = SENTIMENT_COLORS[data!.sentiment]
   // Inherited edges are dashed to signal "carrying forward from a previous chapter"
-  const strokeDasharray = data.isInherited ? '6 3' : undefined
+  const strokeDasharray = data!.isInherited ? '6 3' : undefined
 
   return (
     <>
@@ -80,9 +80,9 @@ function RelationshipEdge({
         <button
           style={{ transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)` }}
           className="pointer-events-all absolute rounded border border-[hsl(var(--border))] bg-[hsl(var(--card))] px-1.5 py-0.5 text-xs hover:bg-[hsl(var(--accent))] nodrag nopan"
-          onClick={() => data.onSelect(id)}
+          onClick={() => data!.onSelect(id)}
         >
-          {data.label}
+          {data!.label}
         </button>
       </EdgeLabelRenderer>
     </>

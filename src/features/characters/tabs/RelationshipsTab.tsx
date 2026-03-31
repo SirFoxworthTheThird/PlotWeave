@@ -34,7 +34,7 @@ function AddRelationshipDialog({ open, onOpenChange, character, otherCharacters,
   const [label, setLabel] = useState('')
   const [strength, setStrength] = useState<RelationshipStrength>('moderate')
   const [sentiment, setSentiment] = useState<RelationshipSentiment>('neutral')
-  const [description, setDescription] = useState('')
+  const [description, _setDescription] = useState('')
   const [saving, setSaving] = useState(false)
 
   async function handleSubmit(e: React.FormEvent) {

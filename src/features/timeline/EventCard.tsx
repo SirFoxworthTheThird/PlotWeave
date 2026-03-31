@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Trash2, ChevronDown, ChevronUp, Pencil, Check, X, UserPlus, UserMinus } from 'lucide-react'
+import { Trash2, ChevronDown, ChevronUp, Pencil, Check, X, UserMinus } from 'lucide-react'
 import type { WorldEvent } from '@/types'
 import { deleteEvent, updateEvent } from '@/db/hooks/useTimeline'
 import { useCharacters } from '@/db/hooks/useCharacters'

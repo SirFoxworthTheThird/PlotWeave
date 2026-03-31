@@ -183,17 +183,17 @@ function validateImport(data: unknown): asserts data is WorldExportFile {
 function normalizeImport(data: WorldExportFile): void {
   // Backfill startChapterId on relationships exported before it was added
   for (const rel of data.relationships) {
-    if ((rel as Record<string, unknown>).startChapterId === undefined) {
-      (rel as Record<string, unknown>).startChapterId = null
+    if ((rel as unknown as Record<string, unknown>).startChapterId === undefined) {
+      (rel as unknown as Record<string, unknown>).startChapterId = null
     }
   }
   // Backfill scale fields on map layers exported before they were added
   for (const layer of data.mapLayers) {
-    if ((layer as Record<string, unknown>).scalePixelsPerUnit === undefined) {
-      (layer as Record<string, unknown>).scalePixelsPerUnit = null
+    if ((layer as unknown as Record<string, unknown>).scalePixelsPerUnit === undefined) {
+      (layer as unknown as Record<string, unknown>).scalePixelsPerUnit = null
     }
-    if ((layer as Record<string, unknown>).scaleUnit === undefined) {
-      (layer as Record<string, unknown>).scaleUnit = null
+    if ((layer as unknown as Record<string, unknown>).scaleUnit === undefined) {
+      (layer as unknown as Record<string, unknown>).scaleUnit = null
     }
   }
 }

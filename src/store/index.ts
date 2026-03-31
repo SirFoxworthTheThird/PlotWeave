@@ -40,7 +40,7 @@ type AppStore = WorldSlice & ChapterSlice & MapSlice & UISlice
 
 export const useAppStore = create<AppStore>()(
   persist(
-    (set, get) => ({
+    (set, _get) => ({
       // World
       activeWorldId: null,
       setActiveWorldId: (id) => set({ activeWorldId: id, activeChapterId: null }),
