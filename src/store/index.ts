@@ -83,7 +83,7 @@ export const useAppStore = create<AppStore>()(
       setTheme: (theme) => set({ theme }),
     }),
     {
-      name: 'worldbreaker-ui',
+      name: 'plotweave-ui',
       partialize: (state) => ({
         activeWorldId: state.activeWorldId,
         activeChapterId: state.activeChapterId,

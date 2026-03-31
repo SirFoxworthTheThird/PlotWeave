@@ -44,7 +44,7 @@ describe('exportWorld — happy path', () => {
     await expect(exportWorld('world-export-1')).resolves.toBeUndefined()
   })
 
-  it('triggers a download (createElement + click) with .wbk extension', async () => {
+  it('triggers a download (createElement + click) with .pwk extension', async () => {
     await seedWorld()
 
     const clickSpy = vi.fn()
@@ -54,7 +54,7 @@ describe('exportWorld — happy path', () => {
     await exportWorld('world-export-1')
 
     expect(createElementSpy).toHaveBeenCalledWith('a')
-    expect(mockAnchor.download).toMatch(/\.wbk$/)
+    expect(mockAnchor.download).toMatch(/\.pwk$/)
     expect(clickSpy).toHaveBeenCalledTimes(1)
 
     createElementSpy.mockRestore()
@@ -76,7 +76,7 @@ describe('exportWorld — happy path', () => {
     await exportWorld('world-special')
 
     // Non-alphanumeric chars should be replaced with underscores
-    expect(mockAnchor.download).toMatch(/^World__Special___Characters_\.wbk$/)
+    expect(mockAnchor.download).toMatch(/^World__Special___Characters_\.pwk$/)
 
     createElementSpy.mockRestore()
   })

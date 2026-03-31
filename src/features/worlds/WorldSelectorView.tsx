@@ -37,9 +37,9 @@ export default function WorldSelectorView() {
       <header className="border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/favicon.jpg" alt="WorldBreaker" className="h-10 w-10 rounded-full object-cover" />
+            <img src="/favicon.png" alt="PlotWeave" className="h-10 w-10 rounded object-cover" />
             <div>
-              <h1 className="text-xl font-bold text-[hsl(var(--foreground))]">WorldBreaker</h1>
+              <h1 className="text-xl font-bold text-[hsl(var(--foreground))]">PlotWeave</h1>
               <p className="text-sm text-[hsl(var(--muted-foreground))]">Story Tracker</p>
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function WorldSelectorView() {
             <input
               ref={importRef}
               type="file"
-              accept=".wbk,application/json"
+              accept=".pwk,application/json"
               className="hidden"
               onChange={handleImport}
             />

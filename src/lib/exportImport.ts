@@ -140,7 +140,7 @@ export async function exportWorld(worldId: string): Promise<void> {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `${world.name.replace(/[^a-z0-9]/gi, '_')}.wbk`
+  a.download = `${world.name.replace(/[^a-z0-9]/gi, '_')}.pwk`
   a.click()
   URL.revokeObjectURL(url)
 }

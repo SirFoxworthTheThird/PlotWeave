@@ -390,7 +390,7 @@
   html {
     background-color: #1a2535;
     background-image: url('/background.png');
-    background-size: contain;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;

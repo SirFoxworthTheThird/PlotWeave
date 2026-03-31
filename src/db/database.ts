@@ -19,7 +19,7 @@ import type {
   BlobEntry,
 } from '@/types'
 
-class WorldBreakerDB extends Dexie {
+class PlotWeaveDB extends Dexie {
   worlds!: EntityTable<World, 'id'>
   preferences!: EntityTable<AppPreferences, 'id'>
   mapLayers!: EntityTable<MapLayer, 'id'>
@@ -39,7 +39,7 @@ class WorldBreakerDB extends Dexie {
   itemSnapshots!: EntityTable<ItemSnapshot, 'id'>
 
   constructor() {
-    super('WorldBreakerDB')
+    super('PlotWeaveDB')
 
     this.version(1).stores({
       worlds: 'id, name, createdAt',
@@ -90,4 +90,4 @@ class WorldBreakerDB extends Dexie {
   }
 }
 
-export const db = new WorldBreakerDB()
+export const db = new PlotWeaveDB()

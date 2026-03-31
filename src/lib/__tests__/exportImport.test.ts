@@ -27,14 +27,14 @@ function makeExport(overrides: Partial<WorldExportFile> = {}): WorldExportFile {
 }
 
 function makeFile(data: unknown): File {
-  return new File([JSON.stringify(data)], 'export.wbk', { type: 'application/json' })
+  return new File([JSON.stringify(data)], 'export.pwk', { type: 'application/json' })
 }
 
 // ── validateImport (via importWorld) ──────────────────────────────────────────
 
 describe('importWorld — validation', () => {
   it('rejects non-JSON files', async () => {
-    const file = new File(['not json {{'], 'bad.wbk', { type: 'application/json' })
+    const file = new File(['not json {{'], 'bad.pwk', { type: 'application/json' })
     await expect(importWorld(file)).rejects.toThrow('could not parse JSON')
   })
 

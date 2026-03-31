@@ -1,4 +1,4 @@
-# WorldBreaker
+# PlotWeave
 
 A visual story-tracking web app for writers who need to keep track of characters, locations, relationships, and events across their stories — built to be used alongside tools like Word or Scrivener.
 
@@ -8,7 +8,7 @@ A visual story-tracking web app for writers who need to keep track of characters
 
 ## What it does
 
-When writing long stories it's easy to lose track of where a character is, what they're carrying, or who they know. WorldBreaker solves this by giving you a visual workspace tied to a **chapter cursor** — every piece of state (character location, inventory, relationships, status) is recorded per chapter, so you can jump to any point in your story and instantly see an accurate snapshot of the world.
+When writing long stories it's easy to lose track of where a character is, what they're carrying, or who they know. PlotWeave solves this by giving you a visual workspace tied to a **chapter cursor** — every piece of state (character location, inventory, relationships, status) is recorded per chapter, so you can jump to any point in your story and instantly see an accurate snapshot of the world.
 
 ---
 
@@ -105,10 +105,10 @@ Nine visual profiles that instantly transform the entire app — backgrounds, bo
 | 🌹 Romance | Dark rose & rose-gold | Georgia serif | Soft glow, very rounded corners |
 
 ### Export / Import
-- **`.wbk` format** — export any world to a single JSON file containing all data and base64-encoded images
+- **`.pwk` format** — export any world to a single JSON file containing all data and base64-encoded images
 - **Full fidelity** — characters, maps, location markers, timelines, chapters, events, items, relationships, snapshots, movement paths, images, and relationship graph positions are all included
-- **Backward compatible** — older `.wbk` files missing newer fields (e.g. `startChapterId`) are normalised on import
-- **One-click restore** — import a `.wbk` file to restore an entire world, including all images
+- **Backward compatible** — older `.pwk` files missing newer fields (e.g. `startChapterId`) are normalised on import
+- **One-click restore** — import a `.pwk` file to restore an entire world, including all images
 
 ### Data & Privacy
 - **Fully local** — all data lives in the browser's IndexedDB via Dexie.js; nothing is sent to any server
@@ -172,7 +172,7 @@ npm run build
 7. **Place characters** on the map by dragging them from the sidebar onto a location marker
 8. **Track inventory** in the character's Current State tab — items can also be placed at map locations
 9. **Build the relationship graph** in the Relationships tab — add relationships with sentiment and strength, scoped to the active chapter
-10. **Export your world** from the world card on the dashboard to create a `.wbk` backup file
+10. **Export your world** from the world card on the dashboard to create a `.pwk` backup file
 
 ---
 
@@ -193,7 +193,7 @@ src/
   store/
     index.ts       # Zustand store (activeWorld, activeChapter, theme, map history)
   lib/
-    exportImport.ts # .wbk export/import with base64 blob serialisation
+    exportImport.ts # .pwk export/import with base64 blob serialisation
   components/
     ChapterTimelineBar.tsx  # Fixed bottom themed timeline overlay
     ThemePicker.tsx         # Theme switcher + ThemeProvider

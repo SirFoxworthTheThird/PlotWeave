@@ -27,7 +27,7 @@ function makeExport(overrides: Partial<WorldExportFile> = {}): WorldExportFile {
 }
 
 function makeFile(data: unknown): File {
-  return new File([JSON.stringify(data)], 'export.wbk', { type: 'application/json' })
+  return new File([JSON.stringify(data)], 'export.pwk', { type: 'application/json' })
 }
 
 // ── normalizeImport backfill paths ────────────────────────────────────────────
