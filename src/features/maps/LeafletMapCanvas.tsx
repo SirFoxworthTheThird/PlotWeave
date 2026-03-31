@@ -194,6 +194,8 @@ export interface MovementLine {
   color: string
   points: [number, number][]
   distanceLabel?: string
+  /** 'waypoint' = in-chapter path (dashed), 'travel' = inter-chapter travel (solid) */
+  style?: 'waypoint' | 'travel'
 }
 
 export interface ScaleCalibrationPoint { x: number; y: number }
@@ -352,9 +354,13 @@ export function LeafletMapCanvas({
         {movementLines.map((line) =>
           line.points.length >= 2 && (
             <Polyline
-              key={line.characterId}
+              key={`${line.characterId}-${line.style ?? 'waypoint'}`}
               positions={line.points}
-              pathOptions={{ color: line.color, weight: 2.5, opacity: 0.75, dashArray: '6 4' }}
+              pathOptions={
+                line.style === 'travel'
+                  ? { color: line.color, weight: 2, opacity: 0.55, dashArray: '2 8' }
+                  : { color: line.color, weight: 2.5, opacity: 0.75, dashArray: '6 4' }
+              }
             >
               {line.distanceLabel && (
                 <Tooltip permanent direction="center" className="movement-distance-tooltip">

@@ -10,7 +10,7 @@ import { useRootMapLayers, useMapLayer, useMapLayers, deleteMapLayer, updateMapL
 import { useChapters, useTimelines } from '@/db/hooks/useTimeline'
 import { useLocationMarkers, useAllLocationMarkers } from '@/db/hooks/useLocationMarkers'
 import { useCharacters } from '@/db/hooks/useCharacters'
-import { useBestSnapshots, useWorldSnapshots, upsertSnapshot } from '@/db/hooks/useSnapshots'
+import { useBestSnapshots, useWorldSnapshots, useChapterSnapshots, upsertSnapshot } from '@/db/hooks/useSnapshots'
 import { useChapterMovements, appendWaypoint, clearMovement, removeLastWaypoint } from '@/db/hooks/useMovements'
 import { useItems } from '@/db/hooks/useItems'
 import { useChapterItemPlacements } from '@/db/hooks/useItemPlacements'
@@ -936,6 +936,10 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
   const chapters = useChapters(timelines[0]?.id ?? null)
   const activeChapter = activeChapterId ? chapters.find((c) => c.id === activeChapterId) : null
   const activeChapterTitle = activeChapter ? `Ch.${activeChapter.number} — ${activeChapter.title}` : null
+  const prevChapter = activeChapter
+    ? chapters.find((c) => c.timelineId === activeChapter.timelineId && c.number === activeChapter.number - 1)
+    : null
+  const prevSnapshots = useChapterSnapshots(prevChapter?.id ?? null)
 
   function handleMarkerClick(markerId: string) {
     setSelectedCharacterId(null)
@@ -963,7 +967,7 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
     })
   }
 
-  // Build movement lines
+  // Build in-chapter waypoint lines
   const movementLines: MovementLine[] = []
   for (const mov of movements) {
     const points: [number, number][] = []
@@ -975,7 +979,26 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
       const distanceLabel = layer && layer.scalePixelsPerUnit && layer.scaleUnit
         ? formatDistance(pathPixelLength(points.map(([y, x]) => [x, y])), layer.scalePixelsPerUnit, layer.scaleUnit)
         : undefined
-      movementLines.push({ characterId: mov.characterId, color: characterColor(mov.characterId), points, distanceLabel })
+      movementLines.push({ characterId: mov.characterId, color: characterColor(mov.characterId), points, distanceLabel, style: 'waypoint' })
+    }
+  }
+
+  // Build inter-chapter travel lines (previous chapter location → current chapter location)
+  if (prevSnapshots.length > 0) {
+    for (const snap of snapshots) {
+      if (!snap.currentLocationMarkerId || snap.currentMapLayerId !== layerId) continue
+      const prev = prevSnapshots.find((s) => s.characterId === snap.characterId)
+      if (!prev?.currentLocationMarkerId || prev.currentLocationMarkerId === snap.currentLocationMarkerId) continue
+      if (prev.currentMapLayerId !== layerId) continue
+      const fromMarker = markers.find((m) => m.id === prev.currentLocationMarkerId)
+      const toMarker = markers.find((m) => m.id === snap.currentLocationMarkerId)
+      if (!fromMarker || !toMarker) continue
+      movementLines.push({
+        characterId: `travel-${snap.characterId}`,
+        color: characterColor(snap.characterId),
+        points: [[fromMarker.y, fromMarker.x], [toMarker.y, toMarker.x]],
+        style: 'travel',
+      })
     }
   }
 
