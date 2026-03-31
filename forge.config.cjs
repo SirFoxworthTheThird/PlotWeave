@@ -56,6 +56,7 @@ module.exports = {
         options: {
           homepage: 'https://github.com/SirFoxworthTheThird/PlotWeave',
           description: 'A local story and world-building tracker',
+          license: 'MIT',
         },
       },
     },
