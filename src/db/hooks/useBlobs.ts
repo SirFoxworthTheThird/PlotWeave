@@ -23,16 +23,53 @@ export function useBlobUrl(id: string | null): string | undefined {
   return URL.createObjectURL(entry.data)
 }
 
-export async function storeBlob(worldId: string, file: File): Promise<BlobEntry> {
+async function compressImage(
+  file: File,
+  maxDimension = 2048,
+  quality = 0.88,
+): Promise<{ blob: Blob; width: number; height: number; mimeType: string }> {
+  // Skip compression for SVG and non-image files
+  if (!file.type.startsWith('image/') || file.type === 'image/svg+xml') {
+    const dims = await getImageDimensions(file)
+    return { blob: file, ...dims, mimeType: file.type }
+  }
+
+  const bitmap = await createImageBitmap(file)
+  const srcW = bitmap.width
+  const srcH = bitmap.height
+  const scale = Math.min(1, maxDimension / Math.max(srcW, srcH))
+  const width = Math.round(srcW * scale)
+  const height = Math.round(srcH * scale)
+
+  const canvas = document.createElement('canvas')
+  canvas.width = width
+  canvas.height = height
+  canvas.getContext('2d')!.drawImage(bitmap, 0, 0, width, height)
+  bitmap.close()
+
+  return new Promise((resolve) => {
+    canvas.toBlob(
+      (blob) => resolve({ blob: blob ?? file, width, height, mimeType: 'image/jpeg' }),
+      'image/jpeg',
+      quality,
+    )
+  })
+}
+
+export async function storeBlob(
+  worldId: string,
+  file: File,
+): Promise<BlobEntry & { width: number; height: number }> {
+  const { blob, width, height, mimeType } = await compressImage(file)
   const entry: BlobEntry = {
     id: generateId(),
     worldId,
-    mimeType: file.type,
-    data: file,
+    mimeType,
+    data: blob,
     createdAt: Date.now(),
   }
   await db.blobs.add(entry)
-  return entry
+  return { ...entry, width, height }
 }
 
 export async function deleteBlob(id: string) {

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { storeBlob, getImageDimensions } from '@/db/hooks/useBlobs'
+import { storeBlob } from '@/db/hooks/useBlobs'
 import { createMapLayer } from '@/db/hooks/useMapLayers'
 
 interface UploadMapDialogProps {
@@ -34,7 +34,6 @@ export function UploadMapDialog({ open, onOpenChange, worldId, parentMapId = nul
     e.preventDefault()
     if (!file || !name.trim()) return
     setSaving(true)
-    const dims = await getImageDimensions(file)
     const blob = await storeBlob(worldId, file)
     const layer = await createMapLayer({
       worldId,
@@ -42,8 +41,8 @@ export function UploadMapDialog({ open, onOpenChange, worldId, parentMapId = nul
       name: name.trim(),
       description: description.trim(),
       imageId: blob.id,
-      imageWidth: dims.width,
-      imageHeight: dims.height,
+      imageWidth: blob.width,
+      imageHeight: blob.height,
     })
     setSaving(false)
     setName('')
