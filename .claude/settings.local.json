@@ -17,7 +17,8 @@
       "Bash(npm test:*)",
       "Bash(npm run:*)",
       "Bash(find F:/Projects/WorldBreaker -maxdepth 2 -name README* ! -path */node_modules/*)",
-      "Bash(find F:/Projects/WorldBreaker -maxdepth 3 -type d -name snapshot* -o -name screenshot* -o -name assets -o -name images -o -name docs)"
+      "Bash(find F:/Projects/WorldBreaker -maxdepth 3 -type d -name snapshot* -o -name screenshot* -o -name assets -o -name images -o -name docs)",
+      "Bash(gh repo:*)"
     ]
   }
 }
