@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import faviconUrl from '/favicon.png'
 import { Plus, Scroll, Upload } from 'lucide-react'
 import { useWorlds } from '@/db/hooks/useWorlds'
 import { Button } from '@/components/ui/button'
@@ -37,7 +38,7 @@ export default function WorldSelectorView() {
       <header className="border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/favicon.png" alt="PlotWeave" className="h-10 w-10 rounded object-cover" />
+            <img src={faviconUrl} alt="PlotWeave" className="h-10 w-10 rounded object-cover" />
             <div>
               <h1 className="text-xl font-bold text-[hsl(var(--foreground))]">PlotWeave</h1>
               <p className="text-sm text-[hsl(var(--muted-foreground))]">Story Tracker</p>

@@ -1,4 +1,5 @@
 import { BookOpen, Map, Users, Network, LayoutDashboard, Package } from 'lucide-react'
+import faviconUrl from '/favicon.png'
 import { useActiveWorldId } from '@/store'
 import { useWorld } from '@/db/hooks/useWorlds'
 import { ThemePicker } from './ThemePicker'
@@ -55,7 +56,7 @@ export function TopBar() {
           onClick={() => navigate('/')}
           className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
-          <img src="/favicon.png" alt="PlotWeave" className="h-7 w-7 rounded object-cover" />
+          <img src={faviconUrl} alt="PlotWeave" className="h-7 w-7 rounded object-cover" />
           <span className="text-sm font-bold tracking-wide text-[hsl(var(--foreground))]">
             PlotWeave
           </span>
