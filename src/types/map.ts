@@ -7,6 +7,10 @@ export interface MapLayer {
   imageId: string
   imageWidth: number
   imageHeight: number
+  /** Pixels per real-world unit. Null means no scale has been set. */
+  scalePixelsPerUnit: number | null
+  /** Label for the unit, e.g. "km", "miles", "leagues". */
+  scaleUnit: string | null
   createdAt: number
   updatedAt: number
 }

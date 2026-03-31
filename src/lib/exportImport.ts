@@ -171,6 +171,15 @@ function normalizeImport(data: WorldExportFile): void {
       (rel as Record<string, unknown>).startChapterId = null
     }
   }
+  // Backfill scale fields on map layers exported before they were added
+  for (const layer of data.mapLayers) {
+    if ((layer as Record<string, unknown>).scalePixelsPerUnit === undefined) {
+      (layer as Record<string, unknown>).scalePixelsPerUnit = null
+    }
+    if ((layer as Record<string, unknown>).scaleUnit === undefined) {
+      (layer as Record<string, unknown>).scaleUnit = null
+    }
+  }
 }
 
 export async function importWorld(file: File): Promise<string> {

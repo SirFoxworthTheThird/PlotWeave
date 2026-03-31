@@ -67,9 +67,15 @@ class WorldBreakerDB extends Dexie {
     this.version(5).stores({
       relationships: 'id, worldId, characterAId, characterBId, startChapterId',
     }).upgrade((tx) => {
-      // Existing relationships have no start chapter — they exist from the beginning
       return tx.table('relationships').toCollection().modify((r) => {
         if (r.startChapterId === undefined) r.startChapterId = null
+      })
+    })
+
+    this.version(6).stores({}).upgrade((tx) => {
+      return tx.table('mapLayers').toCollection().modify((l) => {
+        if (l.scalePixelsPerUnit === undefined) l.scalePixelsPerUnit = null
+        if (l.scaleUnit === undefined) l.scaleUnit = null
       })
     })
   }

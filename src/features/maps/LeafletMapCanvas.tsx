@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { MapContainer, ImageOverlay, Marker, Popup, Polyline, useMapEvents } from 'react-leaflet'
+import { MapContainer, ImageOverlay, Marker, Popup, Polyline, CircleMarker, Tooltip, useMapEvents } from 'react-leaflet'
 import L from 'leaflet'
 import type { MapLayer, LocationMarker, Character } from '@/types'
 import { updateLocationMarker } from '@/db/hooks/useLocationMarkers'
@@ -159,7 +159,10 @@ export interface MovementLine {
   characterId: string
   color: string
   points: [number, number][]
+  distanceLabel?: string
 }
+
+export interface ScaleCalibrationPoint { x: number; y: number }
 
 interface LeafletMapCanvasProps {
   layer: MapLayer
@@ -174,6 +177,8 @@ interface LeafletMapCanvasProps {
   onCharacterDrop: (characterId: string, markerId: string) => void
   onCharacterClick?: (characterId: string) => void
   mapRef?: React.RefObject<L.Map | null>
+  scaleMode?: boolean
+  onScalePoints?: (p1: ScaleCalibrationPoint, p2: ScaleCalibrationPoint) => void
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -181,6 +186,7 @@ export function LeafletMapCanvas({
   layer, imageUrl, markers, charPins, movementLines,
   isDraggingCharacter, onMarkerClick, onMapClick, onDrillDown,
   onCharacterDrop, onCharacterClick, mapRef: externalMapRef,
+  scaleMode, onScalePoints,
 }: LeafletMapCanvasProps) {
   const internalMapRef = useRef<L.Map | null>(null)
   const mapRef         = externalMapRef ?? internalMapRef
@@ -188,6 +194,7 @@ export function LeafletMapCanvas({
   const [addMode, setAddMode]         = useState(false)
   const addModeRef                    = useRef(false)
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
+  const [scalePoint1, setScalePoint1] = useState<ScaleCalibrationPoint | null>(null)
   const onMapClickRef      = useRef<(latlng: L.LatLng) => void>(() => {})
   const onMarkerClickRef   = useRef(onMarkerClick)
   const onCharacterDropRef = useRef(onCharacterDrop)
@@ -214,6 +221,16 @@ export function LeafletMapCanvas({
   }, [charPins])
 
   onMapClickRef.current = (latlng: L.LatLng) => {
+    if (scaleMode) {
+      const pt = { x: latlng.lng, y: latlng.lat }
+      if (!scalePoint1) {
+        setScalePoint1(pt)
+      } else {
+        onScalePoints?.(scalePoint1, pt)
+        setScalePoint1(null)
+      }
+      return
+    }
     if (!addModeRef.current) return
     onMapClick(latlng.lng, latlng.lat)
     addModeRef.current = false
@@ -225,6 +242,10 @@ export function LeafletMapCanvas({
     window.addEventListener('wb:map:startAddMarker', handler)
     return () => window.removeEventListener('wb:map:startAddMarker', handler)
   }, [])
+
+  useEffect(() => {
+    if (!scaleMode) setScalePoint1(null)
+  }, [scaleMode])
 
   function findNearestMarker(clientX: number, clientY: number, el: HTMLElement): LocationMarker | null {
     const map = mapRef.current
@@ -261,6 +282,13 @@ export function LeafletMapCanvas({
           </div>
         </div>
       )}
+      {scaleMode && (
+        <div className="pointer-events-none absolute inset-0 z-[1000] flex items-start justify-center pt-4">
+          <div className="rounded-md bg-amber-600 px-3 py-1.5 text-xs text-white shadow-lg">
+            {scalePoint1 ? 'Now click the second point' : 'Click the first point on the map'}
+          </div>
+        </div>
+      )}
       {isDraggingCharacter && (
         <div className="pointer-events-none absolute inset-0 z-[1000] flex items-start justify-center pt-4">
           <div className="rounded-md bg-blue-600 px-3 py-1.5 text-xs text-white shadow-lg">
@@ -291,8 +319,23 @@ export function LeafletMapCanvas({
               key={line.characterId}
               positions={line.points}
               pathOptions={{ color: line.color, weight: 2.5, opacity: 0.75, dashArray: '6 4' }}
-            />
+            >
+              {line.distanceLabel && (
+                <Tooltip permanent direction="center" className="movement-distance-tooltip">
+                  {line.distanceLabel}
+                </Tooltip>
+              )}
+            </Polyline>
           )
+        )}
+
+        {/* Scale calibration markers */}
+        {scalePoint1 && (
+          <CircleMarker
+            center={[scalePoint1.y, scalePoint1.x]}
+            radius={6}
+            pathOptions={{ color: '#f59e0b', fillColor: '#f59e0b', fillOpacity: 1, weight: 2 }}
+          />
         )}
 
         {/* Location markers */}

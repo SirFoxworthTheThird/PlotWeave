@@ -3,10 +3,10 @@ import L from 'leaflet'
 import { useParams } from 'react-router-dom'
 import {
   Plus, Upload, Users, Map as MapIcon, Trash2, Undo2,
-  ChevronRight, ChevronDown, MapPin, Package, Layers,
+  ChevronRight, ChevronDown, MapPin, Package, Layers, Ruler, X,
 } from 'lucide-react'
 import { useAppStore, useActiveMapLayerId, useActiveChapterId, useMapLayerHistory } from '@/store'
-import { useRootMapLayers, useMapLayer, useMapLayers, deleteMapLayer } from '@/db/hooks/useMapLayers'
+import { useRootMapLayers, useMapLayer, useMapLayers, deleteMapLayer, updateMapLayer } from '@/db/hooks/useMapLayers'
 import { useChapters, useTimelines } from '@/db/hooks/useTimeline'
 import { useLocationMarkers, useAllLocationMarkers } from '@/db/hooks/useLocationMarkers'
 import { useCharacters } from '@/db/hooks/useCharacters'
@@ -14,9 +14,13 @@ import { useBestSnapshots, useWorldSnapshots, upsertSnapshot } from '@/db/hooks/
 import { useChapterMovements, appendWaypoint, clearMovement, removeLastWaypoint } from '@/db/hooks/useMovements'
 import { useItems } from '@/db/hooks/useItems'
 import { useChapterItemPlacements } from '@/db/hooks/useItemPlacements'
-import type { CharacterPin, MovementLine } from './LeafletMapCanvas'
+import type { CharacterPin, MovementLine, ScaleCalibrationPoint } from './LeafletMapCanvas'
 import { useBlobUrl, useWorldBlobUrls } from '@/db/hooks/useBlobs'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog'
 import { EmptyState } from '@/components/EmptyState'
 import { PortraitImage } from '@/components/PortraitImage'
 import { LeafletMapCanvas } from './LeafletMapCanvas'
@@ -25,6 +29,7 @@ import { CharacterSnapshotPanel } from './CharacterSnapshotPanel'
 import { UploadMapDialog } from './UploadMapDialog'
 import { AddLocationDialog } from './AddLocationDialog'
 import type { Character, CharacterSnapshot, LocationMarker, MapLayer } from '@/types'
+import { pixelDist, pathPixelLength, formatDistance } from '@/lib/mapScale'
 
 // ─── Utilities ───────────────────────────────────────────────────────────────
 
@@ -236,6 +241,8 @@ function CharactersSection({
   allMarkers,
   activeChapterId,
   worldId,
+  scalePixelsPerUnit,
+  scaleUnit,
   onDragStart,
   onDragEnd,
   onFocus,
@@ -245,6 +252,8 @@ function CharactersSection({
   allMarkers: LocationMarker[]
   activeChapterId: string | null
   worldId: string
+  scalePixelsPerUnit: number | null
+  scaleUnit: string | null
   onDragStart: () => void
   onDragEnd: () => void
   onFocus: (characterId: string) => void
@@ -303,6 +312,14 @@ function CharactersSection({
                     <span className="h-1 w-3 rounded-full shrink-0" style={{ background: color }} />
                     <p className="flex-1 truncate text-[10px] text-[hsl(var(--muted-foreground))]">
                       {movement.waypoints.length} stops
+                      {scalePixelsPerUnit && scaleUnit && (() => {
+                        const pts = movement.waypoints
+                          .map((id) => allMarkers.find((m) => m.id === id))
+                          .filter(Boolean)
+                          .map((m) => [m!.x, m!.y] as [number, number])
+                        if (pts.length < 2) return null
+                        return ` · ${formatDistance(pathPixelLength(pts), scalePixelsPerUnit, scaleUnit)}`
+                      })()}
                     </p>
                     <button
                       title="Undo last stop"
@@ -447,6 +464,75 @@ function ItemsSection({
   )
 }
 
+// ─── SetScaleDialog ───────────────────────────────────────────────────────────
+
+const SCALE_UNITS = ['km', 'miles', 'leagues', 'days travel', 'furlongs', 'ft', 'meters']
+
+function SetScaleDialog({
+  open, onOpenChange, pixelDistance, layerId,
+}: {
+  open: boolean
+  onOpenChange: (v: boolean) => void
+  pixelDistance: number
+  layerId: string
+}) {
+  const [value, setValue] = useState('100')
+  const [unit, setUnit] = useState('km')
+
+  async function handleSave() {
+    const dist = parseFloat(value)
+    if (!dist || dist <= 0) return
+    await updateMapLayer(layerId, {
+      scalePixelsPerUnit: pixelDistance / dist,
+      scaleUnit: unit,
+    })
+    onOpenChange(false)
+  }
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-sm">
+        <DialogHeader>
+          <DialogTitle>Set Map Scale</DialogTitle>
+        </DialogHeader>
+        <div className="flex flex-col gap-4">
+          <p className="text-xs text-[hsl(var(--muted-foreground))]">
+            The two points you selected are <span className="font-semibold text-[hsl(var(--foreground))]">{Math.round(pixelDistance)} px</span> apart. How far is that in the real world?
+          </p>
+          <div className="flex gap-2">
+            <div className="flex flex-col gap-1.5 flex-1">
+              <Label>Distance</Label>
+              <Input
+                type="number"
+                min="0.1"
+                step="any"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                autoFocus
+              />
+            </div>
+            <div className="flex flex-col gap-1.5 w-36">
+              <Label>Unit</Label>
+              <Select value={unit} onValueChange={setUnit}>
+                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  {SCALE_UNITS.map((u) => (
+                    <SelectItem key={u} value={u}>{u}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+        </div>
+        <DialogFooter>
+          <Button variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
+          <Button onClick={handleSave} disabled={!value || parseFloat(value) <= 0}>Save Scale</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
 // ─── MapView ──────────────────────────────────────────────────────────────────
 
 function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
@@ -468,8 +554,16 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
   const [addLocationOpen, setAddLocationOpen] = useState(false)
   const [uploadOpen, setUploadOpen] = useState(false)
   const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(null)
+  const [scaleMode, setScaleMode] = useState(false)
+  const [scaleDialog, setScaleDialog] = useState<{ pixelDist: number } | null>(null)
   const { setSelectedLocationMarkerId, selectedLocationMarkerId, pushMapLayer, setActiveMapLayerId } = useAppStore()
   const mapRef = useRef<L.Map | null>(null)
+
+  function handleScalePoints(p1: ScaleCalibrationPoint, p2: ScaleCalibrationPoint) {
+    const dist = pixelDist(p1.x, p1.y, p2.x, p2.y)
+    setScaleMode(false)
+    setScaleDialog({ pixelDist: dist })
+  }
 
   function focusOnLocation(marker: LocationMarker) {
     setSelectedCharacterId(null)
@@ -552,7 +646,10 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
       if (m) points.push([m.y, m.x])
     }
     if (points.length >= 2) {
-      movementLines.push({ characterId: mov.characterId, color: characterColor(mov.characterId), points })
+      const distanceLabel = layer.scalePixelsPerUnit && layer.scaleUnit
+        ? formatDistance(pathPixelLength(points.map(([y, x]) => [x, y])), layer.scalePixelsPerUnit, layer.scaleUnit)
+        : undefined
+      movementLines.push({ characterId: mov.characterId, color: characterColor(mov.characterId), points, distanceLabel })
     }
   }
 
@@ -596,6 +693,8 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
           allMarkers={allMarkers}
           activeChapterId={activeChapterId}
           worldId={worldId}
+          scalePixelsPerUnit={layer.scalePixelsPerUnit ?? null}
+          scaleUnit={layer.scaleUnit ?? null}
           onDragStart={() => setIsDraggingCharacter(true)}
           onDragEnd={() => setIsDraggingCharacter(false)}
           onFocus={focusOnCharacter}
@@ -622,10 +721,31 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-semibold text-[hsl(var(--foreground))]">{layer.name}</p>
             <p className="text-[10px] text-[hsl(var(--muted-foreground))]">
-              {layer.imageWidth} × {layer.imageHeight}
+              {layer.scalePixelsPerUnit && layer.scaleUnit
+                ? `Scale: 1 ${layer.scaleUnit} = ${Math.round(layer.scalePixelsPerUnit)} px`
+                : `${layer.imageWidth} × ${layer.imageHeight}`}
             </p>
           </div>
           <div className="flex items-center gap-2">
+            <Button
+              size="sm"
+              variant={scaleMode ? 'default' : 'outline'}
+              className="gap-1.5 text-xs"
+              onClick={() => setScaleMode((v) => !v)}
+              title={layer.scalePixelsPerUnit ? 'Recalibrate scale' : 'Set map scale'}
+            >
+              <Ruler className="h-3.5 w-3.5" />
+              {layer.scalePixelsPerUnit && layer.scaleUnit ? layer.scaleUnit : 'Scale'}
+              {layer.scalePixelsPerUnit && !scaleMode && (
+                <button
+                  className="ml-0.5 opacity-50 hover:opacity-100"
+                  onClick={(e) => { e.stopPropagation(); updateMapLayer(layer.id, { scalePixelsPerUnit: null, scaleUnit: null }) }}
+                  title="Clear scale"
+                >
+                  <X className="h-3 w-3" />
+                </button>
+              )}
+            </Button>
             <Button
               size="sm"
               variant="outline"
@@ -662,8 +782,19 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
             onCharacterDrop={handleCharacterDrop}
             onCharacterClick={handleCharacterClick}
             mapRef={mapRef}
+            scaleMode={scaleMode}
+            onScalePoints={handleScalePoints}
           />
         </div>
+
+        {scaleDialog && (
+          <SetScaleDialog
+            open
+            onOpenChange={(v) => { if (!v) setScaleDialog(null) }}
+            pixelDistance={scaleDialog.pixelDist}
+            layerId={layer.id}
+          />
+        )}
 
       </div>
 

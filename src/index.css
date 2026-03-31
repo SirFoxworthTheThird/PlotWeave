@@ -442,6 +442,21 @@
   color: hsl(var(--leaflet-fg)) !important;
 }
 
+.movement-distance-tooltip {
+  background: hsl(var(--leaflet-card));
+  color: hsl(var(--leaflet-fg));
+  border: 1px solid hsl(var(--leaflet-border));
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  padding: 2px 6px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.movement-distance-tooltip::before {
+  display: none;
+}
+
 /* ── Timeline animations ── */
 @keyframes tl-pulse {
   0%, 100% { box-shadow: 0 0 0 0 var(--tl-glow), 0 0 6px 1px var(--tl-glow); }
