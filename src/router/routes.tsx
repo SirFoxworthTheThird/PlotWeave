@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { createHashRouter } from 'react-router-dom'
 import { AppShell } from '@/components/AppShell'
 
 const WorldSelectorView = lazy(() => import('@/features/worlds/WorldSelectorView'))
@@ -25,7 +25,7 @@ function Wrap({ children }: { children: React.ReactNode }) {
   return <Suspense fallback={<Loading />}>{children}</Suspense>
 }
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <Wrap><WorldSelectorView /></Wrap>,
