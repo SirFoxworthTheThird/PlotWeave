@@ -7,7 +7,7 @@ module.exports = {
     // Only include what the app needs to run — exclude source, tests, dev config
     ignore: [
       /^\/src/,
-      /^\/public/,
+      /^\/public\/(?!favicon\.ico|favicon\.icns|favicon\.png).*/,
       /^\/screenshots/,
       /^\/background/,
       /^\/icon/,
