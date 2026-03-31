@@ -111,9 +111,9 @@ Nine visual profiles that instantly transform the entire app — backgrounds, bo
 - **One-click restore** — import a `.pwk` file to restore an entire world, including all images
 
 ### Data & Privacy
-- **Fully local** — all data lives in the browser's IndexedDB via Dexie.js; nothing is sent to any server
+- **Fully local** — all data lives on your machine via IndexedDB (Dexie.js); nothing is sent to any server
 - **No account required** — open the app and start writing
-- **Offline capable** — works with no internet connection (after initial load)
+- **Works offline** — no internet connection needed
 
 ---
 
@@ -121,6 +121,7 @@ Nine visual profiles that instantly transform the entire app — backgrounds, bo
 
 | Concern | Library |
 |---|---|
+| Desktop shell | Electron 41 + electron-forge |
 | Framework | React 19 + TypeScript |
 | Build tool | Vite 8 |
 | Database | Dexie.js (IndexedDB) |
@@ -134,29 +135,37 @@ Nine visual profiles that instantly transform the entire app — backgrounds, bo
 
 ---
 
-## Getting started
+## Download
+
+Download the latest installer for your platform from the [Releases page](https://github.com/SirFoxworthTheThird/PlotWeave/releases):
+
+| Platform | File |
+|----------|------|
+| Windows  | `PlotWeave-*-Setup.exe` — run the installer |
+| macOS    | `PlotWeave-*.zip` — unzip and drag to Applications. On first launch, right-click → Open if macOS warns about the developer. |
+| Linux    | `plotweave_*.deb` — install with `sudo dpkg -i plotweave_*.deb` |
+
+---
+
+## Development
 
 ```bash
 # Install dependencies
 npm install
 
-# Start the development server
-npm run dev
+# Start the app in dev mode (Vite + Electron)
+npm run electron:dev
 ```
 
-Then open [http://localhost:5173](http://localhost:5173).
-
-No build step needed for development. Data is stored locally in your browser — nothing is sent anywhere.
-
 ```bash
-# Type-check
-npx tsc --noEmit
-
 # Run tests
 npm run test
 
-# Production build
+# Production build (Vite only)
 npm run build
+
+# Package the app for the current platform
+npm run electron:make
 ```
 
 ---
@@ -188,7 +197,7 @@ src/
     timeline/      # Timeline view, chapter rows, event cards, snapshot cards
     items/         # Item roster, item detail, create dialog
   db/
-    database.ts    # Dexie schema and migrations (v1–v5)
+    database.ts    # Dexie schema and migrations (v1–v7)
     hooks/         # useLiveQuery hooks per entity
   store/
     index.ts       # Zustand store (activeWorld, activeChapter, theme, map history)
