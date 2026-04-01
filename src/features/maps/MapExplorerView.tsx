@@ -1013,6 +1013,12 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
     const existing = allSnapshots.find(
       (s) => s.characterId === characterId && s.chapterId === activeChapterId
     )
+    // If character has a current location but no waypoints yet this chapter,
+    // seed the movement with their starting position so the trail has an origin point
+    const existingMovement = movements.find((m) => m.characterId === characterId)
+    if (existing?.currentLocationMarkerId && (!existingMovement || existingMovement.waypoints.length === 0)) {
+      await appendWaypoint(worldId, characterId, activeChapterId, existing.currentLocationMarkerId)
+    }
     await upsertSnapshot({
       worldId,
       characterId,
