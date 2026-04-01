@@ -156,6 +156,53 @@ describe('importWorld — normalizeImport backfills', () => {
     expect((stored as Record<string, unknown>).synopsis).toBe('')
   })
 
+  it('backfills notes on chapters that lack it', async () => {
+    await db.delete()
+    await db.open()
+
+    const data = makeExport({
+      chapters: [{
+        id: 'ch-notes',
+        worldId: 'world-extra',
+        timelineId: 'tl-1',
+        number: 1,
+        title: 'Old Chapter',
+        synopsis: '',
+        // deliberately omit notes — simulates pre-feature export
+        createdAt: 1000,
+        updatedAt: 1000,
+      } as never],
+    })
+    await importWorld(makeFile(data))
+
+    const stored = await db.chapters.get('ch-notes')
+    expect(stored).toBeDefined()
+    expect((stored as Record<string, unknown>).notes).toBe('')
+  })
+
+  it('preserves existing notes when already set', async () => {
+    await db.delete()
+    await db.open()
+
+    const data = makeExport({
+      chapters: [{
+        id: 'ch-withnotes',
+        worldId: 'world-extra',
+        timelineId: 'tl-1',
+        number: 1,
+        title: 'Chapter with Notes',
+        synopsis: '',
+        notes: 'Remember to foreshadow the betrayal here.',
+        createdAt: 1000,
+        updatedAt: 1000,
+      }],
+    })
+    await importWorld(makeFile(data))
+
+    const stored = await db.chapters.get('ch-withnotes')
+    expect((stored as Record<string, unknown>).notes).toBe('Remember to foreshadow the betrayal here.')
+  })
+
   it('preserves existing synopsis when it is already set', async () => {
     await db.delete()
     await db.open()

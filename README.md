@@ -89,6 +89,19 @@ When writing long stories it's easy to lose track of where a character is, what 
 - **Timelines and chapters** — organise your story into one or more timelines, each with ordered chapters
 - **Chapter events** — attach named events to any chapter with a synopsis and involved characters
 - **Chapter snapshot cards** — the timeline view shows a snapshot card per character per chapter, including location, inventory items (with images), and status
+- **Writer's Notes** — each chapter detail page has a freeform notes column for reminders, things to fix, open questions, and ideas; auto-saved as you type
+
+### Character Arc
+- **Arc table** — a dedicated view showing every character as a row and every chapter as a column; each cell shows alive/dead status, current location, and status notes at a glance
+- **Full story overview** — see the entire cast across the entire story in one scrollable table without switching between chapters
+- **Chapter cursor** — click any column header to set that chapter as the active cursor, filtering all other views to that point in time
+
+### Continuity Checker
+- **Automated issue detection** — click the shield icon in the top-right to scan the entire world for consistency problems
+- **Character deaths** — flags any character who is marked dead in one chapter but appears alive in a later one
+- **Duplicate item ownership** — detects items simultaneously present in multiple inventories or locations within the same chapter
+- **Relationship timeline** — warns when a relationship snapshot exists in a chapter before the relationship's recorded start chapter
+- **Navigate to issues** — click the arrow on any issue to jump directly to the relevant chapter with the chapter cursor set
 
 ### Story Playback
 - **Play the Story So Far** — hit Play in the timeline bar to automatically advance through every chapter in sequence
@@ -133,7 +146,7 @@ Nine visual profiles that instantly transform the entire app — backgrounds, bo
 ### Export / Import
 - **`.pwk` format** — export any world to a single JSON file containing all data and base64-encoded images
 - **Full fidelity** — characters, maps, location markers, timelines, chapters, events, items, relationships, snapshots, movement paths, images, and relationship graph positions are all included
-- **Backward compatible** — older `.pwk` files missing newer fields (`startChapterId`, `scalePixelsPerUnit`, `scaleUnit`, `synopsis`) are normalised on import
+- **Backward compatible** — older `.pwk` files missing newer fields (`startChapterId`, `scalePixelsPerUnit`, `scaleUnit`, `synopsis`, `notes`) are normalised on import
 - **One-click restore** — import a `.pwk` file to restore an entire world, including all images
 
 ### Data & Privacy

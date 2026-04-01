@@ -1,4 +1,4 @@
-import { BookOpen, Map, Users, Network, LayoutDashboard, Package, Search, ScrollText } from 'lucide-react'
+import { BookOpen, Map, Users, Network, LayoutDashboard, Package, Search, ScrollText, TableProperties, ShieldAlert } from 'lucide-react'
 import faviconUrl from '/favicon.png'
 import { useActiveWorldId, useAppStore } from '@/store'
 import { useWorld } from '@/db/hooks/useWorlds'
@@ -13,6 +13,7 @@ const navItems = [
   { to: 'items', label: 'Items', icon: Package, end: false },
   { to: 'relationships', label: 'Relationships', icon: Network, end: false },
   { to: 'timeline', label: 'Timeline', icon: BookOpen, end: false },
+  { to: 'arc', label: 'Character Arc', icon: TableProperties, end: false },
 ]
 
 function NavIcons() {
@@ -47,7 +48,7 @@ export function TopBar() {
   const worldId = useActiveWorldId()
   const world = useWorld(worldId)
   const navigate = useNavigate()
-  const { setSearchOpen, setBriefOpen } = useAppStore()
+  const { setSearchOpen, setBriefOpen, setCheckerOpen } = useAppStore()
 
   return (
     <header className="relative flex h-12 shrink-0 items-center border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4">
@@ -96,6 +97,13 @@ export function TopBar() {
               className="flex h-8 w-8 items-center justify-center rounded-md text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))] transition-colors"
             >
               <ScrollText className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => setCheckerOpen(true)}
+              title="Continuity Checker"
+              className="flex h-8 w-8 items-center justify-center rounded-md text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))] transition-colors"
+            >
+              <ShieldAlert className="h-4 w-4" />
             </button>
           </>
         )}

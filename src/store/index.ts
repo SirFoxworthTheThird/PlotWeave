@@ -48,6 +48,8 @@ interface UISlice {
   setBriefOpen: (open: boolean) => void
   diffOpen: boolean
   setDiffOpen: (open: boolean) => void
+  checkerOpen: boolean
+  setCheckerOpen: (open: boolean) => void
 }
 
 type AppStore = WorldSlice & ChapterSlice & MapSlice & UISlice & PlaybackSlice
@@ -107,6 +109,8 @@ export const useAppStore = create<AppStore>()(
       setBriefOpen: (open) => set({ briefOpen: open }),
       diffOpen: false,
       setDiffOpen: (open) => set({ diffOpen: open }),
+      checkerOpen: false,
+      setCheckerOpen: (open) => set({ checkerOpen: open }),
     }),
     {
       name: 'plotweave-ui',

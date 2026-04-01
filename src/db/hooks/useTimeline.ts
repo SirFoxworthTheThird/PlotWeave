@@ -68,6 +68,7 @@ export async function createChapter(data: Pick<Chapter, 'worldId' | 'timelineId'
   const now = Date.now()
   const chapter: Chapter = {
     id: generateId(),
+    notes: '',
     ...data,
     createdAt: now,
     updatedAt: now,

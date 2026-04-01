@@ -16,6 +16,7 @@ const INITIAL: Parameters<typeof useAppStore.setState>[0] = {
   searchOpen: false,
   briefOpen: false,
   diffOpen: false,
+  checkerOpen: false,
 }
 
 beforeEach(() => {
@@ -205,13 +206,22 @@ describe('OverlaySlice', () => {
     expect(useAppStore.getState().diffOpen).toBe(false)
   })
 
+  it('opens and closes checker', () => {
+    useAppStore.getState().setCheckerOpen(true)
+    expect(useAppStore.getState().checkerOpen).toBe(true)
+    useAppStore.getState().setCheckerOpen(false)
+    expect(useAppStore.getState().checkerOpen).toBe(false)
+  })
+
   it('overlays are independent of each other', () => {
     useAppStore.getState().setSearchOpen(true)
     useAppStore.getState().setBriefOpen(true)
     expect(useAppStore.getState().diffOpen).toBe(false)
     useAppStore.getState().setDiffOpen(true)
+    useAppStore.getState().setCheckerOpen(true)
     expect(useAppStore.getState().searchOpen).toBe(true)
     expect(useAppStore.getState().briefOpen).toBe(true)
+    expect(useAppStore.getState().checkerOpen).toBe(true)
   })
 })
 

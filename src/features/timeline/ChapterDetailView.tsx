@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ArrowLeft, Plus, Users, Network } from 'lucide-react'
-import { useChapter, useEvents } from '@/db/hooks/useTimeline'
+import { ArrowLeft, Plus, Users, Network, StickyNote } from 'lucide-react'
+import { useChapter, useEvents, updateChapter } from '@/db/hooks/useTimeline'
 import { useChapterSnapshots } from '@/db/hooks/useSnapshots'
 import { useChapterRelationshipSnapshots } from '@/db/hooks/useRelationshipSnapshots'
 import { useCharacters } from '@/db/hooks/useCharacters'
@@ -21,6 +21,21 @@ export default function ChapterDetailView() {
   const characters = useCharacters(worldId ?? null)
   const relationships = useRelationships(worldId ?? null)
   const [addEventOpen, setAddEventOpen] = useState(false)
+  const [notes, setNotes] = useState('')
+  const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  // Sync local notes state when chapter loads
+  useEffect(() => {
+    if (chapter) setNotes(chapter.notes ?? '')
+  }, [chapter?.id])  // eslint-disable-line react-hooks/exhaustive-deps
+
+  function handleNotesChange(value: string) {
+    setNotes(value)
+    if (saveTimer.current) clearTimeout(saveTimer.current)
+    saveTimer.current = setTimeout(() => {
+      if (chapterId) updateChapter(chapterId, { notes: value })
+    }, 600)
+  }
 
   if (!chapter) {
     return (
@@ -49,7 +64,7 @@ export default function ChapterDetailView() {
         </div>
       </div>
 
-      {/* Two-column layout */}
+      {/* Three-column layout */}
       <div className="flex flex-1 overflow-hidden">
         {/* Events */}
         <div className="flex flex-1 flex-col border-r border-[hsl(var(--border))]">
@@ -127,6 +142,23 @@ export default function ChapterDetailView() {
                 )}
               </div>
             )}
+          </div>
+        </div>
+
+        {/* Writer's Notes */}
+        <div className="flex w-72 shrink-0 flex-col overflow-hidden border-l border-[hsl(var(--border))]">
+          <div className="flex items-center gap-2 border-b border-[hsl(var(--border))] px-4 py-2">
+            <StickyNote className="h-4 w-4 text-[hsl(var(--muted-foreground))]" />
+            <span className="text-sm font-medium">Writer's Notes</span>
+          </div>
+          <div className="flex flex-1 flex-col p-3">
+            <textarea
+              className="flex-1 resize-none rounded border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-2.5 text-xs text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] outline-none focus:border-[hsl(var(--ring))] transition-colors leading-relaxed"
+              placeholder="Freeform notes for this chapter — reminders, things to fix, ideas, open questions…"
+              value={notes}
+              onChange={(e) => handleNotesChange(e.target.value)}
+            />
+            <p className="mt-1.5 text-[10px] text-[hsl(var(--muted-foreground))]">Auto-saved</p>
           </div>
         </div>
       </div>

@@ -87,6 +87,12 @@ class PlotWeaveDB extends Dexie {
       locationSnapshots: 'id, worldId, locationMarkerId, chapterId, [locationMarkerId+chapterId]',
       itemSnapshots: 'id, worldId, itemId, chapterId, [itemId+chapterId]',
     })
+
+    this.version(8).stores({}).upgrade((tx) => {
+      return tx.table('chapters').toCollection().modify((ch) => {
+        if (ch.notes === undefined) ch.notes = ''
+      })
+    })
   }
 }
 

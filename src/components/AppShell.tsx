@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { SearchPalette } from '@/features/search/SearchPalette'
 import { WritersBriefPanel } from '@/features/brief/WritersBriefPanel'
 import { ChapterDiffModal } from '@/features/diff/ChapterDiffModal'
+import { ContinuityChecker } from '@/features/continuity/ContinuityChecker'
 
 export function AppShell() {
   const { worldId } = useParams<{ worldId: string }>()
@@ -38,6 +39,7 @@ export function AppShell() {
       <SearchPalette />
       <WritersBriefPanel />
       <ChapterDiffModal />
+      <ContinuityChecker />
     </div>
   )
 }

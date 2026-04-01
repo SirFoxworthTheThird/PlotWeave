@@ -14,6 +14,7 @@ export interface Chapter {
   number: number
   title: string
   synopsis: string
+  notes: string
   createdAt: number
   updatedAt: number
 }
