@@ -11,6 +11,8 @@ const INITIAL: Parameters<typeof useAppStore.setState>[0] = {
   selectedCharacterId: null,
   selectedRelationshipId: null,
   theme: 'default',
+  isPlayingStory: false,
+  playbackSpeed: 'normal',
 }
 
 beforeEach(() => {
@@ -121,6 +123,58 @@ describe('MapSlice — resetMapHistory', () => {
     useAppStore.getState().resetMapHistory('new-root')
     expect(useAppStore.getState().activeMapLayerId).toBe('new-root')
     expect(useAppStore.getState().mapLayerHistory).toEqual(['new-root'])
+  })
+})
+
+// ── PlaybackSlice ─────────────────────────────────────────────────────────────
+
+describe('PlaybackSlice', () => {
+  it('starts with playback off and normal speed', () => {
+    const { isPlayingStory, playbackSpeed } = useAppStore.getState()
+    expect(isPlayingStory).toBe(false)
+    expect(playbackSpeed).toBe('normal')
+  })
+
+  it('sets isPlayingStory to true', () => {
+    useAppStore.getState().setIsPlayingStory(true)
+    expect(useAppStore.getState().isPlayingStory).toBe(true)
+  })
+
+  it('sets isPlayingStory back to false', () => {
+    useAppStore.setState({ isPlayingStory: true })
+    useAppStore.getState().setIsPlayingStory(false)
+    expect(useAppStore.getState().isPlayingStory).toBe(false)
+  })
+
+  it('sets playback speed to slow', () => {
+    useAppStore.getState().setPlaybackSpeed('slow')
+    expect(useAppStore.getState().playbackSpeed).toBe('slow')
+  })
+
+  it('sets playback speed to fast', () => {
+    useAppStore.getState().setPlaybackSpeed('fast')
+    expect(useAppStore.getState().playbackSpeed).toBe('fast')
+  })
+
+  it('cycles through all three speeds independently', () => {
+    useAppStore.getState().setPlaybackSpeed('slow')
+    expect(useAppStore.getState().playbackSpeed).toBe('slow')
+    useAppStore.getState().setPlaybackSpeed('normal')
+    expect(useAppStore.getState().playbackSpeed).toBe('normal')
+    useAppStore.getState().setPlaybackSpeed('fast')
+    expect(useAppStore.getState().playbackSpeed).toBe('fast')
+  })
+
+  it('changing playback speed does not affect isPlayingStory', () => {
+    useAppStore.setState({ isPlayingStory: true })
+    useAppStore.getState().setPlaybackSpeed('slow')
+    expect(useAppStore.getState().isPlayingStory).toBe(true)
+  })
+
+  it('stopping playback does not reset playback speed', () => {
+    useAppStore.getState().setPlaybackSpeed('fast')
+    useAppStore.getState().setIsPlayingStory(false)
+    expect(useAppStore.getState().playbackSpeed).toBe('fast')
   })
 })
 

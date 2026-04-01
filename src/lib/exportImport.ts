@@ -196,6 +196,12 @@ function normalizeImport(data: WorldExportFile): void {
       (layer as unknown as Record<string, unknown>).scaleUnit = null
     }
   }
+  // Backfill synopsis on chapters exported before it was added
+  for (const ch of data.chapters) {
+    if ((ch as unknown as Record<string, unknown>).synopsis === undefined) {
+      (ch as unknown as Record<string, unknown>).synopsis = ''
+    }
+  }
 }
 
 export async function importWorld(file: File): Promise<string> {

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.19% </span>
+                <span class="strong">75.75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>23/31</span>
+                <span class='fraction'>25/33</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68% </span>
+                <span class="strong">70.37% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>17/25</span>
+                <span class='fraction'>19/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/21</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
@@ -164,7 +164,29 @@
 <a name='L99'></a><a href='#L99'>99</a>
 <a name='L100'></a><a href='#L100'>100</a>
 <a name='L101'></a><a href='#L101'>101</a>
-<a name='L102'></a><a href='#L102'>102</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -237,6 +259,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -250,7 +278,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">99x</span>
+<span class="cline-any cline-yes">119x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -288,6 +316,14 @@ interface MapSlice {
 }
 &nbsp;
 export type AppTheme = 'default' | 'fantasy' | 'scifi' | 'cyberpunk' | 'horror' | 'western' | 'action' | 'noir' | 'romance'
+export type PlaybackSpeed = 'slow' | 'normal' | 'fast'
+&nbsp;
+interface PlaybackSlice {
+  isPlayingStory: boolean
+  playbackSpeed: PlaybackSpeed
+  setIsPlayingStory: (v: boolean) =&gt; void
+  setPlaybackSpeed: (speed: PlaybackSpeed) =&gt; void
+}
 &nbsp;
 interface UISlice {
   sidebarOpen: boolean
@@ -303,11 +339,11 @@ interface UISlice {
   setTheme: (theme: AppTheme) =&gt; void
 }
 &nbsp;
-type AppStore = WorldSlice &amp; ChapterSlice &amp; MapSlice &amp; UISlice
+type AppStore = WorldSlice &amp; ChapterSlice &amp; MapSlice &amp; UISlice &amp; PlaybackSlice
 &nbsp;
 export const useAppStore = create&lt;AppStore&gt;()(
   persist(
-    (set, get) =&gt; ({
+    (set, _get) =&gt; ({
       // World
       activeWorldId: null,
       setActiveWorldId: (id) =&gt; set({ activeWorldId: id, activeChapterId: null }),
@@ -336,6 +372,12 @@ export const useAppStore = create&lt;AppStore&gt;()(
       resetMapHistory: (rootId) =&gt;
         set({ activeMapLayerId: rootId, mapLayerHistory: [rootId] }),
 &nbsp;
+      // Playback (not persisted)
+      isPlayingStory: false,
+      playbackSpeed: 'normal' as PlaybackSpeed,
+      setIsPlayingStory: (v) =&gt; set({ isPlayingStory: v }),
+      setPlaybackSpeed: (speed) =&gt; set({ playbackSpeed: speed }),
+&nbsp;
       // UI
       sidebarOpen: true,
       setSidebarOpen: (open) =&gt; set({ sidebarOpen: open }),
@@ -350,7 +392,7 @@ export const useAppStore = create&lt;AppStore&gt;()(
       setTheme: (theme) =&gt; set({ theme }),
     }),
     {
-      name: 'worldbreaker-ui',
+      name: 'plotweave-ui',
       partialize: (state) =&gt; ({
         activeWorldId: state.activeWorldId,
         activeChapterId: state.activeChapterId,
@@ -373,7 +415,7 @@ export const <span class="fstat-no" title="function not covered" >useMapLayerHis
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-31T12:07:12.470Z
+                at 2026-04-01T10:47:05.441Z
             </div>
         <script src="../prettify.js"></script>
         <script>

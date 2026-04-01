@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto'
 import { describe, it, expect, beforeEach, afterAll } from 'vitest'
 import { db } from '@/db/database'
-import { upsertSnapshot, deleteSnapshot } from '@/db/hooks/useSnapshots'
+import { upsertSnapshot, deleteSnapshot, fetchSnapshot } from '@/db/hooks/useSnapshots'
 import type { CharacterSnapshot } from '@/types'
 
 // ── helpers ───────────────────────────────────────────────────────────────────
@@ -113,6 +113,55 @@ describe('deleteSnapshot', () => {
     const remaining = await db.characterSnapshots.toArray()
     expect(remaining).toHaveLength(1)
     expect(remaining[0].chapterId).toBe('ch-2')
+  })
+})
+
+// ── fetchSnapshot ─────────────────────────────────────────────────────────────
+
+describe('fetchSnapshot', () => {
+  it('returns the snapshot when it exists', async () => {
+    const created = await upsertSnapshot(makeSnap())
+    const fetched = await fetchSnapshot('char-1', 'ch-1')
+    expect(fetched).toBeDefined()
+    expect(fetched!.id).toBe(created.id)
+  })
+
+  it('returns undefined when no snapshot matches', async () => {
+    await upsertSnapshot(makeSnap())
+    const result = await fetchSnapshot('char-1', 'ch-nonexistent')
+    expect(result).toBeUndefined()
+  })
+
+  it('returns undefined when the characterId does not match', async () => {
+    await upsertSnapshot(makeSnap())
+    const result = await fetchSnapshot('char-unknown', 'ch-1')
+    expect(result).toBeUndefined()
+  })
+
+  it('returns the correct snapshot when multiple characters exist in the same chapter', async () => {
+    await upsertSnapshot(makeSnap({ characterId: 'char-1', statusNotes: 'first' }))
+    await upsertSnapshot(makeSnap({ characterId: 'char-2', statusNotes: 'second' }))
+
+    const result = await fetchSnapshot('char-2', 'ch-1')
+    expect(result).toBeDefined()
+    expect(result!.characterId).toBe('char-2')
+    expect(result!.statusNotes).toBe('second')
+  })
+
+  it('returns the correct snapshot when a character has entries across multiple chapters', async () => {
+    await upsertSnapshot(makeSnap({ chapterId: 'ch-1', statusNotes: 'chapter one' }))
+    await upsertSnapshot(makeSnap({ chapterId: 'ch-2', statusNotes: 'chapter two' }))
+
+    const result = await fetchSnapshot('char-1', 'ch-2')
+    expect(result!.statusNotes).toBe('chapter two')
+  })
+
+  it('reflects the latest data after an upsert', async () => {
+    await upsertSnapshot(makeSnap({ statusNotes: 'before' }))
+    await upsertSnapshot(makeSnap({ statusNotes: 'after' }))
+
+    const result = await fetchSnapshot('char-1', 'ch-1')
+    expect(result!.statusNotes).toBe('after')
   })
 })
 

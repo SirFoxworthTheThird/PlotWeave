@@ -133,6 +133,51 @@ describe('importWorld — normalizeImport backfills', () => {
     expect((stored as Record<string, unknown>).scaleUnit).toBeNull()
   })
 
+  it('backfills synopsis on chapters that lack it', async () => {
+    await db.delete()
+    await db.open()
+
+    const data = makeExport({
+      chapters: [{
+        id: 'ch-old',
+        worldId: 'world-extra',
+        timelineId: 'tl-1',
+        number: 1,
+        title: 'Old Chapter',
+        // deliberately omit synopsis — simulates pre-feature export
+        createdAt: 1000,
+        updatedAt: 1000,
+      } as never],
+    })
+    await importWorld(makeFile(data))
+
+    const stored = await db.chapters.get('ch-old')
+    expect(stored).toBeDefined()
+    expect((stored as Record<string, unknown>).synopsis).toBe('')
+  })
+
+  it('preserves existing synopsis when it is already set', async () => {
+    await db.delete()
+    await db.open()
+
+    const data = makeExport({
+      chapters: [{
+        id: 'ch-new',
+        worldId: 'world-extra',
+        timelineId: 'tl-1',
+        number: 1,
+        title: 'New Chapter',
+        synopsis: 'The hero sets off.',
+        createdAt: 1000,
+        updatedAt: 1000,
+      }],
+    })
+    await importWorld(makeFile(data))
+
+    const stored = await db.chapters.get('ch-new')
+    expect(stored!.synopsis).toBe('The hero sets off.')
+  })
+
   it('rejects when itemPlacements is present but not an array', async () => {
     const bad = { ...makeExport(), itemPlacements: 'bad' }
     await expect(importWorld(makeFile(bad))).rejects.toThrow('itemPlacements is not an array')
@@ -177,6 +222,54 @@ describe('importWorld — relationshipPositions', () => {
 
     await importWorld(makeFile(makeExport()))
     expect(localStorage.getItem('wb-rel-pos-world-extra')).toBeNull()
+  })
+})
+
+// ── characterMovements round-trip ─────────────────────────────────────────────
+
+describe('importWorld — characterMovements', () => {
+  it('imports characterMovements and preserves waypoints', async () => {
+    await db.delete()
+    await db.open()
+
+    const data = makeExport({
+      characterMovements: [{
+        id: 'mov-1',
+        worldId: 'world-extra',
+        characterId: 'char-1',
+        chapterId: 'ch-1',
+        waypoints: ['loc-a', 'loc-b', 'loc-c'],
+        createdAt: 1000,
+        updatedAt: 1000,
+      }],
+    })
+    await importWorld(makeFile(data))
+
+    const stored = await db.characterMovements.get('mov-1')
+    expect(stored).toBeDefined()
+    expect(stored!.waypoints).toEqual(['loc-a', 'loc-b', 'loc-c'])
+    expect(stored!.characterId).toBe('char-1')
+    expect(stored!.chapterId).toBe('ch-1')
+  })
+
+  it('imports multiple movements for different characters and chapters', async () => {
+    await db.delete()
+    await db.open()
+
+    const data = makeExport({
+      characterMovements: [
+        { id: 'mov-1', worldId: 'world-extra', characterId: 'char-1', chapterId: 'ch-1', waypoints: ['loc-a', 'loc-b'], createdAt: 1000, updatedAt: 1000 },
+        { id: 'mov-2', worldId: 'world-extra', characterId: 'char-2', chapterId: 'ch-1', waypoints: ['loc-c'], createdAt: 1000, updatedAt: 1000 },
+        { id: 'mov-3', worldId: 'world-extra', characterId: 'char-1', chapterId: 'ch-2', waypoints: ['loc-d', 'loc-e', 'loc-f'], createdAt: 1000, updatedAt: 1000 },
+      ],
+    })
+    await importWorld(makeFile(data))
+
+    const all = await db.characterMovements.where('worldId').equals('world-extra').toArray()
+    expect(all).toHaveLength(3)
+
+    const mov3 = await db.characterMovements.get('mov-3')
+    expect(mov3!.waypoints).toEqual(['loc-d', 'loc-e', 'loc-f'])
   })
 })
 

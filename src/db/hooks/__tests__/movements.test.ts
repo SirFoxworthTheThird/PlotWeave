@@ -72,6 +72,39 @@ describe('appendWaypoint', () => {
   })
 })
 
+// ── appendWaypoint — fromMarkerId seeding ────────────────────────────────────
+
+describe('appendWaypoint — fromMarkerId', () => {
+  it('seeds [fromMarkerId, markerId] when no movement exists and markers differ', async () => {
+    await appendWaypoint(W, C, CH, 'loc-2', 'loc-1')
+    expect(await getWaypoints()).toEqual(['loc-1', 'loc-2'])
+  })
+
+  it('creates [markerId] only when fromMarkerId equals markerId', async () => {
+    await appendWaypoint(W, C, CH, 'loc-1', 'loc-1')
+    expect(await getWaypoints()).toEqual(['loc-1'])
+  })
+
+  it('ignores fromMarkerId when a movement record already exists', async () => {
+    await appendWaypoint(W, C, CH, 'loc-1')
+    await appendWaypoint(W, C, CH, 'loc-3', 'loc-2')
+    expect(await getWaypoints()).toEqual(['loc-1', 'loc-3'])
+  })
+
+  it('allows subsequent waypoints to be appended after a seeded movement', async () => {
+    await appendWaypoint(W, C, CH, 'loc-2', 'loc-1')
+    await appendWaypoint(W, C, CH, 'loc-3')
+    expect(await getWaypoints()).toEqual(['loc-1', 'loc-2', 'loc-3'])
+  })
+
+  it('does not duplicate fromMarkerId if it matches the appended waypoint', async () => {
+    // existing movement ends at loc-1; appending loc-1 again is a no-op
+    await appendWaypoint(W, C, CH, 'loc-1')
+    await appendWaypoint(W, C, CH, 'loc-1', 'loc-1')
+    expect(await getWaypoints()).toEqual(['loc-1'])
+  })
+})
+
 // ── clearMovement ─────────────────────────────────────────────────────────────
 
 describe('clearMovement', () => {

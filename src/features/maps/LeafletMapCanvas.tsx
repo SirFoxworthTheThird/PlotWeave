@@ -183,7 +183,11 @@ function ZoomTracker({ onZoomChange }: { onZoomChange: (zoom: number) => void })
 function FitBounds({ bounds }: { bounds: L.LatLngBoundsExpression }) {
   const map = useMapEvents({})
   useEffect(() => {
+    map.invalidateSize()
+    const prevSnap = map.options.zoomSnap
+    map.options.zoomSnap = 0
     map.fitBounds(bounds, { padding: [0, 0], animate: false })
+    map.options.zoomSnap = prevSnap ?? 0.25
   }, [map, bounds]) // eslint-disable-line react-hooks/exhaustive-deps
   return null
 }
