@@ -973,7 +973,7 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
   for (const mov of movements) {
     const points: [number, number][] = []
     for (const wId of mov.waypoints) {
-      const m = markers.find((mk) => mk.id === wId)
+      const m = allMarkers.find((mk) => mk.id === wId && mk.mapLayerId === layerId)
       if (m) points.push([m.y, m.x])
     }
     if (points.length >= 2) {
