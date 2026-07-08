@@ -408,7 +408,7 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
           <button
             onClick={() => setSidebarOpen(false)}
             aria-label="Close map panels"
-            className="flex h-7 w-7 items-center justify-center rounded-md text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))]"
+            className="pw-tap flex h-7 w-7 items-center justify-center rounded-md text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))]"
           >
             <X className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -481,7 +481,7 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
             onClick={() => setSidebarOpen(true)}
             aria-label="Open map panels"
             title="Map panels"
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))] lg:hidden"
+            className="pw-tap flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--foreground))] lg:hidden"
           >
             <PanelLeft className="h-4 w-4" aria-hidden="true" />
           </button>
