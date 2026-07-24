@@ -215,6 +215,7 @@ export const useAppStore = create<AppStore>()(
         sidebarOpen: state.sidebarOpen,
         navPinned: state.navPinned,
         barScope: state.barScope,
+        theme: state.theme,
       }),
     }
   )

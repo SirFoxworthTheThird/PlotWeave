@@ -446,3 +446,11 @@ describe('barScope', () => {
     expect(persisted.state?.barScope).toBe('all-chrono')
   })
 })
+
+describe('theme persistence', () => {
+  it('persists the app theme so it survives a reload', () => {
+    useAppStore.getState().setTheme('parchment' as never)
+    const persisted = JSON.parse(localStorage.getItem('plotweave-ui') ?? '{}')
+    expect(persisted.state?.theme).toBe('parchment')
+  })
+})
