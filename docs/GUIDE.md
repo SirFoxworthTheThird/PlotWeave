@@ -321,7 +321,9 @@ The **All timelines** tab (it appears alongside your timeline tabs once you have
 more than one) merges every timeline into a single sequence, with the same two
 orders as the bottom bar: **Chapter order** (reading order, following chapter
 numbers across all timelines) or **Chronological** (every scene ordered by the
-in-world day it happens, each timeline clocked from its own day 0). The toggle
+in-world day it happens; each timeline's clock starts at day 0, or at the
+**start day** you give it in [World settings](#world-settings--export) for
+multi-era stories). The toggle
 here and the bottom bar's scope selector are one setting — change either and
 both follow, and your choice is remembered between sessions. Each row is tagged
 with a coloured dot, its timeline name, and its chapter, so you can read the
@@ -954,6 +956,15 @@ the **continuity stale-snapshot threshold**, set a book-level **word target** an
 **deadline** (for the dashboard's [Writing Progress](#the-world-dashboard)
 burndown and finish projection), and configure an in-world
 **[calendar](#calendar--character-ages)** for story dates and character ages.
+
+Worlds with more than one timeline also get a **Timelines** section: give each
+timeline a **start day** for its clock. By default every timeline starts at
+day 0 — right for parallel storylines, but a frame narrative's past or an
+earlier era belongs at a different point on the world clock. Setting, say,
+day 10,000 on the "present" timeline makes chronological merges (the
+All-timelines view and the bottom bar) and the calendar place both eras where
+they actually fall. An event's pinned in-world day stays relative to its own
+timeline's clock.
 
 The **cover image** appears on the world's card in the selector and in the
 dashboard header. **Upload** an image file or **link** one by URL (the link

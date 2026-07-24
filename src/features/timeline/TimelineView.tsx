@@ -18,18 +18,19 @@ import { AddChapterDialog } from './AddChapterDialog'
 import { ChapterAIDialog } from './ChapterAIDialog'
 import { PacingCurve } from './PacingCurve'
 import { TimelineRelationshipPanel } from './TimelineRelationshipPanel'
-import type { WorldEvent, Chapter } from '@/types'
+import type { WorldEvent, Chapter, Timeline } from '@/types'
 
 // ── Chronological (in-world) order ──────────────────────────────────────────
 // Events flattened across chapters and ordered by their effective in-world day,
 // so flashbacks and out-of-order scenes surface where they actually happen.
-function ChronologicalList({ events, chapters, activeEventId, onSelect }: {
+function ChronologicalList({ events, chapters, timelines, activeEventId, onSelect }: {
   events: WorldEvent[]
   chapters: Chapter[]
+  timelines: Timeline[]
   activeEventId: string | null
   onSelect: (id: string) => void
 }) {
-  const inWorldDays = computeInWorldDays(events, chapters)
+  const inWorldDays = computeInWorldDays(events, chapters, timelines)
   const chapterById = new Map(chapters.map((c) => [c.id, c]))
   const ordered = [...events].sort((a, b) => {
     const da = inWorldDays.get(a.id) ?? 0
@@ -472,6 +473,7 @@ export default function TimelineView() {
               <ChronologicalList
                 events={timelineEvents}
                 chapters={chapters}
+                timelines={timelines}
                 activeEventId={activeEventId}
                 onSelect={setActiveEventId}
               />
