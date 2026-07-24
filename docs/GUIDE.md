@@ -295,7 +295,8 @@ Every **other multi-timeline world** uses a single-height bottom bar with a
 **scope selector** on its left. Choose one timeline to scrub it on its own, or
 pick **All · Chapter order** / **All · Chronological** to merge every timeline
 into one strip — each chapter run tinted with its timeline's colour, and the
-active event's panel showing which storyline it belongs to.
+active event's panel showing which storyline it belongs to. The scope is
+remembered between sessions.
 
 **Chapter order** follows chapter numbers across all timelines, so a book
 numbered straight through (e.g. book III = ch. 1–11, book IV = ch. 12–21) reads
@@ -317,11 +318,15 @@ interleave.
 Each timeline numbers its chapters on its own and keeps its own in-world clock,
 so switching between tabs never shows how the storylines actually interleave.
 The **All timelines** tab (it appears alongside your timeline tabs once you have
-more than one) merges every timeline into a single **in-world sequence** — every
-scene ordered by the day it happens, with each timeline clocked from its own
-day 0. Each row is tagged with a coloured dot, its timeline name, and its chapter,
-so you can read the true order of events across parallel POVs or braided plots at
-a glance. Click any row to move the time cursor to that moment.
+more than one) merges every timeline into a single sequence, with the same two
+orders as the bottom bar: **Chapter order** (reading order, following chapter
+numbers across all timelines) or **Chronological** (every scene ordered by the
+in-world day it happens, each timeline clocked from its own day 0). The toggle
+here and the bottom bar's scope selector are one setting — change either and
+both follow, and your choice is remembered between sessions. Each row is tagged
+with a coloured dot, its timeline name, and its chapter, so you can read the
+true order of events across parallel POVs or braided plots at a glance. Click
+any row to move the time cursor to that moment.
 
 ![All timelines combined view](images/47-all-timelines.png)
 

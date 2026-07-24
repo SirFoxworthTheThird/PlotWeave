@@ -214,6 +214,7 @@ export const useAppStore = create<AppStore>()(
         activeEventId: state.activeEventId,
         sidebarOpen: state.sidebarOpen,
         navPinned: state.navPinned,
+        barScope: state.barScope,
       }),
     }
   )
