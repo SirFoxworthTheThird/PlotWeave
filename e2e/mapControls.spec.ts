@@ -74,6 +74,39 @@ test('rare map commands live behind the overflow menu', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Replace image' })).toHaveCount(0)
 })
 
+test('an open detail panel does not sit under the floating toolbar', async ({ page }) => {
+  test.setTimeout(120000)
+  await setupMap(page)
+
+  // Place a location and open its panel.
+  await page.getByRole('button', { name: 'Location', exact: true }).click()
+  await expect(page.getByText('Click on the map to place the location')).toBeVisible()
+  await page.locator('.leaflet-container').click({ position: { x: 300, y: 250 } })
+  await page.getByPlaceholder('e.g. Thornwall City').fill('Rivendell')
+  await page.getByRole('button', { name: 'Add Location' }).last().click()
+  await page.getByText('Rivendell').first().click()
+
+  const close = page.getByRole('button', { name: 'Close location panel' })
+  await expect(close).toBeVisible()
+
+  // The panel occupies the top-right corner the toolbar would otherwise use.
+  // Its close button must be the thing at that point, not the "..." menu — and
+  // the toolbar has to stay reachable rather than being buried underneath.
+  const box = (await close.boundingBox())!
+  const topmost = await page.evaluate(
+    ({ x, y }) => {
+      const el = document.elementFromPoint(x, y)
+      return el?.closest('button')?.getAttribute('aria-label') ?? el?.tagName ?? null
+    },
+    { x: box.x + box.width / 2, y: box.y + box.height / 2 },
+  )
+  expect(topmost).toBe('Close location panel')
+
+  await expect(page.getByRole('button', { name: 'Map tools' })).toBeVisible()
+  await close.click()
+  await expect(close).toHaveCount(0)
+})
+
 test('Measure surfaces only once the map has a scale', async ({ page }) => {
   test.setTimeout(120000)
   await setupMap(page)
