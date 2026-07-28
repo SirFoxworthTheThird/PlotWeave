@@ -12,8 +12,29 @@
 
 export type OperationType = 'create' | 'update' | 'delete'
 
-/** Entity groups that carry a journal. Extended as the seam widens. */
-export type OperationEntity = 'character'
+/**
+ * Entity groups that carry a journal — the things a writer creates, edits and
+ * deletes directly, and would therefore expect to be able to undo.
+ *
+ * Per-event snapshot records (character/item/location/relationship snapshots)
+ * are deliberately not here yet: they are the highest-volume writes in the app,
+ * and journalling them wants a compaction story first so the journal doesn't
+ * drown in them.
+ */
+export type OperationEntity =
+  | 'character'
+  | 'characterGoal'
+  | 'item'
+  | 'location'
+  | 'timeline'
+  | 'chapter'
+  | 'event'
+  | 'relationship'
+  | 'lorePage'
+  | 'faction'
+  | 'plotThread'
+  | 'motif'
+  | 'knowledgeFact'
 
 export interface Operation {
   /** Stable, client-generated. Replaying the same id twice is a no-op. */

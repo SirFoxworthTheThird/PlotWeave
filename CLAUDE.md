@@ -45,8 +45,15 @@ and durable backup. It is entirely local: no network work is required for a muta
 - Journalled records carry an optional `version`, incremented per write. **Read it as `?? 1`** —
   records predating v52, and older `.pwk` imports, have none.
 - Deletes also write a `Tombstone`, so a deletion is recorded rather than inferred from absence.
-- `OperationEntity` is the list of entity groups on the seam. Widen it as more are migrated;
-  `character` is the reference implementation.
+- `OperationEntity` lists the 13 entity groups on the seam: character, characterGoal, item,
+  location, timeline, chapter, event, relationship, lorePage, faction, plotThread, motif,
+  knowledgeFact. Per-event snapshots are deliberately off it for now (highest-volume writes; they
+  want a compaction story first).
+- **A partial journal is worse than none.** If a path writes a journalled table directly — bulk AI
+  generation, chapter AI import, world import — it must call `markJournalDiscontinuity(worldId)`,
+  which resets the journal rather than leaving one that claims to be complete and isn't. Bulk
+  operations that are ordinary user edits (`bulkDeleteEvents`, `bulkAddTag`, `moveEventOnBoard`)
+  instead route through the journalled singles.
 - The journal is device-local and is deliberately **not** part of `.pwk`/`.pwb` exports — a portable
   file is a snapshot of current state, not another device's history.
 

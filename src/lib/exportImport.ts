@@ -1,4 +1,5 @@
 import { db } from '@/db/database'
+import { markJournalDiscontinuity } from '@/db/hooks/useOperations'
 import type {
   CharacterGoal,
   World, MapLayer, LocationMarker, Character, Item,
@@ -1052,6 +1053,10 @@ async function importWorldData(data: WorldExportFile, replaceExisting = true): P
     localStorage.removeItem(`wb-rel-pos-${data.world.id}`)
   }
 
+  // Import writes the whole world wholesale and reuses its ids, so any journal
+  // left under that id describes a different history. Reset it rather than
+  // leave a partial one — see markJournalDiscontinuity.
+  await markJournalDiscontinuity(data.world.id)
   return data.world.id
 }
 

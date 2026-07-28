@@ -565,8 +565,11 @@ collaboration (phases #115–#123) and **#133** security (#125–#132).
   end-to-end. Record and operation are written in one transaction; nothing
   touches the network. Unlocks the undo primitive (`invertOperation`) and makes
   the store replayable rather than only current.
-  - Remaining for #115: widen `OperationEntity` beyond `character` to the other
-    entity groups, and define stable ordering keys for timelines/chapters/events.
+  - Seam widened to 13 entity groups. Bulk user edits route through the
+    journalled singles; bulk AI/import paths call `markJournalDiscontinuity`,
+    which resets the journal rather than leaving a partial one behind.
+  - Remaining for #115: per-event snapshots (deferred — highest-volume writes,
+    want compaction first), and stable ordering keys for chapters/events.
 - [ ] The rest of #124 is **not committed**. The valuable near-term increment is
   durability and cross-device sync for one author, not multi-user editing —
   `useAutoFolderSync` already covers much of it via a user-supplied folder,

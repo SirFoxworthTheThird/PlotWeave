@@ -3,6 +3,12 @@ import { describe, it, expect, beforeEach, afterAll } from 'vitest'
 import { db } from '@/db/database'
 import { createWorld, deleteWorld } from '@/db/hooks/useWorlds'
 import { createCharacter, updateCharacter, deleteCharacter } from '@/db/hooks/useCharacters'
+import { createItem } from '@/db/hooks/useItems'
+import { createPlotThread } from '@/db/hooks/usePlotThreads'
+import {
+  createTimeline, createChapter, createEvent, deleteChapter, bulkAddTag, bulkDeleteEvents,
+} from '@/db/hooks/useTimeline'
+import { addCharactersToWorld } from '@/lib/sectionImport'
 import {
   listOperations, operationsForEntity, listTombstones, isDeleted, pruneJournal, clearJournal,
 } from '@/db/hooks/useOperations'
@@ -206,5 +212,90 @@ describe('records predating the journal', () => {
     const update = ops.find((o) => o.type === 'update')!
     expect(update.baseVersion).toBe(1)
     expect((await db.characters.get(char.id))?.version).toBe(2)
+  })
+})
+
+describe('the widened seam', () => {
+  it('journals every entity group on the seam', async () => {
+    const world = await createWorld({ name: 'Wide', description: '' })
+    const tl = await createTimeline({ worldId: world.id, name: 'Main', description: '', color: '#fff' })
+    const ch = await createChapter({ worldId: world.id, timelineId: tl.id, number: 1, title: 'One', synopsis: '' })
+    const ev = await createEvent({
+      worldId: world.id, chapterId: ch.id, timelineId: tl.id, title: 'Scene', description: '',
+      locationMarkerId: null, involvedCharacterIds: [], involvedItemIds: [], tags: [], sortOrder: 0,
+    })
+    const char = await createCharacter({ worldId: world.id, name: 'Vela', description: '' })
+    const item = await createItem({ worldId: world.id, name: 'Sword', description: '', iconType: 'weapon', tags: [] })
+    const thread = await createPlotThread({ worldId: world.id, name: 'Revenge', color: '#f00' })
+
+    const kinds = new Set((await listOperations(world.id)).map((o) => o.entityType))
+    for (const k of ['timeline', 'chapter', 'event', 'character', 'item', 'plotThread']) {
+      expect(kinds.has(k as never)).toBe(true)
+    }
+    expect([tl.id, ch.id, ev.id, char.id, item.id, thread.id].every(Boolean)).toBe(true)
+  })
+
+  it('journals bulk event operations one row at a time', async () => {
+    const world = await createWorld({ name: 'Bulk', description: '' })
+    const tl = await createTimeline({ worldId: world.id, name: 'Main', description: '', color: '#fff' })
+    const ch = await createChapter({ worldId: world.id, timelineId: tl.id, number: 1, title: 'One', synopsis: '' })
+    const ids: string[] = []
+    for (let i = 0; i < 3; i++) {
+      const ev = await createEvent({
+        worldId: world.id, chapterId: ch.id, timelineId: tl.id, title: `E${i}`, description: '',
+        locationMarkerId: null, involvedCharacterIds: [], involvedItemIds: [], tags: [], sortOrder: i,
+      })
+      ids.push(ev.id)
+    }
+
+    await bulkAddTag(ids, 'battle')
+    const tagged = (await listOperations(world.id)).filter(
+      (o) => o.entityType === 'event' && o.type === 'update' && o.changedFields.includes('tags'),
+    )
+    expect(tagged).toHaveLength(3)
+
+    await bulkDeleteEvents(ids)
+    const deletes = (await listOperations(world.id)).filter((o) => o.entityType === 'event' && o.type === 'delete')
+    expect(deletes).toHaveLength(3)
+    expect(await db.events.count()).toBe(0)
+    // Every removed row left a tombstone rather than just vanishing.
+    expect((await listTombstones(world.id)).filter((t) => t.entityType === 'event')).toHaveLength(3)
+  })
+
+  it('deleting a chapter journals the chapter itself', async () => {
+    const world = await createWorld({ name: 'Cascade', description: '' })
+    const tl = await createTimeline({ worldId: world.id, name: 'Main', description: '', color: '#fff' })
+    const ch = await createChapter({ worldId: world.id, timelineId: tl.id, number: 1, title: 'One', synopsis: '' })
+    await deleteChapter(ch.id)
+
+    const ops = await operationsForEntity('chapter', ch.id)
+    expect(ops.map((o) => o.type)).toEqual(['create', 'delete'])
+    expect(await isDeleted('chapter', ch.id)).toBe(true)
+  })
+})
+
+describe('journal discontinuities', () => {
+  it('a bulk AI import resets the journal rather than leaving a partial one', async () => {
+    const world = await createWorld({ name: 'AI', description: '' })
+    await createCharacter({ worldId: world.id, name: 'Vela', description: '' })
+    expect((await listOperations(world.id)).length).toBeGreaterThan(0)
+
+    await addCharactersToWorld(world.id, [{ name: 'Imported One' }, { name: 'Imported Two' }] as never)
+
+    // The store changed wholesale, so the journal no longer explains it — and
+    // says so by being empty instead of half-right.
+    expect(await listOperations(world.id)).toHaveLength(0)
+    expect(await db.characters.where('worldId').equals(world.id).count()).toBe(3)
+  })
+
+  it('leaves other worlds journals alone', async () => {
+    const w1 = await createWorld({ name: 'One', description: '' })
+    const w2 = await createWorld({ name: 'Two', description: '' })
+    await createCharacter({ worldId: w1.id, name: 'A', description: '' })
+    await createCharacter({ worldId: w2.id, name: 'B', description: '' })
+
+    await addCharactersToWorld(w1.id, [{ name: 'Imported' }] as never)
+    expect(await listOperations(w1.id)).toHaveLength(0)
+    expect(await listOperations(w2.id)).toHaveLength(1)
   })
 })

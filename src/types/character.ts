@@ -30,6 +30,8 @@ export interface Item {
   iconType: string
   imageId: string | null
   tags: string[]
+  /** Operation-journal bookkeeping (#115); absent on pre-v52 records. */
+  version?: number
 }
 
 export interface ItemPlacement {
