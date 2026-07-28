@@ -11,6 +11,13 @@ export interface Character {
   color: string | null
   /** Optional birth date on the world calendar, for computing age at an event. */
   birthDate?: import('./world').InWorldDate | null
+  /**
+   * Operation-journal bookkeeping (#115), incremented on every journalled
+   * write. Optional because records created before v52 — and worlds imported
+   * from older `.pwk` files — won't carry one; the journal reads a missing
+   * version as 1.
+   */
+  version?: number
   createdAt: number
   updatedAt: number
 }

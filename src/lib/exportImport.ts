@@ -727,6 +727,11 @@ function normalizeImport(data: WorldExportFile): void {
     const c = char as unknown as Rec
     if (c.color === undefined) c.color = null
     if (c.birthDate === undefined) c.birthDate = null
+    // Journal versions (#115) start fresh on import: a `.pwk` is a snapshot of
+    // a world's current state, and the exporting device's history means nothing
+    // in the importing one. The operation journal itself is deliberately not
+    // part of the file for the same reason.
+    if (c.version === undefined) c.version = 1
   }
   // Backfill scale and level fields on map layers exported before they were added
   for (const layer of data.mapLayers) {
