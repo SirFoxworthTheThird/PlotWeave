@@ -44,6 +44,8 @@ export interface ItemPlacement {
   notes: string
   createdAt: number
   updatedAt: number
+  /** Operation-journal bookkeeping (#115); absent on pre-v52 records. */
+  version?: number
 }
 
 export interface CharacterSnapshot {
@@ -62,6 +64,8 @@ export interface CharacterSnapshot {
   travelModeId: string | null
   createdAt: number
   updatedAt: number
+  /** Operation-journal bookkeeping (#115); absent on pre-v52 records. */
+  version?: number
 }
 
 export interface LocationSnapshot {
@@ -75,6 +79,8 @@ export interface LocationSnapshot {
   notes: string
   createdAt: number
   updatedAt: number
+  /** Operation-journal bookkeeping (#115); absent on pre-v52 records. */
+  version?: number
 }
 
 export interface ItemSnapshot {
@@ -88,4 +94,6 @@ export interface ItemSnapshot {
   notes: string
   createdAt: number
   updatedAt: number
+  /** Operation-journal bookkeeping (#115); absent on pre-v52 records. */
+  version?: number
 }

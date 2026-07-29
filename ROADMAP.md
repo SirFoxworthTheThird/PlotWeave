@@ -565,11 +565,15 @@ collaboration (phases #115–#123) and **#133** security (#125–#132).
   end-to-end. Record and operation are written in one transaction; nothing
   touches the network. Unlocks the undo primitive (`invertOperation`) and makes
   the store replayable rather than only current.
-  - Seam widened to 13 entity groups. Bulk user edits route through the
-    journalled singles; bulk AI/import paths call `markJournalDiscontinuity`,
-    which resets the journal rather than leaving a partial one behind.
-  - Remaining for #115: per-event snapshots (deferred — highest-volume writes,
-    want compaction first), and stable ordering keys for chapters/events.
+  - Seam covers 19 entity groups, including the per-event snapshots. Bulk user
+    edits route through the journalled singles; bulk AI/import paths call
+    `markJournalDiscontinuity`, which resets the journal rather than leaving a
+    partial one behind.
+  - **Fractional/stable ordering positions belong to #118**, whose scope names
+    them explicitly ("preserve concurrent ordering changes through
+    stable/fractional positions"). #115 makes ordering changes *journalled and
+    deterministic on replay*, which is what the foundation owes; conflict-free
+    concurrent ordering is a sync concern and a 152-site change to `sortOrder`.
 - [ ] The rest of #124 is **not committed**. The valuable near-term increment is
   durability and cross-device sync for one author, not multi-user editing —
   `useAutoFolderSync` already covers much of it via a user-supplied folder,

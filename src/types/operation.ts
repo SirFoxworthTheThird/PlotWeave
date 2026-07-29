@@ -16,10 +16,11 @@ export type OperationType = 'create' | 'update' | 'delete'
  * Entity groups that carry a journal — the things a writer creates, edits and
  * deletes directly, and would therefore expect to be able to undo.
  *
- * Per-event snapshot records (character/item/location/relationship snapshots)
- * are deliberately not here yet: they are the highest-volume writes in the app,
- * and journalling them wants a compaction story first so the journal doesn't
- * drown in them.
+ * Per-event snapshot records are included: state changes at an event are as
+ * much a writer's edit as anything else, and snapshots are only ever written by
+ * a direct user action — the "inherit from the previous chapter" behaviour is
+ * resolved at read time, so there is no bulk snapshot write to drown the
+ * journal in.
  */
 export type OperationEntity =
   | 'character'
@@ -35,6 +36,12 @@ export type OperationEntity =
   | 'plotThread'
   | 'motif'
   | 'knowledgeFact'
+  | 'characterSnapshot'
+  | 'itemPlacement'
+  | 'locationSnapshot'
+  | 'itemSnapshot'
+  | 'relationshipSnapshot'
+  | 'mapRegionSnapshot'
 
 export interface Operation {
   /** Stable, client-generated. Replaying the same id twice is a no-op. */

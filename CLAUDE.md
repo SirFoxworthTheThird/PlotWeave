@@ -45,10 +45,12 @@ and durable backup. It is entirely local: no network work is required for a muta
 - Journalled records carry an optional `version`, incremented per write. **Read it as `?? 1`** —
   records predating v52, and older `.pwk` imports, have none.
 - Deletes also write a `Tombstone`, so a deletion is recorded rather than inferred from absence.
-- `OperationEntity` lists the 13 entity groups on the seam: character, characterGoal, item,
+- `OperationEntity` lists the 19 entity groups on the seam: character, characterGoal, item,
   location, timeline, chapter, event, relationship, lorePage, faction, plotThread, motif,
-  knowledgeFact. Per-event snapshots are deliberately off it for now (highest-volume writes; they
-  want a compaction story first).
+  knowledgeFact, plus the per-event snapshots (characterSnapshot, itemPlacement, locationSnapshot,
+  itemSnapshot, relationshipSnapshot, mapRegionSnapshot). Snapshots are only written by a direct
+  user edit — chapter-to-chapter inheritance is resolved at read time, so there is no bulk
+  snapshot write.
 - **A partial journal is worse than none.** If a path writes a journalled table directly — bulk AI
   generation, chapter AI import, world import — it must call `markJournalDiscontinuity(worldId)`,
   which resets the journal rather than leaving one that claims to be complete and isn't. Bulk

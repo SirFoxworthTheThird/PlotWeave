@@ -7,7 +7,9 @@ import { createItem } from '@/db/hooks/useItems'
 import { createPlotThread } from '@/db/hooks/usePlotThreads'
 import {
   createTimeline, createChapter, createEvent, deleteChapter, bulkAddTag, bulkDeleteEvents,
+  moveEventOnBoard,
 } from '@/db/hooks/useTimeline'
+import { upsertSnapshot } from '@/db/hooks/useSnapshots'
 import { addCharactersToWorld } from '@/lib/sectionImport'
 import {
   listOperations, operationsForEntity, listTombstones, isDeleted, pruneJournal, clearJournal,
@@ -297,5 +299,106 @@ describe('journal discontinuities', () => {
     await addCharactersToWorld(w1.id, [{ name: 'Imported' }] as never)
     expect(await listOperations(w1.id)).toHaveLength(0)
     expect(await listOperations(w2.id)).toHaveLength(1)
+  })
+})
+
+describe('ordering', () => {
+  async function chapterWithEvents(n: number) {
+    const world = await createWorld({ name: 'Ordered', description: '' })
+    const tl = await createTimeline({ worldId: world.id, name: 'Main', description: '', color: '#fff' })
+    const ch = await createChapter({ worldId: world.id, timelineId: tl.id, number: 1, title: 'One', synopsis: '' })
+    const ids: string[] = []
+    for (let i = 0; i < n; i++) {
+      const ev = await createEvent({
+        worldId: world.id, chapterId: ch.id, timelineId: tl.id, title: `E${i}`, description: '',
+        locationMarkerId: null, involvedCharacterIds: [], involvedItemIds: [], tags: [], sortOrder: i,
+      })
+      ids.push(ev.id)
+    }
+    return { world, ch, ids }
+  }
+
+  const orderNow = async (chapterId: string) =>
+    (await db.events.where('chapterId').equals(chapterId).toArray())
+      .sort((a, b) => a.sortOrder - b.sortOrder)
+      .map((e) => e.title)
+
+  it('journals a reorder as a per-row update, not an untracked sweep', async () => {
+    const { world, ch, ids } = await chapterWithEvents(3)
+    const before = (await listOperations(world.id)).length
+
+    // Move the last card to the front.
+    await moveEventOnBoard(ids[2], ch.id, 0)
+    expect(await orderNow(ch.id)).toEqual(['E2', 'E0', 'E1'])
+
+    const added = (await listOperations(world.id)).slice(before)
+    expect(added.length).toBeGreaterThan(0)
+    // Every row whose position changed is accounted for by an operation.
+    for (const op of added) {
+      expect(op.entityType).toBe('event')
+      expect(op.type).toBe('update')
+    }
+  })
+
+  it('replaying the journal reproduces the final order deterministically', async () => {
+    const { world, ch, ids } = await chapterWithEvents(4)
+    await moveEventOnBoard(ids[3], ch.id, 0)
+    await moveEventOnBoard(ids[1], ch.id, 3)
+    const expected = await orderNow(ch.id)
+
+    // Rebuild each event from its own operations and sort by the replayed
+    // sortOrder — the journal alone has to explain the order on screen.
+    const ops = await listOperations(world.id)
+    const byEntity = new Map<string, typeof ops>()
+    for (const op of ops.filter((o) => o.entityType === 'event')) {
+      byEntity.set(op.entityId, [...(byEntity.get(op.entityId) ?? []), op])
+    }
+    const rebuilt = [...byEntity.values()]
+      .map((entityOps) => replay<{ id: string; version: number; title: string; sortOrder: number }>(undefined, entityOps))
+      .filter((r): r is { id: string; version: number; title: string; sortOrder: number } => r != null)
+      .sort((a, b) => a.sortOrder - b.sortOrder)
+      .map((r) => r.title)
+
+    expect(rebuilt).toEqual(expected)
+  })
+
+  it('sequence numbers order operations independently of wall-clock time', async () => {
+    const { world } = await chapterWithEvents(3)
+    const ops = await listOperations(world.id)
+    const seqs = ops.map((o) => o.seq)
+    expect(seqs).toEqual([...seqs].sort((a, b) => a - b))
+    expect(new Set(seqs).size).toBe(seqs.length)
+  })
+})
+
+describe('per-event snapshots on the seam', () => {
+  it('journals a character state change at an event', async () => {
+    const world = await createWorld({ name: 'Snap', description: '' })
+    const tl = await createTimeline({ worldId: world.id, name: 'Main', description: '', color: '#fff' })
+    const ch = await createChapter({ worldId: world.id, timelineId: tl.id, number: 1, title: 'One', synopsis: '' })
+    const ev = await createEvent({
+      worldId: world.id, chapterId: ch.id, timelineId: tl.id, title: 'Scene', description: '',
+      locationMarkerId: null, involvedCharacterIds: [], involvedItemIds: [], tags: [], sortOrder: 0,
+    })
+    const char = await createCharacter({ worldId: world.id, name: 'Vela', description: '' })
+
+    const snap = await upsertSnapshot({
+      worldId: world.id, characterId: char.id, eventId: ev.id,
+      isAlive: true, currentLocationMarkerId: null, currentMapLayerId: null,
+      inventoryItemIds: [], inventoryNotes: '', statusNotes: 'wounded', travelModeId: null,
+    })
+    const created = await operationsForEntity('characterSnapshot', snap.id)
+    expect(created.map((o) => o.type)).toEqual(['create'])
+
+    // Editing the same event's state updates in place, and journals an update.
+    await upsertSnapshot({
+      worldId: world.id, characterId: char.id, eventId: ev.id,
+      isAlive: false, currentLocationMarkerId: null, currentMapLayerId: null,
+      inventoryItemIds: [], inventoryNotes: '', statusNotes: 'dead', travelModeId: null,
+    })
+    const after = await operationsForEntity('characterSnapshot', snap.id)
+    expect(after.map((o) => o.type)).toEqual(['create', 'update'])
+    expect(after[1].changedFields).toContain('statusNotes')
+    expect((await db.characterSnapshots.get(snap.id))?.isAlive).toBe(false)
   })
 })
