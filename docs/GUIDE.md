@@ -1080,15 +1080,24 @@ The panel shows where the folder stands relative to this device:
 | **Up to date** | The folder holds the same version as this device. |
 | **Unsaved changes** | You have edits the folder hasn't received yet. |
 | **Newer copy in folder** | Another device saved to this folder — **Load** to catch up. |
-| **Both changed** | You edited here *and* another device saved. |
+| **Both changed** | You edited here *and* another device saved — see below. |
+
+The same status appears **next to the world name in the top bar**, so you can
+tell at a glance whether your work is reaching the folder without opening
+Settings.
 
 Because the bound folder is usually shared between your machines, PlotWeave
-**auto-saves only when it cannot destroy anything** — when the file still holds
-exactly what this device last wrote. If another device has saved since, the
-background save pauses and the panel says so, so whichever machine you happened
-to open last can't quietly overwrite the other's work. **Load** compares the two
-copies first; **Save over** replaces the folder's copy with this device's, and is
-only offered once you've been told what you'd be replacing.
+never overwrites the folder's copy behind your back. When another device has
+saved since you last did, and you have your own unsaved changes, auto-save
+writes to a **conflict copy** beside it — `My World (conflict copy 2026-07-29
+0315).pwk` — rather than either destroying their version or leaving yours
+unsaved. Both versions survive, and you can sort it out whenever you like:
+**Load** compares the folder's copy against yours, and **Save over** replaces it
+with this device's.
+
+If PlotWeave has lost permission to the folder (browsers drop it between
+sessions), the indicator says **Reconnect folder** — auto-save does nothing
+until you re-grant access from World Settings.
 
 ![Database health and folder sync](images/43-settings-sync.png)
 
