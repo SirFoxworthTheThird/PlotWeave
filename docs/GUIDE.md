@@ -1068,7 +1068,10 @@ OneDrive, Dropbox, or another file-sync service. **Save** writes the current
 world; **Load** previews the file before applying it.
 
 - **Smart merge** compares records and keeps the newer version of each entity,
-  which is useful when the same world was edited on two devices.
+  which is useful when the same world was edited on two devices. Anything you
+  deleted stays deleted — deletions travel with the file rather than reappearing
+  because the other copy still had them. If you deleted something on one device
+  and then edited it on the other, the edit wins and the record is kept.
 - **Replace all** overwrites the local world with the selected file.
 - **Change folder** moves the binding. **Disconnect** removes the binding without
   deleting the file already stored in that folder.
