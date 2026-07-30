@@ -74,6 +74,14 @@ describe('the published library catalogue', () => {
         }
       })
 
+      it('arrives in reading mode', () => {
+        // A library world is a reference to someone else's book. It should be
+        // spoiler-gated the moment it lands, not after the reader finds a
+        // setting they had no reason to look for.
+        const world = worldFor(entry.data) as { world: { readingMode?: boolean } }
+        expect(world.world.readingMode).toBe(true)
+      })
+
       it('states the world id the file actually carries', () => {
         const world = worldFor(entry.data) as { world: { id: string } }
         expect(world.world.id).toBe(entry.worldId)

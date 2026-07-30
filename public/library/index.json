@@ -7,7 +7,7 @@
       "author": "J.K. Rowling",
       "blurb": "A first year at Hogwarts. Who is where, who has met whom, and what the reader has been told so far.",
       "data": "harry-potter-and-the-philosopher-s-stone.pwk",
-      "dataBytes": 323000,
+      "dataBytes": 343837,
       "counts": {
         "characters": 50,
         "chapters": 17,
@@ -23,7 +23,7 @@
       "author": "J.R.R. Tolkien",
       "blurb": "The Ring leaves the Shire. Track the Fellowship across Eriador and Moria, and see who knows what, and when.",
       "data": "the-fellowship-of-the-ring.pwk",
-      "dataBytes": 540611,
+      "dataBytes": 573434,
       "counts": {
         "characters": 45,
         "chapters": 22,
@@ -41,7 +41,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "Kvothe tells his own story over the first of three days \u2014 from the troupe, to Tarbean, to the University.",
       "data": "the-name-of-the-wind.pwk",
-      "dataBytes": 520033,
+      "dataBytes": 549724,
       "counts": {
         "characters": 56,
         "chapters": 94,
@@ -59,7 +59,7 @@
       "author": "J.R.R. Tolkien",
       "blurb": "The Fellowship is broken. Follow three separate journeys as they diverge across Rohan, Fangorn and the Emyn Muil.",
       "data": "the-two-towers.pwk",
-      "dataBytes": 509449,
+      "dataBytes": 540150,
       "counts": {
         "characters": 67,
         "chapters": 21,
@@ -77,7 +77,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "The second day of Kvothe's telling: Vintas, the Eld, Ademre and Felurian.",
       "data": "the-wise-man-s-fear.pwk",
-      "dataBytes": 632320,
+      "dataBytes": 672148,
       "counts": {
         "characters": 80,
         "chapters": 154,

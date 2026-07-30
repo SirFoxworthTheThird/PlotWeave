@@ -110,15 +110,39 @@ phone.
 
 ### Reading alongside a book
 
-These worlds are also built to read with. Because everything in PlotWeave is
-shown relative to the [time cursor](#core-concept-the-time-cursor), you can set
-the cursor to the chapter you have reached and ask *where is everyone, who knows
-what, who has met whom* — without being told anything that happens later.
+Library worlds arrive in **reading mode**, which is what makes them safe to open
+while you are still part-way through the book.
+
+Set the chapter cursor to where you have read up to, and PlotWeave hides
+characters, items and places the story has not introduced yet. The Characters
+page in chapter one shows the handful of people you have actually met, with a
+note saying how many are still to come — so a short list reads as deliberate
+rather than broken. Move the cursor forward and they appear, in the order the
+book introduces them.
+
+The rest follows the same rule PlotWeave always follows: everything is shown
+relative to the cursor, so you can ask *where is everyone, who knows what, who
+has met whom* without being told anything that happens later. Summary figures
+that would give the game away — the alive/dead split on the dashboard, for
+instance — are simply not shown while reading.
+
+Selecting **All chapters** reveals everything. That is a deliberate choice you
+make, not the default.
+
+The writing screens — Manuscript and Structure — step aside in reading mode, and
+nothing offers to add to the cast. To edit a world anyway, turn reading mode off
+in **Settings**.
 
 The library worlds carry **no text from the books**. They are structural
 references only: characters, chapters, events, places, relationships and lore.
 They are unofficial and fan-made, and are not affiliated with or endorsed by the
 authors or publishers.
+
+### Reading mode on your own world
+
+Reading mode is a per-world setting, so it works on anything — not just library
+worlds. Turn it on in **Settings** before handing a world to a beta reader and
+they can follow along without the ending being spoiled by the cast list.
 
 > **Note:** downloading a world you already have **replaces** your copy and
 > discards any changes you made in it, so PlotWeave asks first. Use it

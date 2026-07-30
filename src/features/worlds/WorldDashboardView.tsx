@@ -10,6 +10,7 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '@/db/database'
 import { useWorld, updateWorld } from '@/db/hooks/useWorlds'
 import { useCharacters } from '@/db/hooks/useCharacters'
+import { useReadingGate } from '@/db/hooks/useReading'
 import { useRootMapLayers } from '@/db/hooks/useMapLayers'
 import { useTimelines, useWorldChapters, useWorldEvents } from '@/db/hooks/useTimeline'
 import { useRelationships } from '@/db/hooks/useRelationships'
@@ -65,7 +66,7 @@ export default function WorldDashboardView() {
   const { setActiveEventId, setCheckerOpen } = useAppStore()
 
   const world               = useWorld(worldId ?? null)
-  const characters          = useCharacters(worldId ?? null)
+  const allCharacters       = useCharacters(worldId ?? null)
   const maps                = useRootMapLayers(worldId ?? null)
   const timelines           = useTimelines(worldId ?? null)
   const chapters            = useWorldChapters(worldId ?? null)
@@ -127,6 +128,13 @@ export default function WorldDashboardView() {
     setEditingDesc(false)
   }
 
+  // Reading mode: the dashboard is a summary of the whole book, so nearly every
+  // figure on it is a spoiler. Counts are taken over what the reader has met,
+  // and the alive/dead split is dropped entirely — "7 dead" in chapter two
+  // tells you the body count of a book you have not finished.
+  const gate = useReadingGate(worldId ?? null)
+  const characters = gate.filter(allCharacters)
+
   // Derived stats
   const aliveCount = characters.filter((c) => c.isAlive).length
   const deadCount  = characters.length - aliveCount
@@ -139,12 +147,14 @@ export default function WorldDashboardView() {
   }, [snapshots, allEvents])
   const coveragePct = totalEvents > 0 ? Math.round((eventsWithSnap / totalEvents) * 100) : 0
 
-  // 5 most recently updated events
+  // 5 most recently updated events. Suppressed for a reader: "recently edited"
+  // is an author's ordering, and it surfaces late-book scenes by title.
   const recentEvents = useMemo(() => {
+    if (gate.active) return []
     return [...allEvents]
       .sort((a, b) => b.updatedAt - a.updatedAt)
       .slice(0, 5)
-  }, [allEvents])
+  }, [allEvents, gate.active])
 
   const chapterById = useMemo(() => new Map(chapters.map((c) => [c.id, c])), [chapters])
   const timelineById = useMemo(() => new Map(timelines.map((t) => [t.id, t])), [timelines])
@@ -195,7 +205,7 @@ export default function WorldDashboardView() {
       icon: Users,
       count: characters.length,
       onClick: () => navigate('characters'),
-      pills: [
+      pills: gate.active ? [] : [
         ...(aliveCount > 0 ? [{ label: 'alive', value: aliveCount }] : []),
         ...(deadCount > 0  ? [{ label: 'dead',  value: deadCount  }] : []),
       ],
