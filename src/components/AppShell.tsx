@@ -15,6 +15,7 @@ import { HelpPanel } from '@/features/help/HelpPanel'
 import { RecentChangesPanel } from '@/features/history/RecentChangesPanel'
 import { UndoToastBridge } from '@/features/history/UndoToastBridge'
 import { useRedoAction, useUndoAction } from '@/features/history/useUndo'
+import { useJournalPruning } from '@/db/hooks/useOperations'
 import { Toaster } from '@/components/ui/toast'
 import { db } from '@/db/database'
 
@@ -55,6 +56,7 @@ export function AppShell() {
   }, [world?.theme, setActiveWorldTheme])
 
   useAutoFolderSync(worldId)
+  useJournalPruning(worldId ?? null)
 
   const undo = useUndoAction(worldId ?? null)
   const redo = useRedoAction(worldId ?? null)
