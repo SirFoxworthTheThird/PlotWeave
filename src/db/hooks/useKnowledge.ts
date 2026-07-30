@@ -52,19 +52,25 @@ export async function deleteKnowledgeFact(id: string) {
 // ── Reveals (who learns a fact, and when) ──────────────────────────────────
 
 export function useKnowledgeReveals(worldId: string | null) {
-  return useLiveQuery(
+  const gate = useGate()
+  const all = useLiveQuery(
     () => (worldId ? db.knowledgeReveals.where('worldId').equals(worldId).toArray() : []),
     [worldId],
     [],
   )
+  // Who learns a secret, and when, is the shape of the plot. A reveal placed
+  // in a later chapter says that much even without naming what changes there.
+  return useMemo(() => all.filter((r) => gate.hasReached(r.eventId)), [all, gate])
 }
 
 export function useRevealsForFact(factId: string | null) {
-  return useLiveQuery(
+  const gate = useGate()
+  const all = useLiveQuery(
     () => (factId ? db.knowledgeReveals.where('factId').equals(factId).toArray() : []),
     [factId],
     [],
   )
+  return useMemo(() => all.filter((r) => gate.hasReached(r.eventId)), [all, gate])
 }
 
 export async function createKnowledgeReveal(

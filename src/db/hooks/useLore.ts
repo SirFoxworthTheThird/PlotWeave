@@ -75,7 +75,8 @@ export async function createLorePage(data: Pick<LorePage, 'worldId' | 'categoryI
 }
 
 export function useLorePagesForEntity(worldId: string | null, entityId: string | null) {
-  return useLiveQuery(
+  const gate = useGate()
+  const all = useLiveQuery(
     () => worldId && entityId
       ? db.lorePages.where('worldId').equals(worldId)
           .filter((p) => (p.linkedEntityIds ?? []).includes(entityId))
@@ -83,6 +84,12 @@ export function useLorePagesForEntity(worldId: string | null, entityId: string |
       : [],
     [worldId, entityId],
     []
+  )
+  // Same rule as the index — a page reached sideways, from the character or
+  // item it is about, must not reveal what the index would have withheld.
+  return useMemo(
+    () => all.filter((p) => gate.hasReached(p.visibleFromEventId) && gate.linksRevealed(p.linkedEntityIds)),
+    [all, gate],
   )
 }
 

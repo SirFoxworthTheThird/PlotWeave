@@ -100,3 +100,65 @@ test('the dashboard does not give away the body count', async ({ page }) => {
   // "7 dead" in chapter one tells you the toll of a book you have not read.
   await expect(page.getByRole('main')).not.toContainText('dead')
 })
+
+test('a character page has nothing to edit and no future', async ({ page }) => {
+  await downloadFirstLibraryWorld(page)
+  await page.getByRole('button', { name: 'Next moment' }).click()
+  await page.waitForTimeout(800)
+  await page.getByRole('link', { name: /characters/i }).first().click()
+  await settleNav(page)
+
+  await expect.poll(() => shownCount(page), { timeout: 15_000 }).toBeGreaterThan(0)
+  // Roster cards are clickable divs, not buttons.
+  await page.locator('main div.cursor-pointer').first().click()
+  await expect(page).toHaveURL(/#\/worlds\/[^/]+\/characters\/./, { timeout: 15_000 })
+
+  await expect(page.getByRole('button', { name: 'Delete character' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Upload portrait image' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Edit', exact: true })).toHaveCount(0)
+
+  // Current State is a form for a writer; a reader gets the same facts as text.
+  await page.getByRole('tab', { name: 'Current State' }).click()
+  await page.waitForTimeout(600)
+  await expect(page.getByRole('button', { name: 'Save State' })).toHaveCount(0)
+  await expect(page.getByRole('main').locator('textarea')).toHaveCount(0)
+
+  // History is a character's whole future — every chapter it lists must be one
+  // the reader has already reached.
+  await page.getByRole('tab', { name: 'History' }).click()
+  await page.waitForTimeout(600)
+  const history = await page.getByRole('main').innerText()
+  const chapters = [...history.matchAll(/\bCh\.\s*(\d+)/g)].map((m) => Number(m[1]))
+  expect(Math.max(0, ...chapters), `history listed ${history}`).toBeLessThanOrEqual(1)
+})
+
+test('a lore page reads as an article rather than a document', async ({ page }) => {
+  await downloadFirstLibraryWorld(page)
+  await page.goto(`/#${await worldPath(page)}/lore`)
+  await settleNav(page)
+  await expect(page.getByRole('button', { name: 'New Page' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'New category' })).toHaveCount(0)
+
+  const firstPage = page.getByRole('main').getByRole('button').first()
+  if (await firstPage.count()) {
+    await firstPage.click()
+    await page.waitForTimeout(800)
+    await expect(page.locator('main textarea')).toHaveCount(0)
+    await expect(page.getByPlaceholder('Add tag…')).toHaveCount(0)
+  }
+})
+
+test('the map can be read and exported but not redrawn', async ({ page }) => {
+  await downloadFirstLibraryWorld(page)
+  await page.goto(`/#${await worldPath(page)}/maps`)
+  await page.waitForTimeout(2500)
+
+  await expect(page.getByTitle('Add a location marker')).toHaveCount(0)
+  await expect(page.getByTitle('Place a text label on the map')).toHaveCount(0)
+
+  // The overflow menu keeps the one command that only reads the map.
+  await page.getByRole('button', { name: 'Map tools' }).click()
+  await expect(page.getByRole('button', { name: 'Export as PNG' })).toBeVisible()
+  await expect(page.getByRole('button', { name: 'AI Locations' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Replace image' })).toHaveCount(0)
+})

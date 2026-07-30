@@ -238,20 +238,28 @@ export default function WorldDashboardView() {
     {
       label: 'Character Arc',
       icon: BarChart2,
-      count: coveragePct,
+      // Snapshot coverage measures how completely the world has been filled in
+      // — a writer's progress bar. A reader gets the arc without the scorecard.
+      count: gate.active ? null : coveragePct,
       countSuffix: '%',
       onClick: () => navigate('arc'),
-      pills: eventsWithSnap > 0 ? [{ label: `/ ${totalEvents} events`, value: eventsWithSnap }] : [],
-      description: 'snapshot coverage',
+      pills: !gate.active && eventsWithSnap > 0
+        ? [{ label: `/ ${totalEvents} events`, value: eventsWithSnap }]
+        : [],
+      description: gate.active ? 'how the cast changes' : 'snapshot coverage',
     },
-    {
-      label: 'Continuity',
-      icon: ShieldAlert,
-      count: null,
-      onClick: () => setCheckerOpen(true),
-      pills: [],
-      description: 'check for issues',
-    },
+    // The continuity checker reports on a draft, and reading mode takes it off
+    // the top bar — a tile that opened it would be the one way back in.
+    ...(gate.active
+      ? []
+      : [{
+          label: 'Continuity',
+          icon: ShieldAlert,
+          count: null,
+          onClick: () => setCheckerOpen(true),
+          pills: [],
+          description: 'check for issues',
+        } as Tile]),
   ]
 
   if (!wizardReady) return (
@@ -313,15 +321,19 @@ export default function WorldDashboardView() {
             <div className="mt-1 flex items-start gap-2">
               {world?.description
                 ? <p className="text-sm text-[hsl(var(--muted-foreground))] max-w-xl">{world.description}</p>
-                : <p className="text-sm italic text-[hsl(var(--muted-foreground)/0.5)]">No description — click to add one.</p>
+                : gate.active
+                  ? null
+                  : <p className="text-sm italic text-[hsl(var(--muted-foreground)/0.5)]">No description — click to add one.</p>
               }
-              <button
-                onClick={startEditDesc}
-                className="mt-0.5 shrink-0 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
-                title="Edit description"
-              >
-                <Pencil className="h-3 w-3" />
-              </button>
+              {!gate.active && (
+                <button
+                  onClick={startEditDesc}
+                  className="mt-0.5 shrink-0 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                  title="Edit description"
+                >
+                  <Pencil className="h-3 w-3" />
+                </button>
+              )}
             </div>
           )}
         </div>
@@ -460,8 +472,12 @@ export default function WorldDashboardView() {
         </div>
       )}
 
-      {/* Plot threads — subplot cadence & dangling threads */}
-      {chapters.length > 0 && (
+      {/* Plot threads and motifs are pacing analysis — how often a subplot
+          surfaces across the book, and which threads dangle. That is a
+          question about the draft, not about the story, and the thread names
+          themselves ("Voldemort's Return") are among the sharpest spoilers in
+          the world. Both step aside for a reader. */}
+      {!gate.active && chapters.length > 0 && (
         <div>
           <SectionHeading icon={Spline}>Plot Threads</SectionHeading>
           <ThreadCadence worldId={worldId ?? ''} chapters={chapters} events={allEvents} />
@@ -469,7 +485,7 @@ export default function WorldDashboardView() {
       )}
 
       {/* Motifs — recurring theme/symbol cadence */}
-      {chapters.length > 0 && (
+      {!gate.active && chapters.length > 0 && (
         <div>
           <SectionHeading icon={Sparkle}>Motifs &amp; Themes</SectionHeading>
           <MotifCadence worldId={worldId ?? ''} chapters={chapters} events={allEvents} />

@@ -135,9 +135,29 @@ instance — are simply not shown while reading.
 Selecting **All chapters** reveals everything. That is a deliberate choice you
 make, not the default.
 
-The writing screens — Manuscript and Structure — step aside in reading mode, and
-nothing offers to add to the cast. To edit a world anyway, turn reading mode off
-in **Settings**.
+### What reading mode puts away
+
+Reading mode also clears out everything that only makes sense to the person
+writing the book, so what is left reads as a companion rather than a workspace
+you have wandered into.
+
+The writing screens — Manuscript and Structure — step aside. Undo, redo, Recent
+changes, the Writer's Brief and the Continuity Checker leave the top bar, and
+the dashboard drops its continuity card and its snapshot-coverage figure. No
+screen offers to add, generate or delete anything: no **Add Character**, no
+**New Page**, no **Generate with AI**, no delete buttons on cards, rows or map
+layers.
+
+Detail screens show the same information without the editing furniture. A
+character's page is read straight through — their description, where they
+stand, what they carry, their goals, relationships and factions — with no Edit
+button and no form fields. Lore pages render as articles. A knowledge fact shows
+what it is and who knows it, without the controls that set when the reader is
+let in on it. On the map you can still measure distances and export the picture;
+you cannot move a marker, relabel it, or replace the image.
+
+To edit a world anyway, turn reading mode off in **Settings**. Everything comes
+back exactly as it was.
 
 The library worlds carry **no text from the books**. They are structural
 references only: characters, chapters, events, places, relationships and lore.
