@@ -17,33 +17,34 @@ explore).
 
 1. [Core concept: the time cursor](#core-concept-the-time-cursor)
 2. [Getting started — the world selector](#getting-started--the-world-selector)
-3. [Import a manuscript](#import-a-manuscript)
-4. [Generate a world from AI](#generate-a-world-from-ai)
-5. [Start a sequel](#start-a-sequel)
-6. [The world dashboard](#the-world-dashboard)
-7. [Timeline & events](#timeline--events)
-8. [Chapter detail](#chapter-detail)
-9. [Corkboard](#corkboard)
-10. [Manuscript](#manuscript)
-11. [Characters](#characters)
-12. [Cast Balance](#cast-balance)
-13. [Plot Threads](#plot-threads)
-14. [Motifs & Themes](#motifs--themes)
-15. [Structure board](#structure-board)
-16. [Maps](#maps)
-17. [Items](#items)
-18. [Relationships](#relationships)
-19. [Character Arc grid](#character-arc-grid)
-20. [Lore](#lore)
-21. [Factions](#factions)
-22. [Knowledge](#knowledge)
-23. [Search](#search)
-24. [Undo, redo & recent changes](#undo-redo--recent-changes)
-25. [Writer's Brief](#writers-brief)
-26. [Calendar & character ages](#calendar--character-ages)
-27. [Continuity Checker](#continuity-checker)
-28. [World settings & export](#world-settings--export)
-29. [Help](#help)
+3. [The example library](#the-example-library)
+4. [Import a manuscript](#import-a-manuscript)
+5. [Generate a world from AI](#generate-a-world-from-ai)
+6. [Start a sequel](#start-a-sequel)
+7. [The world dashboard](#the-world-dashboard)
+8. [Timeline & events](#timeline--events)
+9. [Chapter detail](#chapter-detail)
+10. [Corkboard](#corkboard)
+11. [Manuscript](#manuscript)
+12. [Characters](#characters)
+13. [Cast Balance](#cast-balance)
+14. [Plot Threads](#plot-threads)
+15. [Motifs & Themes](#motifs--themes)
+16. [Structure board](#structure-board)
+17. [Maps](#maps)
+18. [Items](#items)
+19. [Relationships](#relationships)
+20. [Character Arc grid](#character-arc-grid)
+21. [Lore](#lore)
+22. [Factions](#factions)
+23. [Knowledge](#knowledge)
+24. [Search](#search)
+25. [Undo, redo & recent changes](#undo-redo--recent-changes)
+26. [Writer's Brief](#writers-brief)
+27. [Calendar & character ages](#calendar--character-ages)
+28. [Continuity Checker](#continuity-checker)
+29. [World settings & export](#world-settings--export)
+30. [Help](#help)
 
 ---
 
@@ -92,6 +93,36 @@ character at the opening moment, and then continue to the Timeline. Each optiona
 step has **Skip** so you can leave the guide and build the world in any order.
 
 ![Blank-world setup](images/38-onboarding.png)
+
+---
+
+## The example library
+
+**Example Library** on the world selector lists worlds built from published
+books and downloads them straight into your browser. Nothing is uploaded and no
+account is needed — a downloaded world is an ordinary world you own outright,
+which you can edit, export, or delete like any other.
+
+Each entry shows its cast, chapter and event counts, and the download size. Map
+images and portraits are a separate, much larger download, so they sit behind
+their own button rather than coming along by default — useful if you're on a
+phone.
+
+### Reading alongside a book
+
+These worlds are also built to read with. Because everything in PlotWeave is
+shown relative to the [time cursor](#core-concept-the-time-cursor), you can set
+the cursor to the chapter you have reached and ask *where is everyone, who knows
+what, who has met whom* — without being told anything that happens later.
+
+The library worlds carry **no text from the books**. They are structural
+references only: characters, chapters, events, places, relationships and lore.
+They are unofficial and fan-made, and are not affiliated with or endorsed by the
+authors or publishers.
+
+> **Note:** downloading a world you already have **replaces** your copy and
+> discards any changes you made in it, so PlotWeave asks first. Use it
+> deliberately when you want the original back.
 
 ---
 

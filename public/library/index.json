@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "harry-potter-and-the-philosopher-s-stone",
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "blurb": "A first year at Hogwarts. Who is where, who has met whom, and what the reader has been told so far.",
+      "data": "harry-potter-and-the-philosopher-s-stone.pwk",
+      "dataBytes": 323000,
+      "counts": {
+        "characters": 50,
+        "chapters": 17,
+        "events": 58,
+        "locations": 40
+      },
+      "notice": "Unofficial, fan-made reference. Structural notes only \u2014 no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
+      "worldId": "hp-ps-world"
+    },
+    {
+      "id": "the-fellowship-of-the-ring",
+      "title": "The Fellowship of the Ring",
+      "author": "J.R.R. Tolkien",
+      "blurb": "The Ring leaves the Shire. Track the Fellowship across Eriador and Moria, and see who knows what, and when.",
+      "data": "the-fellowship-of-the-ring.pwk",
+      "dataBytes": 540611,
+      "counts": {
+        "characters": 45,
+        "chapters": 22,
+        "events": 91,
+        "locations": 109
+      },
+      "notice": "Unofficial, fan-made reference. Structural notes only \u2014 no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
+      "images": "the-fellowship-of-the-ring.pwb",
+      "imagesBytes": 15352825,
+      "worldId": "aX-7torL9Na4l4UvyLWIP"
+    },
+    {
+      "id": "the-name-of-the-wind",
+      "title": "The Name of the Wind",
+      "author": "Patrick Rothfuss",
+      "blurb": "Kvothe tells his own story over the first of three days \u2014 from the troupe, to Tarbean, to the University.",
+      "data": "the-name-of-the-wind.pwk",
+      "dataBytes": 520033,
+      "counts": {
+        "characters": 56,
+        "chapters": 94,
+        "events": 130,
+        "locations": 42
+      },
+      "notice": "Unofficial, fan-made reference. Structural notes only \u2014 no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
+      "images": "the-name-of-the-wind.pwb",
+      "imagesBytes": 3114803,
+      "worldId": "10000000-0000-4000-a000-000000000000"
+    },
+    {
+      "id": "the-two-towers",
+      "title": "The Two Towers",
+      "author": "J.R.R. Tolkien",
+      "blurb": "The Fellowship is broken. Follow three separate journeys as they diverge across Rohan, Fangorn and the Emyn Muil.",
+      "data": "the-two-towers.pwk",
+      "dataBytes": 509449,
+      "counts": {
+        "characters": 67,
+        "chapters": 21,
+        "events": 93,
+        "locations": 123
+      },
+      "notice": "Unofficial, fan-made reference. Structural notes only \u2014 no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
+      "images": "the-two-towers.pwb",
+      "imagesBytes": 11918280,
+      "worldId": "mOlU8GWK_NGtK-STFFtqC"
+    },
+    {
+      "id": "the-wise-man-s-fear",
+      "title": "The Wise Man's Fear",
+      "author": "Patrick Rothfuss",
+      "blurb": "The second day of Kvothe's telling: Vintas, the Eld, Ademre and Felurian.",
+      "data": "the-wise-man-s-fear.pwk",
+      "dataBytes": 632320,
+      "counts": {
+        "characters": 80,
+        "chapters": 154,
+        "events": 154,
+        "locations": 71
+      },
+      "notice": "Unofficial, fan-made reference. Structural notes only \u2014 no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
+      "images": "the-wise-man-s-fear.pwb",
+      "imagesBytes": 1284723,
+      "worldId": "ag5-SfCGAP0HIVKimJBe7"
+    }
+  ]
+}
