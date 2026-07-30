@@ -114,11 +114,17 @@ Library worlds arrive in **reading mode**, which is what makes them safe to open
 while you are still part-way through the book.
 
 Set the chapter cursor to where you have read up to, and PlotWeave hides
-characters, items and places the story has not introduced yet. The Characters
-page in chapter one shows the handful of people you have actually met, with a
-note saying how many are still to come — so a short list reads as deliberate
-rather than broken. Move the cursor forward and they appear, in the order the
-book introduces them.
+characters, items and places the story has not introduced yet — everywhere, not
+just on one screen. The Characters page in chapter one shows the handful of
+people you have actually met, with a note saying how many are still to come, so
+a short list reads as deliberate rather than broken. Move the cursor forward and
+they appear, in the order the book introduces them.
+
+The same cut-off applies across the app: the timeline stops at your place and
+keeps later chapter summaries back, lore pages wait until you have met what they
+are about, and a knowledge fact stays hidden until the point the reader is meant
+to learn it. Chapter *titles* stay visible throughout — they are printed on your
+own book's contents page, so hiding them would gain nothing.
 
 The rest follows the same rule PlotWeave always follows: everything is shown
 relative to the cursor, so you can ask *where is everyone, who knows what, who

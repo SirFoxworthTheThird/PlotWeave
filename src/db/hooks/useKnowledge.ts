@@ -1,5 +1,7 @@
+import { useMemo } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '@/db/database'
+import { useGate } from './ReadingGateContext'
 import { journalCreate, journalUpdate, journalDelete } from './useOperations'
 import { generateId } from '@/lib/id'
 import type { KnowledgeFact, KnowledgeReveal } from '@/types'
@@ -7,11 +9,16 @@ import type { KnowledgeFact, KnowledgeReveal } from '@/types'
 // ── Facts ──────────────────────────────────────────────────────────────────
 
 export function useKnowledgeFacts(worldId: string | null) {
-  return useLiveQuery(
+  const gate = useGate()
+  const all = useLiveQuery(
     () => (worldId ? db.knowledgeFacts.where('worldId').equals(worldId).sortBy('createdAt') : []),
     [worldId],
     [],
   )
+  // `readerLearnsAtEventId` already asks exactly this question, authored per
+  // fact: the moment the *reader* is let in on it. A fact withheld until
+  // chapter twenty is the definition of a spoiler before then.
+  return useMemo(() => all.filter((f) => gate.hasReached(f.readerLearnsAtEventId)), [all, gate])
 }
 
 export function useKnowledgeFact(factId: string | null) {

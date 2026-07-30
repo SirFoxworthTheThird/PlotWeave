@@ -1,5 +1,7 @@
+import { useMemo } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '@/db/database'
+import { useGate } from './ReadingGateContext'
 import { journalCreate, journalUpdate, journalDelete } from './useOperations'
 import type { LoreCategory, LorePage } from '@/types'
 import { generateId } from '@/lib/id'
@@ -37,9 +39,17 @@ export async function deleteLoreCategory(id: string) {
 // ── Pages ─────────────────────────────────────────────────────────────────────
 
 export function useLorePages(worldId: string | null) {
-  return useLiveQuery(
+  const gate = useGate()
+  const all = useLiveQuery(
     () => worldId ? db.lorePages.where('worldId').equals(worldId).reverse().sortBy('updatedAt') : [],
     [worldId], []
+  )
+  // A page waits for its own reveal point if it has one, and otherwise for the
+  // entities it is about. A page titled after someone the reader has not met
+  // gives them away by sitting in the index.
+  return useMemo(
+    () => all.filter((p) => gate.hasReached(p.visibleFromEventId) && gate.linksRevealed(p.linkedEntityIds)),
+    [all, gate],
   )
 }
 

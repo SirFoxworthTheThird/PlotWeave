@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Plus, Users, Sparkles } from 'lucide-react'
 import { useCharacters } from '@/db/hooks/useCharacters'
-import { useReadingGate } from '@/db/hooks/useReading'
+import { useGate } from '@/db/hooks/ReadingGateContext'
 import { SpoilerNote } from '@/components/SpoilerNote'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -14,16 +14,15 @@ import { GenerateCharactersDialog } from './GenerateCharactersDialog'
 
 export default function CharacterRosterView() {
   const { worldId } = useParams<{ worldId: string }>()
-  const allCharacters = useCharacters(worldId ?? null)
+  const characters = useCharacters(worldId ?? null)
   const [search, setSearch] = useState('')
   const [dialogOpen, setDialogOpen] = useState(false)
   const [aiOpen, setAiOpen] = useState(false)
 
-  // In reading mode the roster is the worst spoiler in the app: it hands over
-  // the entire cast, including people the reader meets books later.
-  const gate = useReadingGate(worldId ?? null)
-  const characters = gate.filter(allCharacters)
-  const hidden = gate.hidden(allCharacters)
+  // `useCharacters` is already gated, so the count of what is being held back
+  // comes from the gate rather than from re-fetching the ungated cast.
+  const gate = useGate()
+  const hidden = gate.hiddenCounts.characters
 
   const filtered = characters.filter((c) =>
     c.name.toLowerCase().includes(search.toLowerCase())

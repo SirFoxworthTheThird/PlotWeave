@@ -28,16 +28,39 @@ export interface ReadingGate {
   isRevealed: (entityId: string) => boolean
   filter: <T extends { id: string }>(records: readonly T[]) => T[]
   hidden: <T extends { id: string }>(records: readonly T[]) => number
+  /**
+   * How many of each group the cursor is holding back. Carried on the gate so a
+   * list can say "47 not yet met" without separately loading the ungated set,
+   * which is exactly the set it is trying not to have.
+   */
+  hiddenCounts: { characters: number; items: number; locations: number }
+  /**
+   * Whether a moment has been reached. Used by records that carry their own
+   * reveal point rather than being discovered through appearances — a lore page
+   * with `visibleFromEventId`, or a knowledge fact with `readerLearnsAtEventId`.
+   */
+  hasReached: (eventId: string | null | undefined) => boolean
+  /**
+   * Whether a record linked to other entities should be shown.
+   *
+   * A lore page about a character the reader has not met gives that character
+   * away by existing, so it waits for all of its links. With no links there is
+   * nothing to wait for and the page is shown.
+   */
+  linksRevealed: (entityIds: readonly string[] | null | undefined) => boolean
 }
 
 /** A gate that hides nothing — used while data is loading, and when writing. */
-const OPEN_GATE: ReadingGate = {
+export const OPEN_GATE: ReadingGate = {
   active: false,
   cursor: null,
   chapterNumber: null,
   isRevealed: () => true,
   filter: (records) => [...records],
   hidden: () => 0,
+  hiddenCounts: { characters: 0, items: 0, locations: 0 },
+  hasReached: () => true,
+  linksRevealed: () => true,
 }
 
 export function useReadingMode(worldId: string | null): boolean {
@@ -57,15 +80,21 @@ export function useReadingGate(worldId: string | null): ReadingGate {
   const data = useLiveQuery(
     async () => {
       if (!worldId || !readingMode) return null
-      const [events, chapters, charSnaps, itemPlacements, locSnaps, itemSnaps] = await Promise.all([
+      const [
+        events, chapters, charSnaps, itemPlacements, locSnaps, itemSnaps,
+        characters, items, markers,
+      ] = await Promise.all([
         db.events.where('worldId').equals(worldId).toArray(),
         db.chapters.where('worldId').equals(worldId).toArray(),
         db.characterSnapshots.where('worldId').equals(worldId).toArray(),
         db.itemPlacements.where('worldId').equals(worldId).toArray(),
         db.locationSnapshots.where('worldId').equals(worldId).toArray(),
         db.itemSnapshots.where('worldId').equals(worldId).toArray(),
+        db.characters.where('worldId').equals(worldId).toArray(),
+        db.items.where('worldId').equals(worldId).toArray(),
+        db.locationMarkers.where('worldId').equals(worldId).toArray(),
       ])
-      return { events, chapters, charSnaps, itemPlacements, locSnaps, itemSnaps }
+      return { events, chapters, charSnaps, itemPlacements, locSnaps, itemSnaps, characters, items, markers }
     },
     [worldId, readingMode],
     null,
@@ -115,6 +144,22 @@ export function useReadingGate(worldId: string | null): ReadingGate {
       isRevealed: (entityId: string) => isRevealed(entityId, firstSeen, cursor),
       filter: <T extends { id: string }>(records: readonly T[]) => revealed(records, firstSeen, cursor),
       hidden: <T extends { id: string }>(records: readonly T[]) => hiddenCount(records, firstSeen, cursor),
+      hiddenCounts: {
+        characters: hiddenCount(data.characters, firstSeen, cursor),
+        items: hiddenCount(data.items, firstSeen, cursor),
+        locations: hiddenCount(data.markers, firstSeen, cursor),
+      },
+      hasReached: (eventId) => {
+        if (cursor === null || !eventId) return true
+        const at = sortKeyByEvent.get(eventId)
+        // An unplaceable event cannot be compared, so it does not hold
+        // anything back — the same choice made for entities that never appear.
+        return at === undefined || at <= cursor
+      },
+      linksRevealed: (entityIds) => {
+        if (cursor === null || !entityIds || entityIds.length === 0) return true
+        return entityIds.every((id) => isRevealed(id, firstSeen, cursor))
+      },
     }
   }, [readingMode, data, activeEventId])
 }

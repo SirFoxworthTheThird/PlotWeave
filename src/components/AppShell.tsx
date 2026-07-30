@@ -16,6 +16,7 @@ import { RecentChangesPanel } from '@/features/history/RecentChangesPanel'
 import { UndoToastBridge } from '@/features/history/UndoToastBridge'
 import { useRedoAction, useUndoAction } from '@/features/history/useUndo'
 import { useJournalPruning } from '@/db/hooks/useOperations'
+import { ReadingGateProvider } from '@/db/hooks/ReadingGateContext'
 import { Toaster } from '@/components/ui/toast'
 import { db } from '@/db/database'
 
@@ -88,6 +89,7 @@ export function AppShell() {
   }, [setSearchOpen, undo, redo])
 
   return (
+    <ReadingGateProvider worldId={worldId ?? null}>
     <div
       data-nav-rail={navPinned ? 'pinned' : 'collapsed'}
       className="flex h-[100dvh] flex-col overflow-hidden"
@@ -110,5 +112,6 @@ export function AppShell() {
       <UndoToastBridge worldId={worldId ?? null} />
       <Toaster />
     </div>
+    </ReadingGateProvider>
   )
 }
