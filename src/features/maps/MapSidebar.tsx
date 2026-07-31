@@ -157,7 +157,7 @@ function LayerTreeNode({
           <MapPin className="h-3 w-3 shrink-0 opacity-40" />
         )}
         {depth === 0 && <MapIcon className="h-3 w-3 shrink-0 opacity-70" />}
-        <span className="flex-1 truncate text-xs">{layer.name}</span>
+        <span data-map-layer className="flex-1 truncate text-xs">{layer.name}</span>
         {hovered && !gate.active && (
           <button
             className="shrink-0 rounded p-0.5 hover:text-red-400 transition-colors"

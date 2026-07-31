@@ -123,8 +123,15 @@ they appear, in the order the book introduces them.
 The same cut-off applies across the app: the timeline stops at your place and
 keeps later chapter summaries back, lore pages wait until you have met what they
 are about, and a knowledge fact stays hidden until the point the reader is meant
-to learn it. Chapter *titles* stay visible throughout — they are printed on your
-own book's contents page, so hiding them would gain nothing.
+to learn it. A character's page shows where they stand now rather than every
+chapter still to come, and the map list holds back the maps for places you have
+not been to yet. **Search** answers on the same terms — it will not find a
+character you have not met.
+
+Chapter *titles* stay visible throughout — they are printed on your own book's
+contents page, so hiding them would gain nothing. One thing the cut-off cannot
+do is edit prose: if a place you *have* reached is described in a sentence that
+names one you have not, that sentence is shown as written.
 
 The rest follows the same rule PlotWeave always follows: everything is shown
 relative to the cursor, so you can ask *where is everyone, who knows what, who
@@ -142,8 +149,9 @@ writing the book, so what is left reads as a companion rather than a workspace
 you have wandered into.
 
 The writing screens — Manuscript and Structure — step aside. Undo, redo, Recent
-changes, the Writer's Brief and the Continuity Checker leave the top bar, and
-the dashboard drops its continuity card and its snapshot-coverage figure. No
+changes, the Writer's Brief and the Continuity Checker leave the top bar (and
+Ctrl+Z along with them), and the dashboard drops its continuity card and its
+snapshot-coverage figure. No
 screen offers to add, generate or delete anything: no **Add Character**, no
 **New Page**, no **Generate with AI**, no delete buttons on cards, rows or map
 layers.

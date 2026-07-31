@@ -55,7 +55,7 @@ function TreeNode({ layer, allLayers, activeLayerId, depth, onSelect, onDeleted 
           <MapPin className="h-3 w-3 shrink-0 opacity-50" />
         )}
         {depth === 0 && <Map className="h-3 w-3 shrink-0" />}
-        <span className="text-xs truncate flex-1">{layer.name}</span>
+        <span data-map-layer className="text-xs truncate flex-1">{layer.name}</span>
         {hovered && !gate.active && (
           <button
             className="shrink-0 p-0.5 rounded hover:text-red-400 transition-colors"

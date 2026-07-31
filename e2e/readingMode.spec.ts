@@ -1,5 +1,6 @@
 import { test, expect, type Page } from '@playwright/test'
 import { resetDB } from './helpers/reset'
+import { unmetNames } from './helpers/unmet'
 
 // Reading mode and spoiler gating, driven through the example library so the
 // test exercises the same path a reader takes. The reveal maths itself is unit
@@ -146,6 +147,77 @@ test('a lore page reads as an article rather than a document', async ({ page }) 
     await expect(page.locator('main textarea')).toHaveCount(0)
     await expect(page.getByPlaceholder('Add tag…')).toHaveCount(0)
   }
+})
+
+test('undo and redo shortcuts are inert while reading', async ({ page }) => {
+  await downloadFirstLibraryWorld(page)
+  await page.goto(`/#${await worldPath(page)}/characters`)
+  await settleNav(page)
+
+  // Nothing must reach the store. Watching the journal is the direct check:
+  // an undo of its own writes an operation, so a changed count means it ran.
+  const ops = async () => page.evaluate(`(() => new Promise((resolve) => {
+    const req = indexedDB.open('PlotWeaveDB')
+    req.onsuccess = () => {
+      const q = req.result.transaction('operations', 'readonly').objectStore('operations').count()
+      q.onsuccess = () => resolve(q.result)
+    }
+  }))()`)
+
+  const before = await ops()
+  await page.keyboard.press('Control+z')
+  await page.keyboard.press('Control+y')
+  await page.waitForTimeout(1000)
+  expect(await ops()).toBe(before)
+})
+
+test('the map list keeps back places the reader has not been', async ({ page }) => {
+  await downloadFirstLibraryWorld(page)
+  await page.getByRole('button', { name: 'Next moment' }).click()
+  await page.waitForTimeout(800)
+
+  // A sub-map is reached through the marker that links to it, so it is exactly
+  // as much of a spoiler as that marker. Work out which maps are behind a
+  // marker the reader has not met, and hold the sidebar to it.
+  const unmet = await unmetNames(page)
+  const behindUnmetMarkers = await page.evaluate(`(() => new Promise((resolve) => {
+    const req = indexedDB.open('PlotWeaveDB')
+    req.onsuccess = () => {
+      const db = req.result
+      const read = (s) => new Promise((r) => {
+        const q = db.transaction(s, 'readonly').objectStore(s).getAll(); q.onsuccess = () => r(q.result)
+      })
+      Promise.all([read('mapLayers'), read('locationMarkers')]).then(([layers, markers]) => {
+        const linkers = new Map()
+        for (const m of markers) {
+          if (!m.linkedMapLayerId) continue
+          if (!linkers.has(m.linkedMapLayerId)) linkers.set(m.linkedMapLayerId, [])
+          linkers.get(m.linkedMapLayerId).push(m.name)
+        }
+        resolve(layers
+          .filter((l) => linkers.has(l.id))
+          .map((l) => ({ layer: l.name, via: linkers.get(l.id) })))
+      })
+    }
+  }))()`) as { layer: string; via: string[] }[]
+
+  const unmetMarkers = new Set(unmet.locations)
+  const shouldHide = behindUnmetMarkers.filter((l) => l.via.every((n) => unmetMarkers.has(n)))
+  expect(shouldHide.length, 'the fixture should put at least one map behind an unmet place').toBeGreaterThan(0)
+
+  await page.goto(`/#${await worldPath(page)}/maps`)
+  await page.waitForTimeout(2500)
+
+  // Read the layer tree itself rather than the page text: a chapter titled
+  // after a place would otherwise look like a leak, and chapter titles stay
+  // visible on purpose.
+  const inTree = (await page.evaluate(
+    `(() => [...document.querySelectorAll('[data-map-layer]')].map((n) => (n.textContent ?? '').trim()))()`,
+  )) as string[]
+  expect(inTree.length, 'the sidebar should be listing some maps').toBeGreaterThan(0)
+
+  const listed = shouldHide.filter((l) => inTree.includes(l.layer)).map((l) => l.layer)
+  expect(listed, `maps listed for places not yet reached: ${listed.join(', ')}`).toEqual([])
 })
 
 test('the map can be read and exported but not redrawn', async ({ page }) => {
