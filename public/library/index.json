@@ -88,6 +88,22 @@
       "images": "the-wise-man-s-fear.pwb",
       "imagesBytes": 1284723,
       "worldId": "ag5-SfCGAP0HIVKimJBe7"
+    },
+    {
+      "id": "dracula",
+      "title": "Dracula",
+      "author": "Bram Stoker",
+      "blurb": "Journals, letters, logs, and telegrams converge as Dracula moves from Transylvania to England and the hunters follow him home.",
+      "data": "dracula.pwk",
+      "dataBytes": 364158,
+      "counts": {
+        "characters": 25,
+        "chapters": 27,
+        "events": 84,
+        "locations": 60
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Historical maps are public-domain or marked with no known copyright restrictions; source details are included in Lore.",
+      "worldId": "dracula-1897-world"
     }
   ]
 }
