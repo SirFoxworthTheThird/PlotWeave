@@ -148,13 +148,19 @@ Reading mode also clears out everything that only makes sense to the person
 writing the book, so what is left reads as a companion rather than a workspace
 you have wandered into.
 
-The writing screens — Manuscript and Structure — step aside. Undo, redo, Recent
+The writing screens — Manuscript, Structure and the Corkboard — step aside. Undo, redo, Recent
 changes, the Writer's Brief and the Continuity Checker leave the top bar (and
 Ctrl+Z along with them), and the dashboard drops its continuity card and its
 snapshot-coverage figure. No
 screen offers to add, generate or delete anything: no **Add Character**, no
 **New Page**, no **Generate with AI**, no delete buttons on cards, rows or map
 layers.
+
+The dashboard becomes a way in rather than a progress report. Recent Events,
+Scene Status, Writing Progress, Cast Balance, Plot Threads and Motifs all
+measure the manuscript rather than the story, so they go, and the tiles stop
+talking about *your* cast and *your* catalogue — they count what you have met
+so far.
 
 Detail screens show the same information without the editing furniture. A
 character's page is read straight through — their description, where they
