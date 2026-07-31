@@ -170,6 +170,13 @@ what it is and who knows it, without the controls that set when the reader is
 let in on it. On the map you can still measure distances and export the picture;
 you cannot move a marker, relabel it, or replace the image.
 
+**Settings** keeps only what a reader can decide — the theme, and whether to
+carry on reading this way. Travel speeds, the continuity threshold, word target
+and deadline, the calendar's own definition, folder sync and the HTML export
+all describe the draft rather than the story, so they wait. (The HTML export
+would write out the whole world regardless of your chapter cursor, so offering
+it here would hand you the ending in a file.)
+
 To edit a world anyway, turn reading mode off in **Settings**. Everything comes
 back exactly as it was.
 

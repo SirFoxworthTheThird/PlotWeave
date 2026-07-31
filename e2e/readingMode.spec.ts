@@ -120,6 +120,25 @@ test('the dashboard drops the draft scorecard and speaks to a reader', async ({ 
   await expect(main).toContainText('you have met so far')
 })
 
+test('settings keeps only what a reader can decide', async ({ page }) => {
+  await downloadFirstLibraryWorld(page)
+  await page.goto(`/#${await worldPath(page)}/settings`)
+  await settleNav(page)
+
+  const sections = async () =>
+    (await page.evaluate(`(() => [...document.querySelectorAll('main h2')].map((h) => h.textContent?.trim()))()`)) as string[]
+
+  // How it looks, and whether to keep reading this way. Nothing else here is
+  // the reader's to decide, and Export as HTML would write out the whole book.
+  await expect.poll(sections, { timeout: 15_000 }).toEqual(['Reading mode', 'Theme'])
+  await expect(page.getByRole('button', { name: 'Export as HTML' })).toHaveCount(0)
+
+  // Turning reading mode off is the escape hatch, and it brings the rest back.
+  await page.getByRole('button', { name: 'Reading mode is on' }).click()
+  await expect.poll(async () => (await sections()).length, { timeout: 15_000 }).toBeGreaterThan(2)
+  await expect(page.getByRole('button', { name: 'Export as HTML' })).toBeVisible()
+})
+
 test('the corkboard is a plotting board, not a reading screen', async ({ page }) => {
   await downloadFirstLibraryWorld(page)
   const nav = page.getByRole('navigation', { name: 'Main navigation' })
