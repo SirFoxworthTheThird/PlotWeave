@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { resetDB } from './helpers/reset'
+import { settleNav } from './helpers/nav'
 
 test.describe("Writer's Brief panel", () => {
   test.beforeEach(async ({ page }) => {
@@ -53,6 +54,7 @@ test.describe("Writer's Brief panel", () => {
 
     // Set the event as active via the timeline bar
     await page.getByRole('link', { name: 'Timeline' }).click()
+    await settleNav(page)
     await page.getByTitle('First Encounter', { exact: true }).click()
 
     // Open brief — should show chapter info
@@ -87,6 +89,7 @@ test.describe("Writer's Brief panel", () => {
 
     // Activate the event
     await page.getByRole('link', { name: 'Timeline' }).click()
+    await settleNav(page)
     await page.getByTitle('Council Scene', { exact: true }).click()
 
     // Open brief
