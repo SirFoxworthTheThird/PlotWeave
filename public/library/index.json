@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "harry-potter-and-the-philosopher-s-stone",
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "blurb": "A first year at Hogwarts. Who is where, who has met whom, and what the reader has been told so far.",
+      "data": "harry-potter-and-the-philosopher-s-stone.pwk",
+      "dataBytes": 343941,
+      "counts": {
+        "characters": 50,
+        "chapters": 17,
+        "events": 58,
+        "locations": 40
+      },
+      "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
+      "worldId": "hp-ps-world"
+    },
+    {
+      "id": "the-fellowship-of-the-ring",
+      "title": "The Fellowship of the Ring",
+      "author": "J.R.R. Tolkien",
+      "blurb": "The Ring leaves the Shire. Track the Fellowship across Eriador and Moria, and see who knows what, and when.",
+      "data": "the-fellowship-of-the-ring.pwk",
+      "dataBytes": 573516,
+      "counts": {
+        "characters": 45,
+        "chapters": 22,
+        "events": 91,
+        "locations": 109
+      },
+      "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
+      "images": "the-fellowship-of-the-ring.pwb",
+      "imagesBytes": 15352825,
+      "worldId": "aX-7torL9Na4l4UvyLWIP"
+    },
+    {
+      "id": "the-name-of-the-wind",
+      "title": "The Name of the Wind",
+      "author": "Patrick Rothfuss",
+      "blurb": "Kvothe tells his own story over the first of three days — from the troupe, to Tarbean, to the University.",
+      "data": "the-name-of-the-wind.pwk",
+      "dataBytes": 549896,
+      "counts": {
+        "characters": 56,
+        "chapters": 94,
+        "events": 130,
+        "locations": 42
+      },
+      "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
+      "images": "the-name-of-the-wind.pwb",
+      "imagesBytes": 3114803,
+      "worldId": "10000000-0000-4000-a000-000000000000"
+    },
+    {
+      "id": "the-two-towers",
+      "title": "The Two Towers",
+      "author": "J.R.R. Tolkien",
+      "blurb": "The Fellowship is broken. Follow three separate journeys as they diverge across Rohan, Fangorn and the Emyn Muil.",
+      "data": "the-two-towers.pwk",
+      "dataBytes": 540252,
+      "counts": {
+        "characters": 67,
+        "chapters": 21,
+        "events": 93,
+        "locations": 123
+      },
+      "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
+      "images": "the-two-towers.pwb",
+      "imagesBytes": 11918280,
+      "worldId": "mOlU8GWK_NGtK-STFFtqC"
+    },
+    {
+      "id": "the-wise-man-s-fear",
+      "title": "The Wise Man's Fear",
+      "author": "Patrick Rothfuss",
+      "blurb": "The second day of Kvothe's telling: Vintas, the Eld, Ademre and Felurian.",
+      "data": "the-wise-man-s-fear.pwk",
+      "dataBytes": 639228,
+      "counts": {
+        "characters": 80,
+        "chapters": 154,
+        "events": 154,
+        "locations": 71
+      },
+      "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
+      "images": "the-wise-man-s-fear.pwb",
+      "imagesBytes": 1284723,
+      "worldId": "ag5-SfCGAP0HIVKimJBe7"
+    },
+    {
+      "id": "dracula",
+      "title": "Dracula",
+      "author": "Bram Stoker",
+      "blurb": "Journals, letters, logs, and telegrams converge as Dracula moves from Transylvania to England and the hunters follow him home.",
+      "data": "dracula.pwk",
+      "dataBytes": 364265,
+      "counts": {
+        "characters": 25,
+        "chapters": 27,
+        "events": 84,
+        "locations": 60
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Historical maps are public-domain or marked with no known copyright restrictions; source details are included in Lore.",
+      "worldId": "dracula-1897-world"
+    },
+    {
+      "id": "frankenstein",
+      "title": "Frankenstein; or, The Modern Prometheus",
+      "author": "Mary Shelley",
+      "blurb": "Walton’s polar letters frame Victor Frankenstein’s confession and the Creature’s own history of creation, rejection, and revenge.",
+      "data": "frankenstein.pwk",
+      "dataBytes": 313818,
+      "counts": {
+        "characters": 24,
+        "chapters": 28,
+        "events": 88,
+        "locations": 61
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked map sources and licensing notes are recorded in Lore.",
+      "worldId": "frankenstein-world"
+    },
+    {
+      "id": "strange-case-of-dr-jekyll-and-mr-hyde",
+      "title": "Strange Case of Dr Jekyll and Mr Hyde",
+      "author": "Robert Louis Stevenson",
+      "blurb": "Utterson follows Hyde through doors, wills, murder evidence, chemical secrets, and sealed testimony toward Jekyll’s divided identity.",
+      "data": "strange-case-of-dr-jekyll-and-mr-hyde.pwk",
+      "dataBytes": 173457,
+      "counts": {
+        "characters": 15,
+        "chapters": 10,
+        "events": 47,
+        "locations": 24
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked map and artwork sources are recorded in Lore.",
+      "worldId": "jekyll-hyde-world"
+    },
+    {
+      "id": "the-picture-of-dorian-gray",
+      "title": "The Picture of Dorian Gray",
+      "author": "Oscar Wilde",
+      "blurb": "A portrait bears the age and corruption hidden behind Dorian Gray’s unchanging beauty.",
+      "data": "the-picture-of-dorian-gray.pwk",
+      "dataBytes": 293919,
+      "counts": {
+        "characters": 26,
+        "chapters": 20,
+        "events": 83,
+        "locations": 32
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked historical maps and public-domain artwork sources are recorded in Lore.",
+      "worldId": "dorian-gray-world"
+    },
+    {
+      "id": "the-hound-of-the-baskervilles",
+      "title": "The Hound of the Baskervilles",
+      "author": "Arthur Conan Doyle",
+      "blurb": "Holmes and Watson follow a family curse from London clues to Dartmoor, where an inheritance plot hides behind the legend of a spectral hound.",
+      "data": "the-hound-of-the-baskervilles.pwk",
+      "dataBytes": 296718,
+      "counts": {
+        "characters": 19,
+        "chapters": 15,
+        "events": 66,
+        "locations": 26
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and Sidney Paget illustrations are recorded in Lore.",
+      "worldId": "hound-world"
+    }
+  ]
+}
