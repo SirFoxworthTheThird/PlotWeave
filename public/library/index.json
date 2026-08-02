@@ -15,7 +15,8 @@
         "locations": 40
       },
       "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
-      "worldId": "hp-ps-world"
+      "worldId": "hp-ps-world",
+      "cover": "https://static.posters.cz/image/1300/214926.jpg"
     },
     {
       "id": "the-fellowship-of-the-ring",
@@ -103,7 +104,8 @@
         "locations": 60
       },
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Historical maps are public-domain or marked with no known copyright restrictions; source details are included in Lore.",
-      "worldId": "dracula-1897-world"
+      "worldId": "dracula-1897-world",
+      "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Dracula1st.jpeg/960px-Dracula1st.jpeg"
     },
     {
       "id": "frankenstein",
@@ -119,7 +121,8 @@
         "locations": 61
       },
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked map sources and licensing notes are recorded in Lore.",
-      "worldId": "frankenstein-world"
+      "worldId": "frankenstein-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Frontispiece%20to%20Frankenstein%201831.jpg?width=960"
     },
     {
       "id": "strange-case-of-dr-jekyll-and-mr-hyde",
@@ -135,7 +138,8 @@
         "locations": 24
       },
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked map and artwork sources are recorded in Lore.",
-      "worldId": "jekyll-hyde-world"
+      "worldId": "jekyll-hyde-world",
+      "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Dr._Jekyll_and_Mr._Hyde_LCCN2014635954.jpg/960px-Dr._Jekyll_and_Mr._Hyde_LCCN2014635954.jpg"
     },
     {
       "id": "the-picture-of-dorian-gray",
@@ -151,7 +155,8 @@
         "locations": 32
       },
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked historical maps and public-domain artwork sources are recorded in Lore.",
-      "worldId": "dorian-gray-world"
+      "worldId": "dorian-gray-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Houghton%20HEW%2012.10.15%20-%20The%20Picture%20of%20Dorian%20Gray%2C%201891%20(cover).jpg?width=960"
     },
     {
       "id": "the-hound-of-the-baskervilles",
@@ -167,7 +172,8 @@
         "locations": 26
       },
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and Sidney Paget illustrations are recorded in Lore.",
-      "worldId": "hound-world"
+      "worldId": "hound-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Houn-42%20-%20Frontispiece%20(Hound%20of%20Baskervilles).jpg?width=960"
     }
   ]
 }
