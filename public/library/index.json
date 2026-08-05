@@ -7,7 +7,7 @@
       "author": "J.K. Rowling",
       "blurb": "A first year at Hogwarts. Who is where, who has met whom, and what the reader has been told so far.",
       "data": "harry-potter-and-the-philosopher-s-stone.pwk",
-      "dataBytes": 343941,
+      "dataBytes": 321011,
       "counts": {
         "characters": 50,
         "chapters": 17,
@@ -24,7 +24,7 @@
       "author": "J.R.R. Tolkien",
       "blurb": "The Ring leaves the Shire. Track the Fellowship across Eriador and Moria, and see who knows what, and when.",
       "data": "the-fellowship-of-the-ring.pwk",
-      "dataBytes": 573516,
+      "dataBytes": 568058,
       "counts": {
         "characters": 45,
         "chapters": 22,
@@ -42,11 +42,11 @@
       "author": "Patrick Rothfuss",
       "blurb": "Kvothe tells his own story over the first of three days — from the troupe, to Tarbean, to the University.",
       "data": "the-name-of-the-wind.pwk",
-      "dataBytes": 549896,
+      "dataBytes": 512770,
       "counts": {
         "characters": 56,
         "chapters": 94,
-        "events": 130,
+        "events": 128,
         "locations": 42
       },
       "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
@@ -60,7 +60,7 @@
       "author": "J.R.R. Tolkien",
       "blurb": "The Fellowship is broken. Follow three separate journeys as they diverge across Rohan, Fangorn and the Emyn Muil.",
       "data": "the-two-towers.pwk",
-      "dataBytes": 540252,
+      "dataBytes": 509532,
       "counts": {
         "characters": 67,
         "chapters": 21,
@@ -78,7 +78,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "The second day of Kvothe's telling: Vintas, the Eld, Ademre and Felurian.",
       "data": "the-wise-man-s-fear.pwk",
-      "dataBytes": 639228,
+      "dataBytes": 639290,
       "counts": {
         "characters": 80,
         "chapters": 154,
@@ -96,7 +96,7 @@
       "author": "Bram Stoker",
       "blurb": "Journals, letters, logs, and telegrams converge as Dracula moves from Transylvania to England and the hunters follow him home.",
       "data": "dracula.pwk",
-      "dataBytes": 364265,
+      "dataBytes": 364971,
       "counts": {
         "characters": 25,
         "chapters": 27,
@@ -113,7 +113,7 @@
       "author": "Mary Shelley",
       "blurb": "Walton’s polar letters frame Victor Frankenstein’s confession and the Creature’s own history of creation, rejection, and revenge.",
       "data": "frankenstein.pwk",
-      "dataBytes": 313818,
+      "dataBytes": 316660,
       "counts": {
         "characters": 24,
         "chapters": 28,
@@ -130,7 +130,7 @@
       "author": "Robert Louis Stevenson",
       "blurb": "Utterson follows Hyde through doors, wills, murder evidence, chemical secrets, and sealed testimony toward Jekyll’s divided identity.",
       "data": "strange-case-of-dr-jekyll-and-mr-hyde.pwk",
-      "dataBytes": 173457,
+      "dataBytes": 173575,
       "counts": {
         "characters": 15,
         "chapters": 10,
@@ -147,7 +147,7 @@
       "author": "Oscar Wilde",
       "blurb": "A portrait bears the age and corruption hidden behind Dorian Gray’s unchanging beauty.",
       "data": "the-picture-of-dorian-gray.pwk",
-      "dataBytes": 293919,
+      "dataBytes": 294037,
       "counts": {
         "characters": 26,
         "chapters": 20,
@@ -164,7 +164,7 @@
       "author": "Arthur Conan Doyle",
       "blurb": "Holmes and Watson follow a family curse from London clues to Dartmoor, where an inheritance plot hides behind the legend of a spectral hound.",
       "data": "the-hound-of-the-baskervilles.pwk",
-      "dataBytes": 296718,
+      "dataBytes": 296836,
       "counts": {
         "characters": 19,
         "chapters": 15,
@@ -174,6 +174,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and Sidney Paget illustrations are recorded in Lore.",
       "worldId": "hound-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Houn-42%20-%20Frontispiece%20(Hound%20of%20Baskervilles).jpg?width=960"
+    },
+    {
+      "id": "pride-and-prejudice",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "blurb": "Elizabeth Bennet and Fitzwilliam Darcy move through attraction, error, family crisis, and the difficult revision of first impressions.",
+      "data": "pride-and-prejudice.pwk",
+      "dataBytes": 463829,
+      "counts": {
+        "characters": 34,
+        "chapters": 61,
+        "events": 98,
+        "locations": 24
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and Hugh Thomson and C. E. Brock illustrations are recorded in Lore.",
+      "worldId": "pride-prejudice-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AUSTEN(1894)%20Pride%20and%20prejudice%20(15811958311).jpg?width=960"
     }
   ]
 }
