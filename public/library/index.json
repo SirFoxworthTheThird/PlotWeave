@@ -193,6 +193,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and Hugh Thomson and C. E. Brock illustrations are recorded in Lore.",
       "worldId": "pride-prejudice-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AUSTEN(1894)%20Pride%20and%20prejudice%20(15811958311).jpg?width=960"
+    },
+    {
+      "id": "treasure-island",
+      "title": "Treasure Island",
+      "author": "Robert Louis Stevenson",
+      "blurb": "Jim Hawkins follows a pirate map from the Admiral Benbow to the Hispaniola and a remote island where loyalty, mutiny, and buried treasure collide.",
+      "data": "treasure-island.pwk",
+      "dataBytes": 382905,
+      "counts": {
+        "characters": 25,
+        "chapters": 34,
+        "events": 71,
+        "locations": 31
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and public-domain N. C. Wyeth and Walter Paget illustrations are recorded in Lore.",
+      "worldId": "treasure-island-world",
+      "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Treasure_Island-Scribner%27s-1911.jpg/1280px-Treasure_Island-Scribner%27s-1911.jpg"
     }
   ]
 }
