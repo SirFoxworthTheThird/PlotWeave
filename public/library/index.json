@@ -7,7 +7,7 @@
       "author": "J.K. Rowling",
       "blurb": "A first year at Hogwarts. Who is where, who has met whom, and what the reader has been told so far.",
       "data": "harry-potter-and-the-philosopher-s-stone.pwk",
-      "dataBytes": 321011,
+      "dataBytes": 331235,
       "counts": {
         "characters": 50,
         "chapters": 17,
@@ -24,7 +24,7 @@
       "author": "J.R.R. Tolkien",
       "blurb": "The Ring leaves the Shire. Track the Fellowship across Eriador and Moria, and see who knows what, and when.",
       "data": "the-fellowship-of-the-ring.pwk",
-      "dataBytes": 568058,
+      "dataBytes": 587318,
       "counts": {
         "characters": 45,
         "chapters": 22,
@@ -42,7 +42,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "Kvothe tells his own story over the first of three days — from the troupe, to Tarbean, to the University.",
       "data": "the-name-of-the-wind.pwk",
-      "dataBytes": 512770,
+      "dataBytes": 522301,
       "counts": {
         "characters": 56,
         "chapters": 94,
@@ -52,7 +52,8 @@
       "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
       "images": "the-name-of-the-wind.pwb",
       "imagesBytes": 3114803,
-      "worldId": "10000000-0000-4000-a000-000000000000"
+      "worldId": "10000000-0000-4000-a000-000000000000",
+      "cover": "https://marc-simonetti-shop.myshopify.com/cdn/shop/products/nameofthewind_1200x1200.jpg?v=1574358352"
     },
     {
       "id": "the-two-towers",
@@ -60,7 +61,7 @@
       "author": "J.R.R. Tolkien",
       "blurb": "The Fellowship is broken. Follow three separate journeys as they diverge across Rohan, Fangorn and the Emyn Muil.",
       "data": "the-two-towers.pwk",
-      "dataBytes": 509532,
+      "dataBytes": 535910,
       "counts": {
         "characters": 67,
         "chapters": 21,
@@ -78,7 +79,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "The second day of Kvothe's telling: Vintas, the Eld, Ademre and Felurian.",
       "data": "the-wise-man-s-fear.pwk",
-      "dataBytes": 639290,
+      "dataBytes": 653051,
       "counts": {
         "characters": 80,
         "chapters": 154,
@@ -88,7 +89,8 @@
       "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
       "images": "the-wise-man-s-fear.pwb",
       "imagesBytes": 1284723,
-      "worldId": "ag5-SfCGAP0HIVKimJBe7"
+      "worldId": "ag5-SfCGAP0HIVKimJBe7",
+      "cover": "https://marc-simonetti-shop.myshopify.com/cdn/shop/products/wisemanfear01_1200x1200.jpg?v=1574360210"
     },
     {
       "id": "dracula",
@@ -96,7 +98,7 @@
       "author": "Bram Stoker",
       "blurb": "Journals, letters, logs, and telegrams converge as Dracula moves from Transylvania to England and the hunters follow him home.",
       "data": "dracula.pwk",
-      "dataBytes": 364971,
+      "dataBytes": 371792,
       "counts": {
         "characters": 25,
         "chapters": 27,
@@ -113,7 +115,7 @@
       "author": "Mary Shelley",
       "blurb": "Walton’s polar letters frame Victor Frankenstein’s confession and the Creature’s own history of creation, rejection, and revenge.",
       "data": "frankenstein.pwk",
-      "dataBytes": 316660,
+      "dataBytes": 324319,
       "counts": {
         "characters": 24,
         "chapters": 28,
@@ -130,7 +132,7 @@
       "author": "Robert Louis Stevenson",
       "blurb": "Utterson follows Hyde through doors, wills, murder evidence, chemical secrets, and sealed testimony toward Jekyll’s divided identity.",
       "data": "strange-case-of-dr-jekyll-and-mr-hyde.pwk",
-      "dataBytes": 173575,
+      "dataBytes": 174583,
       "counts": {
         "characters": 15,
         "chapters": 10,
@@ -147,7 +149,7 @@
       "author": "Oscar Wilde",
       "blurb": "A portrait bears the age and corruption hidden behind Dorian Gray’s unchanging beauty.",
       "data": "the-picture-of-dorian-gray.pwk",
-      "dataBytes": 294037,
+      "dataBytes": 295418,
       "counts": {
         "characters": 26,
         "chapters": 20,
@@ -164,7 +166,7 @@
       "author": "Arthur Conan Doyle",
       "blurb": "Holmes and Watson follow a family curse from London clues to Dartmoor, where an inheritance plot hides behind the legend of a spectral hound.",
       "data": "the-hound-of-the-baskervilles.pwk",
-      "dataBytes": 296836,
+      "dataBytes": 228344,
       "counts": {
         "characters": 19,
         "chapters": 15,
@@ -181,7 +183,7 @@
       "author": "Jane Austen",
       "blurb": "Elizabeth Bennet and Fitzwilliam Darcy move through attraction, error, family crisis, and the difficult revision of first impressions.",
       "data": "pride-and-prejudice.pwk",
-      "dataBytes": 463829,
+      "dataBytes": 355671,
       "counts": {
         "characters": 34,
         "chapters": 61,
