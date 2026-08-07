@@ -26,6 +26,43 @@ Screens were captured from the real app driven by Playwright at
 
 Reading mode has **not** been reviewed yet, and neither have phone widths.
 
+## Triage — decisions taken
+
+Settled on 2026-08-07. Three cross-cutting questions were answered first,
+because they change how a dozen screens read and would otherwise force rework.
+
+| Question | Decision |
+|---|---|
+| **X-1** the watermark | **Drop it entirely.** Empty states become the loudest thing on an empty screen, which is what they are for. |
+| **X-2** wide screens | **Use the width.** Content and panels expand rather than huddling into a left column. |
+| **X-3** the nav rail | **Labels always visible.** Icon + word for every item; the guessing ends. Pairs with the width freed by X-2. |
+
+### Buckets
+
+**A — fix now (18).** Unambiguous defects; no design decision needed. In hand.
+
+`OP-1` `OP-5` `DASH-1` `DASH-2` `DASH-5` `MS-1` `MS-3` `MS-5` `TL-6` `TL-3`
+`OP-3` `OP-4` `OP-6` `EV-2` `EV-4` `EV-5` `CB-3` `CB-4` `X-6`
+
+Ordered by value: **OP-1** first (it loses a half-filled form today), then
+**OP-5** (every new user is left without a cursor), then the rest.
+
+**B — design work, direction now set (7).** `X-1` `X-2` `X-3` are decided above
+and can proceed. `EV-1` (event-card disclosure), `SEL-1` (selector entry
+points), `TL-1` (pacing curve), `ST-1` (structure proportion) still need their
+own shape before they can be built.
+
+**C — verify before deciding (3).** `CB-1` and the two operations left unproven
+in section 10. Cheap; folded into the next pass over those screens.
+
+**D — closed or downgraded (4).** `OP-7` closed as corrected. `OP-2` downgraded:
+a modal intercepting clicks is defensible on its own, and only looked wrong
+next to OP-1. `SEL-4` (tagline) and `X-5`/`W-2` (permanent help text) are
+house-voice calls rather than defects, and wait for someone with an opinion
+about the voice.
+
+---
+
 ## Legend
 
 | | |
