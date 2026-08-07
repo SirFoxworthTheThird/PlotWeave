@@ -421,6 +421,37 @@ the right answer.
 
 ---
 
+## 14. Using the map as a writer
+
+Not looking at the map — working it. Opening the shipped *Fellowship*, asking
+where everyone is at a given chapter, following one character, drilling into a
+city, playing the story back, and stepping the cursor forward to watch the cast
+move.
+
+**What works, measured rather than assumed.** The map genuinely tracks the
+story: markers drawn fall **43 → 31 → 24 → 16** as the cursor moves from *All
+chapters* to Ch.6, Ch.11 and Ch.21. Drilling into *Minas Tirith* works and
+returns cleanly. Playback runs and redraws. The bottom chapter bar — segments
+with per-scene ticks, the current chapter picked out, the active scene named
+beside it — is the best navigation in the product, and on this screen it is
+doing real work.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| MW-1 | high | open | **Label collision is not just an *All chapters* problem.** With the cursor on Ch.6 the north of the map still stacks *Trollshaws* / *Rivendell* / *High Pass* / *The Bruinen Ford* on one another, and *Dimrill Dale* / *Lothlórien* / *Dol Guldur* on each other. Setting a moment — the app's whole premise — does not make the map readable. This extends **MAP-1** rather than repeating it. |
+| MW-2 | high | open | **Two contradictory scales are on screen at once.** The breadcrumb states *1 km = 2 px*, while the map artwork carries its own printed scale bar in **miles**. A writer measuring a leg of the journey has no way to know which one the answer will come back in, and the two cannot both be right. |
+| MW-3 | med | open | **"Who is where" is buried in a list of everyone.** With the cursor on Ch.6 the sidebar lists all 45 characters at equal weight, each with a placement crosshair, but only a handful carry a location beneath their name. The question the screen exists to answer — *who is on stage now* — is a minority of the rows, undistinguished from the rest. |
+| MW-4 | med | open | **Regions are labelled twice.** *Rohan* appears as a polygon label and again as a marker pin reading *Rohan · Region*; *Mordor* likewise, with the two labels overlapping. |
+
+**Not established, and recorded as such.** Three of the writer's most natural
+moves were not proven either way, because the harness failed rather than the
+app: the **Journeys** overlay (the step's verify only asserted the button
+exists, which is vacuous), **Measure**, and the character **film strip**. All
+three are real `<button>`s in the source, so these are selector failures, not
+missing controls — but nothing is claimed about what they do.
+
+---
+
 ## Screens not yet reviewed
 
 Chapter detail · knowledge detail · settings · writer's brief · calendar
