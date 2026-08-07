@@ -509,6 +509,46 @@ except the map, during playback, in one direction.
 
 ---
 
+## 16. The map sidebar, and the panels that open on the right
+
+Asked for directly, and fairly — the left bar had one finding against it
+(**MW-3**) and the right-hand panels had never been looked at.
+
+### The left sidebar
+
+Sections: Map Layers · Characters · Locations · Items · Routes · Regions, each
+with a count in its header, which is the right idea and done well.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| SB-1 | high | open | **Opening the sections produces one unbounded scroll.** They are not an accordion and their headers do not stick, so with Items expanded (18 rows) *Map Layers*, *Characters* and *Locations* have all scrolled off the top. In a 22-chapter world with 29 locations and 45 characters, opening two sections makes the third unreachable without hunting. |
+| SB-2 | med | open | **Names are truncated far earlier than the column requires.** *The Witch-kin…*, *Samwise Gam…*, *Radagast the …*, *Bow of the Galad…*, *The Mirror of Gal…* — cut at roughly fourteen characters in a 280px column. *The Witch-king of Angmar* and *The Witch-king of the North* would be indistinguishable. |
+| SB-3 | low | open | **Only some rows carry their per-event state.** At a given chapter a handful of characters and items show a location line and the rest show nothing, at identical weight — the list version of **MW-3**. |
+
+**Example-data note:** at Ch.12 the sidebar reads *Sauron · Bag End*. That is the
+shipped Fellowship example, not the UI, but it is the kind of thing a reader
+will screenshot.
+
+### The location panel
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| LP-1 | high | open | **Delete is the loudest thing in the panel.** *Delete Location* is a full-width, saturated red bar pinned to the bottom, more visually dominant than the location's own name. Lore hides its delete until hover (**LORE-1**); this is the opposite extreme, on the panel a writer opens most often. |
+| LP-2 | med | open | **The panel is clipped by its own delete bar.** *Upload Sub-map* is cut in half by it, so the last section cannot be read or reached at the default height. |
+| LP-3 | med | open | **Three sections in a row send you somewhere else and none of them takes you there.** *Characters here* wants an event; *Controlling Faction* says "create one in the Factions view"; *Lore* says "open a lore page and use the link button". The copy is clear and correct — and there is not a single link among the three. |
+| LP-4 | low | open | **The name is shown twice and the header carries neither.** The map popup reads *Saltmouth · City*, the panel repeats *Saltmouth · City* immediately beside it, and the panel's own header says only *"Location"*. |
+
+**Credit:** the empty states here are among the better-written in the app —
+they say what is missing *and* why, rather than just reporting absence.
+
+**Still not reviewed: the character and region panels.** Four attempts to open
+them in this pass all failed on selectors — one click set the time cursor
+instead, another toggled a section shut. The location panel above came from an
+earlier run. Nothing is claimed about the other two, and the user's question
+about them is not yet answered.
+
+---
+
 ## Screens not yet reviewed
 
 Chapter detail · knowledge detail · settings · writer's brief · calendar
