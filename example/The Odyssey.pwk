@@ -6,7 +6,7 @@
     "id": "odyssey-world",
     "name": "The Odyssey",
     "description": "Homer’s epic follows Odysseus through a decade of storms, monsters, enchanted shores, and the difficult return to Ithaca, while his son and wife defend the household he left behind.",
-    "coverImageId": null,
+    "coverImageId": "odyssey-image-aegean",
     "theme": "theme-mythic",
     "readingMode": true,
     "createdAt": 1786122000000,
@@ -133,7 +133,7 @@
       "description": "The fallen city where the long return begins.",
       "x": 1049,
       "y": 554,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "city",
       "tags": [],
       "factionId": null
@@ -149,7 +149,7 @@
       "description": "The Thracian coast where the crew’s raid turns into a costly retreat.",
       "x": 1029,
       "y": 591,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "coast",
       "tags": [],
       "factionId": null
@@ -165,7 +165,7 @@
       "description": "A strange shore where forgetfulness threatens the voyage home.",
       "x": 38,
       "y": 111,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "coast",
       "tags": [],
       "factionId": null
@@ -181,7 +181,7 @@
       "description": "A pastoral island dominated by the cave and flocks of Polyphemus.",
       "x": 417,
       "y": 476,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -197,7 +197,7 @@
       "description": "The floating island and palace of Aeolus, keeper of the winds.",
       "x": 493,
       "y": 554,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "island",
       "tags": [],
       "factionId": null
@@ -213,7 +213,7 @@
       "description": "A narrow harbour that becomes a deadly trap for the fleet.",
       "x": 777,
       "y": 476,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "coast",
       "tags": [],
       "factionId": null
@@ -229,7 +229,7 @@
       "description": "Circe’s wooded island, where the crew is delayed and transformed.",
       "x": 625,
       "y": 399,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "island",
       "tags": [],
       "factionId": null
@@ -245,7 +245,7 @@
       "description": "The dark shore where Odysseus performs the rites for the dead.",
       "x": 768,
       "y": 282,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "coast",
       "tags": [],
       "factionId": null
@@ -261,7 +261,7 @@
       "description": "A dangerous passage crossed by binding the captain and stopping the crew’s ears.",
       "x": 787,
       "y": 368,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "strait",
       "tags": [],
       "factionId": null
@@ -277,7 +277,7 @@
       "description": "The narrowing sea route between a devouring cliff and a whirlpool.",
       "x": 882,
       "y": 437,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "strait",
       "tags": [],
       "factionId": null
@@ -293,7 +293,7 @@
       "description": "The island of the Sun’s cattle, where hunger breaks the crew’s restraint.",
       "x": 1063,
       "y": 538,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "island",
       "tags": [],
       "factionId": null
@@ -309,7 +309,7 @@
       "description": "The welcoming Phaeacian kingdom that carries the stranger toward Ithaca.",
       "x": 967,
       "y": 256,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "island",
       "tags": [],
       "factionId": null
@@ -325,7 +325,7 @@
       "description": "The shore where the sleeping voyager is set down with his gifts.",
       "x": 240,
       "y": 230,
-      "imageId": null,
+      "imageId": "odyssey-image-ithaca",
       "iconType": "coast",
       "tags": [],
       "factionId": null
@@ -341,7 +341,7 @@
       "description": "Penelope’s hall, occupied by suitors and reclaimed through a contest and stratagem.",
       "x": 600,
       "y": 470,
-      "imageId": null,
+      "imageId": "odyssey-image-ithaca",
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -357,7 +357,7 @@
       "description": "The rooted bed that confirms the identity of husband and wife.",
       "x": 680,
       "y": 380,
-      "imageId": null,
+      "imageId": "odyssey-image-ithaca",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -373,7 +373,7 @@
       "description": "The ritual ground where blood draws shades from the dark.",
       "x": 360,
       "y": 370,
-      "imageId": null,
+      "imageId": "odyssey-image-underworld",
       "iconType": "coast",
       "tags": [],
       "factionId": null
@@ -389,7 +389,7 @@
       "description": "The meeting place of the dead and the prophet Tiresias.",
       "x": 650,
       "y": 500,
-      "imageId": null,
+      "imageId": "odyssey-image-underworld",
       "iconType": "region",
       "tags": [],
       "factionId": null
@@ -405,7 +405,7 @@
       "description": "The outward-facing entrance to the island map, where the returning ship’s route ends.",
       "x": 1110,
       "y": 126,
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "iconType": "coast",
       "tags": [],
       "factionId": null
@@ -420,7 +420,7 @@
       "name": "Odysseus",
       "aliases": [],
       "description": "King of Ithaca, strategist, sailor, and narrator of the long return.",
-      "portraitImageId": null,
+      "portraitImageId": "odyssey-image-aegean",
       "color": "#58708a",
       "tags": [],
       "isAlive": true,
@@ -434,7 +434,7 @@
       "name": "Penelope",
       "aliases": [],
       "description": "The queen of Ithaca, preserving the household through patience and deception.",
-      "portraitImageId": null,
+      "portraitImageId": "odyssey-image-ithaca",
       "color": "#58708a",
       "tags": [],
       "isAlive": true,
@@ -448,7 +448,7 @@
       "name": "Telemachus",
       "aliases": [],
       "description": "Odysseus’s son, growing into public courage while searching for news of his father.",
-      "portraitImageId": null,
+      "portraitImageId": "odyssey-image-underworld",
       "color": "#58708a",
       "tags": [],
       "isAlive": true,
@@ -462,7 +462,7 @@
       "name": "Athena",
       "aliases": [],
       "description": "The goddess whose protection repeatedly steers Odysseus and Telemachus.",
-      "portraitImageId": null,
+      "portraitImageId": "odyssey-image-aegean",
       "color": "#58708a",
       "tags": [],
       "isAlive": true,
@@ -476,7 +476,7 @@
       "name": "Poseidon",
       "aliases": [],
       "description": "The offended sea god whose anger prolongs the voyage.",
-      "portraitImageId": null,
+      "portraitImageId": "odyssey-image-ithaca",
       "color": "#58708a",
       "tags": [],
       "isAlive": true,
@@ -490,7 +490,7 @@
       "name": "Calypso",
       "aliases": [],
       "description": "The nymph who shelters Odysseus on Ogygia and delays his return.",
-      "portraitImageId": null,
+      "portraitImageId": "odyssey-image-underworld",
       "color": "#58708a",
       "tags": [],
       "isAlive": true,
@@ -504,7 +504,7 @@
       "name": "Circe",
       "aliases": [],
       "description": "A powerful enchantress who becomes an informed ally after testing the crew.",
-      "portraitImageId": null,
+      "portraitImageId": "odyssey-image-aegean",
       "color": "#58708a",
       "tags": [],
       "isAlive": true,
@@ -518,7 +518,7 @@
       "name": "Polyphemus",
       "aliases": [],
       "description": "The Cyclops whose blinding turns Odysseus’s escape into a feud with Poseidon.",
-      "portraitImageId": null,
+      "portraitImageId": "odyssey-image-ithaca",
       "color": "#58708a",
       "tags": [],
       "isAlive": true,
@@ -532,7 +532,7 @@
       "name": "Eumaeus",
       "aliases": [],
       "description": "The loyal swineherd who receives the disguised king before the palace reckoning.",
-      "portraitImageId": null,
+      "portraitImageId": "odyssey-image-underworld",
       "color": "#58708a",
       "tags": [],
       "isAlive": true,
@@ -546,7 +546,7 @@
       "name": "Antinous",
       "aliases": [],
       "description": "The most aggressive suitor competing for Penelope and abusing the disguised stranger.",
-      "portraitImageId": null,
+      "portraitImageId": "odyssey-image-aegean",
       "color": "#58708a",
       "tags": [],
       "isAlive": true,
@@ -562,7 +562,7 @@
       "name": "Odysseus’s Bow",
       "description": "The great bow used to reveal the returning king and decide the contest in the hall.",
       "iconType": "target",
-      "imageId": null,
+      "imageId": "odyssey-image-ithaca",
       "tags": []
     },
     {
@@ -573,7 +573,7 @@
       "name": "The Boar-Hunt Scar",
       "description": "A lasting mark by which Eurycleia recognises Odysseus in disguise.",
       "iconType": "shield",
-      "imageId": null,
+      "imageId": "odyssey-image-underworld",
       "tags": []
     },
     {
@@ -584,7 +584,7 @@
       "name": "Bag of Winds",
       "description": "Aeolus’s sealed gift, opened by the crew within sight of Ithaca.",
       "iconType": "cloud",
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "tags": []
     },
     {
@@ -595,7 +595,7 @@
       "name": "Lotus",
       "description": "A flower whose sweetness erases the desire for home.",
       "iconType": "sprout",
-      "imageId": null,
+      "imageId": "odyssey-image-ithaca",
       "tags": []
     },
     {
@@ -606,7 +606,7 @@
       "name": "Olive-Wood Bed",
       "description": "The immovable bed built around a living olive tree, known only to the royal couple.",
       "iconType": "landmark",
-      "imageId": null,
+      "imageId": "odyssey-image-underworld",
       "tags": []
     },
     {
@@ -617,7 +617,7 @@
       "name": "Cattle of the Sun",
       "description": "Sacred herds whose slaughter brings the final destruction of the crew.",
       "iconType": "sun",
-      "imageId": null,
+      "imageId": "odyssey-image-aegean",
       "tags": []
     },
     {
@@ -628,7 +628,7 @@
       "name": "Hero’s Oar",
       "description": "The sign that Odysseus must carry inland until strangers mistake it for a winnowing fan.",
       "iconType": "compass",
-      "imageId": null,
+      "imageId": "odyssey-image-ithaca",
       "tags": []
     },
     {
@@ -639,7 +639,7 @@
       "name": "Phaeacian Gifts",
       "description": "Bronze, clothing, and treasure sent with the stranger on his final passage.",
       "iconType": "gift",
-      "imageId": null,
+      "imageId": "odyssey-image-underworld",
       "tags": []
     }
   ],
