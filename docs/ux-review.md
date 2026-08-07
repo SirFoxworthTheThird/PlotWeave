@@ -92,7 +92,7 @@ per page.
 | X-3 | med | open | **14 unlabelled nav icons, one faint divider.** Corkboard, Structure, and Arc are three abstract grid glyphs in a row and cannot be told apart without hovering each. The guide describes a "More" divider separating everyday screens from the rest; visually that split barely registers. |
 | X-4 | med | open | **Empty states are inconsistent.** Some are excellent (Arc: heading, explanation, and a CTA routing to the prerequisite). Others are italic grey sentences sitting where a control should be ("No characters assigned.") with no affordance to act. Others are simply blank panels. |
 | X-5 | med | open | **Permanent help text.** Explanatory sentences under form fields never go away. The writing is good, but once learned it is noise on every future visit. |
-| X-7 | high | open | **Clickable things that are not controls.** The 18 item cards on the Items roster are not links or buttons — a query for `a, button` inside the main region returns only *Generate with AI*. The corkboard's status pill is the same (**CB-1**). These are `div`s with click handlers: unreachable by keyboard, invisible to a screen reader, and not focusable. It is a pattern rather than an oversight, so it wants one decision and one sweep. |
+| X-7 | high | open | **Clickable things that are not controls, inconsistently.** The 18 item cards on the Items roster are not links or buttons — a query for `a, button` inside the main region returns only *Generate with AI*. The corkboard's status pill is the same (**CB-1**). So are the map sidebar's **region rows**: measured, **0** reachable by `role=button`, **8** by div text. So are its **character rows**. But its **location rows are real buttons**. Three different answers inside one sidebar. These are `div`s with click handlers: no keyboard, no screen reader, no focus. Systemic rather than incidental — one decision and one sweep. |
 | X-6 | low | open | **Dates are unlabelled and US-format.** `4/1/2026` on a world card — created or edited, April or January? |
 
 ---
@@ -541,11 +541,31 @@ will screenshot.
 **Credit:** the empty states here are among the better-written in the app —
 they say what is missing *and* why, rather than just reporting absence.
 
-**Still not reviewed: the character and region panels.** Four attempts to open
-them in this pass all failed on selectors — one click set the time cursor
-instead, another toggled a section shut. The location panel above came from an
-earlier run. Nothing is claimed about the other two, and the user's question
-about them is not yet answered.
+### The character panel
+
+The best of the panels, and the yardstick the others should be held to. Its
+header carries **the moment** — *Frodo Baggins · Ch.12 — Flight to the Ford* —
+then portrait, an **Alive** badge, the status note in his own words, travel
+mode, location, inventory with per-item remove and *+ Add item…*, inventory
+notes, and relationships.
+
+Clicking a character in the sidebar also opens the **film strip** along the
+bottom — *The Party Tree Ch.1 · Bag End Ch.1 · Hobbiton Ch.3 · Woodhall Ch.3 ·
+Shire Ch.4 …* — which is the feature earlier passes kept failing to reach.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| PAN-1 | high | open | **The four panels share no contract.** The character panel names the moment in its header; the location panel's header says only *"Location"*. The location panel ends in a full-width saturated red **Delete Location**; the character panel has no delete at all. Same edge of the same screen, opened the same way, and they disagree about what a panel is. |
+| PAN-2 | med | open | **Selecting a character costs two rows of chrome.** The right panel and the film strip open together, and the strip stacks above the chapter bar — so a laptop loses the panel width *and* roughly a third of the remaining map height in one click, with no way to keep one without the other. |
+
+### The region panel — still not opened
+
+Not for want of trying. It is **not reachable by role**: measured, zero region
+rows respond to `role=button` and eight to a div-text query, because the rows
+are `div`s with click handlers (**X-7**). That is not a harness excuse — it is
+the finding. A keyboard user cannot open the region panel at all.
+
+The route panel remains unreviewed as well.
 
 ---
 
