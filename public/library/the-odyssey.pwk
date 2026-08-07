@@ -1,0 +1,2252 @@
+{
+  "version": 16,
+  "type": "world-export",
+  "exportedAt": 1786122000000,
+  "world": {
+    "id": "odyssey-world",
+    "name": "The Odyssey",
+    "description": "Homer’s epic follows Odysseus through a decade of storms, monsters, enchanted shores, and the difficult return to Ithaca, while his son and wife defend the household he left behind.",
+    "coverImageId": null,
+    "theme": "theme-mythic",
+    "readingMode": true,
+    "createdAt": 1786122000000,
+    "updatedAt": 1786122000000,
+    "continuityStaleThreshold": 5,
+    "calendar": {
+      "startYear": 1,
+      "yearSuffix": " BCE",
+      "months": [
+        {
+          "name": "January",
+          "days": 31
+        },
+        {
+          "name": "February",
+          "days": 28
+        },
+        {
+          "name": "March",
+          "days": 31
+        },
+        {
+          "name": "April",
+          "days": 30
+        },
+        {
+          "name": "May",
+          "days": 31
+        },
+        {
+          "name": "June",
+          "days": 30
+        },
+        {
+          "name": "July",
+          "days": 31
+        },
+        {
+          "name": "August",
+          "days": 31
+        },
+        {
+          "name": "September",
+          "days": 30
+        },
+        {
+          "name": "October",
+          "days": 31
+        },
+        {
+          "name": "November",
+          "days": 30
+        },
+        {
+          "name": "December",
+          "days": 31
+        }
+      ]
+    },
+    "wordTarget": null
+  },
+  "mapLayers": [
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-map-aegean",
+      "parentMapId": null,
+      "name": "Aegean and Ionian Seas",
+      "description": "A period-style overview of the island-hopping voyage from Troy toward Ithaca.",
+      "imageId": "odyssey-image-aegean",
+      "imageWidth": 1200,
+      "imageHeight": 800,
+      "scalePixelsPerUnit": null,
+      "scaleUnit": null,
+      "levelGroupId": null,
+      "levelIndex": 0,
+      "levelLabel": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-map-ithaca",
+      "parentMapId": "odyssey-map-aegean",
+      "name": "Ithaca",
+      "description": "The rocky island kingdom whose household, shores, and hills frame the return home.",
+      "imageId": "odyssey-image-ithaca",
+      "imageWidth": 1200,
+      "imageHeight": 800,
+      "scalePixelsPerUnit": null,
+      "scaleUnit": null,
+      "levelGroupId": null,
+      "levelIndex": 0,
+      "levelLabel": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-map-underworld",
+      "parentMapId": "odyssey-map-aegean",
+      "name": "The Underworld",
+      "description": "A symbolic submap for the boundary-crossing consultation with the dead.",
+      "imageId": "odyssey-image-underworld",
+      "imageWidth": 1200,
+      "imageHeight": 800,
+      "scalePixelsPerUnit": null,
+      "scaleUnit": null,
+      "levelGroupId": null,
+      "levelIndex": 0,
+      "levelLabel": ""
+    }
+  ],
+  "locationMarkers": [
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-troy",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Troy",
+      "description": "The fallen city where the long return begins.",
+      "x": 110,
+      "y": 390,
+      "imageId": null,
+      "iconType": "city",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-is-maros",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Ismarus",
+      "description": "The Thracian coast where the crew’s raid turns into a costly retreat.",
+      "x": 180,
+      "y": 450,
+      "imageId": null,
+      "iconType": "coast",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-lotus",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Land of the Lotus-Eaters",
+      "description": "A strange shore where forgetfulness threatens the voyage home.",
+      "x": 260,
+      "y": 510,
+      "imageId": null,
+      "iconType": "coast",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-cyclops",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Cyclops Island",
+      "description": "A pastoral island dominated by the cave and flocks of Polyphemus.",
+      "x": 350,
+      "y": 570,
+      "imageId": null,
+      "iconType": "landmark",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-aeolus",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Aeolia",
+      "description": "The floating island and palace of Aeolus, keeper of the winds.",
+      "x": 455,
+      "y": 620,
+      "imageId": null,
+      "iconType": "island",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-laestrygon",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Laestrygonian Harbour",
+      "description": "A narrow harbour that becomes a deadly trap for the fleet.",
+      "x": 560,
+      "y": 550,
+      "imageId": null,
+      "iconType": "coast",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-circe",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Aeaea",
+      "description": "Circe’s wooded island, where the crew is delayed and transformed.",
+      "x": 660,
+      "y": 450,
+      "imageId": null,
+      "iconType": "island",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-underworld-gate",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": "odyssey-map-underworld",
+      "name": "Cimmerian Shore",
+      "description": "The dark shore where Odysseus performs the rites for the dead.",
+      "x": 730,
+      "y": 310,
+      "imageId": null,
+      "iconType": "coast",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-sirens",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Sirens’ Strait",
+      "description": "A dangerous passage crossed by binding the captain and stopping the crew’s ears.",
+      "x": 820,
+      "y": 430,
+      "imageId": null,
+      "iconType": "strait",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-scylla",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Scylla and Charybdis",
+      "description": "The narrowing sea route between a devouring cliff and a whirlpool.",
+      "x": 900,
+      "y": 500,
+      "imageId": null,
+      "iconType": "strait",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-thrinacia",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Thrinacia",
+      "description": "The island of the Sun’s cattle, where hunger breaks the crew’s restraint.",
+      "x": 980,
+      "y": 560,
+      "imageId": null,
+      "iconType": "island",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-scheria",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": null,
+      "name": "Scheria",
+      "description": "The welcoming Phaeacian kingdom that carries the stranger toward Ithaca.",
+      "x": 1040,
+      "y": 280,
+      "imageId": null,
+      "iconType": "island",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-ithaca-coast",
+      "mapLayerId": "odyssey-map-ithaca",
+      "linkedMapLayerId": null,
+      "name": "Ithaca Coast",
+      "description": "The shore where the sleeping voyager is set down with his gifts.",
+      "x": 240,
+      "y": 230,
+      "imageId": null,
+      "iconType": "coast",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-palace",
+      "mapLayerId": "odyssey-map-ithaca",
+      "linkedMapLayerId": null,
+      "name": "Palace of Ithaca",
+      "description": "Penelope’s hall, occupied by suitors and reclaimed through a contest and stratagem.",
+      "x": 600,
+      "y": 470,
+      "imageId": null,
+      "iconType": "building",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-olive-tree",
+      "mapLayerId": "odyssey-map-ithaca",
+      "linkedMapLayerId": null,
+      "name": "Olive Tree Bed",
+      "description": "The rooted bed that confirms the identity of husband and wife.",
+      "x": 680,
+      "y": 380,
+      "imageId": null,
+      "iconType": "landmark",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-underworld-beach",
+      "mapLayerId": "odyssey-map-underworld",
+      "linkedMapLayerId": null,
+      "name": "Acheron’s Shore",
+      "description": "The ritual ground where blood draws shades from the dark.",
+      "x": 360,
+      "y": 370,
+      "imageId": null,
+      "iconType": "coast",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-asphodel",
+      "mapLayerId": "odyssey-map-underworld",
+      "linkedMapLayerId": null,
+      "name": "Asphodel Meadow",
+      "description": "The meeting place of the dead and the prophet Tiresias.",
+      "x": 650,
+      "y": 500,
+      "imageId": null,
+      "iconType": "region",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-loc-ithaca-portal",
+      "mapLayerId": "odyssey-map-aegean",
+      "linkedMapLayerId": "odyssey-map-ithaca",
+      "name": "Ithaca Approach",
+      "description": "The outward-facing entrance to the island map, where the returning ship’s route ends.",
+      "x": 1110,
+      "y": 240,
+      "imageId": null,
+      "iconType": "coast",
+      "tags": [],
+      "factionId": null
+    }
+  ],
+  "characters": [
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-char-odysseus",
+      "name": "Odysseus",
+      "aliases": [],
+      "description": "King of Ithaca, strategist, sailor, and narrator of the long return.",
+      "portraitImageId": null,
+      "color": "#58708a",
+      "tags": [],
+      "isAlive": true,
+      "birthDate": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-char-penelope",
+      "name": "Penelope",
+      "aliases": [],
+      "description": "The queen of Ithaca, preserving the household through patience and deception.",
+      "portraitImageId": null,
+      "color": "#58708a",
+      "tags": [],
+      "isAlive": true,
+      "birthDate": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-char-telemachus",
+      "name": "Telemachus",
+      "aliases": [],
+      "description": "Odysseus’s son, growing into public courage while searching for news of his father.",
+      "portraitImageId": null,
+      "color": "#58708a",
+      "tags": [],
+      "isAlive": true,
+      "birthDate": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-char-athena",
+      "name": "Athena",
+      "aliases": [],
+      "description": "The goddess whose protection repeatedly steers Odysseus and Telemachus.",
+      "portraitImageId": null,
+      "color": "#58708a",
+      "tags": [],
+      "isAlive": true,
+      "birthDate": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-char-poseidon",
+      "name": "Poseidon",
+      "aliases": [],
+      "description": "The offended sea god whose anger prolongs the voyage.",
+      "portraitImageId": null,
+      "color": "#58708a",
+      "tags": [],
+      "isAlive": true,
+      "birthDate": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-char-calypso",
+      "name": "Calypso",
+      "aliases": [],
+      "description": "The nymph who shelters Odysseus on Ogygia and delays his return.",
+      "portraitImageId": null,
+      "color": "#58708a",
+      "tags": [],
+      "isAlive": true,
+      "birthDate": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-char-circe",
+      "name": "Circe",
+      "aliases": [],
+      "description": "A powerful enchantress who becomes an informed ally after testing the crew.",
+      "portraitImageId": null,
+      "color": "#58708a",
+      "tags": [],
+      "isAlive": true,
+      "birthDate": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-char-polyphemus",
+      "name": "Polyphemus",
+      "aliases": [],
+      "description": "The Cyclops whose blinding turns Odysseus’s escape into a feud with Poseidon.",
+      "portraitImageId": null,
+      "color": "#58708a",
+      "tags": [],
+      "isAlive": true,
+      "birthDate": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-char-eumaeus",
+      "name": "Eumaeus",
+      "aliases": [],
+      "description": "The loyal swineherd who receives the disguised king before the palace reckoning.",
+      "portraitImageId": null,
+      "color": "#58708a",
+      "tags": [],
+      "isAlive": true,
+      "birthDate": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-char-antinuous",
+      "name": "Antinous",
+      "aliases": [],
+      "description": "The most aggressive suitor competing for Penelope and abusing the disguised stranger.",
+      "portraitImageId": null,
+      "color": "#58708a",
+      "tags": [],
+      "isAlive": true,
+      "birthDate": null
+    }
+  ],
+  "items": [
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-item-bow",
+      "name": "Odysseus’s Bow",
+      "description": "The great bow used to reveal the returning king and decide the contest in the hall.",
+      "iconType": "target",
+      "imageId": null,
+      "tags": []
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-item-scar",
+      "name": "The Boar-Hunt Scar",
+      "description": "A lasting mark by which Eurycleia recognises Odysseus in disguise.",
+      "iconType": "shield",
+      "imageId": null,
+      "tags": []
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-item-wind-bag",
+      "name": "Bag of Winds",
+      "description": "Aeolus’s sealed gift, opened by the crew within sight of Ithaca.",
+      "iconType": "cloud",
+      "imageId": null,
+      "tags": []
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-item-lotus",
+      "name": "Lotus",
+      "description": "A flower whose sweetness erases the desire for home.",
+      "iconType": "sprout",
+      "imageId": null,
+      "tags": []
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-item-olive-bed",
+      "name": "Olive-Wood Bed",
+      "description": "The immovable bed built around a living olive tree, known only to the royal couple.",
+      "iconType": "landmark",
+      "imageId": null,
+      "tags": []
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-item-cattle",
+      "name": "Cattle of the Sun",
+      "description": "Sacred herds whose slaughter brings the final destruction of the crew.",
+      "iconType": "sun",
+      "imageId": null,
+      "tags": []
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-item-oar",
+      "name": "Hero’s Oar",
+      "description": "The sign that Odysseus must carry inland until strangers mistake it for a winnowing fan.",
+      "iconType": "compass",
+      "imageId": null,
+      "tags": []
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-item-veil",
+      "name": "Phaeacian Gifts",
+      "description": "Bronze, clothing, and treasure sent with the stranger on his final passage.",
+      "iconType": "gift",
+      "imageId": null,
+      "tags": []
+    }
+  ],
+  "characterSnapshots": [
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-0-athena",
+      "eventId": "odyssey-event-01",
+      "characterId": "odyssey-char-athena",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Advocating for the household",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-0-telemachus",
+      "eventId": "odyssey-event-01",
+      "characterId": "odyssey-char-telemachus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Uncertain and sheltered",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-0-penelope",
+      "eventId": "odyssey-event-01",
+      "characterId": "odyssey-char-penelope",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Under pressure from suitors",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-1-telemachus",
+      "eventId": "odyssey-event-02",
+      "characterId": "odyssey-char-telemachus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Uncertain and sheltered",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-1-athena",
+      "eventId": "odyssey-event-02",
+      "characterId": "odyssey-char-athena",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Advocating for the household",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-2-telemachus",
+      "eventId": "odyssey-event-03",
+      "characterId": "odyssey-char-telemachus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Uncertain and sheltered",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-3-telemachus",
+      "eventId": "odyssey-event-04",
+      "characterId": "odyssey-char-telemachus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Uncertain and sheltered",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-4-odysseus",
+      "eventId": "odyssey-event-05",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-troy",
+      "statusNotes": "At sea, separated from home",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-4-calypso",
+      "eventId": "odyssey-event-05",
+      "characterId": "odyssey-char-calypso",
+      "locationMarkerId": "odyssey-loc-troy",
+      "statusNotes": "Keeping Odysseus as her guest",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-5-odysseus",
+      "eventId": "odyssey-event-06",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-troy",
+      "statusNotes": "At sea, separated from home",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-5-poseidon",
+      "eventId": "odyssey-event-06",
+      "characterId": "odyssey-char-poseidon",
+      "locationMarkerId": "odyssey-loc-troy",
+      "statusNotes": "Hostile after the blinding",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-6-odysseus",
+      "eventId": "odyssey-event-07",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-scheria",
+      "statusNotes": "At sea, separated from home",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-7-odysseus",
+      "eventId": "odyssey-event-08",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-scheria",
+      "statusNotes": "At sea, separated from home",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-7-athena",
+      "eventId": "odyssey-event-08",
+      "characterId": "odyssey-char-athena",
+      "locationMarkerId": "odyssey-loc-scheria",
+      "statusNotes": "Advocating for the household",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-8-odysseus",
+      "eventId": "odyssey-event-09",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-scheria",
+      "statusNotes": "Stranded but determined",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-9-odysseus",
+      "eventId": "odyssey-event-10",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-is-maros",
+      "statusNotes": "Stranded but determined",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-10-odysseus",
+      "eventId": "odyssey-event-11",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-lotus",
+      "statusNotes": "Stranded but determined",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-11-odysseus",
+      "eventId": "odyssey-event-12",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-cyclops",
+      "statusNotes": "Stranded but determined",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-11-polyphemus",
+      "eventId": "odyssey-event-12",
+      "characterId": "odyssey-char-polyphemus",
+      "locationMarkerId": "odyssey-loc-cyclops",
+      "statusNotes": "Blinded and calling on Poseidon",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-12-odysseus",
+      "eventId": "odyssey-event-13",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-aeolus",
+      "statusNotes": "Stranded but determined",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-13-odysseus",
+      "eventId": "odyssey-event-14",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-laestrygon",
+      "statusNotes": "Stranded but determined",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-14-odysseus",
+      "eventId": "odyssey-event-15",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-circe",
+      "statusNotes": "Stranded but determined",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-14-circe",
+      "eventId": "odyssey-event-15",
+      "characterId": "odyssey-char-circe",
+      "locationMarkerId": "odyssey-loc-circe",
+      "statusNotes": "Providing counsel for the next stage",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-15-odysseus",
+      "eventId": "odyssey-event-16",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-underworld-gate",
+      "statusNotes": "Stranded but determined",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-16-odysseus",
+      "eventId": "odyssey-event-17",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-sirens",
+      "statusNotes": "Disguised and testing loyalties",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-17-odysseus",
+      "eventId": "odyssey-event-18",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-scylla",
+      "statusNotes": "Disguised and testing loyalties",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-18-odysseus",
+      "eventId": "odyssey-event-19",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-thrinacia",
+      "statusNotes": "Disguised and testing loyalties",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-19-odysseus",
+      "eventId": "odyssey-event-20",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-ithaca-coast",
+      "statusNotes": "Disguised and testing loyalties",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-19-calypso",
+      "eventId": "odyssey-event-20",
+      "characterId": "odyssey-char-calypso",
+      "locationMarkerId": "odyssey-loc-ithaca-coast",
+      "statusNotes": "Releasing him under divine command",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-20-odysseus",
+      "eventId": "odyssey-event-21",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-ithaca-coast",
+      "statusNotes": "Disguised and testing loyalties",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-20-athena",
+      "eventId": "odyssey-event-21",
+      "characterId": "odyssey-char-athena",
+      "locationMarkerId": "odyssey-loc-ithaca-coast",
+      "statusNotes": "Directing the final reckoning",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-21-odysseus",
+      "eventId": "odyssey-event-22",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Disguised and testing loyalties",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-21-penelope",
+      "eventId": "odyssey-event-22",
+      "characterId": "odyssey-char-penelope",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Recognising the returning king",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-21-telemachus",
+      "eventId": "odyssey-event-22",
+      "characterId": "odyssey-char-telemachus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Standing beside his father",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-21-eumaeus",
+      "eventId": "odyssey-event-22",
+      "characterId": "odyssey-char-eumaeus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Welcoming the disguised stranger",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-21-antinuous",
+      "eventId": "odyssey-event-22",
+      "characterId": "odyssey-char-antinuous",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Facing the bow’s judgment",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-22-odysseus",
+      "eventId": "odyssey-event-23",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Disguised and testing loyalties",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-22-penelope",
+      "eventId": "odyssey-event-23",
+      "characterId": "odyssey-char-penelope",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Recognising the returning king",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-22-telemachus",
+      "eventId": "odyssey-event-23",
+      "characterId": "odyssey-char-telemachus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Standing beside his father",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-22-antinuous",
+      "eventId": "odyssey-event-23",
+      "characterId": "odyssey-char-antinuous",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Facing the bow’s judgment",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-23-odysseus",
+      "eventId": "odyssey-event-24",
+      "characterId": "odyssey-char-odysseus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Disguised and testing loyalties",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-23-penelope",
+      "eventId": "odyssey-event-24",
+      "characterId": "odyssey-char-penelope",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Recognising the returning king",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-23-telemachus",
+      "eventId": "odyssey-event-24",
+      "characterId": "odyssey-char-telemachus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Standing beside his father",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-23-eumaeus",
+      "eventId": "odyssey-event-24",
+      "characterId": "odyssey-char-eumaeus",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Welcoming the disguised stranger",
+      "isAlive": true
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-snapshot-23-antinuous",
+      "eventId": "odyssey-event-24",
+      "characterId": "odyssey-char-antinuous",
+      "locationMarkerId": "odyssey-loc-palace",
+      "statusNotes": "Facing the bow’s judgment",
+      "isAlive": true
+    }
+  ],
+  "itemPlacements": [
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-placement-11-0",
+      "itemId": "odyssey-item-scar",
+      "eventId": "odyssey-event-12",
+      "locationMarkerId": "odyssey-loc-cyclops",
+      "sortKey": 0,
+      "notes": "The item matters directly in The Cyclops."
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-placement-12-0",
+      "itemId": "odyssey-item-wind-bag",
+      "eventId": "odyssey-event-13",
+      "locationMarkerId": "odyssey-loc-aeolus",
+      "sortKey": 0,
+      "notes": "The item matters directly in Aeolus and the Winds."
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-placement-18-0",
+      "itemId": "odyssey-item-cattle",
+      "eventId": "odyssey-event-19",
+      "locationMarkerId": "odyssey-loc-thrinacia",
+      "sortKey": 0,
+      "notes": "The item matters directly in The Cattle of the Sun."
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-placement-22-0",
+      "itemId": "odyssey-item-bow",
+      "eventId": "odyssey-event-23",
+      "locationMarkerId": "odyssey-loc-palace",
+      "sortKey": 0,
+      "notes": "The item matters directly in The Bow."
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-placement-23-0",
+      "itemId": "odyssey-item-bow",
+      "eventId": "odyssey-event-24",
+      "locationMarkerId": "odyssey-loc-palace",
+      "sortKey": 0,
+      "notes": "The item matters directly in The Return of the King."
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-placement-23-1",
+      "itemId": "odyssey-item-olive-bed",
+      "eventId": "odyssey-event-24",
+      "locationMarkerId": "odyssey-loc-palace",
+      "sortKey": 1,
+      "notes": "The item matters directly in The Return of the King."
+    }
+  ],
+  "relationships": [],
+  "timelines": [
+    {
+      "id": "odyssey-timeline-return",
+      "worldId": "odyssey-world",
+      "name": "The Return to Ithaca",
+      "description": "The poem’s primary chronology, interweaving Telemachus’s search with Odysseus’s remembered voyage.",
+      "color": "#496b7b",
+      "dayOffset": 0,
+      "createdAt": 1786122000000
+    }
+  ],
+  "chapters": [
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-01",
+      "timelineId": "odyssey-timeline-return",
+      "number": 1,
+      "title": "Athena’s Appeal",
+      "synopsis": "A structured beat from athena’s appeal in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-02",
+      "timelineId": "odyssey-timeline-return",
+      "number": 2,
+      "title": "Telemachus Sets Out",
+      "synopsis": "A structured beat from telemachus sets out in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-03",
+      "timelineId": "odyssey-timeline-return",
+      "number": 3,
+      "title": "At Pylos",
+      "synopsis": "A structured beat from at pylos in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-04",
+      "timelineId": "odyssey-timeline-return",
+      "number": 4,
+      "title": "At Sparta",
+      "synopsis": "A structured beat from at sparta in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-05",
+      "timelineId": "odyssey-timeline-return",
+      "number": 5,
+      "title": "Odysseus on Ogygia",
+      "synopsis": "A structured beat from odysseus on ogygia in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-06",
+      "timelineId": "odyssey-timeline-return",
+      "number": 6,
+      "title": "The Raft and the Storm",
+      "synopsis": "A structured beat from the raft and the storm in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-07",
+      "timelineId": "odyssey-timeline-return",
+      "number": 7,
+      "title": "Nausicaa",
+      "synopsis": "A structured beat from nausicaa in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-08",
+      "timelineId": "odyssey-timeline-return",
+      "number": 8,
+      "title": "The Phaeacian Hall",
+      "synopsis": "A structured beat from the phaeacian hall in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-09",
+      "timelineId": "odyssey-timeline-return",
+      "number": 9,
+      "title": "The Tale Begins",
+      "synopsis": "A structured beat from the tale begins in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-10",
+      "timelineId": "odyssey-timeline-return",
+      "number": 10,
+      "title": "The Cicones",
+      "synopsis": "A structured beat from the cicones in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-11",
+      "timelineId": "odyssey-timeline-return",
+      "number": 11,
+      "title": "The Lotus-Eaters",
+      "synopsis": "A structured beat from the lotus-eaters in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-12",
+      "timelineId": "odyssey-timeline-return",
+      "number": 12,
+      "title": "The Cyclops",
+      "synopsis": "A structured beat from the cyclops in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-13",
+      "timelineId": "odyssey-timeline-return",
+      "number": 13,
+      "title": "Aeolus and the Winds",
+      "synopsis": "A structured beat from aeolus and the winds in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-14",
+      "timelineId": "odyssey-timeline-return",
+      "number": 14,
+      "title": "The Laestrygonians",
+      "synopsis": "A structured beat from the laestrygonians in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-15",
+      "timelineId": "odyssey-timeline-return",
+      "number": 15,
+      "title": "Circe",
+      "synopsis": "A structured beat from circe in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-16",
+      "timelineId": "odyssey-timeline-return",
+      "number": 16,
+      "title": "The Dead",
+      "synopsis": "A structured beat from the dead in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-17",
+      "timelineId": "odyssey-timeline-return",
+      "number": 17,
+      "title": "The Sirens",
+      "synopsis": "A structured beat from the sirens in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-18",
+      "timelineId": "odyssey-timeline-return",
+      "number": 18,
+      "title": "Scylla and Charybdis",
+      "synopsis": "A structured beat from scylla and charybdis in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-19",
+      "timelineId": "odyssey-timeline-return",
+      "number": 19,
+      "title": "The Cattle of the Sun",
+      "synopsis": "A structured beat from the cattle of the sun in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-20",
+      "timelineId": "odyssey-timeline-return",
+      "number": 20,
+      "title": "Calypso’s Island",
+      "synopsis": "A structured beat from calypso’s island in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-21",
+      "timelineId": "odyssey-timeline-return",
+      "number": 21,
+      "title": "Ithaca",
+      "synopsis": "A structured beat from ithaca in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-22",
+      "timelineId": "odyssey-timeline-return",
+      "number": 22,
+      "title": "The Beggar at the Palace",
+      "synopsis": "A structured beat from the beggar at the palace in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-23",
+      "timelineId": "odyssey-timeline-return",
+      "number": 23,
+      "title": "The Bow",
+      "synopsis": "A structured beat from the bow in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-chapter-24",
+      "timelineId": "odyssey-timeline-return",
+      "number": 24,
+      "title": "The Return of the King",
+      "synopsis": "A structured beat from the return of the king in the long return to Ithaca.",
+      "notes": "Homeric episode; editorial summary without reproducing the poem.",
+      "wordGoal": null
+    }
+  ],
+  "events": [
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-01",
+      "chapterId": "odyssey-chapter-01",
+      "timelineId": "odyssey-timeline-return",
+      "title": "Athena’s Appeal",
+      "summary": "A structured beat from athena’s appeal in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-palace",
+      "involvedCharacterIds": [
+        "athena",
+        "telemachus",
+        "penelope"
+      ],
+      "elapsedTime": "A single day",
+      "tension": 1,
+      "importance": 4,
+      "sequence": 0,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 1
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-02",
+      "chapterId": "odyssey-chapter-02",
+      "timelineId": "odyssey-timeline-return",
+      "title": "Telemachus Sets Out",
+      "summary": "A structured beat from telemachus sets out in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-palace",
+      "involvedCharacterIds": [
+        "telemachus",
+        "athena"
+      ],
+      "elapsedTime": "Several days",
+      "tension": 1,
+      "importance": 4,
+      "sequence": 1,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 2
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-03",
+      "chapterId": "odyssey-chapter-03",
+      "timelineId": "odyssey-timeline-return",
+      "title": "At Pylos",
+      "summary": "A structured beat from at pylos in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-palace",
+      "involvedCharacterIds": [
+        "telemachus"
+      ],
+      "elapsedTime": "Several days",
+      "tension": 1,
+      "importance": 4,
+      "sequence": 2,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 3
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-04",
+      "chapterId": "odyssey-chapter-04",
+      "timelineId": "odyssey-timeline-return",
+      "title": "At Sparta",
+      "summary": "A structured beat from at sparta in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-palace",
+      "involvedCharacterIds": [
+        "telemachus"
+      ],
+      "elapsedTime": "Several days",
+      "tension": 2,
+      "importance": 4,
+      "sequence": 3,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 4
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-05",
+      "chapterId": "odyssey-chapter-05",
+      "timelineId": "odyssey-timeline-return",
+      "title": "Odysseus on Ogygia",
+      "summary": "A structured beat from odysseus on ogygia in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-troy",
+      "involvedCharacterIds": [
+        "odysseus",
+        "calypso"
+      ],
+      "elapsedTime": "Several days",
+      "tension": 2,
+      "importance": 4,
+      "sequence": 4,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 5
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-06",
+      "chapterId": "odyssey-chapter-06",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Raft and the Storm",
+      "summary": "A structured beat from the raft and the storm in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-troy",
+      "involvedCharacterIds": [
+        "odysseus",
+        "poseidon"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 2,
+      "importance": 4,
+      "sequence": 5,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 6
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-07",
+      "chapterId": "odyssey-chapter-07",
+      "timelineId": "odyssey-timeline-return",
+      "title": "Nausicaa",
+      "summary": "A structured beat from nausicaa in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-scheria",
+      "involvedCharacterIds": [
+        "odysseus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 2,
+      "importance": 4,
+      "sequence": 6,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 7
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-08",
+      "chapterId": "odyssey-chapter-08",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Phaeacian Hall",
+      "summary": "A structured beat from the phaeacian hall in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-scheria",
+      "involvedCharacterIds": [
+        "odysseus",
+        "athena"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 2,
+      "importance": 4,
+      "sequence": 7,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 8
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-09",
+      "chapterId": "odyssey-chapter-09",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Tale Begins",
+      "summary": "A structured beat from the tale begins in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-scheria",
+      "involvedCharacterIds": [
+        "odysseus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 2,
+      "importance": 4,
+      "sequence": 8,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 9
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-10",
+      "chapterId": "odyssey-chapter-10",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Cicones",
+      "summary": "A structured beat from the cicones in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-is-maros",
+      "involvedCharacterIds": [
+        "odysseus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 3,
+      "importance": 4,
+      "sequence": 9,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 10
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-11",
+      "chapterId": "odyssey-chapter-11",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Lotus-Eaters",
+      "summary": "A structured beat from the lotus-eaters in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-lotus",
+      "involvedCharacterIds": [
+        "odysseus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 3,
+      "importance": 4,
+      "sequence": 10,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 11
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-12",
+      "chapterId": "odyssey-chapter-12",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Cyclops",
+      "summary": "A structured beat from the cyclops in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-cyclops",
+      "involvedCharacterIds": [
+        "odysseus",
+        "polyphemus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 3,
+      "importance": 4,
+      "sequence": 11,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 12
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-13",
+      "chapterId": "odyssey-chapter-13",
+      "timelineId": "odyssey-timeline-return",
+      "title": "Aeolus and the Winds",
+      "summary": "A structured beat from aeolus and the winds in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-aeolus",
+      "involvedCharacterIds": [
+        "odysseus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 3,
+      "importance": 4,
+      "sequence": 12,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 13
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-14",
+      "chapterId": "odyssey-chapter-14",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Laestrygonians",
+      "summary": "A structured beat from the laestrygonians in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-laestrygon",
+      "involvedCharacterIds": [
+        "odysseus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 3,
+      "importance": 4,
+      "sequence": 13,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 14
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-15",
+      "chapterId": "odyssey-chapter-15",
+      "timelineId": "odyssey-timeline-return",
+      "title": "Circe",
+      "summary": "A structured beat from circe in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-circe",
+      "involvedCharacterIds": [
+        "odysseus",
+        "circe"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 4,
+      "importance": 4,
+      "sequence": 14,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 15
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-16",
+      "chapterId": "odyssey-chapter-16",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Dead",
+      "summary": "A structured beat from the dead in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-underworld-gate",
+      "involvedCharacterIds": [
+        "odysseus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 4,
+      "importance": 4,
+      "sequence": 15,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 16
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-17",
+      "chapterId": "odyssey-chapter-17",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Sirens",
+      "summary": "A structured beat from the sirens in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-sirens",
+      "involvedCharacterIds": [
+        "odysseus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 4,
+      "importance": 4,
+      "sequence": 16,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 17
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-18",
+      "chapterId": "odyssey-chapter-18",
+      "timelineId": "odyssey-timeline-return",
+      "title": "Scylla and Charybdis",
+      "summary": "A structured beat from scylla and charybdis in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-scylla",
+      "involvedCharacterIds": [
+        "odysseus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 4,
+      "importance": 4,
+      "sequence": 17,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 18
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-19",
+      "chapterId": "odyssey-chapter-19",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Cattle of the Sun",
+      "summary": "A structured beat from the cattle of the sun in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-thrinacia",
+      "involvedCharacterIds": [
+        "odysseus"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 4,
+      "importance": 4,
+      "sequence": 18,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 19
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-20",
+      "chapterId": "odyssey-chapter-20",
+      "timelineId": "odyssey-timeline-return",
+      "title": "Calypso’s Island",
+      "summary": "A structured beat from calypso’s island in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-ithaca-coast",
+      "involvedCharacterIds": [
+        "odysseus",
+        "calypso"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 4,
+      "importance": 4,
+      "sequence": 19,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 20
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-21",
+      "chapterId": "odyssey-chapter-21",
+      "timelineId": "odyssey-timeline-return",
+      "title": "Ithaca",
+      "summary": "A structured beat from ithaca in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-ithaca-coast",
+      "involvedCharacterIds": [
+        "odysseus",
+        "athena"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 5,
+      "importance": 4,
+      "sequence": 20,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 21
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-22",
+      "chapterId": "odyssey-chapter-22",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Beggar at the Palace",
+      "summary": "A structured beat from the beggar at the palace in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-palace",
+      "involvedCharacterIds": [
+        "odysseus",
+        "penelope",
+        "telemachus",
+        "eumaeus",
+        "antinuous"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 5,
+      "importance": 5,
+      "sequence": 21,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 22
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-23",
+      "chapterId": "odyssey-chapter-23",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Bow",
+      "summary": "A structured beat from the bow in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-palace",
+      "involvedCharacterIds": [
+        "odysseus",
+        "penelope",
+        "telemachus",
+        "antinuous"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 5,
+      "importance": 5,
+      "sequence": 22,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 23
+      },
+      "tags": [],
+      "notes": ""
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-event-24",
+      "chapterId": "odyssey-chapter-24",
+      "timelineId": "odyssey-timeline-return",
+      "title": "The Return of the King",
+      "summary": "A structured beat from the return of the king in the long return to Ithaca.",
+      "locationMarkerId": "odyssey-loc-palace",
+      "involvedCharacterIds": [
+        "odysseus",
+        "penelope",
+        "telemachus",
+        "eumaeus",
+        "antinuous"
+      ],
+      "elapsedTime": "A few days",
+      "tension": 5,
+      "importance": 5,
+      "sequence": 23,
+      "calendarDate": {
+        "year": 1,
+        "month": 1,
+        "day": 24
+      },
+      "tags": [],
+      "notes": ""
+    }
+  ],
+  "blobs": [
+    {
+      "id": "odyssey-image-aegean",
+      "worldId": "odyssey-world",
+      "mimeType": "image/jpeg",
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Odyssey%20by%20John%20Flaxman%2001.jpg?width=1200",
+      "createdAt": 1786122000000
+    },
+    {
+      "id": "odyssey-image-ithaca",
+      "worldId": "odyssey-world",
+      "mimeType": "image/jpeg",
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Odysseus%20and%20Penelope%20by%20John%20Flaxman.jpg?width=1200",
+      "createdAt": 1786122000000
+    },
+    {
+      "id": "odyssey-image-underworld",
+      "worldId": "odyssey-world",
+      "mimeType": "image/jpeg",
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Odysseus%20and%20Tiresias%20by%20John%20Flaxman.jpg?width=1200",
+      "createdAt": 1786122000000
+    }
+  ],
+  "loreCategories": [
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-lore-category-myth",
+      "name": "Myth",
+      "description": "myth context for the poem.",
+      "sortOrder": 0
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-lore-category-voyage",
+      "name": "Voyage",
+      "description": "voyage context for the poem.",
+      "sortOrder": 1
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-lore-category-ithaca",
+      "name": "Ithaca",
+      "description": "ithaca context for the poem.",
+      "sortOrder": 2
+    }
+  ],
+  "lorePages": [
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-lore-1",
+      "categoryId": "odyssey-lore-category-myth",
+      "title": "The Gods and Mortal Choice",
+      "body": "Divine intervention shapes the voyage, but endurance, judgment, and hospitality remain human responsibilities.",
+      "tags": [],
+      "coverImageId": null,
+      "linkedEntityIds": [],
+      "visibleFromEventId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-lore-2",
+      "categoryId": "odyssey-lore-category-voyage",
+      "title": "Hospitality",
+      "body": "Hosts and guests are tested repeatedly; welcome, abuse, and reciprocity reveal the moral order of each shore.",
+      "tags": [],
+      "coverImageId": null,
+      "linkedEntityIds": [],
+      "visibleFromEventId": null
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786122000000,
+      "updatedAt": 1786122000000,
+      "id": "odyssey-lore-3",
+      "categoryId": "odyssey-lore-category-ithaca",
+      "title": "The Household",
+      "body": "The hall, the bow, the olive bed, and the loyal servants make Ithaca more than a destination.",
+      "tags": [],
+      "coverImageId": null,
+      "linkedEntityIds": [],
+      "visibleFromEventId": null
+    }
+  ],
+  "plotThreads": [],
+  "factions": [],
+  "factionMemberships": [],
+  "factionRelationships": [],
+  "knowledgeFacts": [],
+  "knowledgeReveals": [],
+  "characterGoals": [],
+  "motifs": [],
+  "characterMovements": [],
+  "locationSnapshots": [],
+  "itemSnapshots": [],
+  "relationshipSnapshots": [],
+  "travelModes": [],
+  "timelineRelationships": [],
+  "crossTimelineArtifacts": [],
+  "mapRoutes": [],
+  "mapRegions": [],
+  "mapRegionSnapshots": [],
+  "mapAnnotations": [],
+  "sceneTexts": [],
+  "continuitySuppressions": [],
+  "writingLogs": [],
+  "sceneRevisions": []
+}
