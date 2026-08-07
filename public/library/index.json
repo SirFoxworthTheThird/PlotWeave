@@ -268,12 +268,12 @@
       "author": "H. G. Wells",
       "blurb": "Martian cylinders fall into the familiar landscape of Surrey and London, overturning Victorian confidence as separated witnesses struggle through invasion, flight, and occupation.",
       "data": "the-war-of-the-worlds.pwk",
-      "dataBytes": 274289,
+      "dataBytes": 280702,
       "counts": {
         "characters": 14,
         "chapters": 27,
         "events": 54,
-        "locations": 20
+        "locations": 32
       },
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked period maps and public-domain Henrique Alvim Corrêa illustrations are recorded in Lore.",
       "worldId": "war-of-the-worlds-world",
