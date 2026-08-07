@@ -210,6 +210,40 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and public-domain N. C. Wyeth and Walter Paget illustrations are recorded in Lore.",
       "worldId": "treasure-island-world",
       "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Treasure_Island-Scribner%27s-1911.jpg/1280px-Treasure_Island-Scribner%27s-1911.jpg"
+    },
+    {
+      "id": "around-the-world-in-eighty-days",
+      "title": "Around the World in Eighty Days",
+      "author": "Jules Verne",
+      "blurb": "Phileas Fogg wagers that railways and steamships can carry him around the globe in eighty days, while a mistaken detective, missed connections, and acts of loyalty transform the race.",
+      "data": "around-the-world-in-eighty-days.pwk",
+      "dataBytes": 498967,
+      "counts": {
+        "characters": 24,
+        "chapters": 37,
+        "events": 74,
+        "locations": 43
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and public-domain 1873 book illustrations are recorded in Lore.",
+      "worldId": "around-the-world-in-eighty-days-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Around%20the%20World%20in%20Eighty%20Days%20-%20book%20cover%20(139390140).jpg?width=960"
+    },
+    {
+      "id": "twenty-thousand-leagues-under-the-seas",
+      "title": "Twenty Thousand Leagues Under the Seas",
+      "author": "Jules Verne",
+      "blurb": "Aronnax, Conseil, and Ned Land become unwilling passengers aboard Captain Nemo’s Nautilus, crossing a hidden ocean world where discovery, captivity, compassion, and vengeance converge.",
+      "data": "twenty-thousand-leagues-under-the-seas.pwk",
+      "dataBytes": 606452,
+      "counts": {
+        "characters": 16,
+        "chapters": 46,
+        "events": 92,
+        "locations": 70
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked period maps, an interpretive Nautilus plan, and public-domain Hetzel illustrations are recorded in Lore.",
+      "worldId": "twenty-thousand-leagues-under-the-seas-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/20000%20title%200a.jpg?width=960"
     }
   ]
 }
