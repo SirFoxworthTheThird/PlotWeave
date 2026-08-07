@@ -1789,15 +1789,27 @@
       "chapterId": "odyssey-chapter-01",
       "timelineId": "odyssey-timeline-return",
       "title": "Athena’s Appeal",
-      "summary": "A structured beat from athena’s appeal in the long return to Ithaca.",
+      "description": "A structured beat from athena’s appeal in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-palace",
       "involvedCharacterIds": [
         "athena",
         "telemachus",
         "penelope"
       ],
-      "elapsedTime": "A single day",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 0,
+      "travelDays": 0,
+      "inWorldTime": null,
       "tension": 1,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-athena",
+      "isFlashback": false,
+      "elapsedTime": "A single day",
       "importance": 4,
       "sequence": 0,
       "calendarDate": {
@@ -1805,7 +1817,6 @@
         "month": 1,
         "day": 1
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -1816,14 +1827,26 @@
       "chapterId": "odyssey-chapter-02",
       "timelineId": "odyssey-timeline-return",
       "title": "Telemachus Sets Out",
-      "summary": "A structured beat from telemachus sets out in the long return to Ithaca.",
+      "description": "A structured beat from telemachus sets out in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-palace",
       "involvedCharacterIds": [
         "telemachus",
         "athena"
       ],
-      "elapsedTime": "Several days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 1,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 1,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-telemachus",
+      "isFlashback": false,
+      "elapsedTime": "Several days",
       "importance": 4,
       "sequence": 1,
       "calendarDate": {
@@ -1831,7 +1854,6 @@
         "month": 1,
         "day": 2
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -1842,13 +1864,25 @@
       "chapterId": "odyssey-chapter-03",
       "timelineId": "odyssey-timeline-return",
       "title": "At Pylos",
-      "summary": "A structured beat from at pylos in the long return to Ithaca.",
+      "description": "A structured beat from at pylos in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-palace",
       "involvedCharacterIds": [
         "telemachus"
       ],
-      "elapsedTime": "Several days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 2,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 1,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-telemachus",
+      "isFlashback": false,
+      "elapsedTime": "Several days",
       "importance": 4,
       "sequence": 2,
       "calendarDate": {
@@ -1856,7 +1890,6 @@
         "month": 1,
         "day": 3
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -1867,13 +1900,25 @@
       "chapterId": "odyssey-chapter-04",
       "timelineId": "odyssey-timeline-return",
       "title": "At Sparta",
-      "summary": "A structured beat from at sparta in the long return to Ithaca.",
+      "description": "A structured beat from at sparta in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-palace",
       "involvedCharacterIds": [
         "telemachus"
       ],
-      "elapsedTime": "Several days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 3,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 2,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-telemachus",
+      "isFlashback": false,
+      "elapsedTime": "Several days",
       "importance": 4,
       "sequence": 3,
       "calendarDate": {
@@ -1881,7 +1926,6 @@
         "month": 1,
         "day": 4
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -1892,14 +1936,26 @@
       "chapterId": "odyssey-chapter-05",
       "timelineId": "odyssey-timeline-return",
       "title": "Odysseus on Ogygia",
-      "summary": "A structured beat from odysseus on ogygia in the long return to Ithaca.",
+      "description": "A structured beat from odysseus on ogygia in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-troy",
       "involvedCharacterIds": [
         "odysseus",
         "calypso"
       ],
-      "elapsedTime": "Several days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 4,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 2,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "Several days",
       "importance": 4,
       "sequence": 4,
       "calendarDate": {
@@ -1907,7 +1963,6 @@
         "month": 1,
         "day": 5
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -1918,14 +1973,26 @@
       "chapterId": "odyssey-chapter-06",
       "timelineId": "odyssey-timeline-return",
       "title": "The Raft and the Storm",
-      "summary": "A structured beat from the raft and the storm in the long return to Ithaca.",
+      "description": "A structured beat from the raft and the storm in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-troy",
       "involvedCharacterIds": [
         "odysseus",
         "poseidon"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 5,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 2,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 5,
       "calendarDate": {
@@ -1933,7 +2000,6 @@
         "month": 1,
         "day": 6
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -1944,13 +2010,25 @@
       "chapterId": "odyssey-chapter-07",
       "timelineId": "odyssey-timeline-return",
       "title": "Nausicaa",
-      "summary": "A structured beat from nausicaa in the long return to Ithaca.",
+      "description": "A structured beat from nausicaa in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-scheria",
       "involvedCharacterIds": [
         "odysseus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 6,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 2,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 6,
       "calendarDate": {
@@ -1958,7 +2036,6 @@
         "month": 1,
         "day": 7
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -1969,14 +2046,26 @@
       "chapterId": "odyssey-chapter-08",
       "timelineId": "odyssey-timeline-return",
       "title": "The Phaeacian Hall",
-      "summary": "A structured beat from the phaeacian hall in the long return to Ithaca.",
+      "description": "A structured beat from the phaeacian hall in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-scheria",
       "involvedCharacterIds": [
         "odysseus",
         "athena"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 7,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 2,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 7,
       "calendarDate": {
@@ -1984,7 +2073,6 @@
         "month": 1,
         "day": 8
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -1995,13 +2083,25 @@
       "chapterId": "odyssey-chapter-09",
       "timelineId": "odyssey-timeline-return",
       "title": "The Tale Begins",
-      "summary": "A structured beat from the tale begins in the long return to Ithaca.",
+      "description": "A structured beat from the tale begins in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-scheria",
       "involvedCharacterIds": [
         "odysseus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 8,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 2,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 8,
       "calendarDate": {
@@ -2009,7 +2109,6 @@
         "month": 1,
         "day": 9
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2020,13 +2119,25 @@
       "chapterId": "odyssey-chapter-10",
       "timelineId": "odyssey-timeline-return",
       "title": "The Cicones",
-      "summary": "A structured beat from the cicones in the long return to Ithaca.",
+      "description": "A structured beat from the cicones in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-is-maros",
       "involvedCharacterIds": [
         "odysseus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 9,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 3,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 9,
       "calendarDate": {
@@ -2034,7 +2145,6 @@
         "month": 1,
         "day": 10
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2045,13 +2155,25 @@
       "chapterId": "odyssey-chapter-11",
       "timelineId": "odyssey-timeline-return",
       "title": "The Lotus-Eaters",
-      "summary": "A structured beat from the lotus-eaters in the long return to Ithaca.",
+      "description": "A structured beat from the lotus-eaters in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-lotus",
       "involvedCharacterIds": [
         "odysseus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 10,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 3,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 10,
       "calendarDate": {
@@ -2059,7 +2181,6 @@
         "month": 1,
         "day": 11
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2070,14 +2191,26 @@
       "chapterId": "odyssey-chapter-12",
       "timelineId": "odyssey-timeline-return",
       "title": "The Cyclops",
-      "summary": "A structured beat from the cyclops in the long return to Ithaca.",
+      "description": "A structured beat from the cyclops in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-cyclops",
       "involvedCharacterIds": [
         "odysseus",
         "polyphemus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 11,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 3,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 11,
       "calendarDate": {
@@ -2085,7 +2218,6 @@
         "month": 1,
         "day": 12
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2096,13 +2228,25 @@
       "chapterId": "odyssey-chapter-13",
       "timelineId": "odyssey-timeline-return",
       "title": "Aeolus and the Winds",
-      "summary": "A structured beat from aeolus and the winds in the long return to Ithaca.",
+      "description": "A structured beat from aeolus and the winds in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-aeolus",
       "involvedCharacterIds": [
         "odysseus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 12,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 3,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 12,
       "calendarDate": {
@@ -2110,7 +2254,6 @@
         "month": 1,
         "day": 13
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2121,13 +2264,25 @@
       "chapterId": "odyssey-chapter-14",
       "timelineId": "odyssey-timeline-return",
       "title": "The Laestrygonians",
-      "summary": "A structured beat from the laestrygonians in the long return to Ithaca.",
+      "description": "A structured beat from the laestrygonians in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-laestrygon",
       "involvedCharacterIds": [
         "odysseus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 13,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 3,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 13,
       "calendarDate": {
@@ -2135,7 +2290,6 @@
         "month": 1,
         "day": 14
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2146,14 +2300,26 @@
       "chapterId": "odyssey-chapter-15",
       "timelineId": "odyssey-timeline-return",
       "title": "Circe",
-      "summary": "A structured beat from circe in the long return to Ithaca.",
+      "description": "A structured beat from circe in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-circe",
       "involvedCharacterIds": [
         "odysseus",
         "circe"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 14,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 4,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 14,
       "calendarDate": {
@@ -2161,7 +2327,6 @@
         "month": 1,
         "day": 15
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2172,13 +2337,25 @@
       "chapterId": "odyssey-chapter-16",
       "timelineId": "odyssey-timeline-return",
       "title": "The Dead",
-      "summary": "A structured beat from the dead in the long return to Ithaca.",
+      "description": "A structured beat from the dead in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-underworld-gate",
       "involvedCharacterIds": [
         "odysseus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 15,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 4,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 15,
       "calendarDate": {
@@ -2186,7 +2363,6 @@
         "month": 1,
         "day": 16
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2197,13 +2373,25 @@
       "chapterId": "odyssey-chapter-17",
       "timelineId": "odyssey-timeline-return",
       "title": "The Sirens",
-      "summary": "A structured beat from the sirens in the long return to Ithaca.",
+      "description": "A structured beat from the sirens in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-sirens",
       "involvedCharacterIds": [
         "odysseus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 16,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 4,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 16,
       "calendarDate": {
@@ -2211,7 +2399,6 @@
         "month": 1,
         "day": 17
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2222,13 +2409,25 @@
       "chapterId": "odyssey-chapter-18",
       "timelineId": "odyssey-timeline-return",
       "title": "Scylla and Charybdis",
-      "summary": "A structured beat from scylla and charybdis in the long return to Ithaca.",
+      "description": "A structured beat from scylla and charybdis in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-scylla",
       "involvedCharacterIds": [
         "odysseus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 17,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 4,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 17,
       "calendarDate": {
@@ -2236,7 +2435,6 @@
         "month": 1,
         "day": 18
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2247,13 +2445,25 @@
       "chapterId": "odyssey-chapter-19",
       "timelineId": "odyssey-timeline-return",
       "title": "The Cattle of the Sun",
-      "summary": "A structured beat from the cattle of the sun in the long return to Ithaca.",
+      "description": "A structured beat from the cattle of the sun in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-thrinacia",
       "involvedCharacterIds": [
         "odysseus"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 18,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 4,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 18,
       "calendarDate": {
@@ -2261,7 +2471,6 @@
         "month": 1,
         "day": 19
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2272,14 +2481,26 @@
       "chapterId": "odyssey-chapter-20",
       "timelineId": "odyssey-timeline-return",
       "title": "Calypso’s Island",
-      "summary": "A structured beat from calypso’s island in the long return to Ithaca.",
+      "description": "A structured beat from calypso’s island in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-ithaca-coast",
       "involvedCharacterIds": [
         "odysseus",
         "calypso"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 19,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 4,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 19,
       "calendarDate": {
@@ -2287,7 +2508,6 @@
         "month": 1,
         "day": 20
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2298,14 +2518,26 @@
       "chapterId": "odyssey-chapter-21",
       "timelineId": "odyssey-timeline-return",
       "title": "Ithaca",
-      "summary": "A structured beat from ithaca in the long return to Ithaca.",
+      "description": "A structured beat from ithaca in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-ithaca-coast",
       "involvedCharacterIds": [
         "odysseus",
         "athena"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 20,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 5,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 4,
       "sequence": 20,
       "calendarDate": {
@@ -2313,7 +2545,6 @@
         "month": 1,
         "day": 21
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2324,7 +2555,7 @@
       "chapterId": "odyssey-chapter-22",
       "timelineId": "odyssey-timeline-return",
       "title": "The Beggar at the Palace",
-      "summary": "A structured beat from the beggar at the palace in the long return to Ithaca.",
+      "description": "A structured beat from the beggar at the palace in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-palace",
       "involvedCharacterIds": [
         "odysseus",
@@ -2333,8 +2564,20 @@
         "eumaeus",
         "antinuous"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 21,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 5,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 5,
       "sequence": 21,
       "calendarDate": {
@@ -2342,7 +2585,6 @@
         "month": 1,
         "day": 22
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2353,7 +2595,7 @@
       "chapterId": "odyssey-chapter-23",
       "timelineId": "odyssey-timeline-return",
       "title": "The Bow",
-      "summary": "A structured beat from the bow in the long return to Ithaca.",
+      "description": "A structured beat from the bow in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-palace",
       "involvedCharacterIds": [
         "odysseus",
@@ -2361,8 +2603,20 @@
         "telemachus",
         "antinuous"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 22,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 5,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 5,
       "sequence": 22,
       "calendarDate": {
@@ -2370,7 +2624,6 @@
         "month": 1,
         "day": 23
       },
-      "tags": [],
       "notes": ""
     },
     {
@@ -2381,7 +2634,7 @@
       "chapterId": "odyssey-chapter-24",
       "timelineId": "odyssey-timeline-return",
       "title": "The Return of the King",
-      "summary": "A structured beat from the return of the king in the long return to Ithaca.",
+      "description": "A structured beat from the return of the king in the long return to Ithaca.",
       "locationMarkerId": "odyssey-loc-palace",
       "involvedCharacterIds": [
         "odysseus",
@@ -2390,8 +2643,20 @@
         "eumaeus",
         "antinuous"
       ],
-      "elapsedTime": "A few days",
+      "mentionedCharacterIds": [],
+      "involvedItemIds": [],
+      "tags": [],
+      "threadIds": [],
+      "motifIds": [],
+      "sortOrder": 23,
+      "travelDays": 1,
+      "inWorldTime": null,
       "tension": 5,
+      "structureBeat": null,
+      "status": "planned",
+      "povCharacterId": "odyssey-char-odysseus",
+      "isFlashback": false,
+      "elapsedTime": "A few days",
       "importance": 5,
       "sequence": 23,
       "calendarDate": {
@@ -2399,7 +2664,6 @@
         "month": 1,
         "day": 24
       },
-      "tags": [],
       "notes": ""
     }
   ],
