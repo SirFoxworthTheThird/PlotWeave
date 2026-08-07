@@ -365,7 +365,7 @@ The best-designed screen reviewed so far.
 |---|---|---|---|
 | KN-1 | — | **good** | **"Suggested from your story"** proposes real work — *"+ Barrow-wight is dead · Ch. 8"* — and adds it in one click. The strongest affordance in the app; the pattern the dashboard wants (see the DASH rebuild note). |
 | KN-2 | — | **good** | **"known by 4 / 45"** on every card: a number that means something at a glance. |
-| KN-3 | med | open | **The *when* is missing from the screen about when.** The strapline is "track who knows what, **and when they learn it**", and no card shows when the reader learns a fact or when the first character does. Only the count is shown. |
+| KN-3 | low | **corrected** | **The *when* is on the detail panel, not the roster.** Filed as "missing from the screen about when" before the detail panel had been opened. It is not missing: the panel carries **Reader learns at** (*Ch.10 — Gandalf's Delayed Letter*), **Becomes true at**, and a **Known by** list naming the event each character learned it at. What stands is much smaller — the *roster card* shows only the count, so you cannot scan reveal order without opening facts one at a time. |
 | KN-4 | low | open | **No ordering control** — 21 facts in a fixed order, with no way to sort by reveal point or by how widely known they are. |
 
 **Not established:** the "open a fact" step passed against a verify that matched
@@ -569,14 +569,55 @@ The route panel remains unreviewed as well.
 
 ---
 
+## 17. Writer's Brief, Calendar, Knowledge detail, Settings
+
+### Knowledge detail — the best panel in the app
+
+Header carries the fact's own title. **Reader learns at** and **Becomes true
+at** are both explicit, each with a line explaining what it does — *"Anyone who
+knows it before this is flagged by the continuity checker."* **Known by (4)**
+lists each character beside the event they learned it at, with a remove control,
+and a *Character… / Learns it at… / Record who learns it* row to add more. This
+is what **KN-3** was wrongly filed against, now corrected.
+
+### Writer's Brief
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| WB-1 | med | open | **A full-height panel to deliver one sentence.** With no cursor set it says *"Select an event from the timeline bar to see the brief"* and nothing else — roughly 440px of screen for a single line, on the tool the app promotes most. Worse, it does not help: the Arc and Calendar empty states both offer a button that takes you to the prerequisite, and this one offers no way to pick an event at all. |
+| WB-2 | med | open | **The panel has no backdrop.** The timeline underneath stays fully lit and is sliced off mid-sentence at the panel edge (*"…using his magic ring"*, *"…the Dark Lord Sauro"*), so the page reads as truncated rather than overlaid. The search palette dims its background; this does not. |
+
+*The populated brief remains unreviewed — the cursor was at* All chapters *for this capture.*
+
+### Calendar
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| CAL-1 | — | **good** | **An exemplary empty state**: *"No calendar yet"*, one line saying what the view is for, and **Open World settings** — the prerequisite, one click away. This and the Arc grid are the pattern **X-4** should standardise on. |
+| CAL-2 | low | open | **The nav item is present when the feature cannot work.** Calendar sits in the rail whether or not a calendar exists, so the first visit is always a dead end. |
+
+### Settings
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| SET-1 | high | open | **Settings offers to override a setting that cannot be set.** The Theme section reads *"Override the global app theme for this world"* and its first card is **Inherit global theme** — but there is no global theme control anywhere in the app. `ThemePicker` is exported and never rendered. So the default option inherits from a value the user has no way to change, and the explanatory sentence describes a screen that does not exist. |
+| SET-2 | med | open | **Ten sections in one unbroken scroll** — world, reading mode, theme, travel modes, continuity, calendar, manuscript, timelines, database health, folder sync, export — with no tabs, jump links, or section index. |
+| SET-3 | low | open | **Inline pencil affordances.** Name and Description are edited through small pencil glyphs, the Description one floating at the right of a three-line paragraph with no clear anchor. |
+
+### One more cross-cutting
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| X-8 | med | open | **The shipped examples leave several features undemonstrated.** *The Fellowship of the Ring* has no scene prose (so Manuscript, Find & Replace, Focus mode and Cast Balance are all empty), no calendar (so the Calendar view is a dead end), and no cover image (so its world card shows the generic glyph). Someone exploring the flagship example meets four blank screens in a row and has no way to know the features work. |
+
+---
+
 ## Screens not yet reviewed
 
-Chapter detail · knowledge detail · settings · writer's brief · calendar
-
-These five were **captured but not yet read**. The screenshots exist and each
-screen was driven successfully — knowledge detail was verified this time
-against text that only appears in the detail view, not the roster — but nobody
-has looked at the images, so nothing is claimed about them either way.
+**Chapter detail** — its event card is reviewed in section 4, but the shell
+around it (the Character States, Relationship States and Writer's Notes panels)
+is not. **The route panel** on the map. **The Writer's Brief with a cursor set.**
+**Reading mode** and **phone widths**, both of which are passes of their own.
 
 Also outstanding: **reading mode**, **phone widths**, and the **library**
 download flow.
