@@ -853,7 +853,7 @@
       "name": "Heat-Ray",
       "description": "An invisible beam focused through a polished apparatus, igniting whatever it touches.",
       "iconType": "sun",
-      "imageId": "war-of-the-worlds-image-correa21",
+      "imageId": null,
       "tags": []
     },
     {
@@ -864,7 +864,7 @@
       "name": "Black Smoke",
       "description": "A heavy chemical vapour used to suffocate defenders.",
       "iconType": "cloud",
-      "imageId": "war-of-the-worlds-image-correa22",
+      "imageId": null,
       "tags": []
     },
     {
@@ -875,7 +875,7 @@
       "name": "Fighting Machine",
       "description": "A towering three-legged war machine with tentacles and weapon systems.",
       "iconType": "bot",
-      "imageId": "war-of-the-worlds-image-correa23",
+      "imageId": null,
       "tags": []
     },
     {
@@ -886,7 +886,7 @@
       "name": "Handling Machine",
       "description": "A compact many-limbed machine used for work and feeding.",
       "iconType": "settings",
-      "imageId": "war-of-the-worlds-image-correa24",
+      "imageId": "war-of-the-worlds-image-correa23",
       "tags": []
     },
     {
@@ -897,7 +897,7 @@
       "name": "Red Weed",
       "description": "A fast-growing Martian plant that chokes waterways before succumbing to terrestrial disease.",
       "iconType": "sprout",
-      "imageId": "war-of-the-worlds-image-correa25",
+      "imageId": "war-of-the-worlds-image-correa24",
       "tags": []
     },
     {
@@ -908,7 +908,7 @@
       "name": "Revolver",
       "description": "The brother’s last defence during the violent refugee journey.",
       "iconType": "target",
-      "imageId": "war-of-the-worlds-image-correa26",
+      "imageId": null,
       "tags": []
     },
     {
@@ -919,7 +919,7 @@
       "name": "Bicycle",
       "description": "The brother’s first means of escape from London.",
       "iconType": "bike",
-      "imageId": "war-of-the-worlds-image-correa27",
+      "imageId": null,
       "tags": []
     },
     {
@@ -930,7 +930,7 @@
       "name": "Pony Cart",
       "description": "The hired cart used to carry the narrator’s wife to Leatherhead.",
       "iconType": "car",
-      "imageId": "war-of-the-worlds-image-correa28",
+      "imageId": null,
       "tags": []
     },
     {
@@ -941,7 +941,7 @@
       "name": "HMS Thunder Child",
       "description": "The ironclad torpedo ram that confronts three fighting machines offshore.",
       "iconType": "ship",
-      "imageId": "war-of-the-worlds-image-correa29",
+      "imageId": null,
       "tags": []
     }
   ],
