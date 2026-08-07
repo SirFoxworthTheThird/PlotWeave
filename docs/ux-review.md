@@ -443,12 +443,28 @@ doing real work.
 | MW-3 | med | open | **"Who is where" is buried in a list of everyone.** With the cursor on Ch.6 the sidebar lists all 45 characters at equal weight, each with a placement crosshair, but only a handful carry a location beneath their name. The question the screen exists to answer — *who is on stage now* — is a minority of the rows, undistinguished from the rest. |
 | MW-4 | med | open | **Regions are labelled twice.** *Rohan* appears as a polygon label and again as a marker pin reading *Rohan · Region*; *Mordor* likewise, with the two labels overlapping. |
 
-**Not established, and recorded as such.** Three of the writer's most natural
-moves were not proven either way, because the harness failed rather than the
-app: the **Journeys** overlay (the step's verify only asserted the button
-exists, which is vacuous), **Measure**, and the character **film strip**. All
-three are real `<button>`s in the source, so these are selector failures, not
-missing controls — but nothing is claimed about what they do.
+### The three that were unproven — now settled
+
+All three work. Each was measured rather than eyeballed.
+
+| Feature | Result |
+|---|---|
+| **Journeys** | Works, and needs no character selected. Overlay paths go **5 → 17 → 5** across off/on/off, so the lines are genuinely drawn and genuinely removed. |
+| **Measure** | Works. Two points on the Middle-earth map report **"101 km"**. |
+| **Film strip** | Works on a *single-character* pin. Clicking Radagast at Rhosgobel lists his stop as *"Ch.14 — The Council of Elrond"*. |
+
+Chasing them turned up three new faults and hardened a fourth.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| MW-5 | high | open | **Measure mode does not take exclusive control of the canvas.** With Measure armed, the first click both places the point **and selects the region polygon underneath**, opening its detail panel over the right of the map — verified: a region panel was open and the tool was still in Measure mode. On the first attempt that panel covered the spot intended for the second point and swallowed the click entirely, so the measurement could not be completed at all. A mode that says "click two points on the map" has to own those two clicks. |
+| MW-6 | med | open | **A cluster popup renders off the top of the viewport.** Clicking a "16 characters" pin opens a list whose first entry (*Meriadoc Brandybuck*) is cut off above the canvas, behind the toolbar. It is not scrolled into view and cannot be reached. |
+| MW-7 | med | open | **"(sub-map)" tells you nothing useful.** Fourteen of the sixteen names in that list read *"Frodo Baggins (sub-map)"*, *"Sauron (sub-map)"*. It presumably means the character is really on a child map and is being shown at the parent pin — but it does not say **which** map, and repeated on nearly every row it reads as noise rather than information. |
+| MW-8 | low | open | **A cluster pin and a character pin do different things without saying so.** A single pin opens the film strip; a cluster opens a plain member list with no strip and no way to reach one. |
+
+**MW-2 is now firmer, not weaker.** The measurement came back in **kilometres**
+on a map whose own printed scale bar is in **miles**. Both are on screen at
+once and they disagree.
 
 ---
 
