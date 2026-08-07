@@ -61,6 +61,12 @@ next to OP-1. `SEL-4` (tagline) and `X-5`/`W-2` (permanent help text) are
 house-voice calls rather than defects, and wait for someone with an opinion
 about the voice.
 
+**OP-2's downgrade was half wrong.** It was filed as "an open palette traps
+you" and downgraded on the grounds that a modal intercepting clicks is normal.
+That part stands. What did not stand is the assumption behind it — that the
+palette was a well-behaved modal. It also survived navigation, which is
+**OP-9**, now fixed. The trapping is by design; the outliving was not.
+
 ---
 
 ## Legend
@@ -176,6 +182,7 @@ faults in the product. Only what survived that second check is listed.
 | OP-4 | low | open | **Two buttons whose names both begin with "Add", adjacent.** On the character step, *"Add a description (optional)"* (a disclosure) sits directly above the primary *"Add them to the story"*. Clicking the wrong one silently expands a field instead of submitting, with no feedback that nothing happened. It cost this review a whole run. |
 
 | OP-5 | high | open | **Finishing the first-run guide leaves no time cursor set.** The pill reads *"All chapters"* the moment the guide ends — verified twice, and visible in the capture. Step 3 of that same guide is headed *"Where does their story begin?"* and places the character at Ch. 1, so the guide selects a moment on the user's behalf and then hands them an app that has forgotten it. Everything cursor-dependent is consequently switched off for a brand-new user who has done everything they were asked. |
+| OP-9 | high | **done** | **The search palette outlived the screen it was opened on.** Choosing a result closed it, but arriving anywhere by any other route did not — so a modal sat over an unrelated screen, swallowing every click until Escape. It derailed three separate runs of this review before being recognised as a fault rather than a fluke, which is about as strong a usability signal as a review can produce. Now closed on route change. |
 | OP-8 | med | **done** | **Opening search took focus on a 50ms timer.** Whatever had focus kept it until the timer fired, so a keystroke in that window went to the screen behind the palette — open search from a half-filled form, type straight away, and the first characters landed in the form. Found while testing OP-1, not from the screen sweep. Now focused synchronously: the palette renders nothing until it is open, so by the time the effect runs the input is mounted and there is nothing to wait for. **Shipped without a regression test** — see below. |
 | OP-6 | med | open | **A disabled primary button with no reason given.** *Add Location* is greyed until Name is filled, with no required marker, no helper text, and no message on hover. Nothing says which field is blocking it. |
 | OP-7 | low | corrected | **Map placement is gated on the time cursor — and the app says so.** `MapSidebar.tsx` renders the crosshair only inside `{activeEventId && …}`, so with no cursor there is no placement control and no drag. This was first written up as a silent lockout; that was wrong. The sidebar prints *"Select an event from the timeline bar below to place characters onto the map."* The gate is deliberate and explained, so what is left is minor: the 60%-opacity card is a weak signal next to a clear sentence, and the sentence points at the bar rather than offering a way to act. |

@@ -111,6 +111,32 @@ test.describe('Search palette', () => {
     await expect(nameField).not.toBeVisible()
   })
 
+  /**
+   * A modal belongs to the screen it was opened on.
+   *
+   * Choosing a result always closed the palette, but arriving somewhere by any
+   * other route did not — the palette sat over a screen it had nothing to do
+   * with, swallowing every click until Escape. It derailed three runs of the
+   * UX review before it was recognised as a fault rather than a fluke.
+   */
+  test('the palette closes when you navigate away', async ({ page }) => {
+    const palette = page.getByPlaceholder('Search characters, factions, locations, lore…')
+    const worldId = page.url().match(/#\/worlds\/([^/]+)/)![1]
+
+    // Presence: it opens, and stays open while you are on this screen.
+    await page.keyboard.press('Control+k')
+    await expect(palette).toBeVisible()
+    await expect(palette).toBeFocused()
+    await expect(palette).toBeVisible()
+
+    // Absence: changing route takes it with you.
+    await page.goto(`/#/worlds/${worldId}/characters`, { waitUntil: 'load' })
+    await expect(palette).not.toBeVisible()
+
+    // And the screen underneath is usable rather than click-blocked.
+    await expect(page.getByRole('button', { name: 'Add Character' }).first()).toBeVisible()
+  })
+
   test('no results message when search has no matches', async ({ page }) => {
     await page.getByTitle('Search (Ctrl+K)').click()
     await page.getByPlaceholder('Search characters, factions, locations, lore…').fill('xyzzy-no-match-12345')

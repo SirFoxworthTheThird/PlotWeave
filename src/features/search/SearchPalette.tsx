@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { useFocusTrap } from '@/lib/useFocusTrap'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Search, Users, Map, Package, BookOpen, Network, Scroll, X, Route, Hexagon, BookMarked, Shield } from 'lucide-react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '@/db/database'
@@ -50,6 +50,7 @@ function highlight(text: string, query: string) {
 export function SearchPalette() {
   const { worldId } = useParams<{ worldId: string }>()
   const navigate = useNavigate()
+  const { pathname } = useLocation()
   const { searchOpen, setSearchOpen, setActiveEventId, setPendingFocusRouteId, setPendingFocusRegionId, setPendingFocusMarkerId } = useAppStore()
   const [query, setQuery] = useState('')
   const [activeIdx, setActiveIdx] = useState(0)
@@ -59,6 +60,19 @@ export function SearchPalette() {
   const [expandedGroups, setExpandedGroups] = useState<Set<ResultType>>(new Set())
 
   useFocusTrap(paletteRef, searchOpen)
+
+  /**
+   * Close on navigation.
+   *
+   * Choosing a result closes the palette itself, but nothing else did — so
+   * arriving somewhere by any other route (the browser's Back button, a link
+   * inside a panel) left a modal sitting over a screen it had nothing to do
+   * with, swallowing every click until Escape. Leaving a page should leave its
+   * overlays behind.
+   */
+  useEffect(() => {
+    setSearchOpen(false)
+  }, [pathname, setSearchOpen])
 
   /**
    * Search reads Dexie directly rather than through the entity hooks, because
