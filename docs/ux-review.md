@@ -653,15 +653,43 @@ rather than an unexplained one.
 
 ---
 
-## Screens not yet reviewed
+## Still not reviewed
 
-**Chapter detail** — its event card is reviewed in section 4, but the shell
-around it (the Character States, Relationship States and Writer's Notes panels)
-is not. **The route panel** on the map. **The Writer's Brief with a cursor set.**
-**Reading mode** and **phone widths**, both of which are passes of their own.
+Kept honest: this list only shrinks when a screen has actually been driven and
+looked at.
 
-Also outstanding: **reading mode**, **phone widths**, and the **library**
-download flow.
+### Whole passes, each a session of its own
+
+- **Reading mode** — the second product inside the product. Nothing in this
+  document describes it; every screen above is the writer's UI.
+- **Phone widths** — one finding exists (the map cursor fix that started all
+  this) and nothing else. Several findings here are about wasted horizontal
+  space and will read completely differently at 390px.
+
+### Screens never opened
+
+- **Chapter Diff** (*Compare chapters*) — a headline feature, never run.
+- **Focus mode** — the distraction-free writing surface.
+- **Scene history** — revisions, diff, restore.
+- **The Help panel**.
+- **Recent changes** — the undo history list.
+- **The AI generation dialogs** — the copy-prompt/paste-JSON flow, which is how
+  half the product's content is meant to be created. Nine of these exist and
+  not one has been opened.
+- **The sequel wizard**.
+- **Manuscript import**.
+- **The Library download flow** — browsing, downloading, "with images".
+- **Dashboard analytics panels** — Cast Balance, Plot Threads, Motifs & Themes.
+  Only the top of the dashboard has been seen.
+- **The Calendar with a calendar configured** — only its empty state is known.
+
+### Parts of screens
+
+- **The route detail panel** — blocked by **RT-1**, now understood.
+- **The Relationship States panel** in chapter detail — the Character States and
+  Writer's Notes panels beside it are reviewed; this one has not been seen.
+- **The Writer's Brief with a cursor set** — only its empty state is known, and
+  **WB-1**/**WB-2** describe that state alone.
 
 ---
 
