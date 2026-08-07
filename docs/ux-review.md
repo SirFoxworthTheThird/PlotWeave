@@ -492,9 +492,20 @@ The guide says these get different bottom bars, and they do.
 | MT-3 | med | open | **The stacked bar costs roughly 150px of height permanently** — two rows on every screen in the world, on a surface where the map and the manuscript both want the vertical space. |
 | MT-4 | low | open | **A timeline's chapter count and its first chapter number disagree on sight.** *The Road to Mordor (10 chapters)* opens at **Ch. 12**, because numbering runs globally across timelines rather than per timeline. That is right for a book published as two halves, but nothing on the screen says so, and "10 chapters" starting at twelve reads as missing data. |
 
-**Unevaluated:** sync points and the ghost cursor line that is supposed to mark
-the matching moment on the other track. Both need an active event on a specific
-pairing, and the cursor was at *All chapters* throughout, so nothing is claimed.
+### Sync points and the "ghost cursor line"
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| MT-5 | high | **done** | **The guide described a feature that does not exist.** It said a *"ghost cursor line marks the corresponding moment on the other track"*. There is no such line. `syncPoints` appears in exactly one place in the source — `useTimelinePlayback.ts` — and `StackedTrack` is never given the sync-point data, so it could not draw one. Confirmed in the running app: with the cursor set to Ch.6 of the outer timeline, there are **zero** dashed, dotted or ghost-styled elements anywhere on the page. `docs/GUIDE.md` now describes what sync points actually do. |
+| MT-6 | med | open | **Sync points only work one way, and only while playing.** They fire when playback advances the **inner** track onto a paired event, moving a hidden outer cursor that only the **map** reads (for ghost pins). Playing the outer track syncs nothing, and moving the cursor by hand syncs nothing in either direction. A writer who pairs nine moments and then scrubs between them sees no effect at all. |
+| MT-7 | med | open | **Nothing on the bar shows which moments are paired.** Having set up sync points, there is no mark on either track saying "this one is linked" — so the only way to know a pairing exists is to open the relationship editor and read the list. |
+
+**What sync points really do**, for the record: during playback of the inner
+timeline, reaching a paired event sets `activeOuterEventId`, which
+`useMapViewState` uses to resolve the outer timeline's snapshots and draw its
+cast as ghost pins on the map. That is a genuinely good feature — cutting back
+to the frame while the map shows both casts — and it is invisible everywhere
+except the map, during playback, in one direction.
 
 ---
 

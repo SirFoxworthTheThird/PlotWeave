@@ -429,8 +429,13 @@ keeps the framing moment aligned.
 
 **Frame narratives** get a special bottom cursor: two stacked tracks (outer and
 inner). Click either track to make it active; playback follows that track while
-keeping the linked one available for context, and a ghost cursor line marks the
-corresponding moment on the other track.
+keeping the linked one available for context.
+
+**Sync points** take effect during playback. When you play the inner story and
+reach an event that is paired with one in the outer story, PlotWeave moves the
+outer moment to match — so the [map](#maps) can show the outer timeline's cast
+as **ghost pins** beside the inner one. Moving the cursor by hand does not move
+the other track; the pairing is used while playing, not while scrubbing.
 
 Every **other multi-timeline world** uses a single-height bottom bar with a
 **scope selector** on its left. Choose one timeline to scrub it on its own, or
