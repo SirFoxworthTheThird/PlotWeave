@@ -176,6 +176,7 @@ faults in the product. Only what survived that second check is listed.
 | OP-4 | low | open | **Two buttons whose names both begin with "Add", adjacent.** On the character step, *"Add a description (optional)"* (a disclosure) sits directly above the primary *"Add them to the story"*. Clicking the wrong one silently expands a field instead of submitting, with no feedback that nothing happened. It cost this review a whole run. |
 
 | OP-5 | high | open | **Finishing the first-run guide leaves no time cursor set.** The pill reads *"All chapters"* the moment the guide ends — verified twice, and visible in the capture. Step 3 of that same guide is headed *"Where does their story begin?"* and places the character at Ch. 1, so the guide selects a moment on the user's behalf and then hands them an app that has forgotten it. Everything cursor-dependent is consequently switched off for a brand-new user who has done everything they were asked. |
+| OP-8 | med | **done** | **Opening search took focus on a 50ms timer.** Whatever had focus kept it until the timer fired, so a keystroke in that window went to the screen behind the palette — open search from a half-filled form, type straight away, and the first characters landed in the form. Found while testing OP-1, not from the screen sweep. Now focused synchronously: the palette renders nothing until it is open, so by the time the effect runs the input is mounted and there is nothing to wait for. **Shipped without a regression test** — see below. |
 | OP-6 | med | open | **A disabled primary button with no reason given.** *Add Location* is greyed until Name is filled, with no required marker, no helper text, and no message on hover. Nothing says which field is blocking it. |
 | OP-7 | low | corrected | **Map placement is gated on the time cursor — and the app says so.** `MapSidebar.tsx` renders the crosshair only inside `{activeEventId && …}`, so with no cursor there is no placement control and no drag. This was first written up as a silent lockout; that was wrong. The sidebar prints *"Select an event from the timeline bar below to place characters onto the map."* The gate is deliberate and explained, so what is left is minor: the 60%-opacity card is a weak signal next to a clear sentence, and the sentence points at the bar rather than offering a way to act. |
 
@@ -271,6 +272,16 @@ tried*. It survives the test.
 | ID | Severity | Status | Finding |
 |---|---|---|---|
 | MS-5 | low | open | **"1 scenes"** in the export dialog's count. Unpluralised. |
+
+**OP-8 has no regression test, deliberately.** Three approaches were tried and
+each was rejected: typing immediately after the shortcut is a race against a
+50ms window and would be flaky; a frozen `page.clock` turned out **not** to
+discriminate at all — the test passed with the timer restored, which makes it
+worse than no test; and asserting on the absence of a `setTimeout` tests the
+implementation rather than the behaviour. The fix is a small, obviously-correct
+simplification and the existing focus assertion in the OP-1 test still covers
+"focus lands at all", but nothing guards the *timing*. Recorded rather than
+papered over.
 
 **Still unproven, either way:** assigning a beat on the Structure board, the
 scene reorder arrows in chapter detail, and whether **CB-1** (the status pill

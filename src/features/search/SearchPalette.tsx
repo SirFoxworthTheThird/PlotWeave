@@ -184,12 +184,20 @@ export function SearchPalette() {
   // Reset active index when results change
   useEffect(() => setActiveIdx(0), [results])
 
-  // Focus input when opened; reset expanded groups on close
+  // Focus the input when opened; reset expanded groups on close.
+  //
+  // Synchronously, not on a timer. The palette renders nothing until it is
+  // open, so by the time this effect runs the input is mounted and the ref is
+  // attached — there is nothing to wait for. A delay here is not free: whatever
+  // had focus keeps it until the timer fires, so a keystroke in that window is
+  // delivered to the screen behind the palette instead. Opening search from a
+  // half-filled form and typing straight away put the first characters into the
+  // form.
   useEffect(() => {
     if (searchOpen) {
       setQuery('')
       setExpandedGroups(new Set())
-      setTimeout(() => inputRef.current?.focus(), 50)
+      inputRef.current?.focus()
     }
   }, [searchOpen])
 

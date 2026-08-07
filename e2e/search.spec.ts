@@ -95,9 +95,8 @@ test.describe('Search palette', () => {
     const palette = page.getByPlaceholder('Search characters, factions, locations, lore…')
     await page.keyboard.press('Control+k')
     await expect(palette).toBeVisible()
-    // The palette focuses its input on a short timer, so wait for the focus to
-    // land — otherwise the keypress below is delivered to the dialog instead
-    // and the test measures nothing about the palette.
+    // Wait for focus to actually land before pressing: if the keypress goes to
+    // the dialog instead, this test measures nothing about the palette.
     await expect(palette).toBeFocused()
 
     // One press takes the palette and nothing else — the half-typed name survives.
