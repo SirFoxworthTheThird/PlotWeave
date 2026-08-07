@@ -92,6 +92,7 @@ per page.
 | X-3 | med | open | **14 unlabelled nav icons, one faint divider.** Corkboard, Structure, and Arc are three abstract grid glyphs in a row and cannot be told apart without hovering each. The guide describes a "More" divider separating everyday screens from the rest; visually that split barely registers. |
 | X-4 | med | open | **Empty states are inconsistent.** Some are excellent (Arc: heading, explanation, and a CTA routing to the prerequisite). Others are italic grey sentences sitting where a control should be ("No characters assigned.") with no affordance to act. Others are simply blank panels. |
 | X-5 | med | open | **Permanent help text.** Explanatory sentences under form fields never go away. The writing is good, but once learned it is noise on every future visit. |
+| X-7 | high | open | **Clickable things that are not controls.** The 18 item cards on the Items roster are not links or buttons — a query for `a, button` inside the main region returns only *Generate with AI*. The corkboard's status pill is the same (**CB-1**). These are `div`s with click handlers: unreachable by keyboard, invisible to a screen reader, and not focusable. It is a pattern rather than an oversight, so it wants one decision and one sweep. |
 | X-6 | low | open | **Dates are unlabelled and US-format.** `4/1/2026` on a world card — created or edited, April or January? |
 
 ---
@@ -314,11 +315,69 @@ fault — was wrong every single time in this run.
 
 ---
 
+## 12. The world-element screens
+
+Characters, Items, Lore, Factions and Knowledge share a shape — a counted
+roster leading to a detail view — so they are best read against each other.
+Driven on *The Fellowship of the Ring*; all eight character tabs render, roster
+filtering works, and Lore, Factions and Knowledge all open.
+
+### Character detail
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| CH-1 | med | open | **The Overview tab hides most of the character.** It shows the name and biography only. Aliases, map/Arc colour and birth date live behind **Edit**, so you cannot tell whether a character even *has* aliases without entering edit mode. A read view that omits the data is not a read view. |
+| CH-2 | med | open | **The name is printed twice** — in the header beside the portrait, and again as a heading directly under the tabs. |
+| CH-3 | med | open | **Tabs carry no counts.** Eight tabs, and a character with no goals, no lore and no factions looks identical to one with three of each. Every sibling screen in this group counts things — the rosters, the map sidebar sections — except the one place it would save the most clicking. |
+| CH-4 | med | open | **Delete stands alone in the header** as the only icon, top right, with nothing implying weight. Compare Lore, which reveals its delete on hover (see LORE-1). |
+| CH-5 | low | open | **The portrait's upload and link controls are two ~10px icons** crowded onto the bottom edge of a 48px avatar. |
+
+### Items
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| IT-1 | high | open | **The cards are not controls** — see **X-7**, of which this is the clearest instance. |
+| IT-2 | med | open | **The roster shows nothing about where anything is.** Items have per-event placement and condition, and the list shows type and description only, so with a cursor set you still cannot see what is where. The map sidebar manages a condition dot per item; the screen devoted to items does not. |
+
+**Credit:** thumbnails, name, category and description make this the most scannable roster in the app.
+
+### Lore
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| LORE-1 | — | **good** | **Delete appears on hover**, not permanently. This is the pattern **TL-3** and **CH-4** should adopt rather than a trash icon sitting on every row forever. |
+| LORE-2 | med | open | **Nothing on a card says whether it is gated.** *Revealed at* is a headline lore feature; a page revealed in chapter 17 is indistinguishable from one visible from the start. Knowledge solves the same problem with "known by 4 / 45". |
+| LORE-3 | low | open | **Every card shows the same unlabelled US-format date** (`4/7/2026`) — the import date, on all 25 (see **X-6**). |
+
+### Factions
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| FAC-1 | med | open | **Faction-to-faction stances are invisible.** Cards carry a member count only, yet stances are a headline feature — and for a story like this one, who is hostile to whom is the whole point. |
+| FAC-2 | med | open | **No search box**, while Items, Knowledge, Lore and Characters all have one in the same position. Fine at ten factions; the inconsistency is the finding. |
+| FAC-3 | low | open | **Card titles truncate while their descriptions wrap.** *"The Fellowship of the R…"* is cut at 29 characters directly above two full lines of body text. |
+
+### Knowledge
+
+The best-designed screen reviewed so far.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| KN-1 | — | **good** | **"Suggested from your story"** proposes real work — *"+ Barrow-wight is dead · Ch. 8"* — and adds it in one click. The strongest affordance in the app; the pattern the dashboard wants (see the DASH rebuild note). |
+| KN-2 | — | **good** | **"known by 4 / 45"** on every card: a number that means something at a glance. |
+| KN-3 | med | open | **The *when* is missing from the screen about when.** The strapline is "track who knows what, **and when they learn it**", and no card shows when the reader learns a fact or when the first character does. Only the count is shown. |
+| KN-4 | low | open | **No ordering control** — 21 facts in a fixed order, with no way to sort by reveal point or by how widely known they are. |
+
+**Not established:** the "open a fact" step passed against a verify that matched
+`known by` text already on the roster, so it proved nothing about the detail
+view. Knowledge detail is therefore **unreviewed**, not reviewed-and-fine.
+
+---
+
 ## Screens not yet reviewed
 
-Chapter detail · characters roster and detail · arc grid · maps · items ·
-relationships · lore · factions · knowledge · settings · search palette ·
-writer's brief · continuity checker · calendar
+Chapter detail · arc grid · maps · relationships graph · knowledge detail ·
+settings · writer's brief · continuity checker · calendar
 
 Also outstanding: **reading mode**, **phone widths**, and the **library**
 download flow.
