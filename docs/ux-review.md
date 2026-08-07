@@ -138,17 +138,28 @@ faults in the product. Only what survived that second check is listed.
 | OP-3 | med | open | **The first-run guide creates more than it says.** Step 1 asks only for a timeline name, under the heading *"Your story begins with a moment"*. Verified by reading IndexedDB straight after: naming a timeline and a character leaves **1 chapter, 1 event, and 1 character** in the world. The chapter and the event were never named, shown, or mentioned — the user then meets a "Ch. 1" and an untitled scene they did not knowingly make. Either say so, or let them name the scene, which is what the heading already promises. |
 | OP-4 | low | open | **Two buttons whose names both begin with "Add", adjacent.** On the character step, *"Add a description (optional)"* (a disclosure) sits directly above the primary *"Add them to the story"*. Clicking the wrong one silently expands a field instead of submitting, with no feedback that nothing happened. It cost this review a whole run. |
 
-**Note on method.** The first pass at scripting this journey produced fourteen
-failing steps, which looked like a damning list until they were checked: a
-stray palette opened early, swallowed every click, and everything downstream
-failed for that one reason. A UX finding that has not been reproduced on its
-own is a guess. The four above were each re-run in isolation
-(`_uxprobe.spec.ts`) before being written down.
+| OP-5 | high | open | **Finishing the first-run guide leaves no time cursor set.** The pill reads *"All chapters"* the moment the guide ends — verified twice, and visible in the capture. Step 3 of that same guide is headed *"Where does their story begin?"* and places the character at Ch. 1, so the guide selects a moment on the user's behalf and then hands them an app that has forgotten it. Everything cursor-dependent is consequently switched off for a brand-new user who has done everything they were asked. |
+| OP-6 | med | open | **A disabled primary button with no reason given.** *Add Location* is greyed until Name is filled, with no required marker, no helper text, and no message on hover. Nothing says which field is blocking it. |
+| OP-7 | med | needs check | **Map placement is gated on the time cursor.** `MapSidebar.tsx` renders the crosshair only inside `{activeEventId && …}` and sets `draggable={!!activeEventId && !gate.active}`, so with no cursor there is no placement control, no drag, and the only signal is a 60%-opacity card. Read from source and consistent with OP-5, but **the presence half was not confirmed behaviourally** — see the note below. Do not treat as established until it is. |
 
-**Still to drive:** portrait and location-image upload, map upload and marker
-placement, dragging a character onto the map, writing prose and the `@` mention
-autocomplete, the writer's brief, export/import round-trip, and the whole of
-this on a phone.
+**Note on method.** The first attempt at this journey produced fourteen failing
+steps that looked like a damning list and were not: a stray palette opened
+early, swallowed every click, and everything downstream failed for that one
+reason. The rewritten harness makes every step assert **its own effect** rather
+than merely not throwing — the earlier version happily reported `OK` for a
+click that expanded a disclosure instead of submitting a form. On the second
+run **21 of 22 steps passed**, with zero page or console errors.
+
+OP-7 is deliberately left at *needs check*. Its absence half is easy to
+demonstrate; the presence half needs the cursor put on the only event in a
+one-chapter world, and the chapter bar in that state is the clipped, truncated
+strip described in **EV-7** — too small to hit reliably even from a script.
+That is itself a signal about a brand-new world, but it means the pair is not
+yet proven, and a half-proven finding is a guess.
+
+**Still to drive:** the relationship editor, export/import round-trip, chapter
+diff, the corkboard and structure boards with real content, and the whole of
+this at phone width.
 
 ---
 
