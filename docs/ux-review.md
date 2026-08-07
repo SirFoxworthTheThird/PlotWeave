@@ -123,6 +123,35 @@ demand. The full ontology stays available and stops being the default view.
 
 ---
 
+## 5. Doing things — findings from driving a real session
+
+These came from operating the app rather than looking at it: creating a world
+through the guide, adding a cast, uploading images, and reaching for the
+everyday tools. Each was then **re-verified in isolation**, because the first
+run's failures turned out to be mostly bad selectors in the harness rather than
+faults in the product. Only what survived that second check is listed.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| OP-1 | high | open | **One Escape closes two layers.** Open a dialog (Add Character), press Ctrl+K, and the search palette opens *on top of it*. A single Escape then dismisses **both** — verified: palette `false`, dialog `false` after one press. A user who searches for a name mid-form and presses Escape to get back loses the half-filled dialog and its input. Escape should dismiss the topmost layer only. |
+| OP-2 | med | open | **An open palette traps you.** With the palette up, the nav rail is unreachable: the link resolves but the click is intercepted by the overlay, so the only way out is Escape. That is defensible for a modal on its own, but combined with OP-1 it means overlay layering is not being managed deliberately — the palette will happily stack on anything, and Escape does not respect the stack. |
+| OP-3 | med | open | **The first-run guide creates more than it says.** Step 1 asks only for a timeline name, under the heading *"Your story begins with a moment"*. Verified by reading IndexedDB straight after: naming a timeline and a character leaves **1 chapter, 1 event, and 1 character** in the world. The chapter and the event were never named, shown, or mentioned — the user then meets a "Ch. 1" and an untitled scene they did not knowingly make. Either say so, or let them name the scene, which is what the heading already promises. |
+| OP-4 | low | open | **Two buttons whose names both begin with "Add", adjacent.** On the character step, *"Add a description (optional)"* (a disclosure) sits directly above the primary *"Add them to the story"*. Clicking the wrong one silently expands a field instead of submitting, with no feedback that nothing happened. It cost this review a whole run. |
+
+**Note on method.** The first pass at scripting this journey produced fourteen
+failing steps, which looked like a damning list until they were checked: a
+stray palette opened early, swallowed every click, and everything downstream
+failed for that one reason. A UX finding that has not been reproduced on its
+own is a guess. The four above were each re-run in isolation
+(`_uxprobe.spec.ts`) before being written down.
+
+**Still to drive:** portrait and location-image upload, map upload and marker
+placement, dragging a character onto the map, writing prose and the `@` mention
+autocomplete, the writer's brief, export/import round-trip, and the whole of
+this on a phone.
+
+---
+
 ## Screens not yet reviewed
 
 Timeline · chapter detail · corkboard · manuscript · structure board ·
