@@ -70,13 +70,32 @@ function changedFields<T extends object>(existing: T, patch: Partial<T>): Partia
 }
 
 /**
+ * Take the JSON out of a markdown code fence, if the paste arrived in one.
+ *
+ * Every prompt in the app ends with "Output ONLY the JSON object" and asks for
+ * no fences. Assistants wrap it anyway, often enough that the first thing a
+ * writer sees on their first attempt is "That isn't valid JSON" about JSON that
+ * is perfectly valid — it just has three backticks round it. Stripping them is
+ * cheaper than teaching every user to.
+ *
+ * Deliberately narrow: only a fence that opens the text and closes it. Anything
+ * else is left alone so a genuine syntax error still reports as one.
+ */
+export function stripCodeFence(text: string): string {
+  const trimmed = text.trim()
+  if (!trimmed.startsWith('```')) return text
+  const withoutOpen = trimmed.replace(/^```[^\n]*\n?/, '')
+  return withoutOpen.replace(/\n?```$/, '')
+}
+
+/**
  * Pull an array out of pasted JSON that may be a bare array, `{ characters: [] }`,
  * or `{ format, characters: [] }`. Returns the raw array or an error message.
  */
 function extractArray(text: string, field: string): { list?: unknown[]; error?: string } {
   let data: unknown
   try {
-    data = JSON.parse(text)
+    data = JSON.parse(stripCodeFence(text))
   } catch {
     return { error: 'That isn’t valid JSON. Paste the JSON the AI returned.' }
   }

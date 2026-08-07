@@ -749,3 +749,46 @@ describe('addLocationsToWorld', () => {
     expect(beacon.mapLayerId).toBe(top.id)
   })
 })
+
+/**
+ * Assistants wrap JSON in a markdown fence whatever the prompt asks for, so the
+ * first thing a writer used to see was "That isn't valid JSON" about JSON that
+ * was fine. The fence is stripped before parsing.
+ */
+describe('pasted JSON wrapped in a markdown fence', () => {
+  const body = JSON.stringify({
+    format: 'plotweave-characters',
+    characters: [{ name: 'Sera Aldwyn', description: 'A salt-trader.' }],
+  })
+
+  it('accepts ```json fences', () => {
+    const { characters, error } = parseCharactersSpec('```json\n' + body + '\n```')
+    expect(error).toBeUndefined()
+    expect(characters?.map((c) => c.name)).toEqual(['Sera Aldwyn'])
+  })
+
+  it('accepts a bare ``` fence, and surrounding whitespace', () => {
+    const { characters, error } = parseCharactersSpec('\n\n```\n' + body + '\n```\n\n')
+    expect(error).toBeUndefined()
+    expect(characters?.map((c) => c.name)).toEqual(['Sera Aldwyn'])
+  })
+
+  it('applies to every section, not just characters', () => {
+    const items = parseItemsSpec('```json\n' + JSON.stringify({ items: [{ name: 'Salt' }] }) + '\n```')
+    expect(items.error).toBeUndefined()
+    expect(items.items?.map((i) => i.name)).toEqual(['Salt'])
+  })
+
+  // The pair: stripping a fence must not start excusing real syntax errors.
+  it('still rejects genuinely broken JSON, fenced or not', () => {
+    expect(parseCharactersSpec('```json\n{ "characters": [ \n```').error)
+      .toMatch(/isn’t valid JSON/)
+    expect(parseCharactersSpec('here you go!').error).toMatch(/isn’t valid JSON/)
+  })
+
+  it('leaves text without a fence untouched', () => {
+    const { characters, error } = parseCharactersSpec(body)
+    expect(error).toBeUndefined()
+    expect(characters?.map((c) => c.name)).toEqual(['Sera Aldwyn'])
+  })
+})
