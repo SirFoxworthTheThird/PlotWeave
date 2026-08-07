@@ -47,6 +47,15 @@ because they change how a dozen screens read and would otherwise force rework.
 Ordered by value: **OP-1** first (it loses a half-filled form today), then
 **OP-5** (every new user is left without a cursor), then the rest.
 
+Added by later passes, same bucket: **`X-10`** (no dialog is a modal — one
+component, 21 files' worth of dialogs, and `useFocusTrap` already exists),
+**`AI-2`**, **`AI-3`**. **`AI-4`** goes to bucket B: preserving a failed paste
+across an accidental close is clearly right, but whether that means a confirm,
+a draft, or simply not resetting on backdrop-click is a decision.
+
+**`AI-1` is fixed** (all four AI parsers now share `stripCodeFence`), joining
+`OP-1`, `OP-8`, `OP-9` and the mobile map cursor.
+
 **B — design work, direction now set (7).** `X-1` `X-2` `X-3` are decided above
 and can proceed. `EV-1` (event-card disclosure), `SEL-1` (selector entry
 points), `TL-1` (pacing curve), `ST-1` (structure proportion) still need their
@@ -94,6 +103,7 @@ per page.
 | X-5 | med | open | **Permanent help text.** Explanatory sentences under form fields never go away. The writing is good, but once learned it is noise on every future visit. |
 | X-7 | high | open | **Clickable things that are not controls, inconsistently.** The 18 item cards on the Items roster are not links or buttons — a query for `a, button` inside the main region returns only *Generate with AI*. The corkboard's status pill is the same (**CB-1**). So are the map sidebar's **region rows**: measured, **0** reachable by `role=button`, **8** by div text. So are its **character rows**. But its **location rows are real buttons**. Three different answers inside one sidebar. These are `div`s with click handlers: no keyboard, no screen reader, no focus. Systemic rather than incidental — one decision and one sweep. |
 | X-9 | med | open | **Primary actions disable themselves without saying why.** *Add Location* greys out until Name is filled (**OP-6**); *Save route* greys out until the route has both a name and two points (**RT-1**). Neither marks a required field, shows helper text, or explains itself on hover — the button simply does nothing and the user has to guess which of several fields is at fault. Two instances found without looking for a third. |
+| X-10 | high | open | **No modal in the app is a modal, as far as the browser is concerned.** `DialogContent` (`src/components/ui/dialog.tsx:40`) renders a bare `<div>`: no `role="dialog"`, no `aria-modal`, no `aria-labelledby` pointing at the `DialogTitle` it already renders, no focus trap, no focus restore on close. Tab walks straight out of an open dialog into the page behind it; a screen reader is never told a dialog opened; closing one leaves focus wherever it fell. This is **21 files** worth of dialogs — every generation dialog, every create/edit form, the diff modal, the confirms — from one component. `useFocusTrap` (`src/lib/useFocusTrap.ts`) already exists and is already used by the search palette, so the trap half is a two-line change. Found while reviewing the AI dialogs; it is not specific to them. |
 | X-6 | low | open | **Dates are unlabelled and US-format.** `4/1/2026` on a world card — created or edited, April or January? |
 
 ---
@@ -653,6 +663,44 @@ rather than an unexplained one.
 
 ---
 
+## 19. The AI generation dialogs
+
+Ten of them exist. Nine share one component (`GenerateSectionDialog`) through thin
+per-section wrappers; `ChapterAIDialog` and `MapAIDialog` are bespoke. This is the
+route by which most of a world's content is meant to arrive, so it was driven
+rather than read: a world spec into the generator, and a nested locations tree —
+regions, sub-places, and a keep with floors — into the locations dialog.
+
+**The shared dialog is the best-designed surface reviewed so far**, and that is
+worth stating before the findings. It numbers the four steps in order, shows the
+whole prompt in a scrollable pre with a sticky *Copy prompt* button, parses as you
+type, previews the count *before* committing (*"Ready to import 5 locations. New
+ones are added; ones that already exist are updated in place."*), reports the
+result afterwards (*"Added 3 characters"*, with updated/unchanged counts), and
+swaps *Cancel* to *Done* once it has run. The locations prompt even feeds the
+existing place tree back to the assistant so it extends the world instead of
+duplicating it. Nothing else in the app explains itself this well.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| AI-1 | high | **fixed** | **Fenced JSON was rejected as invalid by half the parsers.** Every prompt ends with "no markdown fences"; assistants add them anyway. `sectionImport` stripped them, `MapAIDialog` stripped them with its own private regex, and **`worldSpec` and `ChapterAIDialog` did not strip them at all** — so a first-time writer pasting a perfectly valid, fenced world spec was told *"That isn't valid JSON."* about JSON that is valid. The two bespoke dialogs, the ones a writer is most likely to reach for first, were the two that failed. Fixed: `stripCodeFence` moved to `src/lib/codeFence.ts` and all four parsers now share it. |
+| AI-2 | low | open | **Unrecognised keys are dropped in silence.** A tree that put a floor's rooms in `levels[].locations` instead of the documented `levels[].children` imported "successfully": the floors were created empty, the two rooms vanished, and nothing anywhere said so. The count line was honest — it said 5, and 5 arrived — so the only signal available to the writer is noticing later that rooms they asked for are missing. The prompt documents `children` correctly and this was my own malformed paste, but an assistant drifting one key from a long spec is exactly the failure this flow should catch. A "2 unrecognised fields were ignored" note under the preview would cost little. |
+| AI-3 | low | open | **Three different messages for the same failure.** "That isn't valid JSON. Paste the JSON the AI returned." (`sectionImport`), "Could not parse JSON. Make sure you copied the full response." (`ChapterAIDialog`), "Could not parse JSON. Make sure Claude returned raw JSON only." (`MapAIDialog`). The last also names one assistant, while every dialog's own intro correctly says "any AI assistant (ChatGPT, Claude, Gemini…)". |
+| AI-4 | med | open | **Nothing survives closing the dialog.** `reset()` clears the pasted text on every close, including an accidental Escape or a click on the backdrop — and the backdrop is the whole screen. A long paste that failed to validate is gone, with no confirm and no undo, and the writer has to go back to their assistant for it. See **X-10**: the same dialog also can't be tabbed within, so reaching *Cancel* by keyboard is a matter of luck. |
+
+**Not a finding, recorded so it isn't re-investigated:** duplicate map-layer names
+after a levels import (two layers both called "Keep of Ash") are correct. Floor
+layers are named after their marker, with the floor name carried in `levelLabel`
+(`sectionImport.ts:1198`). Likewise, an early probe suggesting no result banner
+appears after a locations import was a harness artefact — the banner is real
+(`GenerateSectionDialog.tsx:134`) and shared by all nine wrapper dialogs.
+
+**Still unopened in this group:** the sequel wizard, manuscript import, and the
+paste-back half of `ChapterAIDialog` and `MapAIDialog` driven end to end with a
+real assistant response.
+
+---
+
 ## Still not reviewed
 
 Kept honest: this list only shrinks when a screen has actually been driven and
@@ -673,9 +721,6 @@ looked at.
 - **Scene history** — revisions, diff, restore.
 - **The Help panel**.
 - **Recent changes** — the undo history list.
-- **The AI generation dialogs** — the copy-prompt/paste-JSON flow, which is how
-  half the product's content is meant to be created. Nine of these exist and
-  not one has been opened.
 - **The sequel wizard**.
 - **Manuscript import**.
 - **The Library download flow** — browsing, downloading, "with images".

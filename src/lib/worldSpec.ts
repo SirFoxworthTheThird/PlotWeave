@@ -1,3 +1,4 @@
+import { stripCodeFence } from '@/lib/codeFence'
 import { generateId } from '@/lib/id'
 import { EXPORT_VERSION, importWorldFromJson, type WorldExportFile } from '@/lib/exportImport'
 import type {
@@ -150,7 +151,7 @@ const SENTIMENTS: RelationshipSentiment[] = ['positive', 'neutral', 'negative', 
 export function parseWorldSpec(text: string): { spec?: WorldSpec; error?: string } {
   let data: unknown
   try {
-    data = JSON.parse(text)
+    data = JSON.parse(stripCodeFence(text))
   } catch {
     return { error: 'That isn’t valid JSON. Paste the JSON the AI returned.' }
   }

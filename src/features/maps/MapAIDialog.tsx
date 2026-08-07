@@ -7,6 +7,7 @@ import { useAllLocationMarkers } from '@/db/hooks/useLocationMarkers'
 import { useMapLayers } from '@/db/hooks/useMapLayers'
 import { useWorldEvents, useWorldChapters } from '@/db/hooks/useTimeline'
 import { fetchSnapshot, upsertSnapshot } from '@/db/hooks/useSnapshots'
+import { stripCodeFence } from '@/lib/codeFence'
 
 // ── Prompt builder ────────────────────────────────────────────────────────────
 
@@ -157,8 +158,7 @@ export function MapAIDialog({ worldId, open, onOpenChange }: MapAIDialogProps) {
     const trimmed = pasteText.trim()
     if (!trimmed) { setError('Paste Claude\'s response first.'); return }
 
-    // Strip markdown fences if present
-    const cleaned = trimmed.replace(/^```[\w]*\n?/, '').replace(/\n?```$/, '').trim()
+    const cleaned = stripCodeFence(trimmed)
 
     let parsed: unknown
     try {

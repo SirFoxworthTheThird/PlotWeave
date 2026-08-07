@@ -280,7 +280,8 @@ any AI assistant (ChatGPT, Claude, Gemini…).
    followed by your story text.
 2. The assistant replies with a compact JSON **story spec**.
 3. **Paste that JSON** back into the box in the dialog. A live preview shows what
-   it found — character, chapter, event, and faction counts.
+   it found — character, chapter, event, and faction counts. A ```` ``` ```` code
+   fence around the answer is stripped for you, so paste it exactly as given.
 4. Click **Import world** and you land in the finished world.
 
 The prompt deliberately asks for a *compact* spec — entities are referenced by
@@ -621,7 +622,8 @@ section and added to the **world you're already in** — no new world is created
 2. Paste it into ChatGPT, Claude, Gemini, or similar, then describe your story
    (or just list the characters you want) after the last line.
 3. Paste the JSON it returns into the box. A preview tells you how many
-   characters it will import.
+   characters it will import. If the assistant wrapped its answer in a
+   ```` ``` ```` code fence, paste it anyway — the fence is stripped for you.
 4. Click **Add characters**. New names are created; a name that **already
    exists is updated in place** — the fields the AI supplies overwrite the
    current values, while anything it leaves out is untouched. So you can run it
