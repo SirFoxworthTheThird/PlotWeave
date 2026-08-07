@@ -168,12 +168,63 @@ this at phone width.
 
 ---
 
+## 6. Timeline
+
+Driven on *The Fellowship of the Ring* (22 chapters, 91 scenes).
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| TL-1 | high | open | **The pacing curve cannot be read, only glanced at.** No y-axis, no scale, no legend. Dots sit at varying heights in green, yellow and blue with nothing saying what high means, what the colours encode, or which chapter a peak belongs to. The shape is suggestive; the chart is unreadable as data. |
+| TL-2 | med | open | **`Set Active` on all 22 chapter rows.** A text button repeated down the page whose meaning — *move the time cursor here* — is not in its label, competing for attention with the open-detail and delete icons beside it. |
+| TL-3 | med | open | **A bare trash icon on every chapter row**, immediately beside open-detail. Twenty-two chances to misclick the most destructive action on the screen, with nothing in the affordance suggesting weight. |
+| TL-4 | med | open | **Chapter rows carry a truncated summary and nothing else.** No scene count, no word count, no status roll-up. The row repeats prose you already wrote instead of telling you the state of the chapter. |
+| TL-5 | low | open | **Thread pills wrap unbounded.** Nine threads already take two rows and ~80px above the content; the strip grows with every thread added. |
+| TL-6 | low | open | **The beat marker on the curve reads "Incite"** — a truncation of *Inciting Incident* that is not a word in this sense. |
+
+## 7. Corkboard
+
+The strongest screen reviewed so far: dense, scannable, and the drag affordance is clear.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| CB-1 | med | open | **The status pill is not a button.** The guide says to change a scene's status "right on the card with the status pill", but there is no control with that accessible name — a click driven at it finds nothing. It reads as a static badge, and is one to keyboard and screen-reader users. |
+| CB-2 | med | open | **No sense of how much board there is.** Five of twenty-two chapter columns are visible, with no scrollbar, count, or overview to say seventeen more exist off-screen. |
+| CB-3 | low | open | **Cards carry no length signal.** The corkboard is where scene length should be comparable at a glance; there is no word count on the card. |
+| CB-4 | low | open | **Column headers omit their scene count** — "Chapter 1 · A Long-expected Party", but not how many scenes are in it. |
+
+## 8. Manuscript
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| MS-1 | high | open | **Find & replace and Export are live on an empty manuscript.** With *0 of 91 scenes written · 0 words*, both remain enabled. Export would compile an empty book; find has nothing to search. |
+| MS-2 | med | open | **A bare `0` badge beside the title.** Zero what — words, scenes, chapters? The subtitle answers it a line below, which is where the badge should have got its label. |
+| MS-3 | med | open | **`Goal —`** puts an em-dash in a control that looks like an input, the same "reads as broken" pattern as the Continuity tile (**DASH-1**). |
+| MS-4 | med | open | **The empty state gives a downloaded book the wrong instruction.** It says *"Write scene prose on your events"* — but library worlds ship deliberately without prose, and nobody is going to type Tolkien's. On a reading-mode world this screen should explain why it is empty, not hand out a task. |
+
+**Credit:** the chapter bar on this screen — named chapters with per-chapter progress ticks — is the best version of that bar anywhere in the app.
+
+## 9. Structure board
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| ST-1 | high | open | **The board shows sequence but not proportion.** A beat sheet exists to reveal whether Act 2 sags, and this is a flat list of equal-height rows. Nothing conveys that Climax and Resolution both landed in Ch. 22 out of 22, or that Act 1 covers two chapters while Act 2 covers twelve. The one question the screen is for is the one it does not answer. |
+| ST-2 | med | open | **Rows are ~1400px wide with content at both ends** and nothing between (see **X-2**). |
+| ST-3 | low | open | **The template switcher is a native select** styled unlike the app's own Select components used elsewhere. |
+
+## 10. Across the writing screens
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| W-1 | med | open | **The chapter bar is present on Timeline and Manuscript but absent on Corkboard and Structure**, while the top-bar cursor pill still shows a chapter on all four. The global cursor's main control disappears on two of the screens that are most about story order. |
+| W-2 | med | open | **Every screen opens with a title and a line of instruction** — *"Drag scene cards to reorder them…"*, *"The classic seven-beat, three-act spine."* — costing ~110px of vertical space permanently for a sentence read once (see **X-5**). |
+
+---
+
 ## Screens not yet reviewed
 
-Timeline · chapter detail · corkboard · manuscript · structure board ·
-characters roster and detail · arc grid · maps · items · relationships · lore ·
-factions · knowledge · settings · search palette · writer's brief · continuity
-checker · calendar
+Chapter detail · characters roster and detail · arc grid · maps · items ·
+relationships · lore · factions · knowledge · settings · search palette ·
+writer's brief · continuity checker · calendar
 
 Also outstanding: **reading mode**, **phone widths**, and the **library**
 download flow.
