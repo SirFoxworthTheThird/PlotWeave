@@ -285,7 +285,7 @@
       "author": "Homer",
       "blurb": "Odysseus crosses a mythic Mediterranean while Telemachus and Penelope defend the household awaiting his return.",
       "data": "the-odyssey.pwk",
-      "dataBytes": 87022,
+      "dataBytes": 88035,
       "counts": {
         "characters": 10,
         "chapters": 24,
@@ -294,7 +294,7 @@
       },
       "notice": "Unofficial reference for a public-domain epic. This example contains original structural summaries and editorial reconstruction, not the poem’s prose.",
       "worldId": "odyssey-world",
-      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Odyssey%20(Butler)%20Map.png?width=1200"
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Odysseus%20and%20Penelope.jpg?width=1200"
     }
   ]
 }
