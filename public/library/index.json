@@ -261,6 +261,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked period maps, an interpretive Nautilus plan, and public-domain Hetzel illustrations are recorded in Lore.",
       "worldId": "twenty-thousand-leagues-under-the-seas-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/20000%20title%200a.jpg?width=960"
+    },
+    {
+      "id": "the-war-of-the-worlds",
+      "title": "The War of the Worlds",
+      "author": "H. G. Wells",
+      "blurb": "Martian cylinders fall into the familiar landscape of Surrey and London, overturning Victorian confidence as separated witnesses struggle through invasion, flight, and occupation.",
+      "data": "the-war-of-the-worlds.pwk",
+      "dataBytes": 274289,
+      "counts": {
+        "characters": 14,
+        "chapters": 27,
+        "events": 54,
+        "locations": 20
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked period maps and public-domain Henrique Alvim Corrêa illustrations are recorded in Lore.",
+      "worldId": "war-of-the-worlds-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/War%20of%20the%20worlds%20live%201906%20cover.jpg?width=960"
     }
   ]
 }
