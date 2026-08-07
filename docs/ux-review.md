@@ -93,6 +93,7 @@ per page.
 | X-4 | med | open | **Empty states are inconsistent.** Some are excellent (Arc: heading, explanation, and a CTA routing to the prerequisite). Others are italic grey sentences sitting where a control should be ("No characters assigned.") with no affordance to act. Others are simply blank panels. |
 | X-5 | med | open | **Permanent help text.** Explanatory sentences under form fields never go away. The writing is good, but once learned it is noise on every future visit. |
 | X-7 | high | open | **Clickable things that are not controls, inconsistently.** The 18 item cards on the Items roster are not links or buttons — a query for `a, button` inside the main region returns only *Generate with AI*. The corkboard's status pill is the same (**CB-1**). So are the map sidebar's **region rows**: measured, **0** reachable by `role=button`, **8** by div text. So are its **character rows**. But its **location rows are real buttons**. Three different answers inside one sidebar. These are `div`s with click handlers: no keyboard, no screen reader, no focus. Systemic rather than incidental — one decision and one sweep. |
+| X-9 | med | open | **Primary actions disable themselves without saying why.** *Add Location* greys out until Name is filled (**OP-6**); *Save route* greys out until the route has both a name and two points (**RT-1**). Neither marks a required field, shows helper text, or explains itself on hover — the button simply does nothing and the user has to guess which of several fields is at fault. Two instances found without looking for a third. |
 | X-6 | low | open | **Dates are unlabelled and US-format.** `4/1/2026` on a world card — created or edited, April or January? |
 
 ---
@@ -185,7 +186,7 @@ faults in the product. Only what survived that second check is listed.
 | OP-5 | high | open | **Finishing the first-run guide leaves no time cursor set.** The pill reads *"All chapters"* the moment the guide ends — verified twice, and visible in the capture. Step 3 of that same guide is headed *"Where does their story begin?"* and places the character at Ch. 1, so the guide selects a moment on the user's behalf and then hands them an app that has forgotten it. Everything cursor-dependent is consequently switched off for a brand-new user who has done everything they were asked. |
 | OP-9 | high | **done** | **The search palette outlived the screen it was opened on.** Choosing a result closed it, but arriving anywhere by any other route did not — so a modal sat over an unrelated screen, swallowing every click until Escape. It derailed three separate runs of this review before being recognised as a fault rather than a fluke, which is about as strong a usability signal as a review can produce. Now closed on route change. |
 | OP-8 | med | **done** | **Opening search took focus on a 50ms timer.** Whatever had focus kept it until the timer fired, so a keystroke in that window went to the screen behind the palette — open search from a half-filled form, type straight away, and the first characters landed in the form. Found while testing OP-1, not from the screen sweep. Now focused synchronously: the palette renders nothing until it is open, so by the time the effect runs the input is mounted and there is nothing to wait for. **Shipped without a regression test** — see below. |
-| OP-6 | med | open | **A disabled primary button with no reason given.** *Add Location* is greyed until Name is filled, with no required marker, no helper text, and no message on hover. Nothing says which field is blocking it. |
+| OP-6 | med | open | **A disabled primary button with no reason given.** *Add Location* is greyed until Name is filled, with no required marker, no helper text, and no message on hover. Nothing says which field is blocking it. Generalised as **X-9** once *Save route* turned out to do the same thing. |
 | OP-7 | low | corrected | **Map placement is gated on the time cursor — and the app says so.** `MapSidebar.tsx` renders the crosshair only inside `{activeEventId && …}`, so with no cursor there is no placement control and no drag. This was first written up as a silent lockout; that was wrong. The sidebar prints *"Select an event from the timeline bar below to place characters onto the map."* The gate is deliberate and explained, so what is left is minor: the 60%-opacity card is a weak signal next to a clear sentence, and the sentence points at the bar rather than offering a way to act. |
 
 **Note on method.** The first attempt at this journey produced fourteen failing
@@ -633,9 +634,22 @@ Character States panel is blank with no explanation; on a full one it is packed
 with irrelevance. Neither version keys off the scene's actual cast, which is
 the only thing the panel is for.
 
-**Still not reviewed: the route panel.** Drawing started correctly from *+ New
-route* in the sidebar, but the finish control was not found and the route was
-never completed, so the panel did not open. Third attempt at this one.
+### Drawing a route
+
+Three attempts failed to complete a route. The fourth traced the cause, and the
+cause is the finding rather than an excuse.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| RT-1 | med | open | **Save route is disabled until the route is named, and nothing says so.** The control exists and is well labelled — *Save route*, with a tick. It is `disabled` while `waypoints.length < 2 \|\| !name.trim()`. Placing three points and pressing it therefore does nothing at all, silently, because the *name* field above is empty. The HUD does show a live "3 points" counter, which hints at the waypoint half of the condition; there is no equivalent hint for the name, no required marker on the field, and no tooltip on the dead button. See **X-9**. |
+
+**The route HUD is otherwise well made** and worth saying so: it opens with
+*"Drawing route — click anywhere to add points"*, offers the six route types as
+chips, names each waypoint as you place it (*Point*, or the marker's name if you
+click one), keeps a live point count, and has Undo beside Save.
+
+**The route detail panel is still unreviewed** — but now for a known reason
+rather than an unexplained one.
 
 ---
 
