@@ -468,6 +468,36 @@ once and they disagree.
 
 ---
 
+## 15. Worlds with several timelines
+
+Driven on two shipped examples, deliberately of different kinds: **The Two
+Towers** (parallel storylines) and **The Name of the Wind** (frame narrative).
+The guide says these get different bottom bars, and they do.
+
+**Correct, and verified rather than assumed:**
+
+- The **scope selector** is present on the parallel world and **absent** on the
+  frame narrative, which instead gets two stacked tracks — exactly as
+  documented, checked both ways.
+- The **All timelines** tab is offered in both.
+- Timeline tabs carry colour dots, and the **arc grid** offers matching pills
+  (*All · The Road to Mordor · Rohan and Isengard*), so the same colour means
+  the same storyline in two places.
+- **Link Timelines** appears in the header only when there is more than one.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| MT-1 | high | open | **In the frame-narrative bar, the outer track loses its chapter titles while the inner keeps them.** The top track reads `0 1 2 3 4 5 6 13 17 25 45 48 57 75 88 92 93` — bare numbers — directly above an inner track reading *8 · Thie…*, *12 · Puz…*, *22 · A Time for…*. The same component renders at two densities side by side because segment width follows event count, so the *frame* of a frame narrative is the half you cannot read. |
+| MT-2 | med | open | **Two play buttons, one per track, with nothing to say what either does.** Neither is labelled for its track, and nothing states whether playing one moves the other, or which one is "play the story". |
+| MT-3 | med | open | **The stacked bar costs roughly 150px of height permanently** — two rows on every screen in the world, on a surface where the map and the manuscript both want the vertical space. |
+| MT-4 | low | open | **A timeline's chapter count and its first chapter number disagree on sight.** *The Road to Mordor (10 chapters)* opens at **Ch. 12**, because numbering runs globally across timelines rather than per timeline. That is right for a book published as two halves, but nothing on the screen says so, and "10 chapters" starting at twelve reads as missing data. |
+
+**Unevaluated:** sync points and the ghost cursor line that is supposed to mark
+the matching moment on the other track. Both need an active event on a specific
+pairing, and the cursor was at *All chapters* throughout, so nothing is claimed.
+
+---
+
 ## Screens not yet reviewed
 
 Chapter detail · knowledge detail · settings · writer's brief · calendar
