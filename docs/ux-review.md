@@ -374,10 +374,61 @@ view. Knowledge detail is therefore **unreviewed**, not reviewed-and-fine.
 
 ---
 
+## 13. Arc grid, Maps, Relationships, Continuity
+
+### Character Arc grid
+
+The best use of screen width in the app, and the counter-example to **X-2**:
+full-bleed columns, a legend at the foot, and the interaction spelled out
+(*"Click a column to set cursor · Click a notes cell to expand"*).
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| ARC-1 | med | open | **Empty rows drown the signal.** 45 characters × 22 chapters, and a dozen rows (Arwen, Boromir, Cave-troll, Celeborn, Durin's Bane…) are entirely blank. There is no way to hide characters with no recorded state, so the grid is mostly emptiness at exactly the scale it is meant for. |
+| ARC-2 | med | open | **Inherited state is styled like recorded state.** Bilbo shows *"Argues with Gan…"* verbatim in all eleven visible chapters. A small clock glyph marks the carried-forward cells, but the text reads at full weight, so eleven inherited cells look like eleven decisions. |
+| ARC-3 | low | open | **Alphabetical only.** Barrow-wight and Bill the Pony sort above Frodo; no ordering by appearances or by importance. |
+
+### Maps
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| MAP-1 | high | open | **The default view is illegible.** Opened at *All chapters* on the shipped example, roughly fifteen label pills pile onto one another across the north of the map — *"16 characters"*, *"3 characters"*, *"Glorfindel"*, *"The Watcher in the Water"*, *"Trollshaws"* — several completely hidden behind others. There is no collision avoidance, no decluttering, and no zoom-dependent thinning. This is the arrival state of the app's most visually impressive screen. |
+| MAP-2 | med | open | **The floating toolbar sits on top of content.** *+ Location / Label / Measure / ⋯* overlaps a marker and its label in the top-right corner. |
+| MAP-3 | med | open | **The sidebar contradicts itself.** It says *"Select an event from the timeline bar below to place characters onto the map"* while listing every character with a location beneath it (*Aragorn · Weathertop*). Both are true — placement needs a cursor, display does not — but read together they do not make sense. |
+
+### Relationships graph
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| REL-1 | high | open | **The graph does not survive its own example.** 45 characters produce a knot in the upper third with unreadable overlapping edge labels, while unconnected characters are flung hundreds of pixels away — so distance reads as meaning when it carries none. Both side thirds are empty. There is no re-layout, no clustering, no filter to one character's neighbourhood, and no way to reduce what is drawn. |
+| REL-2 | med | open | **The minimap is unreadable** — a smear of dim blue on near-black with no visible viewport rectangle, in the one situation where a minimap should be earning its place. |
+
+### Continuity Checker
+
+Well built: grouped by category with counts, a suppress control and a jump
+control on every row, and keyboard hints at the foot (*↑↓ navigate · Enter go
+to event*).
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| CC-1 | high | open | **The model has no notion of a thing there is more than one of, and the checker reports it as an error.** *"Barrow-blades appears in multiple places in Ch. 12 — Held by: Meriadoc, Peregrin, Samwise, Frodo"*. There are four barrow-blades, one each. Same for *Elven Cloak* and *Lembas*, held by six characters apiece. Almost all of the 79 item errors are this class. It is a modelling gap surfacing as a wall of false positives, and false positives are how a checker teaches people to ignore it. |
+| CC-2 | high | open | **The shipped example reports 72 errors and 25 warnings.** Someone who downloads *The Fellowship of the Ring* and clicks the shield meets 97 problems in a world they did not write. Either the example is wrong or the checks are, and either way that is the first impression the feature makes. |
+| CC-3 | med | open | **No triage within a category.** *Items 79* is one repeated fault; nothing groups by kind, so the real findings are buried under the noise from CC-1. |
+
+**Correctly caught, for the record:** *"Gandalf the Grey is alive in Ch. 22 after
+dying in Ch. 17"* is exactly right for this book, and the eye icon beside it is
+the right answer.
+
+---
+
 ## Screens not yet reviewed
 
-Chapter detail · arc grid · maps · relationships graph · knowledge detail ·
-settings · writer's brief · continuity checker · calendar
+Chapter detail · knowledge detail · settings · writer's brief · calendar
+
+These five were **captured but not yet read**. The screenshots exist and each
+screen was driven successfully — knowledge detail was verified this time
+against text that only appears in the detail view, not the roster — but nobody
+has looked at the images, so nothing is claimed about them either way.
 
 Also outstanding: **reading mode**, **phone widths**, and the **library**
 download flow.
