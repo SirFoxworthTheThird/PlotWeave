@@ -612,6 +612,33 @@ is what **KN-3** was wrongly filed against, now corrected.
 
 ---
 
+## 18. A writing session — chapter detail with real content
+
+Not screenshots this time: opening chapter twelve of *The Fellowship of the
+Ring* to work on it, reading who is in the scene, leaving a note, opening the
+brief alongside, and tracing a route on the map.
+
+**Verified working.** *Writer's Notes* takes a note, says **Auto-saved**, and
+the note is still there verbatim after a full reload. Checked by asserting the
+exact text, not the presence of a textarea.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| CD-1 | high | open | **The Character States panel leads with everyone who is not there.** On *Ch.12 — Flight to the Ford*, a scene with five named characters, the panel's dominant content is **"36 characters not in any event:"** followed by Arwen, Barliman, Barrow-wight, Bilbo, Bill Ferny, Boromir, Cave-troll, Celeborn, Durin's Bane, Déagol, Elendil, Elrond… each marked *no snapshot*. The writer's question is "who is here and what state are they in"; the screen answers with a roll-call of the absent. The five who *are* in the scene are listed in the event card on the left instead. |
+| CD-2 | high | open | **Opening a chapter does not put you in it.** After opening Ch.12 the cursor still reads *All chapters* — so every per-moment tool stays dark. Measured in the same session: the **Writer's Brief opened empty**, still saying *"Select an event from the timeline bar to see the brief"* while chapter twelve was on screen. A writer who opens a chapter to draft it has to go and find the bottom bar and set the cursor by hand before the app will tell them anything about the moment. |
+| CD-3 | low | open | **`Day 6223`** sits as a badge on the event. With no calendar configured that is a raw day count from an arbitrary zero, presented with the same weight as the scene's status and tension. |
+
+**CD-1 and EV-2 are the same fault from opposite ends.** On an empty world the
+Character States panel is blank with no explanation; on a full one it is packed
+with irrelevance. Neither version keys off the scene's actual cast, which is
+the only thing the panel is for.
+
+**Still not reviewed: the route panel.** Drawing started correctly from *+ New
+route* in the sidebar, but the finish control was not found and the route was
+never completed, so the panel did not open. Third attempt at this one.
+
+---
+
 ## Screens not yet reviewed
 
 **Chapter detail** — its event card is reviewed in section 4, but the shell
