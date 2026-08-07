@@ -229,6 +229,23 @@
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Around%20the%20World%20in%20Eighty%20Days%20-%20book%20cover%20(139390140).jpg?width=960"
     },
     {
+      "id": "the-time-machine",
+      "title": "The Time Machine",
+      "author": "H. G. Wells",
+      "blurb": "A Victorian inventor travels to the year 802,701, where the Eloi, Morlocks, and a still more distant dying Earth overturn every simple faith in progress.",
+      "data": "the-time-machine.pwk",
+      "dataBytes": 229614,
+      "counts": {
+        "characters": 14,
+        "chapters": 17,
+        "events": 46,
+        "locations": 16
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked period maps and public-domain Norman Saunders and Virgil Finlay illustrations are recorded in Lore.",
+      "worldId": "time-machine-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Time%20Machine%20by%20Norman%20Saunders.jpg?width=960"
+    },
+    {
       "id": "twenty-thousand-leagues-under-the-seas",
       "title": "Twenty Thousand Leagues Under the Seas",
       "author": "Jules Verne",
