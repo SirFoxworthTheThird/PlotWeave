@@ -77,6 +77,41 @@ test.describe('Search palette', () => {
     await expect(page).toHaveURL(/#\/worlds\/.+\/characters\//)
   })
 
+  /**
+   * Escape belongs to the topmost layer.
+   *
+   * Dialogs listen for Escape on `document`, so before the palette consumed the
+   * key one press reached both: you looked a name up from a half-filled form,
+   * pressed Escape to get back to it, and the form was gone with your typing.
+   */
+  test('Escape closes the palette without closing the dialog underneath', async ({ page }) => {
+    // beforeEach leaves us on the Items list, so open a dialog from here.
+    await page.getByRole('button', { name: 'Add Item' }).first().click()
+
+    const nameField = page.getByPlaceholder('Item name')
+    await nameField.fill('Palantir')
+    await expect(nameField).toBeVisible()
+
+    const palette = page.getByPlaceholder('Search characters, factions, locations, lore…')
+    await page.keyboard.press('Control+k')
+    await expect(palette).toBeVisible()
+    // The palette focuses its input on a short timer, so wait for the focus to
+    // land — otherwise the keypress below is delivered to the dialog instead
+    // and the test measures nothing about the palette.
+    await expect(palette).toBeFocused()
+
+    // One press takes the palette and nothing else — the half-typed name survives.
+    await page.keyboard.press('Escape')
+    await expect(palette).not.toBeVisible()
+    await expect(nameField).toBeVisible()
+    await expect(nameField).toHaveValue('Palantir')
+
+    // Paired with the opposite: with no palette open, Escape does reach the
+    // dialog, so this cannot pass by Escape having been swallowed everywhere.
+    await page.keyboard.press('Escape')
+    await expect(nameField).not.toBeVisible()
+  })
+
   test('no results message when search has no matches', async ({ page }) => {
     await page.getByTitle('Search (Ctrl+K)').click()
     await page.getByPlaceholder('Search characters, factions, locations, lore…').fill('xyzzy-no-match-12345')

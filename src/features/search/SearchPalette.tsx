@@ -217,7 +217,11 @@ export function SearchPalette() {
     if (e.key === 'ArrowDown') { e.preventDefault(); setActiveIdx((i) => Math.min(i + 1, results.length - 1)) }
     else if (e.key === 'ArrowUp') { e.preventDefault(); setActiveIdx((i) => Math.max(i - 1, 0)) }
     else if (e.key === 'Enter') { if (results[activeIdx]) go(results[activeIdx]) }
-    else if (e.key === 'Escape') close()
+    // Consume the key rather than letting it bubble. Dialogs listen for Escape
+    // on `document`, so an un-stopped keypress closes the palette *and*
+    // whatever it was opened on top of — searching for a name from a
+    // half-filled form and pressing Escape used to discard the form.
+    else if (e.key === 'Escape') { e.stopPropagation(); close() }
   }
 
   if (!searchOpen) return null
