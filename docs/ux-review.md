@@ -140,7 +140,7 @@ faults in the product. Only what survived that second check is listed.
 
 | OP-5 | high | open | **Finishing the first-run guide leaves no time cursor set.** The pill reads *"All chapters"* the moment the guide ends — verified twice, and visible in the capture. Step 3 of that same guide is headed *"Where does their story begin?"* and places the character at Ch. 1, so the guide selects a moment on the user's behalf and then hands them an app that has forgotten it. Everything cursor-dependent is consequently switched off for a brand-new user who has done everything they were asked. |
 | OP-6 | med | open | **A disabled primary button with no reason given.** *Add Location* is greyed until Name is filled, with no required marker, no helper text, and no message on hover. Nothing says which field is blocking it. |
-| OP-7 | med | needs check | **Map placement is gated on the time cursor.** `MapSidebar.tsx` renders the crosshair only inside `{activeEventId && …}` and sets `draggable={!!activeEventId && !gate.active}`, so with no cursor there is no placement control, no drag, and the only signal is a 60%-opacity card. Read from source and consistent with OP-5, but **the presence half was not confirmed behaviourally** — see the note below. Do not treat as established until it is. |
+| OP-7 | low | corrected | **Map placement is gated on the time cursor — and the app says so.** `MapSidebar.tsx` renders the crosshair only inside `{activeEventId && …}`, so with no cursor there is no placement control and no drag. This was first written up as a silent lockout; that was wrong. The sidebar prints *"Select an event from the timeline bar below to place characters onto the map."* The gate is deliberate and explained, so what is left is minor: the 60%-opacity card is a weak signal next to a clear sentence, and the sentence points at the bar rather than offering a way to act. |
 
 **Note on method.** The first attempt at this journey produced fourteen failing
 steps that looked like a damning list and were not: a stray palette opened
@@ -150,12 +150,17 @@ than merely not throwing — the earlier version happily reported `OK` for a
 click that expanded a disclosure instead of submitting a form. On the second
 run **21 of 22 steps passed**, with zero page or console errors.
 
-OP-7 is deliberately left at *needs check*. Its absence half is easy to
-demonstrate; the presence half needs the cursor put on the only event in a
-one-chapter world, and the chapter bar in that state is the clipped, truncated
-strip described in **EV-7** — too small to hit reliably even from a script.
-That is itself a signal about a brand-new world, but it means the pair is not
-yet proven, and a half-proven finding is a guess.
+**OP-7 was overstated and has been corrected.** It was first filed as a silent
+lockout, on a reading of the source alone. Checking the running app turned up
+an explanatory sentence in the sidebar that the code read had missed, so the
+finding drops from *med* to *low* and changes character entirely. It is left in
+the table rather than deleted, because the correction is the useful part.
+
+The consequence for **OP-5** sharpens, though: a new user who finishes the guide
+lands with no cursor, and the message that tells them what to do points at the
+chapter bar — which in a one-chapter world is the clipped, truncated strip filed
+as **EV-7**, too small to hit reliably even from a script. The instruction is
+correct and the target is poor.
 
 **Still to drive:** the relationship editor, export/import round-trip, chapter
 diff, the corkboard and structure boards with real content, and the whole of
