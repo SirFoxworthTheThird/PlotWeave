@@ -76,7 +76,7 @@
       "id": "odyssey-map-aegean",
       "parentMapId": null,
       "name": "Aegean and Ionian Seas",
-      "description": "A period-style overview of the island-hopping voyage from Troy toward Ithaca.",
+      "description": "A public-domain route map covering the voyage from Troy through the western seas and back toward Ithaca.",
       "imageId": "odyssey-image-aegean",
       "imageWidth": 1200,
       "imageHeight": 800,
@@ -93,7 +93,7 @@
       "id": "odyssey-map-ithaca",
       "parentMapId": "odyssey-map-aegean",
       "name": "Ithaca",
-      "description": "The rocky island kingdom whose household, shores, and hills frame the return home.",
+      "description": "A period map of the island used as a geographic reference for the shore, palace, and olive-tree bed.",
       "imageId": "odyssey-image-ithaca",
       "imageWidth": 1200,
       "imageHeight": 800,
@@ -2138,21 +2138,21 @@
       "id": "odyssey-image-aegean",
       "worldId": "odyssey-world",
       "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Odyssey%20by%20John%20Flaxman%2001.jpg?width=1200",
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Odyssey%20(Butler)%20Map.png?width=1200",
       "createdAt": 1786122000000
     },
     {
       "id": "odyssey-image-ithaca",
       "worldId": "odyssey-world",
       "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Odysseus%20and%20Penelope%20by%20John%20Flaxman.jpg?width=1200",
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Map%20of%20Ithaca%20(1936).jpg?width=1200",
       "createdAt": 1786122000000
     },
     {
       "id": "odyssey-image-underworld",
       "worldId": "odyssey-world",
       "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Odysseus%20and%20Tiresias%20by%20John%20Flaxman.jpg?width=1200",
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Homeros's%20Map.jpg?width=1200",
       "createdAt": 1786122000000
     }
   ],
