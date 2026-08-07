@@ -211,7 +211,46 @@ The strongest screen reviewed so far: dense, scannable, and the drag affordance 
 | ST-2 | med | open | **Rows are ~1400px wide with content at both ends** and nothing between (see **X-2**). |
 | ST-3 | low | open | **The template switcher is a native select** styled unlike the app's own Select components used elsewhere. |
 
-## 10. Across the writing screens
+## 10. What actually happens when you use them
+
+The findings above were written from looking at the writing screens. Going back
+and *operating* them — writing prose into scenes, dragging a card between
+chapters, replacing a term across the manuscript, exporting a file — changed
+the picture, mostly in the product's favour.
+
+**Confirmed working, each with a real check:**
+
+| Operation | Result |
+|---|---|
+| Prose written on a scene appears in the Manuscript | Verified by asserting the sentence itself appears |
+| Find & replace across every scene | Opens, counts matches, replaces across scenes |
+| Dragging a scene into another chapter on the corkboard | Verified end to end: *The Birthday Party* moved from Ch.1 to Ch.2 **and the move persisted to IndexedDB**, not just the DOM |
+| The export dialog | Format tabs, two options, and a **live word and scene count before you commit** — one of the better-designed dialogs in the app |
+
+That last one matters for how the earlier notes should be read: the corkboard
+was called the strongest screen in section 7 *without its main verb having been
+tried*. It survives the test.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| MS-5 | low | open | **"1 scenes"** in the export dialog's count. Unpluralised. |
+
+**Still unproven, either way:** assigning a beat on the Structure board, the
+scene reorder arrows in chapter detail, and whether **CB-1** (the status pill
+not being a control) holds up — the pill has no accessible name, which is why
+a driven click cannot find it, but that has not been separated from "it is a
+button with a different label".
+
+**Method note.** Five of the fourteen operations in this run failed on the
+harness, not the app: a card selector that matched a status pill, mouse events
+where HTML5 drag needed `dragTo`, and an export click that hit the format tab
+rather than the download button. Each was chased down before anything was
+written here, because the first instinct — that a failed step is a product
+fault — was wrong every single time in this run.
+
+---
+
+## 11. Across the writing screens
 
 | ID | Severity | Status | Finding |
 |---|---|---|---|
