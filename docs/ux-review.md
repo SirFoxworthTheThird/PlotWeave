@@ -61,11 +61,13 @@ markers on a phone is the same class of problem: a headline screen not doing its
 one job, measured rather than argued. Later passes also add `SQ-1`, `SQ-2`,
 `HP-1`, `X-14`, `PH-2`, `PH-3`, `PH-4` and `ST-2` to bucket A.
 
-**`RD-1` and `RD-2` jump the queue.** Everything else in bucket A is a papercut;
-these two are the product breaking the promise it advertises, in the book on the
-front of the Library, with the test that should have caught it structurally
-unable to. They should be fixed together — `RD-2` first, so `RD-1` has something
-that can fail. Also added to bucket A from later passes: `X-11`, `X-12`, `X-13`,
+**`RD-2` jumps the queue; `RD-1` follows it.** `RD-1` was downgraded from high to
+med by the depth pass (see the correction in section 22 — its headline example
+turned out to be a chapter title, and the gate holds on all eleven routes for
+everything it has data about). What survives is a real but latent hole, and
+`RD-2` is the reason it could go unnoticed at all: the guarantee spec is
+structurally unable to fail on that class. Fix `RD-2` first, so `RD-1` has a test
+that can go red. Also added to bucket A from later passes: `X-11`, `X-12`, `X-13`,
 `WR-2`, `DF-1`, `DF-2`, `RD-3`, `RD-4`. `DF-3` and `WR-1` are bucket B — both
 need a decision (what should a chapter diff compare; how should the inline
 editor grow) rather than just a fix.
@@ -782,11 +784,47 @@ mostly well executed.
 
 | ID | Severity | Status | Finding |
 |---|---|---|---|
-| **RD-1** | **high** | open | **The spoiler guard fails open, and ships a spoiler in its flagship book.** `isRevealed` (`src/lib/spoilers.ts:135`) returns `true` for any entity with no recorded appearance, documented as a deliberate choice so standalone reference material isn't hidden forever. The consequence, measured in *Philosopher's Stone* at chapter 1: **3 of 50 characters — Charlie Weasley, Trevor, and Nicolas Flamel — are on the roster**, next to the notice saying 44 are hidden. Flamel is the book's central late reveal. Also leaked: the item *Flying Motorcycle*, and 10 of 40 locations including *Hogwarts Castle*, *Godric's Hollow*, and *Hogsmeade Station*. The module's own header names this exact failure — *"a lore page titled after a late-book revelation gives the revelation away in the index"*. Two causes, both fixable: the fail-open default, and a fixture that leaves those entities linked to no event. For a guard, fail-**closed** with an explicit opt-out (a `revealAt: 'always'` flag for genuine reference material) is the safer default. |
+| **RD-1** | **med** | open | **The spoiler guard fails open for entities with no recorded appearance.** `isRevealed` (`src/lib/spoilers.ts:135`) returns `true` for any entity that appears in no event, documented as a deliberate choice so standalone reference material isn't hidden forever. In *Philosopher's Stone* that class is 3 of 50 characters, 1 of 16 items and 10 of 40 locations, and they bypass the cursor on every screen that lists them. Measured leaks at chapter 1, after excluding everything the reader's own book already prints (see the correction below): **Charlie Weasley** on Characters, Maps, Relationships and Arc; **Flying Motorcycle** on Items; **Godric's Hollow** on Maps. Two causes, both fixable: the fail-open default, and a fixture leaving those entities linked to no event. For a guard, fail-**closed** with an explicit opt-out — a `revealAt: 'always'` flag for genuine reference material — is the safer default, and would make the fixture's gaps visible instead of silent. |
 | **RD-2** | **high** | open | **The guarantee spec cannot catch RD-1.** `e2e/spoilerGuarantee.spec.ts` walks every route asserting no unmet name appears — but its ground truth, `unmetNames` in `e2e/helpers/unmet.ts`, computes `hidden = f !== undefined && f > cursor`: the *same* fail-open rule as the implementation. An entity with no appearance is never counted as unmet, so it can never be reported as leaked. The test is real and does catch genuinely-linked characters; it is simply blind to the entire class that RD-1 is about, because it was written against the implementation's definition of "unmet" rather than the reader's. Fixing RD-1 without fixing this helper would leave the regression unguarded. |
 | RD-3 | med | open | **The screen you land on is the one screen that never says "reading mode".** Measured: the phrase appears 0 times on the dashboard, where the Library drops you, and the mode is inferable only from a changed theme and sublabels like "you have met so far". Every roster explains itself properly. The landing screen should too, and should say how to leave. |
 | RD-4 | low | open | **`Character Arc` shows an em-dash where every other card shows a number.** `—` reads as "unknown" rather than "nothing yet"; the five cards beside it all show a count. |
 | RD-5 | med | open | **Reading mode inherits X-7 at its worst.** Character cards on the reading-mode roster are not links or buttons — measured **0** links in `main`. A reference companion whose entire job is "tell me who this is" gives the reader no way to open anyone from the cast list by keyboard. |
+
+### Correction to RD-1, from the depth pass
+
+The first version of RD-1 led with *"Nicolas Flamel is on the roster at chapter
+1 — the book's central late reveal."* **That was wrong, and the severity has
+been dropped from high to med because of it.**
+
+Re-running the check against the project's own definition of benign text — the
+book's title, description, and chapter titles, all printed in the reader's
+physical copy — shows **"Nicolas Flamel" is the title of chapter 13**. It is on
+the contents page of the paperback. PlotWeave showing that name gives away
+nothing the reader's own book does not, which is precisely the rationale
+`e2e/helpers/unmet.ts` already documents. *Trevor* likewise falls under the
+short-name threshold and is no more identifying than "the toad".
+
+My first pass used an ad-hoc benign list rather than the real one, and the
+headline example did not survive contact with it. The mechanism is still real —
+the orphan class does bypass the cursor, and RD-2 still means nothing can catch
+it — but it is a latent hole with three modest leaks today, not a spoiled book.
+
+### And the part that works: the gate holds everywhere else
+
+Same run, all eleven reading-mode routes, against every character, item and
+location the reader has demonstrably not reached:
+
+```
+dashboard  timeline  characters  maps  items  relationships
+calendar   arc       lore        factions     knowledge
+                    → LATE-leak: 0 on every one
+```
+
+**44 late characters, 15 late items and 29 late locations, and not one of them
+appears anywhere.** For everything the gate has data about, it is airtight
+across the whole app — including screens like Arc, Factions and Knowledge that
+nothing in this review had previously opened under a cursor. That is the
+stronger half of the story and it should not be lost behind RD-1.
 
 **The Library itself is good** and needs no findings: honest sizes on every
 button (`Download (323 KB)`), per-book counts, a blurb, a rights notice on each
@@ -869,6 +907,47 @@ mode`, and the nav regains Manuscript, Corkboard and Structure immediately.
 
 ---
 
+## 25. Depth pass: overlays at 390px
+
+X-10 was filed from a source read — no `role`, no `aria-modal`, no focus trap on
+the shared `Dialog`. This pass measured what that costs on a phone, where an
+escaped focus ring has nowhere good to go. Ten Tab presses per overlay, counting
+how many land outside it:
+
+```
+Add Character dialog        7 of 10 Tabs land OUTSIDE   ← focus escapes
+Generate Characters dialog  5 of 10 Tabs land OUTSIDE   ← focus escapes
+Search palette              0 of 10 Tabs land outside   (trapped)
+```
+
+**The palette is the control, and it is the proof.** All three ran in one pass,
+same key, same viewport. The only one that holds focus is the one already using
+`useFocusTrap` — the hook added to `SearchPalette` earlier in this review. So
+X-10 is not just real, it is real *and* the remedy is already in the codebase,
+applied once, three lines from being applied everywhere.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| X-10a | — | — | *Measurement supporting **X-10**, not a separate finding.* On a phone, tabbing out of an open dialog puts the focus ring on nav links and page content behind a full-screen overlay the user cannot see past. Sighted keyboard users lose the ring entirely; screen-reader users are never told a dialog opened. `useFocusTrap` already exists and is already proven here. |
+
+**Otherwise the overlays behave well at 390px**, and the numbers say so:
+
+- **Nothing overflows horizontally.** Both dialogs measure `[16..374]` inside a
+  390px viewport — a consistent 16px gutter, no sideways scroll.
+- **The tallest dialog in the app still fits.** Generate Characters occupies
+  `[42..802]` of 844px with its prompt block, four numbered steps, paste box and
+  footer. The paste box is visible without scrolling and *Copy prompt* is
+  reachable — the two things that flow actually needs.
+
+**Checked and cleared, against my own expectation:** the phone top bar shows only
+a hamburger, the cursor chip and search, and I expected to find Writer's Brief,
+Continuity Checker, Recent changes and Help simply missing below `lg`. They are
+not. Measured phone vs desktop in one run: all four are absent from the top bar
+at 390px and **all four are present in the nav menu behind the hamburger**. That
+is a deliberate, correct responsive relocation, and no finding.
+
+---
+
 ## Still not reviewed
 
 Kept honest: this list only shrinks when a screen has actually been driven and
@@ -876,15 +955,17 @@ looked at.
 
 ### Whole passes, each a session of its own
 
-- **Reading mode beyond the rosters** — sections 22 and 24 cover the dashboard,
-  the character roster, the reveal gate, the setting and the Library entry. Its
-  Timeline, Maps, Lore, Knowledge and Calendar under a cursor are still
-  unopened, and RD-1 means the gate deserves checking on each of them rather
-  than assumed.
-- **Phone widths beyond the sweep** — section 23 measured overflow and tap
-  targets on twelve routes, but only the timeline and map were looked at as
-  screens. The dialogs, drawers and the chapter-detail editor at 390px are
-  unexamined, and X-10's missing focus trap will read differently there.
+Both outstanding depth passes are done — the reveal gate across all eleven
+reading-mode routes (section 22) and the overlays at 390px (section 25). What
+remains is narrower:
+
+- **The chapter-detail editor at 390px** — the one writing surface not measured
+  at phone width. WR-1 (a five-line textarea) will read differently there, and
+  Focus mode is the obvious mitigation but has not been driven on a phone.
+- **A second book.** Every reading-mode measurement in this document comes from
+  *Philosopher's Stone*. RD-1's severity depends on how many orphaned entities a
+  given fixture has, and that is a per-book number — the other nineteen library
+  worlds are unmeasured.
 
 ### Screens never opened
 
