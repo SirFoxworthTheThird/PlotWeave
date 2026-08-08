@@ -1,9 +1,12 @@
 /**
  * An image served by whichever server the suite is pointed at.
  *
- * These specs used to hardcode `http://localhost:5173`, which silently became
- * wrong when the suite moved to a production build on another port: the URL
- * still loaded nothing, and the assertions failed looking for an `img` whose
- * `src` no longer matched anything on the page.
+ * Deliberately `favicon.jpg`, which ships in `public/` but is referenced
+ * nowhere in `src/`. The obvious choice, `favicon.png`, is the app's own logo:
+ * with `base: './'` a production build compiles `import faviconUrl from
+ * '/favicon.png'` into `new URL('../favicon.png', import.meta.url).href`, an
+ * absolute URL, so `img[src="http://host/favicon.png"]` matched the logo in the
+ * top bar instead of the picture under test. In dev the same import stays
+ * `/favicon.png` and never collides, which is why this only broke on a build.
  */
-export const IMAGE_URL = `${process.env.E2E_DEV ? 'http://localhost:5173' : 'http://localhost:4173'}/favicon.png`
+export const IMAGE_URL = `${process.env.E2E_DEV ? 'http://localhost:5173' : 'http://localhost:4173'}/favicon.jpg`
