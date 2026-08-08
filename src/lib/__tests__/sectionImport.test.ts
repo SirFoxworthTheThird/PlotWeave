@@ -792,3 +792,40 @@ describe('pasted JSON wrapped in a markdown fence', () => {
     expect(characters?.map((c) => c.name)).toEqual(['Sera Aldwyn'])
   })
 })
+
+describe('parseLocationsSpec — keys it does not recognise', () => {
+  it('names a dropped key rather than importing short in silence', () => {
+    // The documented shape nests a floor's rooms under `levels[].children`.
+    // `levels[].locations` is the drift that imported two empty floors.
+    const { locations, warning } = parseLocationsSpec(JSON.stringify({
+      locations: [
+        { name: 'Keep of Ash', levels: [{ name: 'Undercroft', locations: [{ name: 'The Cistern' }] }] },
+      ],
+    }))
+    expect(locations).toHaveLength(1)
+    expect(warning).toMatch(/locations/)
+    expect(warning).toMatch(/not imported/i)
+  })
+
+  it('counts several, and lists them', () => {
+    const { warning } = parseLocationsSpec(JSON.stringify({
+      locations: [{ name: 'Aethelmoor', colour: 'green', population: 400 }],
+    }))
+    expect(warning).toMatch(/2 fields/)
+    expect(warning).toMatch(/colour/)
+    expect(warning).toMatch(/population/)
+  })
+
+  it('says nothing at all when the shape is right', () => {
+    // The half that stops the warning firing on every ordinary import.
+    const { locations, warning } = parseLocationsSpec(JSON.stringify({
+      locations: [{
+        name: 'Aethelmoor', description: 'A moor.', type: 'region',
+        children: [{ name: 'Saltmouth', children: [{ name: 'The Long Quay' }] }],
+        levels: [{ name: 'Undercroft', children: [{ name: 'The Cistern' }] }],
+      }],
+    }))
+    expect(locations).toHaveLength(1)
+    expect(warning).toBeUndefined()
+  })
+})

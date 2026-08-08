@@ -15,8 +15,12 @@ export interface GenerateSectionDialogProps<T> {
   noun: [singular: string, plural: string]
   /** The copy-to-clipboard prompt. */
   prompt: string
-  /** Pure parse of the pasted JSON into a typed spec, or an error message. */
-  parse: (text: string) => { data?: T; error?: string }
+  /**
+   * Pure parse of the pasted JSON into a typed spec, or an error message.
+   * A `warning` is shown alongside a successful parse — used to say what was
+   * dropped, so a spec that drifted a key does not import silently short.
+   */
+  parse: (text: string) => { data?: T; error?: string; warning?: string }
   /** How many entities the parsed spec holds (for the preview line). */
   count: (data: T) => number
   /** Merge the parsed spec into the current world. */
@@ -137,6 +141,11 @@ export function GenerateSectionDialog<T>({
                 Ready to import <span className="font-medium text-[hsl(var(--foreground))]">{nf.format(total)}</span>{' '}
                 {total === 1 ? singular : plural}. New ones are added; ones that already exist are updated in place.
               </div>
+            )}
+            {data != null && parsed?.warning && (
+              <p className="rounded-md border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-300" role="status">
+                {parsed.warning}
+              </p>
             )}
             {result && (
               <div className="rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-300" role="status">
