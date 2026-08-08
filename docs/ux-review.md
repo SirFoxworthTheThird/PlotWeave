@@ -56,6 +56,11 @@ a draft, or simply not resetting on backdrop-click is a decision.
 **`AI-1` is fixed** (all four AI parsers now share `stripCodeFence`), joining
 `OP-1`, `OP-8`, `OP-9` and the mobile map cursor.
 
+**`PH-1` joins the front of the queue with them** — the map showing 2 of 5
+markers on a phone is the same class of problem: a headline screen not doing its
+one job, measured rather than argued. Later passes also add `SQ-1`, `SQ-2`,
+`HP-1`, `X-14`, `PH-2`, `PH-3`, `PH-4` and `ST-2` to bucket A.
+
 **`RD-1` and `RD-2` jump the queue.** Everything else in bucket A is a papercut;
 these two are the product breaking the promise it advertises, in the book on the
 front of the Library, with the test that should have caught it structurally
@@ -790,6 +795,80 @@ opening moment rather than at "all chapters".
 
 ---
 
+## 23. Phone widths (390×844)
+
+Swept every world-scoped route at 390px, measuring page overflow and tap-target
+size rather than eyeballing screenshots.
+
+**The layout itself is sound and deserves saying so.** `documentElement.scrollWidth`
+equals `clientWidth` — **390 on every single screen**. Nothing pushes the page
+sideways. The nav collapses to a hamburger, the cursor chip shortens to `Ch.1`,
+the pacing curve redraws at width, and the Character Arc grid (2004px wide) scrolls
+inside its own container instead of dragging the page with it. That is more than
+most apps this size manage.
+
+The findings are about what happens *inside* that correct frame.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| **PH-1** | **high** | open | **The map does not fit its content on a phone.** Measured, same world, same wait, one run: **desktop 1440×900 → 5 of 5 markers visible; phone 390×844 → 2 of 5**. Three markers sit outside the viewport on arrival, and two labels cross the edge — *"Hogwarts School of Witchcraft…"* spans `[207..590]` on a 390px-wide screen, so most of it is simply not there. The background image layer loads in both cases, so this is the initial fit-to-bounds, not a loading race. On the one screen whose entire job is showing where things are, a phone user arrives looking at empty ground. |
+| PH-2 | med | open | **The time-cursor controls are 20×24px.** `Previous moment`, `Next moment` and `View all chapters` measure 20×24; `Play story on the map` is 18×18. These drive the time cursor — the app's central concept — and on a phone they are less than half the 44px WCAG target, set side by side, with a destructive-adjacent `✕` (clear cursor) in the same cluster. |
+| PH-3 | med | open | **Chapter rows spend their width on controls and truncate the only identifying text.** At 390px: *"Ch. 2 — The Vanish…"*, *"Ch. 4 — The Keepe…"*, while `Set Active` + an open-in-new icon + a delete icon take roughly 40% of the row. The title is the one thing that tells the rows apart. |
+| PH-4 | med | open | **A delete button sits at every chapter row's right edge on a phone** — the thumb's resting position — with two other controls crowded beside it. On desktop this is a small target among many; on a phone it is the easiest thing on the row to hit by accident. |
+
+**Not filed, checked and cleared:** the `right≈478` overflows reported by my
+first sweep on six screens are the bottom playback bar's scrubber strip, which
+scrolls horizontally by design and does not move the page. The Character Arc
+table's 2004px width is likewise contained.
+
+---
+
+## 24. Help, settings, the writer dashboard, manuscript import, the sequel wizard
+
+The last of the never-opened screens. Three of the five need no findings at all,
+which is worth recording as carefully as the problems.
+
+**The reading-mode setting has the best explanatory copy in the app:** *"Present
+this world to someone reading the book rather than writing it. Characters, items
+and places the story has not introduced yet are hidden until the chapter cursor
+reaches them, and the writing screens step aside."* — followed, when it is on, by
+*"If this world came from the library, note that downloading it again restores
+the original and discards your changes — export it first if you want to keep
+them."* That warns about a destructive interaction nobody would have guessed at.
+
+**Manuscript import** explains its own format without being asked: *"`#`/`##` or
+'Chapter …' headings become chapters, and lines like `* * *` split scenes"*, with
+both a file picker and a paste box.
+
+**The sequel wizard is a genuinely well-designed feature.** *"Pick what carries
+over — relationships continue from where they ended, and the previous story can
+become reference lore. The new book is a copy; editing it won't change the
+original."* Three checkboxes, each explained in a clause: seed an opening chapter
+at each character's ending state; turn the story into "Previously…" lore, one
+recap page per chapter; carry world-building lore forward.
+
+**The writer dashboard** is dense and useful — 17 chapters / 58 events, 43 alive
+/ 7 dead, 100% arc snapshot coverage (58/58), Recent Events with chapter
+attribution, a Scene Status bar, and a Cast Balance panel whose best line is a
+sentence rather than a number: *"Draco Malfoy — drops out for 4 chapters
+mid-story."* That is the kind of observation a writer actually acts on.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| SQ-1 | med | open | **The sequel wizard is behind an unlabelled icon.** Measured on the selector: the word "sequel" appears **0** times at rest, **0** on hover, and **1** only after opening the second of **three unlabelled icon buttons** on a world card (`aria-label=null`, no text). Starting book two of a series — for an app whose whole pitch is tracking a series — is reachable only by a user who clicks a blank icon to see what it does. The menu it lives in also holds the export options, so the menu itself is worth surfacing. |
+| SQ-2 | med | open | **Three unlabelled buttons on every world card.** Same measurement: `text="" aria-label=null`. A screen reader gets "button, button, button" on the app's front door. This is **X-7**'s pattern (controls that aren't reachable or nameable) at the point of first contact. |
+| HP-1 | med | open | **The Help panel documents screens the current mode has removed.** In a reading-mode world it still lists *"Corkboard & manuscript"*, *"Timeline & chapter AI"*, and the other writing topics, though the nav has hidden all of them. Help should follow the mode, or say which topics apply to the writer's view. |
+| ST-2 | low | open | **The reading-mode toggle labels its state, not its action, in one direction only.** On: *"Reading mode is on"* — a status. Off: *"Turn on reading mode"* — an imperative. So the control changes grammatical mood depending on state, and in the "on" state gives no hint that clicking changes anything. It also carries no `aria-pressed` (measured: `null`) despite being a toggle, so assistive tech is told neither that it toggles nor what it currently is. |
+| X-14 | low | open | **An em-dash stands in for "nothing to report" on stat cards, ambiguously.** `Continuity — check for issues` on the writer dashboard, and `Character Arc —` in reading mode, sit beside five cards showing real numbers. On the Continuity card especially, `—` could mean "no issues", "not run yet", or "unknown", and those are very different things to a writer about to hand in a draft. (Supersedes **RD-4**, which is the same tic on a different card.) |
+
+**Not filed, my error rather than the app's:** an earlier probe reported the
+reading-mode toggle as having no control role and being unclickable. It is an
+ordinary `<Button>`; my probe was looking for `switch`/`checkbox` roles and so
+never clicked it. The toggle works — `Reading mode is on` → `Turn on reading
+mode`, and the nav regains Manuscript, Corkboard and Structure immediately.
+
+---
+
 ## Still not reviewed
 
 Kept honest: this list only shrinks when a screen has actually been driven and
@@ -797,23 +876,19 @@ looked at.
 
 ### Whole passes, each a session of its own
 
-- **Phone widths** — one finding exists (the map cursor fix that started all
-  this) and nothing else. Several findings here are about wasted horizontal
-  space and will read completely differently at 390px.
-- **Reading mode beyond the rosters** — section 22 covers the dashboard, the
-  character roster, the reveal gate and the Library entry. Its Timeline, Maps,
-  Lore, Knowledge and Calendar under a cursor are still unopened, and RD-1
-  suggests the gate deserves checking on each of them rather than assumed.
+- **Reading mode beyond the rosters** — sections 22 and 24 cover the dashboard,
+  the character roster, the reveal gate, the setting and the Library entry. Its
+  Timeline, Maps, Lore, Knowledge and Calendar under a cursor are still
+  unopened, and RD-1 means the gate deserves checking on each of them rather
+  than assumed.
+- **Phone widths beyond the sweep** — section 23 measured overflow and tap
+  targets on twelve routes, but only the timeline and map were looked at as
+  screens. The dialogs, drawers and the chapter-detail editor at 390px are
+  unexamined, and X-10's missing focus trap will read differently there.
 
 ### Screens never opened
 
-- **The Help panel** — reached for twice this pass and blocked both times by
-  X-11 (a drawer that would not close), which is its own small verdict.
-- **The sequel wizard**.
-- **Manuscript import**.
-- **Dashboard analytics panels** — Cast Balance, Plot Threads, Motifs & Themes.
-  Only the top of the writer-mode dashboard has been seen.
-- **The Calendar with a calendar configured** — only its empty state is known.
+*(This list is now empty. Every screen named in earlier passes has been driven.)*
 
 ### Parts of screens
 
