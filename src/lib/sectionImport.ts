@@ -1,6 +1,6 @@
 import { db } from '@/db/database'
 import { markJournalDiscontinuity } from '@/db/hooks/useOperations'
-import { stripCodeFence } from '@/lib/codeFence'
+import { INVALID_JSON_MESSAGE, stripCodeFence } from '@/lib/codeFence'
 import { generateId } from '@/lib/id'
 import { computeSortKey } from '@/lib/sortKey'
 import type {
@@ -79,7 +79,7 @@ function extractArray(text: string, field: string): { list?: unknown[]; error?: 
   try {
     data = JSON.parse(stripCodeFence(text))
   } catch {
-    return { error: 'That isn’t valid JSON. Paste the JSON the AI returned.' }
+    return { error: INVALID_JSON_MESSAGE }
   }
   if (Array.isArray(data)) return { list: data }
   if (data && typeof data === 'object') {

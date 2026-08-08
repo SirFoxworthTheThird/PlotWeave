@@ -7,7 +7,7 @@ import { useAllLocationMarkers } from '@/db/hooks/useLocationMarkers'
 import { useMapLayers } from '@/db/hooks/useMapLayers'
 import { useWorldEvents, useWorldChapters } from '@/db/hooks/useTimeline'
 import { fetchSnapshot, upsertSnapshot } from '@/db/hooks/useSnapshots'
-import { stripCodeFence } from '@/lib/codeFence'
+import { INVALID_JSON_MESSAGE, stripCodeFence } from '@/lib/codeFence'
 
 // ── Prompt builder ────────────────────────────────────────────────────────────
 
@@ -164,7 +164,7 @@ export function MapAIDialog({ worldId, open, onOpenChange }: MapAIDialogProps) {
     try {
       parsed = JSON.parse(cleaned)
     } catch {
-      setError('Could not parse JSON. Make sure Claude returned raw JSON only.')
+      setError(INVALID_JSON_MESSAGE)
       return
     }
 

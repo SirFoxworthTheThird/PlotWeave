@@ -19,3 +19,13 @@ export function stripCodeFence(text: string): string {
   const withoutOpen = trimmed.replace(/^```[^\n]*\n?/, '')
   return withoutOpen.replace(/\n?```$/, '')
 }
+
+/**
+ * What every AI paste target says when the pasted text will not parse.
+ *
+ * There were three wordings across four parsers, and one of them named a single
+ * assistant ("Make sure Claude returned raw JSON only") while every dialog's own
+ * intro correctly offers "any AI assistant (ChatGPT, Claude, Gemini…)".
+ */
+export const INVALID_JSON_MESSAGE =
+  'That isn’t valid JSON. Paste the whole JSON response your AI assistant returned.'

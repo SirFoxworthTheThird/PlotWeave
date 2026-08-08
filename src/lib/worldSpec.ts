@@ -1,4 +1,4 @@
-import { stripCodeFence } from '@/lib/codeFence'
+import { INVALID_JSON_MESSAGE, stripCodeFence } from '@/lib/codeFence'
 import { generateId } from '@/lib/id'
 import { EXPORT_VERSION, importWorldFromJson, type WorldExportFile } from '@/lib/exportImport'
 import type {
@@ -153,7 +153,7 @@ export function parseWorldSpec(text: string): { spec?: WorldSpec; error?: string
   try {
     data = JSON.parse(stripCodeFence(text))
   } catch {
-    return { error: 'That isn’t valid JSON. Paste the JSON the AI returned.' }
+    return { error: INVALID_JSON_MESSAGE }
   }
   if (typeof data !== 'object' || data === null) return { error: 'Expected a JSON object.' }
   const d = data as Record<string, unknown>

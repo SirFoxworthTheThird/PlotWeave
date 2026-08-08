@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { buildPrompt, validateResponse } from '../ChapterAIDialog'
+import { INVALID_JSON_MESSAGE } from '@/lib/codeFence'
 import type { Chapter } from '@/types'
 
 function chapter(): Chapter {
@@ -57,8 +58,8 @@ describe('ChapterAIDialog response validation', () => {
   })
 
   it('still rejects genuinely broken JSON, fenced or not', () => {
-    expect(() => validate('```json\n{"chapter": \n```')).toThrow(/parse JSON/i)
-    expect(() => validate('here is your chapter!')).toThrow(/parse JSON/i)
+    expect(() => validate('```json\n{"chapter": \n```')).toThrow(INVALID_JSON_MESSAGE)
+    expect(() => validate('here is your chapter!')).toThrow(INVALID_JSON_MESSAGE)
   })
 
   it('validates the unfenced content rather than accepting anything fenced', () => {

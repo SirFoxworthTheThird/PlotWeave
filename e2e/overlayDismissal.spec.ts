@@ -67,6 +67,11 @@ test.describe('Overlay dismissal', () => {
         open: async () => { await page.getByTitle('Compare chapters').click() },
         marker: () => page.getByText('Chapter Diff'),
       },
+      {
+        name: 'Help',
+        open: async () => { await page.getByRole('button', { name: 'Help' }).click() },
+        marker: () => page.getByRole('heading', { name: 'Help' }),
+      },
     ]
 
     for (const c of cases) {
