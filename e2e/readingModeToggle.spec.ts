@@ -94,4 +94,32 @@ test.describe('Reading mode toggle', () => {
     await expect(page.getByRole('button', { name: /skip and explore/i })).toHaveCount(0)
     await expect(page.getByRole('main').getByRole('button').filter({ hasText: 'Timeline' }).first()).toBeVisible()
   })
+
+  test('the wizard leaves you alone once the world has a timeline', async ({ page }) => {
+    // It used to trigger on "no events" as well, so a writer who built a
+    // timeline and chapters on the Timeline screen came back to the dashboard
+    // and was asked, at step 1 of 4, to name a timeline they had already named.
+    await page.goto('/')
+    await resetDB(page)
+    await page.getByRole('button', { name: 'New World' }).click()
+    await page.getByLabel('Name').fill('Started')
+    await page.getByRole('button', { name: 'Create World' }).last().click()
+    await expect(page).toHaveURL(/#\/worlds\//)
+    const id = page.url().match(/#\/worlds\/([^/]+)/)![1]
+
+    // It does greet a world with nothing in it — the other half of the pair.
+    await expect(page.getByRole('button', { name: /skip and explore/i })).toBeVisible()
+
+    await page.getByRole('link', { name: /timeline/i }).click()
+    await page.getByRole('button', { name: 'Create Timeline' }).click()
+    await page.getByRole('button', { name: 'Add Chapter' }).first().click()
+    await page.getByPlaceholder('Chapter title').fill('One')
+    await page.getByRole('button', { name: 'Add Chapter' }).last().click()
+    await expect(page.getByText('One').first()).toBeVisible()
+
+    // Back on the dashboard: tiles, not step 1 of 4.
+    await page.goto(`/#/worlds/${id}`)
+    await expect(page.getByRole('button', { name: /skip and explore/i })).toHaveCount(0)
+    await expect(page.getByRole('main').getByRole('button').filter({ hasText: 'Timeline' }).first()).toBeVisible()
+  })
 })

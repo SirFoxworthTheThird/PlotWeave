@@ -12,7 +12,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ConfirmDialog } from '@/components/ConfirmDialog'
 import {
-  useFactions, useFactionMemberships, useMembershipsForFaction,
+  useFactions, useFactionMemberships, useMembershipsForFaction, useFactionReveal,
   useFactionRelationships,
   createFaction, updateFaction, deleteFaction,
   createFactionMembership, updateFactionMembership, deleteFactionMembership,
@@ -638,7 +638,13 @@ function FactionDetailPanel({
 
 export default function FactionsView() {
   const { worldId } = useParams<{ worldId: string }>()
-  const factions = useFactions(worldId ?? null)
+  const gate = useGate()
+  const allWorldFactions = useFactions(worldId ?? null)
+  // A faction the reader has not met anybody in gives its existence away — the
+  // roster used to list every one of them while search hid the same faction at
+  // the same cursor.
+  const factionReveal = useFactionReveal(worldId ?? null, gate)
+  const factions = allWorldFactions.filter((f) => factionReveal.has(f.id))
   const allMemberships = useFactionMemberships(worldId ?? null)
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [creating, setCreating] = useState(false)

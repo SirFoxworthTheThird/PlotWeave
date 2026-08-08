@@ -103,10 +103,14 @@ export default function WorldDashboardView() {
   // which is every world the wizard appears for.
   const [wizardDismissed, setWizardDismissed] = useState(false)
   useEffect(() => {
-    if (wizardReady && !wizardLatch && !wizardDismissed && (timelineCount === 0 || eventCount === 0)) {
+    // Only for a world that has not been started. It used to trigger on
+    // `eventCount === 0` too, so a writer who built a timeline and chapters on
+    // the Timeline screen came back to the dashboard and was asked, at step 1
+    // of 4, to name a timeline they had already named.
+    if (wizardReady && !wizardLatch && !wizardDismissed && timelineCount === 0) {
       setWizardLatch(true)
     }
-  }, [wizardReady, wizardLatch, wizardDismissed, timelineCount, eventCount])
+  }, [wizardReady, wizardLatch, wizardDismissed, timelineCount])
 
   // ── Dashboard suggestions ─────────────────────────────────────────────────
   const dismissedKey = worldId ? `plotweave-dismissed-suggestions-${worldId}` : null

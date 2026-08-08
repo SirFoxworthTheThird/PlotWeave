@@ -5,6 +5,7 @@ import { Search, Users, Map, Package, BookOpen, Network, Scroll, X, Route, Hexag
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '@/db/database'
 import { useAppStore } from '@/store'
+import { useFactionReveal } from '@/db/hooks/useFactions'
 import { useGate } from '@/db/hooks/ReadingGateContext'
 import { cn } from '@/lib/utils'
 
@@ -95,7 +96,6 @@ export function SearchPalette() {
   const regions       = useLiveQuery(() => worldId ? db.mapRegions.where('worldId').equals(worldId).toArray() : [], [worldId], [])
   const lorePages     = useLiveQuery(() => worldId ? db.lorePages.where('worldId').equals(worldId).toArray() : [], [worldId], [])
   const factions      = useLiveQuery(() => worldId ? db.factions.where('worldId').equals(worldId).toArray() : [], [worldId], [])
-  const memberships   = useLiveQuery(() => worldId ? db.factionMemberships.where('worldId').equals(worldId).toArray() : [], [worldId], [])
 
   // Which chapters the reader has reached, by their first event: a chapter's
   // synopsis waits for it even though its title does not.
@@ -105,17 +105,9 @@ export function SearchPalette() {
     return reached
   }, [events, gate])
 
-  // A faction is known to the reader once they have met somebody in it. One
-  // with no members recorded has no basis to be withheld on, so it stays.
-  const factionRevealed = useMemo(() => {
-    const withMembers = new Set<string>()
-    const revealed = new Set<string>()
-    for (const m of (memberships ?? [])) {
-      withMembers.add(m.factionId)
-      if (gate.isRevealed(m.characterId) && gate.hasReached(m.startEventId)) revealed.add(m.factionId)
-    }
-    return { has: (id: string) => !withMembers.has(id) || revealed.has(id) }
-  }, [memberships, gate])
+  // Shared with the Factions roster, so the two cannot disagree about whether
+  // the reader has met a faction.
+  const factionRevealed = useFactionReveal(worldId ?? null, gate)
 
   const results: SearchResult[] = useMemo(() => {
     const q = query.trim().toLowerCase()

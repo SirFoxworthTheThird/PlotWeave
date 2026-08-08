@@ -82,4 +82,35 @@ test.describe('Touch targets', () => {
     expect(geo.scrollWidth, 'the page must not scroll sideways').toBeLessThanOrEqual(geo.clientWidth + 1)
     expect(geo.headerRight).toBeLessThanOrEqual(geo.clientWidth + 1)
   })
+
+  test('a chapter title is not truncated on a phone', async ({ page }) => {
+    // At 390px the title — the only thing telling one row from another — lost
+    // roughly 40% of the row to "Set Active" and two icon buttons and rendered
+    // as "Ch. 1 — The Vanish…". The row wraps below `sm` so the title gets the
+    // full first line.
+    await page.setViewportSize({ width: 1440, height: 900 })
+    await page.goto('/')
+    await resetDB(page)
+    await page.getByRole('button', { name: 'New World' }).click()
+    await page.getByLabel('Name').fill('Wrapping')
+    await page.getByRole('button', { name: 'Create World' }).last().click()
+    await expect(page).toHaveURL(/#\/worlds\//)
+    await page.getByRole('link', { name: /timeline/i }).click()
+    await page.getByRole('button', { name: 'Create Timeline' }).click()
+    await page.getByRole('button', { name: 'Add Chapter' }).first().click()
+    await page.getByPlaceholder('Chapter title').fill('The Vanishing Glass')
+    await page.getByRole('button', { name: 'Add Chapter' }).last().click()
+    const title = page.getByText('Ch. 1 — The Vanishing Glass').first()
+    await expect(title).toBeVisible()
+
+    const clipped = async () => title.evaluate((el) => el.scrollWidth > el.clientWidth + 1)
+
+    // Desktop: plenty of room, nothing clipped — the control half of the pair.
+    expect(await clipped(), 'the title should fit on a desktop').toBe(false)
+
+    await page.setViewportSize({ width: 390, height: 844 })
+    await page.waitForTimeout(600)
+    await expect(title).toBeVisible()
+    expect(await clipped(), 'the title is truncated at 390px').toBe(false)
+  })
 })
