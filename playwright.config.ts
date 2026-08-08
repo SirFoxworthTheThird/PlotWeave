@@ -80,7 +80,9 @@ export default defineConfig({
         // on demand, and with 83 database resets — each a full document load —
         // the suite paid that cost over and over. Measured on the same 16 tests:
         // 70s against `vite dev`, 42s against the built bundle.
-        command: 'npm run build && npx vite preview --port 4173 --strictPort',
+        // VITE_E2E keeps the Dexie seeding seam (window.__pwdb) in the bundle;
+        // a normal `npm run build` still strips it.
+        command: 'VITE_E2E=1 npm run build && npx vite preview --port 4173 --strictPort',
         url: PREVIEW_URL,
         reuseExistingServer: !process.env.CI,
         timeout: 180_000,
