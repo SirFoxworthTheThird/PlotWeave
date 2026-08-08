@@ -51,8 +51,16 @@ export function GenerateSectionDialog<T>({
     setTimeout(() => setCopied(false), 2000)
   }
 
+  /**
+   * Clear the transient state on close — but not the pasted text.
+   *
+   * Closing used to discard it, including on an accidental Escape or a click on
+   * the backdrop, which is the whole screen. A writer who pasted a long response
+   * that failed to validate lost it with no confirm and no undo, and had to go
+   * back to their assistant for it. A successful import already clears the box
+   * in `handleImport`, so the paste only survives when it has not been used.
+   */
   function reset() {
-    setRaw('')
     setError(null)
     setResult(null)
   }
