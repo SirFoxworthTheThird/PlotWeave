@@ -149,8 +149,10 @@ export function ChapterRow({ chapter, threadFilter = null }: ChapterRowProps) {
           size="icon"
           className="h-7 w-7 shrink-0 hover:text-red-400"
           onClick={() => setConfirmOpen(true)}
+          aria-label={`Delete chapter ${chapter.number}`}
+          title="Delete chapter"
         >
-          <Trash2 className="h-3.5 w-3.5" />
+          <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
         </Button>
         <ConfirmDialog
           open={confirmOpen}
