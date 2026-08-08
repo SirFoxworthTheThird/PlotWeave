@@ -278,16 +278,22 @@ function FactionDetailPanel({
   const unrelatedFactions = allFactions.filter(
     (f) => f.id !== faction.id && !relatedFactionIds.has(f.id)
   )
-  const territories = useLiveQuery(
+  // Territories name places, so they go through the reveal gate like any other
+  // place: a faction's holdings would otherwise list somewhere the reader has
+  // not reached, which is how "Hogwarts School of Witchcraft and Wizardry"
+  // reached this panel at chapter one.
+  const allTerritories = useLiveQuery(
     () => db.mapRegions.where('factionId').equals(faction.id).toArray(),
     [faction.id],
     []
   )
-  const territoryLocations = useLiveQuery(
+  const allTerritoryLocations = useLiveQuery(
     () => db.locationMarkers.where('factionId').equals(faction.id).toArray(),
     [faction.id],
     []
   )
+  const territories = gate.filter(allTerritories)
+  const territoryLocations = gate.filter(allTerritoryLocations)
   const allLayers = useMapLayers(worldId)
   const layerById = new Map(allLayers.map((l) => [l.id, l]))
   const characters = useCharacters(worldId)

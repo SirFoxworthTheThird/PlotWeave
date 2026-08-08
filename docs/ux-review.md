@@ -61,7 +61,11 @@ markers on a phone is the same class of problem: a headline screen not doing its
 one job, measured rather than argued. Later passes also add `SQ-1`, `SQ-2`,
 `HP-1`, `X-14`, `PH-2`, `PH-3`, `PH-4` and `ST-2` to bucket A.
 
-**`RD-2` jumps the queue; `RD-1` follows it.** `RD-1` was downgraded from high to
+**`RD-1`, `RD-2` and `RD-6` are fixed** (see section 22). `RD-7`, found while
+fixing them, is left open on purpose — it changes what a whole screen shows in
+reading mode, which is a product decision rather than a defect fix.
+
+**`RD-2` jumped the queue; `RD-1` followed it.** `RD-1` was downgraded from high to
 med by the depth pass (see the correction in section 22 — its headline example
 turned out to be a chapter title, and the gate holds on all eleven routes for
 everything it has data about). What survives is a real but latent hole, and
@@ -784,11 +788,35 @@ mostly well executed.
 
 | ID | Severity | Status | Finding |
 |---|---|---|---|
-| **RD-1** | **med** | open | **The spoiler guard fails open for entities with no recorded appearance.** `isRevealed` (`src/lib/spoilers.ts:135`) returns `true` for any entity that appears in no event, documented as a deliberate choice so standalone reference material isn't hidden forever. In *Philosopher's Stone* that class is 3 of 50 characters, 1 of 16 items and 10 of 40 locations, and they bypass the cursor on every screen that lists them. Measured leaks at chapter 1, after excluding everything the reader's own book already prints (see the correction below): **Charlie Weasley** on Characters, Maps, Relationships and Arc; **Flying Motorcycle** on Items; **Godric's Hollow** on Maps. Two causes, both fixable: the fail-open default, and a fixture leaving those entities linked to no event. For a guard, fail-**closed** with an explicit opt-out — a `revealAt: 'always'` flag for genuine reference material — is the safer default, and would make the fixture's gaps visible instead of silent. |
-| **RD-2** | **high** | open | **The guarantee spec cannot catch RD-1.** `e2e/spoilerGuarantee.spec.ts` walks every route asserting no unmet name appears — but its ground truth, `unmetNames` in `e2e/helpers/unmet.ts`, computes `hidden = f !== undefined && f > cursor`: the *same* fail-open rule as the implementation. An entity with no appearance is never counted as unmet, so it can never be reported as leaked. The test is real and does catch genuinely-linked characters; it is simply blind to the entire class that RD-1 is about, because it was written against the implementation's definition of "unmet" rather than the reader's. Fixing RD-1 without fixing this helper would leave the regression unguarded. |
+| **RD-1** | **med** | **fixed** | **The spoiler guard fails open for entities with no recorded appearance.** `isRevealed` (`src/lib/spoilers.ts:135`) returns `true` for any entity that appears in no event, documented as a deliberate choice so standalone reference material isn't hidden forever. In *Philosopher's Stone* that class is 3 of 50 characters, 1 of 16 items and 10 of 40 locations, and they bypass the cursor on every screen that lists them. Measured leaks at chapter 1, after excluding everything the reader's own book already prints (see the correction below): **Charlie Weasley** on Characters, Maps, Relationships and Arc; **Flying Motorcycle** on Items; **Godric's Hollow** on Maps. Two causes, both fixable: the fail-open default, and a fixture leaving those entities linked to no event. For a guard, fail-**closed** with an explicit opt-out — a `revealAt: 'always'` flag for genuine reference material — is the safer default, and would make the fixture's gaps visible instead of silent. |
+| **RD-2** | **high** | **fixed** | **The guarantee spec cannot catch RD-1.** `e2e/spoilerGuarantee.spec.ts` walks every route asserting no unmet name appears — but its ground truth, `unmetNames` in `e2e/helpers/unmet.ts`, computes `hidden = f !== undefined && f > cursor`: the *same* fail-open rule as the implementation. An entity with no appearance is never counted as unmet, so it can never be reported as leaked. The test is real and does catch genuinely-linked characters; it is simply blind to the entire class that RD-1 is about, because it was written against the implementation's definition of "unmet" rather than the reader's. Fixing RD-1 without fixing this helper would leave the regression unguarded. |
 | RD-3 | med | open | **The screen you land on is the one screen that never says "reading mode".** Measured: the phrase appears 0 times on the dashboard, where the Library drops you, and the mode is inferable only from a changed theme and sublabels like "you have met so far". Every roster explains itself properly. The landing screen should too, and should say how to leave. |
 | RD-4 | low | open | **`Character Arc` shows an em-dash where every other card shows a number.** `—` reads as "unknown" rather than "nothing yet"; the five cards beside it all show a count. |
 | RD-5 | med | open | **Reading mode inherits X-7 at its worst.** Character cards on the reading-mode roster are not links or buttons — measured **0** links in `main`. A reference companion whose entire job is "tell me who this is" gives the reader no way to open anyone from the cast list by keyboard. |
+
+### What the fix did, and what it turned up
+
+`RD-2` first, so the guard had something that could fail: `unmet.ts` now counts an
+entity with no appearance as unmet (`f === undefined || f > cursor`). The
+guarantee spec immediately went red with **16 leaks across 6 routes** — Charlie
+Weasley on Characters, Maps, Relationships and Arc; Trevor on four; Godric's
+Hollow, Hogwarts Castle and London on Maps; Flying Motorcycle on Items.
+
+`RD-1` then made `isRevealed` fail closed. That is affordable precisely because
+"all chapters" still returns `true`, so an unplaced entity is late rather than
+lost — the reveal-all control brings it straight back. Fifteen of the sixteen
+leaks closed.
+
+The sixteenth was a **second, unrelated gap**, found only because the guard could
+finally report it: a faction's *Territories* list rendered regions and location
+markers straight from Dexie without passing either through the gate. Now fixed
+(`FactionsView.tsx`), and it is the kind of bug that only ever surfaces when a
+test is allowed to fail.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| RD-6 | med | **fixed** | **A faction's territories bypassed the reveal gate.** `mapRegions` and `locationMarkers` were queried by `factionId` and rendered directly, so a faction's holdings could name a place the reader had not reached. Both now go through `gate.filter`. |
+| RD-7 | med | open | **The factions list itself is never gated, and disagrees with search.** `gate.filter` is applied to a faction's members, stance and territories, but never to the roster of factions — so every faction in the world is listed at chapter 1, descriptions included. `SearchPalette.tsx:115` gates factions by membership (`isRevealed(member) && hasReached(startEvent)`), so the same faction can be hidden in search and listed on the Factions page at the same cursor. One of the two is wrong; the search rule looks right. Not fixed here: it changes what reading mode shows on a whole screen, which is a product call rather than a defect fix. |
 
 ### Correction to RD-1, from the depth pass
 
