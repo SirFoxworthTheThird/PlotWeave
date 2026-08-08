@@ -36,6 +36,10 @@ test.describe('Search palette', () => {
   })
 
   test('opens search palette via Ctrl+K keyboard shortcut', async ({ page }) => {
+    // Wait for something interactive before typing: the shortcut is bound on
+    // mount, and pressing it against a page that has not finished hydrating
+    // simply does nothing.
+    await expect(page.getByTitle('Search (Ctrl+K)')).toBeVisible()
     await page.keyboard.press('Control+k')
     await expect(page.getByPlaceholder('Search characters, factions, locations, lore…')).toBeVisible()
   })
