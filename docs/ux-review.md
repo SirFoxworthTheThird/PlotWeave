@@ -56,6 +56,15 @@ a draft, or simply not resetting on backdrop-click is a decision.
 **`AI-1` is fixed** (all four AI parsers now share `stripCodeFence`), joining
 `OP-1`, `OP-8`, `OP-9` and the mobile map cursor.
 
+**`RD-1` and `RD-2` jump the queue.** Everything else in bucket A is a papercut;
+these two are the product breaking the promise it advertises, in the book on the
+front of the Library, with the test that should have caught it structurally
+unable to. They should be fixed together — `RD-2` first, so `RD-1` has something
+that can fail. Also added to bucket A from later passes: `X-11`, `X-12`, `X-13`,
+`WR-2`, `DF-1`, `DF-2`, `RD-3`, `RD-4`. `DF-3` and `WR-1` are bucket B — both
+need a decision (what should a chapter diff compare; how should the inline
+editor grow) rather than just a fix.
+
 **B — design work, direction now set (7).** `X-1` `X-2` `X-3` are decided above
 and can proceed. `EV-1` (event-card disclosure), `SEL-1` (selector entry
 points), `TL-1` (pacing curve), `ST-1` (structure proportion) still need their
@@ -701,6 +710,86 @@ real assistant response.
 
 ---
 
+## 20. The writing screens, with real prose in them
+
+Everything above was driven against worlds with structure but no text. This pass
+wrote a scene, revised it, restored it, and compared chapters — the loop the app
+exists for.
+
+**Focus mode is the best screen in the product.** Full-bleed, serif, generous
+line height, a measure of about 75 characters, the scene title top-left and
+`882 words · Esc to exit` top-right, and nothing else. It top-aligns and scrolls
+correctly with 880 words in it, and the live `(+3 this session)` counter appears
+as you type. I went looking for problems here and found one cosmetic one (below).
+
+**Scene history is nearly as good.** Word-level diff, a `+23 −12 words to reach
+current` summary, `Diff vs current` / `This version` toggle, and a **Restore
+confirm whose copy is the best in the app**: *"The current prose will be saved as
+a new version first, so you can undo this."* It then keeps that promise — I
+restored, and the top-bar Undo was live afterwards.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| WR-1 | med | open | **The scene-draft editor is a five-line box.** In chapter detail, 882 words of prose sit in a fixed `~5`-row textarea with an internal scrollbar — you write a novel through a letterbox. There is a resize handle and a *Focus* button, and Focus mode is excellent, but the default inline experience for the app's central activity is cramped. Auto-growing the textarea to its content would cost little. |
+| WR-2 | med | open | **The scene-history diff runs deletions and insertions together with no separator.** `"years, and it showed.years."`, `"onea solidsingle piece,seized lump"` — the red strikethrough run and the green inserted run are adjacent with no space, so short substitutions read as garbage and the writer has to mentally unpick which half is which. A thin gap, or a `→`, or side-by-side columns would fix it. The diff itself is correct; only its typography is at fault. |
+| WR-3 | low | open | **The watermark bleeds into Focus mode.** X-1's diagonal background band is faintly visible behind the prose on the one screen whose entire purpose is to remove everything but the prose. |
+| DF-1 | med | open | **Chapter Diff is invisible until you activate an event.** Measured: `Compare chapters` is present **0** times on the timeline, and **1** time after clicking an event in the playback bar. A headline feature is gated behind an unrelated action with nothing to hint at the connection — opening a chapter is not enough, and neither is selecting one. |
+| DF-2 | low | open | **Chapter Diff opens empty when only one comparison is possible.** With two chapters in the world, the base is filled in (`Base: Ch. 1 — The Gate`) and the other side is an unselected `Compare with…` whose only real option is Ch. 2. Measured: preselected value `""`. With exactly one candidate it should be chosen. |
+| DF-3 | med | open | **"No recorded differences" is the answer a writer gets for two chapters full of prose.** The diff compares each chapter's *last event's snapshots*, so two chapters with events, scenes and 880 words of text report no differences until someone has set character states by hand. The sentence is technically true and completely misleading; it should say what it compared and what it needs. |
+
+## 21. Which overlays close on Escape — and which don't
+
+Not a general grumble: measured in one run, so a stuck key or a dead page would
+have shown up on every line instead of two.
+
+```
+Writer's Brief      open → Escape → closed   ✓
+Continuity Checker  open → Escape → closed   ✓
+Recent changes      open → Escape → STILL OPEN
+Chapter Diff        open → Escape → STILL OPEN
+```
+
+The first three are opened from the same top-bar cluster, one beside the other.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| X-11 | med | open | **Escape closes some overlays and not others, with no pattern a user could learn.** `WritersBriefPanel` and `ContinuityChecker` register their own `keydown` handlers; `RecentChangesPanel` (`src/features/history/RecentChangesPanel.tsx`) and `ChapterDiffModal` (`src/features/diff/ChapterDiffModal.tsx`) register none, because both are hand-rolled overlays rather than the shared `Dialog`. Backdrop click closes both, so neither traps you — but the key that works everywhere else silently does nothing. |
+| X-12 | med | open | **Chapter Diff's close button has no accessible name.** Measured: `text="" aria-label=null title=null` — a bare `<X>` icon in the header. A screen reader announces "button". Compare the shared `Dialog`, which gives its close button an `sr-only` "Close". |
+| X-13 | med | open | **One Escape closes a confirm *and* the dialog behind it.** Restoring a scene version opens a confirm stacked over Scene history. Escape — the natural way to back out of a confirm — dismissed **both**, measured: `confirm 0, history 0`. Because `Dialog` listens on `document` and never checks whether it is topmost, cancelling the inner decision also throws away the outer context. Part of **X-10**. |
+
+**The Recent changes drawer is otherwise good** — a plain reverse-chronological
+list of journalled operations (*Added event "The gate"*, *Added chapter "The
+Road"*, …) with relative timestamps. One note: only the topmost row carries an
+*Undo*, which is correct for a linear stack but is never explained, and the
+other rows look identical and inert.
+
+## 22. Reading mode
+
+Downloading a book from the Library drops you straight into it. It is a real
+second product: its own warm sepia theme, a serif face, a reduced nav (no
+Manuscript, Structure, or Corkboard), and a dashboard whose every figure is
+scoped to how far you have read — *"6 / Characters / you have met so far"*,
+*"maps you have reached"*, *"between characters you have met"*. Advancing the
+cursor from ch.1 to ch.3 took the cast from 6 to 10, and the roster carries an
+honest notice: *"Reading mode — 44 characters not yet met by chapter 1 are
+hidden. Move the chapter cursor forward to reveal them."* The idea is good and
+mostly well executed.
+
+| ID | Severity | Status | Finding |
+|---|---|---|---|
+| **RD-1** | **high** | open | **The spoiler guard fails open, and ships a spoiler in its flagship book.** `isRevealed` (`src/lib/spoilers.ts:135`) returns `true` for any entity with no recorded appearance, documented as a deliberate choice so standalone reference material isn't hidden forever. The consequence, measured in *Philosopher's Stone* at chapter 1: **3 of 50 characters — Charlie Weasley, Trevor, and Nicolas Flamel — are on the roster**, next to the notice saying 44 are hidden. Flamel is the book's central late reveal. Also leaked: the item *Flying Motorcycle*, and 10 of 40 locations including *Hogwarts Castle*, *Godric's Hollow*, and *Hogsmeade Station*. The module's own header names this exact failure — *"a lore page titled after a late-book revelation gives the revelation away in the index"*. Two causes, both fixable: the fail-open default, and a fixture that leaves those entities linked to no event. For a guard, fail-**closed** with an explicit opt-out (a `revealAt: 'always'` flag for genuine reference material) is the safer default. |
+| **RD-2** | **high** | open | **The guarantee spec cannot catch RD-1.** `e2e/spoilerGuarantee.spec.ts` walks every route asserting no unmet name appears — but its ground truth, `unmetNames` in `e2e/helpers/unmet.ts`, computes `hidden = f !== undefined && f > cursor`: the *same* fail-open rule as the implementation. An entity with no appearance is never counted as unmet, so it can never be reported as leaked. The test is real and does catch genuinely-linked characters; it is simply blind to the entire class that RD-1 is about, because it was written against the implementation's definition of "unmet" rather than the reader's. Fixing RD-1 without fixing this helper would leave the regression unguarded. |
+| RD-3 | med | open | **The screen you land on is the one screen that never says "reading mode".** Measured: the phrase appears 0 times on the dashboard, where the Library drops you, and the mode is inferable only from a changed theme and sublabels like "you have met so far". Every roster explains itself properly. The landing screen should too, and should say how to leave. |
+| RD-4 | low | open | **`Character Arc` shows an em-dash where every other card shows a number.** `—` reads as "unknown" rather than "nothing yet"; the five cards beside it all show a count. |
+| RD-5 | med | open | **Reading mode inherits X-7 at its worst.** Character cards on the reading-mode roster are not links or buttons — measured **0** links in `main`. A reference companion whose entire job is "tell me who this is" gives the reader no way to open anyone from the cast list by keyboard. |
+
+**The Library itself is good** and needs no findings: honest sizes on every
+button (`Download (323 KB)`), per-book counts, a blurb, a rights notice on each
+entry, and a download that lands you in the world with the cursor already at the
+opening moment rather than at "all chapters".
+
+---
+
 ## Still not reviewed
 
 Kept honest: this list only shrinks when a screen has actually been driven and
@@ -708,29 +797,29 @@ looked at.
 
 ### Whole passes, each a session of its own
 
-- **Reading mode** — the second product inside the product. Nothing in this
-  document describes it; every screen above is the writer's UI.
 - **Phone widths** — one finding exists (the map cursor fix that started all
   this) and nothing else. Several findings here are about wasted horizontal
   space and will read completely differently at 390px.
+- **Reading mode beyond the rosters** — section 22 covers the dashboard, the
+  character roster, the reveal gate and the Library entry. Its Timeline, Maps,
+  Lore, Knowledge and Calendar under a cursor are still unopened, and RD-1
+  suggests the gate deserves checking on each of them rather than assumed.
 
 ### Screens never opened
 
-- **Chapter Diff** (*Compare chapters*) — a headline feature, never run.
-- **Focus mode** — the distraction-free writing surface.
-- **Scene history** — revisions, diff, restore.
-- **The Help panel**.
-- **Recent changes** — the undo history list.
+- **The Help panel** — reached for twice this pass and blocked both times by
+  X-11 (a drawer that would not close), which is its own small verdict.
 - **The sequel wizard**.
 - **Manuscript import**.
-- **The Library download flow** — browsing, downloading, "with images".
 - **Dashboard analytics panels** — Cast Balance, Plot Threads, Motifs & Themes.
-  Only the top of the dashboard has been seen.
+  Only the top of the writer-mode dashboard has been seen.
 - **The Calendar with a calendar configured** — only its empty state is known.
 
 ### Parts of screens
 
 - **The route detail panel** — blocked by **RT-1**, now understood.
+- **Scene history with many versions** — only a two-version history has been
+  seen, so nothing is known about how the list behaves at twenty.
 - **The Relationship States panel** in chapter detail — the Character States and
   Writer's Notes panels beside it are reviewed; this one has not been seen.
 - **The Writer's Brief with a cursor set** — only its empty state is known, and
