@@ -73,12 +73,21 @@ test.describe('Scene revision history', () => {
     const main = page.getByRole('main')
     await main.getByText('Scene A', { exact: true }).click()
     const editor = main.getByPlaceholder(/Write or paste this scene/)
+    // The first draft must be committed before the second replaces it, or no
+    // revision is captured and there is no history to open. That commit is a
+    // debounced autosave with no observable of its own, so a pause is the right
+    // instrument here — the flake was having none at all, not having one that
+    // was too short.
     await editor.fill('The gate had not been opened in nine years, and it showed.')
     await editor.blur()
+    await page.waitForTimeout(2000)
+
     await editor.fill('The gate had not been opened in nine years.')
     await editor.blur()
 
-    await main.getByRole('button', { name: /History \(/ }).click()
+    const history = main.getByRole('button', { name: /History \(/ })
+    await expect(history, 'revising a scene should capture the earlier draft').toBeVisible({ timeout: 30000 })
+    await history.click()
     await expect(page.getByRole('heading', { name: 'Scene history' })).toBeVisible({ timeout: 30000 })
 
     const geo = await page.evaluate(() => {
