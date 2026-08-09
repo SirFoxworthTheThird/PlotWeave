@@ -32,6 +32,8 @@ interface EventCardProps {
 }
 
 export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorldDay }: EventCardProps) {
+  /** Names the card's icon buttons, which are otherwise identical across scenes. */
+  const eventName = event.title ? `“${event.title}”` : 'this untitled scene'
   const [expanded, setExpanded] = useState(false)
   const [editing, setEditing] = useState(false)
   const [confirmOpen, setConfirmOpen] = useState(false)
@@ -297,27 +299,39 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
 
         {editing ? (
           <>
-            <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0 hover:text-green-400" onClick={saveEdit} disabled={!title.trim()}>
+            <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0 hover:text-green-400"
+              aria-label={`Save ${eventName}`} title="Save" onClick={saveEdit} disabled={!title.trim()}>
               <Check className="h-3.5 w-3.5" />
             </Button>
-            <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0" onClick={cancelEdit}>
+            <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0"
+              aria-label={`Stop editing ${eventName}`} title="Cancel" onClick={cancelEdit}>
               <X className="h-3.5 w-3.5" />
             </Button>
           </>
         ) : (
           <>
+            {/* Every scene on the page has this same row of icons, so each name
+                has to say which scene it acts on — "Move up" four times over is
+                no more use to a screen reader than no name at all. */}
             <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0 hover:text-[hsl(var(--foreground))]"
+              aria-label={`Move ${eventName} earlier`} title="Move earlier"
               disabled={isFirst} onClick={(e) => { e.stopPropagation(); onMoveUp() }}>
               <ArrowUp className="h-3.5 w-3.5" />
             </Button>
             <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0 hover:text-[hsl(var(--foreground))]"
+              aria-label={`Move ${eventName} later`} title="Move later"
               disabled={isLast} onClick={(e) => { e.stopPropagation(); onMoveDown() }}>
               <ArrowDown className="h-3.5 w-3.5" />
             </Button>
-            <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0" onClick={() => setExpanded((v) => !v)}>
+            <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0"
+              aria-label={`${expanded ? 'Collapse' : 'Expand'} ${eventName}`}
+              aria-expanded={expanded}
+              title={expanded ? 'Collapse' : 'Expand'}
+              onClick={() => setExpanded((v) => !v)}>
               {expanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
             </Button>
-            <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0 hover:text-red-400" onClick={() => setConfirmOpen(true)}>
+            <Button variant="ghost" size="icon" className="h-6 w-6 shrink-0 hover:text-red-400"
+              aria-label={`Delete ${eventName}`} title="Delete" onClick={() => setConfirmOpen(true)}>
               <Trash2 className="h-3.5 w-3.5" />
             </Button>
             <ConfirmDialog
@@ -456,7 +470,9 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
                       fallbackClassName="h-5 w-5 rounded-full"
                     />
                     <span className="flex-1 text-xs">{c.name}</span>
-                    <Button variant="ghost" size="icon" className="h-5 w-5 hover:text-red-400" onClick={() => removeCharacter(c.id)}>
+                    <Button variant="ghost" size="icon" className="h-5 w-5 hover:text-red-400"
+                      aria-label={`Remove ${c.name} from this scene`} title={`Remove ${c.name}`}
+                      onClick={() => removeCharacter(c.id)}>
                       <UserMinus className="h-3 w-3" />
                     </Button>
                   </div>
@@ -602,7 +618,9 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
                         fallbackIcon={Package}
                       />
                       <span className="flex-1 text-xs">{it.name}</span>
-                      <Button variant="ghost" size="icon" className="h-5 w-5 hover:text-red-400" onClick={() => removeItem(it.id)}>
+                      <Button variant="ghost" size="icon" className="h-5 w-5 hover:text-red-400"
+                        aria-label={`Remove ${it.name} from this scene`} title={`Remove ${it.name}`}
+                        onClick={() => removeItem(it.id)}>
                         <PackageMinus className="h-3 w-3" />
                       </Button>
                     </div>
