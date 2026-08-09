@@ -7,7 +7,7 @@
       "author": "J.K. Rowling",
       "blurb": "A first year at Hogwarts. Who is where, who has met whom, and what the reader has been told so far.",
       "data": "harry-potter-and-the-philosopher-s-stone.pwk",
-      "dataBytes": 331235,
+      "dataBytes": 331203,
       "counts": {
         "characters": 50,
         "chapters": 17,
@@ -24,7 +24,7 @@
       "author": "J.R.R. Tolkien",
       "blurb": "The Ring leaves the Shire. Track the Fellowship across Eriador and Moria, and see who knows what, and when.",
       "data": "the-fellowship-of-the-ring.pwk",
-      "dataBytes": 587318,
+      "dataBytes": 587378,
       "counts": {
         "characters": 45,
         "chapters": 22,
@@ -234,7 +234,7 @@
       "author": "H. G. Wells",
       "blurb": "A Victorian inventor travels to the year 802,701, where the Eloi, Morlocks, and a still more distant dying Earth overturn every simple faith in progress.",
       "data": "the-time-machine.pwk",
-      "dataBytes": 229614,
+      "dataBytes": 229655,
       "counts": {
         "characters": 14,
         "chapters": 17,
@@ -268,7 +268,7 @@
       "author": "H. G. Wells",
       "blurb": "Martian cylinders fall into the familiar landscape of Surrey and London, overturning Victorian confidence as separated witnesses struggle through invasion, flight, and occupation.",
       "data": "the-war-of-the-worlds.pwk",
-      "dataBytes": 280492,
+      "dataBytes": 280540,
       "counts": {
         "characters": 14,
         "chapters": 27,
