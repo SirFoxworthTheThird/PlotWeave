@@ -81,6 +81,44 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
   const mentionedChars = characters.filter((c) => mentionedIds.includes(c.id))
   const availableForMention = characters.filter((c) => !mentionedIds.includes(c.id) && !involvedIds.includes(c.id))
 
+  /**
+   * A scene has a dozen things it *can* carry and most scenes carry two or
+   * three. Opening every one of them at once meant a card created a minute ago,
+   * with a title and nothing else, presented the whole ontology before the
+   * writer had written a sentence.
+   *
+   * So: a section that holds something is shown, and the rest collapse into one
+   * row of named chips at the bottom. Nothing is hidden behind a menu or a mode
+   * — every one is still there, named, one click away — and the data decides
+   * rather than a ranking someone had to invent.
+   *
+   * `available` is the section's own precondition, unchanged: a world with no
+   * maps has no Location section to offer, so it is not offered as a chip either.
+   */
+  const [revealed, setRevealed] = useState<Set<string>>(new Set())
+  const optionalSections = [
+    { id: 'location',   label: 'Location',   available: locationMarkers.length > 0, filled: locationMarkerId !== null },
+    { id: 'tags',       label: 'Tags',       available: true,  filled: tags.length > 0 },
+    { id: 'characters', label: 'Characters', available: true,  filled: involvedIds.length > 0 },
+    { id: 'mentions',   label: 'Mentioned',  available: true,  filled: mentionedIds.length > 0 },
+    { id: 'threads',    label: 'Plot Threads', available: plotThreads.length > 0, filled: threadIds.length > 0 },
+    { id: 'motifs',     label: 'Motifs',     available: motifs.length > 0, filled: motifIds.length > 0 },
+    { id: 'items',      label: 'Items',      available: involvedItems.length > 0 || availableItems.length > 0, filled: involvedItemIds.length > 0 },
+    { id: 'pov',        label: 'Point of View', available: characters.length > 0, filled: povCharacterId !== null },
+    { id: 'time',       label: 'Elapsed Time', available: true, filled: travelDays !== null || inWorldTime !== null },
+    { id: 'flashback',  label: 'Flashback',  available: true,  filled: isFlashback },
+    { id: 'beat',       label: 'Story Beat', available: true,  filled: structureBeat !== null },
+    { id: 'tension',    label: 'Dramatic Tension', available: true, filled: tension !== null },
+  ]
+  const sectionById = new Map(optionalSections.map((s) => [s.id, s]))
+  /** Editing opens everything: the writer has asked to work on the whole scene. */
+  function shows(id: string): boolean {
+    const section = sectionById.get(id)!
+    if (!section.available) return false
+    return editing || section.filled || revealed.has(id)
+  }
+  const offerable = optionalSections.filter((s) => s.available && !s.filled && !revealed.has(s.id))
+
   async function saveEdit() {
     await updateEvent(event.id, {
       title: title.trim(),
@@ -411,7 +449,7 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
           />
 
           {/* Location */}
-          {locationMarkers.length > 0 && (
+          {shows('location') && (
             <div className="flex flex-col gap-1.5">
               <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide flex items-center gap-1">
                 <MapPin className="h-3 w-3" /> Location
@@ -431,6 +469,7 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
           )}
 
           {/* Tags */}
+          {shows('tags') && (
           <div className="flex flex-col gap-1.5">
             <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide flex items-center gap-1">
               <Tag className="h-3 w-3" /> Tags
@@ -456,8 +495,10 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
               />
             </div>
           </div>
+          )}
 
           {/* Involved Characters */}
+          {shows('characters') && (
           <div className="flex flex-col gap-1.5">
             <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide">Characters</span>
             {involvedChars.length > 0 ? (
@@ -494,8 +535,10 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
               </Select>
             )}
           </div>
+          )}
 
           {/* Mentioned (referenced but not present) */}
+          {shows('mentions') && (
           <div className="flex flex-col gap-1.5">
             <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide flex items-center gap-1">
               <AtSign className="h-3 w-3" /> Mentioned
@@ -532,9 +575,10 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
               </Select>
             )}
           </div>
+          )}
 
           {/* Plot threads (created on the dashboard; tagged here) */}
-          {plotThreads.length > 0 && (
+          {shows('threads') && (
             <div className="flex flex-col gap-1.5">
               <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide flex items-center gap-1">
                 <Spline className="h-3 w-3" /> Plot Threads
@@ -569,7 +613,7 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
           )}
 
           {/* Motifs / themes (created on the dashboard; tagged here) */}
-          {motifs.length > 0 && (
+          {shows('motifs') && (
             <div className="flex flex-col gap-1.5">
               <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide flex items-center gap-1">
                 <Sparkle className="h-3 w-3" /> Motifs
@@ -604,7 +648,7 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
           )}
 
           {/* Involved Items */}
-          {(involvedItems.length > 0 || availableItems.length > 0) && (
+          {shows('items') && (
             <div className="flex flex-col gap-1.5">
               <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide">Items</span>
               {involvedItems.length > 0 ? (
@@ -645,7 +689,7 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
           )}
 
           {/* POV picker */}
-          {characters.length > 0 && (
+          {shows('pov') && (
             <div className="flex flex-col gap-1.5">
               <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide flex items-center gap-1">
                 <Eye className="h-3 w-3" /> Point of View
@@ -691,6 +735,7 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
           )}
 
           {/* Elapsed time before this event */}
+          {shows('time') && (
           <div className="flex flex-col gap-1.5">
             <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide flex items-center gap-1">
               <History className="h-3 w-3" /> Elapsed Time
@@ -725,8 +770,10 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
               Overrides the derived clock — use for flashbacks or scenes out of narrative order.
             </p>
           </div>
+          )}
 
           {/* Flashback toggle */}
+          {shows('flashback') && (
           <div className="flex items-center gap-2">
             <button
               onClick={toggleFlashback}
@@ -741,8 +788,10 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
               Flashback / Retrospective
             </button>
           </div>
+          )}
 
           {/* Story-structure beat */}
+          {shows('beat') && (
           <div className="flex flex-col gap-1.5">
             <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide flex items-center gap-1">
               <Milestone className="h-3 w-3" /> Story Beat
@@ -772,8 +821,10 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
               <p className="text-[10px] text-[hsl(var(--muted-foreground))]">{beatById(structureBeat)!.hint}</p>
             )}
           </div>
+          )}
 
           {/* Tension picker */}
+          {shows('tension') && (
           <div className="flex flex-col gap-1.5">
             <span className="text-xs font-medium text-[hsl(var(--muted-foreground))] uppercase tracking-wide flex items-center gap-1">
               <Flame className="h-3 w-3" /> Dramatic Tension
@@ -802,6 +853,23 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
                 : 'Rate the intensity to plot this scene on the pacing curve.'}
             </p>
           </div>
+          )}
+
+          {/* Everything this scene is not yet tracking, named and one click away. */}
+          {!editing && offerable.length > 0 && (
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-xs font-medium uppercase tracking-wide text-[hsl(var(--muted-foreground))]">Add</span>
+              {offerable.map((s) => (
+                <button
+                  key={s.id}
+                  onClick={() => setRevealed((prev) => new Set(prev).add(s.id))}
+                  className="rounded-full border border-dashed border-[hsl(var(--border))] px-2 py-0.5 text-[11px] text-[hsl(var(--muted-foreground))] transition-colors hover:border-[hsl(var(--ring)/0.6)] hover:text-[hsl(var(--foreground))]"
+                >
+                  + {s.label}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Status picker */}
           <div className="flex flex-col gap-1.5">
