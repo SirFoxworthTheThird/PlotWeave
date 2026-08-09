@@ -149,7 +149,7 @@ counts, and relative dates.
 
 | ID | Severity | Status | Finding |
 |---|---|---|---|
-| DASH-1 | high | open | **The Continuity tile shows `—`.** Every other tile shows a number; the one tile whose entire purpose is to warn you says nothing, and a dash reads as broken or still loading rather than "not run yet". |
+| DASH-1 | high | **fixed** | **The Continuity tile shows `—`.** Every other tile shows a number; the one tile whose entire purpose is to warn you says nothing, and a dash reads as broken or still loading rather than "not run yet". **Fixed** as **X-14**, which is the same defect filed again from a different screen: a tile with no count is an action, not a statistic, and now shows a chevron. Guarded by `e2e/readingModeToggle.spec.ts`. |
 | DASH-2 | med | open | **"Character Arc / snapshot coverage / 100%"** — the title names a screen while the metric measures something else. Two concepts in one tile. |
 | DASH-3 | med | open | **Recent Events has ambiguous reading order.** Two columns running Ch 6 → 12 → 21 on the left and Ch 1 → 2 on the right; column-major or row-major is unclear, and "recent" is never defined. |
 | DASH-4 | low | open | **Ragged tile grid** — four over three, with a hole where the eye expects a fourth. |
@@ -442,8 +442,8 @@ to event*).
 
 | ID | Severity | Status | Finding |
 |---|---|---|---|
-| CC-1 | high | open | **The model has no notion of a thing there is more than one of, and the checker reports it as an error.** *"Barrow-blades appears in multiple places in Ch. 12 — Held by: Meriadoc, Peregrin, Samwise, Frodo"*. There are four barrow-blades, one each. Same for *Elven Cloak* and *Lembas*, held by six characters apiece. Almost all of the 79 item errors are this class. It is a modelling gap surfacing as a wall of false positives, and false positives are how a checker teaches people to ignore it. |
-| CC-2 | high | open | **The shipped example reports 72 errors and 25 warnings.** Someone who downloads *The Fellowship of the Ring* and clicks the shield meets 97 problems in a world they did not write. Either the example is wrong or the checks are, and either way that is the first impression the feature makes. |
+| CC-1 | high | **fixed** | **The model has no notion of a thing there is more than one of, and the checker reports it as an error.** *"Barrow-blades appears in multiple places in Ch. 12 — Held by: Meriadoc, Peregrin, Samwise, Frodo"*. There are four barrow-blades, one each. Same for *Elven Cloak* and *Lembas*, held by six characters apiece. Almost all of the 79 item errors are this class. It is a modelling gap surfacing as a wall of false positives, and false positives are how a checker teaches people to ignore it. |
+| CC-2 | high | **fixed** | **The shipped example reports 72 errors and 25 warnings.** Someone who downloads *The Fellowship of the Ring* and clicks the shield meets 97 problems in a world they did not write. Either the example is wrong or the checks are, and either way that is the first impression the feature makes. **Measured: the checks are.** Running the checker over the shipped fixture, **71 of the 97 issues are a single rule** — *"X appears in multiple places"* — and the three items it fires on are *Lembas* (6 simultaneous holders), *Elven Cloak* (6) and *Barrow-blades* (4). All three are things there are several of, so the example data is right. **Fixed as CC-1**, which drops the Fellowship from **97 issues to 23, and from 72 errors to 1** — the survivor being a genuine fixture slip (Gandalf alive in Ch. 22 after dying in Ch. 17), and most of the rest legitimate observations about the novel rather than faults. |
 | CC-3 | med | open | **No triage within a category.** *Items 79* is one repeated fault; nothing groups by kind, so the real findings are buried under the noise from CC-1. |
 
 **Correctly caught, for the record:** *"Gandalf the Grey is alive in Ch. 22 after
