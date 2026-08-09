@@ -194,32 +194,24 @@ export default function WorldSelectorView() {
       <main className="flex-1 p-6">
         {worlds.length === 0 ? (
           /*
-            Three of the five entry points, ungainly and ungrouped, used to sit
-            here directly under the header's two groups — a second, competing
-            hierarchy with different labels ("Create World" for the same thing
-            the header calls "New World") and no mention of the Library at all,
-            which is the best first run this app has.
+            No buttons here on purpose.
 
-            So: the one route most people want, the one most people have not
-            thought of, and a sentence pointing at the rest. Repeating all five
-            would only be the original problem twice over.
+            Three of the five entry points used to sit in this space, ungrouped,
+            directly under the header's two labelled groups — a second, competing
+            hierarchy, with a different label for the same thing ("Create World"
+            for what the header calls "New World") and no mention of the Library
+            at all, which is the best first run this app has.
+
+            Repeating a button that is already on screen and already grouped is
+            what caused that, so the empty state names the routes in prose and
+            points up at them instead. It also keeps every entry point to exactly
+            one control: two buttons reading "New World" on one screen is an
+            ambiguity for anyone navigating by name, not only for a test.
           */
           <EmptyState
             icon={Scroll}
             title="No worlds yet"
-            description="Start one from scratch, or open a world built from a published book. You can also bring in a .pwk export or a manuscript draft from the top of the screen."
-            action={
-              <div className="flex flex-wrap justify-center gap-2">
-                <Button onClick={() => setDialogOpen(true)}>
-                  <Plus className="h-4 w-4" />
-                  New World
-                </Button>
-                <Button variant="outline" onClick={() => setLibraryOpen(true)}>
-                  <BookOpen className="h-4 w-4" />
-                  Library
-                </Button>
-              </div>
-            }
+            description="Use New World at the top of the screen to start from scratch, or the Library to open a world built from a published book. You can also bring in a .pwk export or a manuscript draft from there."
           />
         ) : (
           /*

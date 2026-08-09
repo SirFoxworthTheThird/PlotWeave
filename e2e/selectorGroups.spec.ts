@@ -46,41 +46,33 @@ test.describe('World selector entry points', () => {
     await expect(page.getByLabel('Name')).toBeVisible()
   })
 
-  test('the empty shelf points at the same routes rather than competing with them', async ({ page }) => {
+  test('the empty shelf points at the entry points instead of repeating them', async ({ page }) => {
     // Three of the five used to sit in the empty state, ungrouped, under the
-    // header's two groups — a second hierarchy with different labels for the
-    // same things, and no Library at all.
+    // header's two groups — a second hierarchy with a different label for the
+    // same thing, and no Library at all. Repeating them here was what caused
+    // that, so it names them in prose and points up.
     await page.goto('/')
     await resetDB(page)
 
     const empty = page.getByRole('main')
     await expect(empty.getByText('No worlds yet')).toBeVisible({ timeout: 30_000 })
+    await expect(empty).toContainText('New World')
+    await expect(empty).toContainText('Library')
 
-    // Two routes, named exactly as the header names them.
-    await expect(empty.getByRole('button', { name: 'New World' })).toBeVisible()
-    await expect(empty.getByRole('button', { name: 'Library' })).toBeVisible()
-
-    // And no second, differently-labelled copy of the rest. Paired with the
-    // presence above, so neither half can pass because the empty state simply
-    // failed to render.
-    for (const gone of ['Create World', 'Import World', 'Import Manuscript', 'Generate World from AI']) {
-      await expect(empty.getByRole('button', { name: gone }),
-        `"${gone}" should live in the header's groups, not be duplicated here`).toHaveCount(0)
+    // Every entry point is exactly one control on this screen. Two buttons
+    // reading "New World" is an ambiguity for anyone navigating by name, not
+    // only for a test — and it is what broke 199 specs when this empty state
+    // briefly carried its own copy.
+    for (const name of ['New World', 'Generate World from AI', 'Library', 'Import World', 'Import Manuscript']) {
+      await expect(page.getByRole('button', { name, exact: true }),
+        `"${name}" should be one button on the page, not two`).toHaveCount(1)
     }
+    // Nothing in the empty state is a control at all.
+    await expect(empty.getByRole('button')).toHaveCount(0)
 
-    // The routes it does not repeat are still one click away above it.
-    await expect(page.getByRole('group', { name: 'Bring something in' })
-      .getByRole('button', { name: 'Import Manuscript' })).toBeVisible()
-
-    // Both empty-state buttons do what they say. New World first, then Library
-    // last — the library is a full overlay, and clicking through it afterwards
-    // is a race rather than a test.
-    await empty.getByRole('button', { name: 'New World' }).click()
+    // Paired presence: the routes it names are live in the header's groups.
+    await page.getByRole('group', { name: 'Start something new' })
+      .getByRole('button', { name: 'New World' }).click()
     await expect(page.getByLabel('Name')).toBeVisible()
-    await page.keyboard.press('Escape')
-    await expect(page.getByLabel('Name')).toHaveCount(0)
-
-    await empty.getByRole('button', { name: 'Library' }).click()
-    await expect(page.getByRole('button', { name: /^Download \(/ }).first()).toBeVisible({ timeout: 30_000 })
   })
 })
