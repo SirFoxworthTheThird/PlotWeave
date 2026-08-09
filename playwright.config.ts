@@ -17,7 +17,16 @@ export default defineConfig({
   // early test and read it in a later one.
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 1 : 0,
+  // One retry everywhere, not just on CI. Running files in parallel surfaced a
+  // residual ~1%-per-run of timing failures — a navigation interrupted mid-goto,
+  // a keyboard shortcut pressed a beat before its listener is bound — that pass
+  // in isolation and land on a different spec each time. Six such specs were
+  // fixed individually before it was clear that was not converging.
+  //
+  // This does not hide them: Playwright reports a test that failed then passed
+  // as *flaky*, so they stay visible in the summary and can be worked off, while
+  // a genuine regression still fails twice and fails the run.
+  retries: 1,
   // Files, however, run in parallel. The old comment here said workers had to
   // be 1 for "IndexedDB state isolation", but Playwright gives each worker its
   // own browser context and storage is partitioned per context, so the specs do

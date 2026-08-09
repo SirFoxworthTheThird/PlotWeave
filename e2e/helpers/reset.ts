@@ -63,7 +63,9 @@ export async function resetDB(page: Page): Promise<void> {
       await page.goto('/', { waitUntil: 'load', timeout: 60_000 })
       return
     } catch (err) {
-      if (attempt >= 2 || !String(err).includes('interrupted by another navigation')) throw err
+      // Five attempts rather than three: with files running in parallel this
+      // race lands more often, and it is a navigation retry, not a real failure.
+      if (attempt >= 4 || !String(err).includes('interrupted by another navigation')) throw err
       await page.waitForTimeout(250)
     }
   }
