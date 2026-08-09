@@ -104,6 +104,17 @@ interface UISlice {
   setIsAnimating: (v: boolean) => void
   /** Set before navigating to Maps to auto-select + focus a route on arrival. */
   pendingFocusRouteId: string | null
+  /**
+   * Whether the first-run guide is on screen.
+   *
+   * The full nav rail used to sit beside it, so every one of a dozen empty
+   * screens was one click away from a flow trying to walk you through four
+   * steps — the guide and the freedom undercutting each other. Deliberately not
+   * persisted: it describes what is on screen right now, and a stale `true` in
+   * localStorage would hide the rail on a world that has no guide to show.
+   */
+  onboardingActive: boolean
+  setOnboardingActive: (active: boolean) => void
   setPendingFocusRouteId: (id: string | null) => void
   /** Set before navigating to Maps to auto-select + focus a region on arrival. */
   pendingFocusRegionId: string | null
@@ -250,6 +261,9 @@ export const useAppStore = create<AppStore>()(
       setIsAnimating: (v) => set({ isAnimating: v }),
       pendingFocusRouteId: null,
       setPendingFocusRouteId: (id) => set({ pendingFocusRouteId: id }),
+
+      onboardingActive: false,
+      setOnboardingActive: (active) => set({ onboardingActive: active }),
       pendingFocusRegionId: null,
       setPendingFocusRegionId: (id) => set({ pendingFocusRegionId: id }),
       pendingFocusMarkerId: null,
