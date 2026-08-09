@@ -193,23 +193,30 @@ export default function WorldSelectorView() {
 
       <main className="flex-1 p-6">
         {worlds.length === 0 ? (
+          /*
+            Three of the five entry points, ungainly and ungrouped, used to sit
+            here directly under the header's two groups — a second, competing
+            hierarchy with different labels ("Create World" for the same thing
+            the header calls "New World") and no mention of the Library at all,
+            which is the best first run this app has.
+
+            So: the one route most people want, the one most people have not
+            thought of, and a sentence pointing at the rest. Repeating all five
+            would only be the original problem twice over.
+          */
           <EmptyState
             icon={Scroll}
             title="No worlds yet"
-            description="Create your first world or story to start tracking characters, locations, and events."
+            description="Start one from scratch, or open a world built from a published book. You can also bring in a .pwk export or a manuscript draft from the top of the screen."
             action={
               <div className="flex flex-wrap justify-center gap-2">
-                <Button variant="outline" onClick={handleImportClick}>
-                  <Upload className="h-4 w-4" />
-                  Import World
-                </Button>
-                <Button variant="outline" onClick={() => setManuscriptOpen(true)}>
-                  <FileText className="h-4 w-4" />
-                  Import Manuscript
-                </Button>
                 <Button onClick={() => setDialogOpen(true)}>
                   <Plus className="h-4 w-4" />
-                  Create World
+                  New World
+                </Button>
+                <Button variant="outline" onClick={() => setLibraryOpen(true)}>
+                  <BookOpen className="h-4 w-4" />
+                  Library
                 </Button>
               </div>
             }
