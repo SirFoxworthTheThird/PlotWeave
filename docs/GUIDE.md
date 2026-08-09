@@ -1084,6 +1084,22 @@ export the complete grid as **PNG**.
 
 ![Character Arc grid](images/11-arc.png)
 
+**From the keyboard.** The grid is a single stop in the tab order — a cast of
+forty-five across twenty chapters is over six hundred cells, and giving each its
+own stop would mean six hundred presses to cross the screen. Tab into it once,
+then move with the keys a spreadsheet already taught you:
+
+| Key | Moves |
+| --- | --- |
+| Arrows | one cell |
+| Home / End | start or end of the row |
+| Ctrl+Home / Ctrl+End | first or last cell of the grid |
+| PageUp / PageDown | ten rows |
+| Enter or Space | does what clicking the cell does — set the time cursor from a column header, open a notes cell |
+
+Movement stops at the edges rather than wrapping, so scanning one character's
+row never drops you into another's without saying so.
+
 It's the fastest way to audit continuity across the entire book at once.
 
 ---
