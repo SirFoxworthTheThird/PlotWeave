@@ -329,6 +329,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and public-domain Fred Barnard, Phiz, and Project Gutenberg illustrations are recorded in Lore.",
       "worldId": "tale-of-two-cities-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cover%20for%20A%20Tale%20of%20Two%20Cities%2C%20by%20Phiz.jpeg?width=1000"
+    },
+    {
+      "id": "the-moonstone",
+      "title": "The Moonstone",
+      "author": "Wilkie Collins",
+      "blurb": "A sacred yellow diamond vanishes from Rachel Verinder's locked cabinet, drawing a chain of partial narrators through concealed love, material clues, financial pressure, and a missing memory.",
+      "data": "the-moonstone.pwk",
+      "dataBytes": 359966,
+      "counts": {
+        "characters": 27,
+        "chapters": 57,
+        "events": 76,
+        "locations": 34
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and public-domain Harper's Weekly illustrations are recorded in Lore.",
+      "worldId": "moonstone-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Moonstone%20novel%20-%20frontispiece.png?width=1000"
     }
   ]
 }
