@@ -51,4 +51,60 @@ test.describe('Faction reveal', () => {
     expect(results, 'search and the roster disagree about Slytherin House')
       .not.toContain('Slytherin House')
   })
+
+  test("a faction's territories wait for the reader to reach them", async ({ page }) => {
+    // The Territories list queried mapRegions and locationMarkers by factionId
+    // and rendered them straight out, so a faction the reader had met could name
+    // a place they had not. No shipped book has a faction territory, so nothing
+    // exercised this path — the leak that first pointed at it turned out to be a
+    // faction description instead.
+    await page.goto('/')
+    await resetDB(page)
+    await page.getByRole('button', { name: 'Library', exact: true }).click()
+    await page.getByRole('button', { name: /^Download \(/ }).first().click()
+    await expect(page).toHaveURL(/#\/worlds\//, { timeout: 60_000 })
+    await page.waitForTimeout(1500)
+    const worldId = new URL(page.url()).hash.split('/')[2]
+
+    await page.getByRole('button', { name: 'Next moment' }).click()
+    await page.waitForTimeout(1200)
+
+    // Give a faction the reader *has* met a territory they have *not*: a marker
+    // tied to no event at all, which the gate treats as unreached.
+    const attached = await page.evaluate(async () => {
+      const db = (window as { __pwdb?: never }).__pwdb as unknown as {
+        factions: { toArray: () => Promise<{ id: string; name: string }[]> }
+        mapLayers: { toArray: () => Promise<{ id: string; worldId: string }[]> }
+        locationMarkers: { add: (v: Record<string, unknown>) => Promise<unknown> }
+      }
+      const factions = await db.factions.toArray()
+      const dursleys = factions.find((f) => f.name === 'The Dursley Household')
+      const layer = (await db.mapLayers.toArray())[0]
+      if (!dursleys || !layer) return null
+      await db.locationMarkers.add({
+        id: 'terr-unmet-test', worldId: layer.worldId, mapLayerId: layer.id,
+        name: 'Hollow of Testing', description: '', type: 'landmark',
+        x: 100, y: 100, factionId: dursleys.id, linkedMapLayerId: null,
+        iconType: 'landmark', color: null, createdAt: Date.now(), updatedAt: Date.now(),
+      })
+      return dursleys.name
+    })
+    expect(attached, 'the seeding seam should be present in an e2e build').toBe('The Dursley Household')
+
+    await page.goto(`/#/worlds/${worldId}/factions`)
+    await page.getByText('The Dursley Household').first().click()
+    await expect(page.getByText('Territories')).toBeVisible()
+    await expect(page.getByText('Hollow of Testing'),
+      'a territory the reader has not reached should not be listed').toHaveCount(0)
+
+    // The other half: with reading mode off the gate is inactive and nothing is
+    // withheld, so this cannot pass because the territory simply failed to save.
+    await page.goto(`/#/worlds/${worldId}/settings`)
+    await page.getByRole('button', { name: 'Turn off reading mode' }).click()
+    await page.waitForTimeout(1500)
+    await page.goto(`/#/worlds/${worldId}/factions`)
+    await page.getByText('The Dursley Household').first().click()
+    await expect(page.getByText('Hollow of Testing'),
+      'with the whole book revealed the same territory should be listed').toBeVisible({ timeout: 15_000 })
+  })
 })

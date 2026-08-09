@@ -406,12 +406,19 @@ test('map territories wait for the story to reach them', async ({ page }) => {
   await page.getByRole('button', { name: 'Next moment' }).click()
   await page.waitForTimeout(1200)
   await page.goto(`/#${await worldPath(page)}/maps`)
-  await page.waitForTimeout(3000)
-  const shown = await page.evaluate(`(() => document.body.innerText)()`) as string
 
   // Both directions: the rule has to hide the later one *and* keep the earlier
   // one, or it is not gating, it is just hiding regions.
-  expect(shown, 'a territory recorded at the cursor should still be on the map').toContain('Marchlands of Testing')
+  //
+  // The presence half is an auto-waiting assertion rather than a snapshot of
+  // body text taken after a fixed pause. That pause used to decide the result
+  // under load — the snapshot caught the page shell before the map had drawn
+  // anything — and waiting for the region that *must* appear also guarantees
+  // the page has rendered before the absence half reads it.
+  await expect(page.getByText('Marchlands of Testing').first(),
+    'a territory recorded at the cursor should still be on the map').toBeVisible({ timeout: 30_000 })
+
+  const shown = await page.evaluate(`(() => document.body.innerText)()`) as string
   expect(shown, 'a territory not recorded until the end of the book should not').not.toContain('Sundered Vale of Testing')
 })
 
