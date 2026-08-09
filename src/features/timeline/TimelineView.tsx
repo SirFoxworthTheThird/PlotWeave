@@ -405,6 +405,9 @@ export default function TimelineView() {
                   to one timeline, so both of these go dead on the merged view.
                   The message names the tab that put you there — `isAll` is this
                   view's own tab state, not the bottom bar's scope. */}
+              {/* No "make a timeline first" branch: `timelines.length === 0`
+                  returns the empty state above, so this header only ever renders
+                  where there are tabs to pick from. */}
               <BlockingReason
                 checks={[{
                   met: !!currentTimelineId && !isAll,
