@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { cn } from '@/lib/utils'
 import { useAppStore } from '@/store'
@@ -30,15 +30,6 @@ interface OnboardingWizardProps {
 export function OnboardingWizard({ worldId, onExit }: OnboardingWizardProps) {
   const navigate = useNavigate()
   const setActiveEventId = useAppStore((s) => s.setActiveEventId)
-  const setOnboardingActive = useAppStore((s) => s.setOnboardingActive)
-
-  // Declared here rather than by whoever renders the wizard, so mounting and
-  // unmounting are the only two things that can change it — including the skip,
-  // the finish, and navigating away mid-guide.
-  useEffect(() => {
-    setOnboardingActive(true)
-    return () => setOnboardingActive(false)
-  }, [setOnboardingActive])
   const [state, setState] = useState<WizardState>({
     step: 1,
     createdEventId: null,

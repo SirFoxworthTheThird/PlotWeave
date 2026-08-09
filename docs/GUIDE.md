@@ -113,12 +113,6 @@ you create the first timeline and event, add a main character, place that
 character at the opening moment, and then continue to the Timeline. Each optional
 step has **Skip** so you can leave the guide and build the world in any order.
 
-While the guide is up the sidebar shows only **Dashboard**, **Timeline**,
-**Manuscript**, **Characters** and **Maps** — the ten screens that are still
-empty (Corkboard, Calendar, Structure, Items, Relations, Arc, Lore, Factions,
-Knowledge, Settings) stay out of the way until you have something to put in
-them, and come back the moment you leave the guide.
-
 Step 1 creates your first moment, and PlotWeave moves the [time
 cursor](#core-concept-the-time-cursor) to it — so when the guide hands the app
 back, everything that answers "what is true right now?" already has an answer.

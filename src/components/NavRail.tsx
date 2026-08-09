@@ -53,24 +53,11 @@ export function NavRail() {
   const setNavPinned = useAppStore((s) => s.setNavPinned)
   const [hovered, setHovered] = useState(false)
   const readingMode = useReadingMode(worldId ?? null)
-  const onboardingActive = useAppStore((s) => s.onboardingActive)
 
   if (!worldId) return null
   const expanded = navPinned || hovered
 
-  /*
-    During the first-run guide the extended tier goes away.
-
-    Those ten are exactly the "dozen empty screens" the guide is competing with:
-    Corkboard, Calendar, Structure, Items, Relations, Arc, Lore, Factions,
-    Knowledge and Settings all have nothing in them until the guide has run. The
-    five core routes stay, because leaving the guide by the rail is a legitimate
-    thing to want — the alternative, taking the navigation away entirely, makes
-    the guide modal in all but name.
-  */
-  const visible = navItems.filter((n) =>
-    !(readingMode && n.writingOnly) && !(onboardingActive && n.tier === 'extended'),
-  )
+  const visible = navItems.filter((n) => !(readingMode && n.writingOnly))
   const core = visible.filter((n) => n.tier === 'core')
   const extended = visible.filter((n) => n.tier === 'extended')
 
