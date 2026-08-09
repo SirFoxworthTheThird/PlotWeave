@@ -26,13 +26,20 @@ export async function resetDB(page: Page): Promise<void> {
 
   // Let any in-flight client-side navigation settle first, then clear storage.
   // Under load the page can still be navigating, which destroys the evaluate
-  // context; if that happens, settle and retry once.
+  // context. A single retry was enough while the suite ran one file at a time;
+  // with files running in parallel two consecutive failures happen, and this is
+  // the most-called helper in the suite, so it takes a few attempts before
+  // giving up rather than failing the test on a transient navigation.
   await page.waitForLoadState('load').catch(() => {})
-  try {
-    await clearStorage()
-  } catch {
-    await page.waitForLoadState('load').catch(() => {})
-    await clearStorage()
+  for (let attempt = 0; ; attempt++) {
+    try {
+      await clearStorage()
+      break
+    } catch (err) {
+      if (attempt >= 4) throw err
+      await page.waitForLoadState('load').catch(() => {})
+      await page.waitForTimeout(150)
+    }
   }
   // Navigate to / so the app re-opens the fresh DB.
   // Use goto instead of reload to avoid conflicts when a prior test's import

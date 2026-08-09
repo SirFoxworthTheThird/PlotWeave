@@ -127,7 +127,10 @@ test.describe('Search palette', () => {
     const palette = page.getByPlaceholder('Search characters, factions, locations, lore…')
     const worldId = page.url().match(/#\/worlds\/([^/]+)/)![1]
 
-    // Presence: it opens, and stays open while you are on this screen.
+    // Presence: it opens, and stays open while you are on this screen. Wait for
+    // the toolbar button first — the shortcut binds on mount, so pressing it
+    // against a page that has not hydrated lands on nothing.
+    await expect(page.getByTitle('Search (Ctrl+K)')).toBeVisible()
     await page.keyboard.press('Control+k')
     await expect(palette).toBeVisible()
     await expect(palette).toBeFocused()
