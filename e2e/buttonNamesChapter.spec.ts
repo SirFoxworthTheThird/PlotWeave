@@ -66,6 +66,9 @@ test.describe('Chapter detail button names', () => {
     await expect(page.getByRole('button', { name: 'Delete “Hallow End burns”' })).toBeVisible()
     // An untitled scene still gets a name that distinguishes it from a titled one.
     await expect(page.getByRole('button', { name: 'Delete this untitled scene' })).toBeVisible()
+    // Including its own title button, which otherwise renders an empty span and
+    // is the one card on the page a screen reader could say nothing about.
+    await expect(page.getByRole('button', { name: 'Untitled scene', exact: true })).toBeVisible()
 
     // And the names drive the control, so they are attached to the right button:
     // the second scene moved earlier becomes the first, whose "move earlier" is

@@ -308,7 +308,15 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
     <div className="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))]">
       {/* Header row */}
       <div className="flex items-center gap-1 px-3 py-2">
-        <button className="flex-1 min-w-0 text-left" onClick={() => !editing && setExpanded((v) => !v)}>
+        <button
+          className="flex-1 min-w-0 text-left"
+          // An untitled scene renders an empty span, which leaves this button
+          // with no accessible name at all — the one card on the page a screen
+          // reader could say nothing about.
+          aria-label={event.title ? undefined : 'Untitled scene'}
+          aria-expanded={editing ? undefined : expanded}
+          onClick={() => !editing && setExpanded((v) => !v)}
+        >
           {editing ? (
             <Input
               value={title}
@@ -318,7 +326,9 @@ export function EventCard({ event, isFirst, isLast, onMoveUp, onMoveDown, inWorl
               autoFocus
             />
           ) : (
-            <span className="text-sm font-medium text-[hsl(var(--foreground))] truncate block">{event.title}</span>
+            <span className="text-sm font-medium text-[hsl(var(--foreground))] truncate block">
+              {event.title || <span className="italic text-[hsl(var(--muted-foreground))]">Untitled scene</span>}
+            </span>
           )}
         </button>
 
