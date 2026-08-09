@@ -312,6 +312,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps, heritage plans, and public-domain book illustrations are recorded in Lore.",
       "worldId": "count-of-monte-cristo-world",
       "cover": "https://www.gutenberg.org/files/1184/1184-h/images/0009m.jpg"
+    },
+    {
+      "id": "a-tale-of-two-cities",
+      "title": "A Tale of Two Cities",
+      "author": "Charles Dickens",
+      "blurb": "Lucie Manette, Charles Darnay, and Sydney Carton are bound across London and Paris as private resurrection, inherited injustice, revolution, and chosen sacrifice converge.",
+      "data": "a-tale-of-two-cities.pwk",
+      "dataBytes": 341133,
+      "counts": {
+        "characters": 25,
+        "chapters": 45,
+        "events": 58,
+        "locations": 28
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and public-domain Fred Barnard, Phiz, and Project Gutenberg illustrations are recorded in Lore.",
+      "worldId": "tale-of-two-cities-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cover%20for%20A%20Tale%20of%20Two%20Cities%2C%20by%20Phiz.jpeg?width=1000"
     }
   ]
 }
