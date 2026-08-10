@@ -127,11 +127,15 @@ The four steps are named across the top — *Begin your story*, *Add a character
 *Place them in the story*, *Done* — so you can see what the guide will ask before
 you agree to any of it. On a phone only the step you are on is named; the numbers
 and ticks still show where you are. Step 1's button reads **Create and continue**:
-it makes the timeline you have just named and moves the guide on.
+it makes what you have just named and moves the guide on.
 
-Step 1 creates your first moment, and PlotWeave moves the [time
-cursor](#core-concept-the-time-cursor) to it — so when the guide hands the app
-back, everything that answers "what is true right now?" already has an answer.
+Step 1 asks for two names — the **timeline**, meaning the stretch of time your
+story runs over, and the **first scene**, the moment it opens on — and says what
+it will build from them: the timeline, a *Chapter 1* inside it, and that scene
+inside the chapter. All three can be renamed later. PlotWeave then moves the
+[time cursor](#core-concept-the-time-cursor) to that scene, so when the guide
+hands the app back, everything that answers "what is true right now?" already has
+an answer.
 
 While the guide is on screen it takes the middle of it, and the navigation rail
 steps back so the next thing to do is the clearest thing to see. The rail is
