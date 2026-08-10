@@ -80,7 +80,9 @@ export function StepTimeline({ worldId, onComplete, onSkip }: StepTimelineProps)
 
       <div className="flex flex-col items-start gap-2">
         <Button type="submit" disabled={loading} aria-busy={loading}>
-          {loading ? 'Creating…' : 'Begin'}
+          {/* NEW-3: this read "Begin", which is what the wizard has already
+              done. The button makes the timeline the field above names. */}
+          {loading ? 'Creating…' : 'Create timeline'}
         </Button>
         <button
           type="button"
