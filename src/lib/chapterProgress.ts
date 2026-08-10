@@ -67,6 +67,17 @@ export function describeProgress(p: ChapterProgress): string {
 }
 
 /**
+ * How much board there is, for the corkboard's header (CB-2). Chapters rather
+ * than scenes lead, because chapters are the columns — the thing that runs off
+ * the right-hand edge.
+ */
+export function describeBoard(chapters: number, scenes: number): string {
+  const c = `${chapters} ${chapters === 1 ? 'chapter' : 'chapters'}`
+  if (scenes === 0) return c
+  return `${c} · ${scenes} ${scenes === 1 ? 'scene' : 'scenes'}`
+}
+
+/**
  * What the rolled-up status pill means, in a sentence, for its tooltip. A pill
  * reading *Idea* on a chapter of five scenes is otherwise ambiguous between
  * "all five are ideas" and "one of them is".

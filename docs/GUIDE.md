@@ -630,6 +630,10 @@ see structure at a glance and shuffle it. Each chapter is a column; each scene
   outline shows nothing rather than *0 words*.
 - **Each column header totals its chapter** — *4 scenes · 3,100 words* — which
   is the one thing a column cannot show you once its cards scroll.
+- **The header says how big the board is** — *17 chapters · 74 scenes* — and a
+  chevron at each edge moves you about a screenful through it. Each appears only
+  when there is board in that direction, so the right-hand one going away means
+  you have reached the last chapter.
 - **Click a card's title** to jump to that scene in the chapter detail with the
   time cursor set to it.
 - The card for the scene the **time cursor** is on is outlined, so moving along
@@ -861,6 +865,11 @@ row of thread pills above the chapters. Click a thread to focus the timeline on
 that subplot: only chapters that advance it are listed, each expanded to show
 just the scenes tagged with it, so you can read a subplot end-to-end without the
 surrounding story. Click **All threads** to clear the filter.
+
+The row stops at six pills so it cannot grow into the chapters below it; any
+beyond that fold behind **+N more**, which unfolds the lot. Whichever thread you
+are filtering by stays on the row either way, so the strip always shows what it
+is filtering by.
 
 ![Filtering the timeline by plot thread](images/48-thread-filter.png)
 

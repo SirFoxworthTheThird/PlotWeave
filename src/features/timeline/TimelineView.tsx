@@ -7,6 +7,7 @@ import { usePlotThreads } from '@/db/hooks/usePlotThreads'
 import { useWorldSceneTexts } from '@/db/hooks/useManuscript'
 import { buildCombinedSequence, type CombinedOrder, type CombinedRow } from '@/lib/combinedTimeline'
 import { chaptersWithThread } from '@/lib/plotThreads'
+import { threadStrip } from '@/lib/threadStrip'
 import { useWorld } from '@/db/hooks/useWorlds'
 import { useAppStore } from '@/store'
 import { computeInWorldDays } from '@/lib/inWorldTime'
@@ -197,6 +198,8 @@ export default function TimelineView() {
   const [viewMode, setViewMode] = useState<'narrative' | 'chronological'>('narrative')
   const threads = usePlotThreads(worldId ?? null)
   const [threadFilter, setThreadFilter] = useState<string | null>(null)
+  const [threadsExpanded, setThreadsExpanded] = useState(false)
+  const strip = threadStrip(threads, threadFilter, threadsExpanded)
   const setActiveEventId = useAppStore((s) => s.setActiveEventId)
   const activeEventId = useAppStore((s) => s.activeEventId)
   // The combined view's order is shared with the bottom bar's scope selector
@@ -480,7 +483,7 @@ export default function TimelineView() {
                     >
                       All threads
                     </button>
-                    {threads.map((t) => (
+                    {strip.shown.map((t) => (
                       <button
                         key={t.id}
                         onClick={() => setThreadFilter(threadFilter === t.id ? null : t.id)}
@@ -494,6 +497,17 @@ export default function TimelineView() {
                         {t.name}
                       </button>
                     ))}
+                    {/* TL-5: the strip used to wrap without limit, so it grew a
+                        row at a time as the writer added threads and took the
+                        space from the chapters below. */}
+                    {(strip.hidden > 0 || threadsExpanded) && (
+                      <button
+                        onClick={() => setThreadsExpanded((v) => !v)}
+                        className="rounded-full px-2 py-0.5 text-xs text-[hsl(var(--muted-foreground))] underline-offset-2 hover:underline hover:text-[hsl(var(--foreground))]"
+                      >
+                        {threadsExpanded ? 'Show fewer' : `+${strip.hidden} more`}
+                      </button>
+                    )}
                   </div>
                 )}
                 {(() => {

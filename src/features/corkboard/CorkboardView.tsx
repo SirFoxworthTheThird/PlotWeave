@@ -1,10 +1,10 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Eye, GripVertical, LayoutGrid } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Eye, GripVertical, LayoutGrid } from 'lucide-react'
 import { useWorldChapters, useWorldEvents, useTimelines, moveEventOnBoard, updateEvent } from '@/db/hooks/useTimeline'
 import { useCharacters } from '@/db/hooks/useCharacters'
 import { useWorldSceneTexts } from '@/db/hooks/useManuscript'
-import { chapterProgress, describeProgress } from '@/lib/chapterProgress'
+import { chapterProgress, describeProgress, describeBoard } from '@/lib/chapterProgress'
 import { EVENT_STATUSES, eventStatusConfig } from '@/lib/eventStatus'
 import { charColor } from '@/lib/characterColor'
 import { useAppStore } from '@/store'
@@ -120,6 +120,8 @@ export default function CorkboardView() {
 
   const [drag, setDrag] = useState<DragState | null>(null)
   const [overChapter, setOverChapter] = useState<string | null>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [edges, setEdges] = useState({ left: false, right: false })
 
   const charById = useMemo(() => new Map(characters.map((c) => [c.id, c])), [characters])
   const wordsByEvent = useMemo(
@@ -141,6 +143,32 @@ export default function CorkboardView() {
     for (const list of byChapter.values()) list.sort((a, b) => a.sortOrder - b.sortOrder)
     return ordered.map((ch) => ({ chapter: ch, events: byChapter.get(ch.id) ?? [] }))
   }, [chapters, events])
+
+  // Which way there is more board (CB-2). Recomputed on scroll, on resize, and
+  // whenever the column count changes — the last of these matters because a
+  // world's chapters arrive from a live query after the first paint, so
+  // measuring only once would always measure an empty board.
+  const measureEdges = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    setEdges({
+      left: el.scrollLeft > 1,
+      right: el.scrollLeft + el.clientWidth < el.scrollWidth - 1,
+    })
+  }, [])
+
+  useEffect(() => {
+    measureEdges()
+    window.addEventListener('resize', measureEdges)
+    return () => window.removeEventListener('resize', measureEdges)
+  }, [measureEdges, columns.length])
+
+  /** Move about a screenful, so a press lands on columns you have not seen. */
+  function nudge(direction: 1 | -1) {
+    const el = scrollRef.current
+    if (!el) return
+    el.scrollBy({ left: direction * el.clientWidth * 0.8, behavior: 'smooth' })
+  }
 
   function openEvent(ev: WorldEvent) {
     setActiveEventId(ev.id)
@@ -176,13 +204,48 @@ export default function CorkboardView() {
   return (
     <div className="flex h-full flex-col">
       <div className="border-b border-[hsl(var(--border))] px-6 py-3">
-        <h1 className="text-lg font-semibold text-[hsl(var(--foreground))]">Corkboard</h1>
+        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+          <h1 className="text-lg font-semibold text-[hsl(var(--foreground))]">Corkboard</h1>
+          {/* CB-2: five of seventeen columns fit on screen, and nothing said the
+              other twelve existed. The board's size belongs where you look
+              first. */}
+          <span className="text-xs tabular-nums text-[hsl(var(--muted-foreground))]">
+            {describeBoard(columns.length, events.length)}
+          </span>
+        </div>
         <p className="text-xs text-[hsl(var(--muted-foreground))]">
           Drag scene cards to reorder them within a chapter or move them to another.
         </p>
       </div>
 
-      <div className="flex-1 overflow-x-auto p-4">
+      {/*
+        CB-2, the other half: the board runs off the right-hand edge and the
+        only thing that said so was the platform scrollbar — which draws as an
+        overlay here, measured at a 0px gutter, so it is invisible until you are
+        already scrolling. These are drawn by the app instead, so they are
+        present before the first gesture and reachable from the keyboard. Each
+        appears only when there is board in that direction.
+      */}
+      <div className="relative min-h-0 flex-1">
+        {edges.left && (
+          <button
+            aria-label="Scroll to earlier chapters"
+            onClick={() => nudge(-1)}
+            className="absolute left-1 top-1/2 z-10 -translate-y-1/2 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-1.5 text-[hsl(var(--muted-foreground))] shadow-md hover:text-[hsl(var(--foreground))]"
+          >
+            <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+          </button>
+        )}
+        {edges.right && (
+          <button
+            aria-label="Scroll to later chapters"
+            onClick={() => nudge(1)}
+            className="absolute right-1 top-1/2 z-10 -translate-y-1/2 rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-1.5 text-[hsl(var(--muted-foreground))] shadow-md hover:text-[hsl(var(--foreground))]"
+          >
+            <ChevronRight className="h-4 w-4" aria-hidden="true" />
+          </button>
+        )}
+        <div ref={scrollRef} onScroll={measureEdges} className="h-full overflow-x-auto p-4">
         <div className="flex h-full gap-4">
           {columns.map(({ chapter, events: colEvents }) => {
             const isOver = overChapter === chapter.id
@@ -248,6 +311,7 @@ export default function CorkboardView() {
               </div>
             )
           })}
+        </div>
         </div>
       </div>
     </div>
