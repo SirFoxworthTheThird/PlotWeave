@@ -45,13 +45,19 @@ test.describe('The first-run wizard says what it is asking for', () => {
     expect(dots.length).toBe(4)
   })
 
-  test('NEW-3: the step-1 button names what it makes', async ({ page }) => {
+  test('NEW-3: the step-1 button names what it does', async ({ page }) => {
     await firstRun(page)
 
     // "Begin" read as "start the wizard", which had already started.
     await expect(page.getByRole('button', { name: 'Begin', exact: true })).toHaveCount(0)
 
-    const create = page.getByRole('button', { name: 'Create timeline' })
+    // And not "Create timeline" either: the Timeline screen's empty state has a
+    // "Create Timeline" button, and `getByRole` matches names case-insensitively,
+    // so re-using it made the two indistinguishable across a navigation. Two
+    // specs started failing intermittently on exactly that.
+    await expect(page.getByRole('button', { name: 'Create timeline', exact: true })).toHaveCount(0)
+
+    const create = page.getByRole('button', { name: 'Create and continue' })
     await expect(create).toBeVisible()
     await page.getByLabel('Timeline name').fill('The Age of Embers')
     await create.click()

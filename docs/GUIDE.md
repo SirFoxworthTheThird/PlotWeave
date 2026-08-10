@@ -122,7 +122,8 @@ step has **Skip** so you can leave the guide and build the world in any order.
 The four steps are named across the top — *Begin your story*, *Add a character*,
 *Place them in the story*, *Done* — so you can see what the guide will ask before
 you agree to any of it. On a phone only the step you are on is named; the numbers
-and ticks still show where you are.
+and ticks still show where you are. Step 1's button reads **Create and continue**:
+it makes the timeline you have just named and moves the guide on.
 
 Step 1 creates your first moment, and PlotWeave moves the [time
 cursor](#core-concept-the-time-cursor) to it — so when the guide hands the app
