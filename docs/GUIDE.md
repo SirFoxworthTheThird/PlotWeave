@@ -1264,6 +1264,19 @@ The search box filters character rows, while the **Factions**, **Status**, and
 Click a column to move the time cursor, expand a notes cell for its full text, or
 export the complete grid as **PNG**.
 
+**Rows lead with who is actually in the book.** The default order is **Most
+seen** — how many scenes a character is the POV of, is involved in, or is named
+in, counted once per scene however many of those apply — with **A–Z** beside it
+for when you already know whose row you want. If some of your cast have no
+recorded state at all, a button offers to **hide** them and says how many: on a
+long grid that is usually the difference between a screen of story and a screen
+of blanks. Pressing it again brings them back.
+
+**A carried-forward cell looks carried forward.** Where a chapter records no
+change, the grid shows the state inherited from earlier — dimmed, and marked with
+a small clock — so a run of eleven unchanged chapters reads as one decision
+holding rather than eleven decisions taken.
+
 ![Character Arc grid](images/11-arc.png)
 
 **From the keyboard.** The grid is a single stop in the tab order — a cast of
