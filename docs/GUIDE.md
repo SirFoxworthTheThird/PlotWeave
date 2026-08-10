@@ -468,6 +468,13 @@ shape of your story at a glance.
 - **View from here** on a chapter row moves the time cursor to that chapter's
   first moment; it reads **Viewing** while the cursor is inside the chapter, and
   pressing it again goes back to *All chapters*.
+- **Every chapter row says how much chapter there is** — *3 scenes · 1,240
+  words* — without opening it. A chapter you have outlined but not yet written
+  shows only its scene count, and an empty one says *No scenes*. Beside the
+  counts, a status pill rolls the chapter's scenes up to the **least advanced**
+  of them: four Final scenes and one Idea reads *Idea*, because the chapter is
+  not finished until all of it is. Hover the pill and it tells you which of the
+  two it means — *Every scene is Final*, or *Least advanced of 5 scenes: Idea*.
 - **Deleting is always one step in.** A chapter row, a scene card, a character's
   header and a lore card each carry a **⋯** menu, and delete lives inside it,
   set apart and in red. Nothing destructive sits in the row beside the everyday
@@ -618,6 +625,11 @@ see structure at a glance and shuffle it. Each chapter is a column; each scene
 - **Drag a card** to reorder scenes within a chapter, or drop it into another
   chapter's column to move it there — the timeline order updates to match.
 - **Change a scene's status** right on the card with the status pill.
+- **Each card carries its length** once there is prose in it, so long and short
+  scenes are comparable down a column at a glance. A scene that is still only an
+  outline shows nothing rather than *0 words*.
+- **Each column header totals its chapter** — *4 scenes · 3,100 words* — which
+  is the one thing a column cannot show you once its cards scroll.
 - **Click a card's title** to jump to that scene in the chapter detail with the
   time cursor set to it.
 - The card for the scene the **time cursor** is on is outlined, so moving along

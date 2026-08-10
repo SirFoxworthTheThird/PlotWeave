@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Eye, GripVertical, LayoutGrid } from 'lucide-react'
 import { useWorldChapters, useWorldEvents, useTimelines, moveEventOnBoard, updateEvent } from '@/db/hooks/useTimeline'
 import { useCharacters } from '@/db/hooks/useCharacters'
+import { useWorldSceneTexts } from '@/db/hooks/useManuscript'
+import { chapterProgress, describeProgress } from '@/lib/chapterProgress'
 import { EVENT_STATUSES, eventStatusConfig } from '@/lib/eventStatus'
 import { charColor } from '@/lib/characterColor'
 import { useAppStore } from '@/store'
@@ -18,10 +20,12 @@ interface DragState {
 // ── One scene card ─────────────────────────────────────────────────────────────
 
 function SceneCard({
-  event, pov, isCurrent, onOpen, onStatusChange, onDragStart, onDragEnd, dragging,
+  event, pov, words, isCurrent, onOpen, onStatusChange, onDragStart, onDragEnd, dragging,
 }: {
   event: WorldEvent
   pov: Character | null
+  /** Words of prose written for this scene, 0 when none (CB-3). */
+  words: number
   /** The scene the time cursor is on (W-1). */
   isCurrent: boolean
   onOpen: () => void
@@ -61,10 +65,20 @@ function SceneCard({
 
       <div className="mt-2 flex items-center gap-2">
         {pov && (
-          <span className="flex items-center gap-1 text-[10px] text-[hsl(var(--muted-foreground))]" title={`POV: ${pov.name}`}>
-            <Eye className="h-2.5 w-2.5" aria-hidden="true" />
-            <span className="inline-block h-2 w-2 rounded-full" style={{ background: charColor(pov) }} />
-            <span className="max-w-[6rem] truncate">{pov.name}</span>
+          // `min-w-0` so the name yields space to the word count beside it
+          // rather than pushing it out of a 256px column.
+          <span className="flex min-w-0 items-center gap-1 text-[10px] text-[hsl(var(--muted-foreground))]" title={`POV: ${pov.name}`}>
+            <Eye className="h-2.5 w-2.5 shrink-0" aria-hidden="true" />
+            <span className="inline-block h-2 w-2 shrink-0 rounded-full" style={{ background: charColor(pov) }} />
+            <span className="truncate">{pov.name}</span>
+          </span>
+        )}
+        {/* CB-3: the corkboard is where scene length should be comparable at a
+            glance. A scene with no prose yet shows nothing rather than "0
+            words" — the outlining is the work that has been done. */}
+        {words > 0 && (
+          <span className="shrink-0 text-[10px] tabular-nums text-[hsl(var(--muted-foreground))]">
+            {words.toLocaleString()} {words === 1 ? 'word' : 'words'}
           </span>
         )}
         {/* Status pill doubles as a quick-change select. */}
@@ -102,11 +116,16 @@ export default function CorkboardView() {
   const events     = useWorldEvents(worldId ?? null)
   const characters = useCharacters(worldId ?? null)
   const timelines  = useTimelines(worldId ?? null)
+  const sceneTexts = useWorldSceneTexts(worldId ?? null)
 
   const [drag, setDrag] = useState<DragState | null>(null)
   const [overChapter, setOverChapter] = useState<string | null>(null)
 
   const charById = useMemo(() => new Map(characters.map((c) => [c.id, c])), [characters])
+  const wordsByEvent = useMemo(
+    () => new Map(sceneTexts.map((t) => [t.eventId, t.wordCount ?? 0])),
+    [sceneTexts],
+  )
   const multiTimeline = timelines.length > 1
   const timelineById = useMemo(() => new Map(timelines.map((t) => [t.id, t])), [timelines])
 
@@ -168,6 +187,7 @@ export default function CorkboardView() {
           {columns.map(({ chapter, events: colEvents }) => {
             const isOver = overChapter === chapter.id
             const tl = timelineById.get(chapter.timelineId)
+            const progress = chapterProgress(colEvents, wordsByEvent)
             return (
               <div
                 key={chapter.id}
@@ -181,6 +201,15 @@ export default function CorkboardView() {
                     Chapter {chapter.number}{multiTimeline && tl ? ` · ${tl.name}` : ''}
                   </p>
                   <p className="truncate text-sm font-medium text-[hsl(var(--foreground))]">{chapter.title}</p>
+                  {/* CB-4: the header named the chapter but not how much of it
+                      there is, which is the one thing a column of cards cannot
+                      show once it scrolls. An empty column is left to the "No
+                      scenes yet" line below, which is also its drop target. */}
+                  {progress.scenes > 0 && (
+                    <p className="text-[11px] tabular-nums text-[hsl(var(--muted-foreground))]">
+                      {describeProgress(progress)}
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-1 flex-col gap-2 overflow-y-auto p-2">
@@ -205,6 +234,7 @@ export default function CorkboardView() {
                       <SceneCard
                         event={ev}
                         pov={ev.povCharacterId ? charById.get(ev.povCharacterId) ?? null : null}
+                        words={wordsByEvent.get(ev.id) ?? 0}
                         isCurrent={ev.id === activeEventId}
                         dragging={drag?.eventId === ev.id}
                         onOpen={() => openEvent(ev)}

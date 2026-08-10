@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { Plus, BookOpen, Layers, Sparkles, Link2, X, AlignLeft, Clock, History, ListOrdered, Filter } from 'lucide-react'
 import { useTimelines, useChapters, useTimelineEvents, useWorldChapters, useWorldEvents, createTimeline, updateTimeline, deleteTimeline } from '@/db/hooks/useTimeline'
 import { usePlotThreads } from '@/db/hooks/usePlotThreads'
+import { useWorldSceneTexts } from '@/db/hooks/useManuscript'
 import { buildCombinedSequence, type CombinedOrder, type CombinedRow } from '@/lib/combinedTimeline'
 import { chaptersWithThread } from '@/lib/plotThreads'
 import { useWorld } from '@/db/hooks/useWorlds'
@@ -187,6 +188,12 @@ export default function TimelineView() {
     [timelineEvents, gate],
   )
   const worldEvents = useWorldEvents(isAll ? worldId ?? null : null)
+  // TL-4: resolved once here rather than per chapter row — see `ChapterRow`.
+  const sceneTexts = useWorldSceneTexts(worldId ?? null)
+  const wordsByEvent = useMemo(
+    () => new Map(sceneTexts.map((t) => [t.eventId, t.wordCount ?? 0])),
+    [sceneTexts],
+  )
   const [viewMode, setViewMode] = useState<'narrative' | 'chronological'>('narrative')
   const threads = usePlotThreads(worldId ?? null)
   const [threadFilter, setThreadFilter] = useState<string | null>(null)
@@ -499,7 +506,7 @@ export default function TimelineView() {
                     )
                   }
                   return shown.map((ch) => (
-                    <ChapterRow key={ch.id} chapter={ch} threadFilter={threadFilter} />
+                    <ChapterRow key={ch.id} chapter={ch} threadFilter={threadFilter} wordsByEvent={wordsByEvent} />
                   ))
                 })()}
               </>
