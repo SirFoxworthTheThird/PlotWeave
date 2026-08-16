@@ -414,6 +414,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial chronology, not the novel’s prose. Historical maps and public-domain book illustrations are linked in the file.",
       "worldId": "woman-in-white-world",
       "cover": "https://upload.wikimedia.org/wikipedia/commons/2/23/The_woman_in_white_Cover_1890.jpg"
+    },
+    {
+      "id": "the-lost-world",
+      "title": "The Lost World",
+      "author": "Arthur Conan Doyle",
+      "blurb": "A reporter, two rival professors, and a veteran explorer cross into an isolated plateau where prehistoric life survives—and must return with proof the world cannot dismiss.",
+      "data": "the-lost-world.pwk",
+      "dataBytes": 278758,
+      "counts": {
+        "characters": 10,
+        "chapters": 16,
+        "events": 32,
+        "locations": 27
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Historical maps and public-domain book illustrations are linked in the file.",
+      "worldId": "lost-world-world",
+      "cover": "https://arthurconandoyle.co.uk/images/characters/original%20serialization%20of%20The%20Lost%20World%20in%20Strand%20Magazine-11042019144308.jpg"
     }
   ]
 }
