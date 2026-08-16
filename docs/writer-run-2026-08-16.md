@@ -39,7 +39,7 @@ Ranked by what it costs a writer, not by how hard it is to fix.
 
 ---
 
-### W-1 · high · The character panel writes a status note I never typed
+### W-1 · high · ~~The character panel writes a status note I never typed~~ — **fixed**
 
 **What I did.** Map screen. Time cursor on *Ch.3 — Rhun finds the letter*.
 Opened Rhun Aldemar's panel from the map sidebar and typed into **Status**:
@@ -110,7 +110,7 @@ different component.
 
 ---
 
-### W-2 · high · The Continuity Checker calls every death scene a continuity error
+### W-2 · high · ~~The Continuity Checker calls every death scene a continuity error~~ — **fixed**
 
 **What I did, from scratch, in my own world.** Six steps:
 1. Chapter detail for Ch.1, expanded *Marren does not come home*, `+ Characters` → **Marren Vane**.
@@ -179,7 +179,7 @@ finds 69 more.
 
 ---
 
-### W-3 · med-high · Knowledge's three "when" pickers are in database order
+### W-3 · med-high · ~~Knowledge's three "when" pickers are in database order~~ — **fixed**
 
 **What I did.** *Dracula*, Knowledge, fact *"Dracula is a vampire"* →
 **Learns it at…**
@@ -483,6 +483,13 @@ scrolls, and is genuinely good. `TL-1` made this chart readable; nothing has
 made it proportionate when there is little to plot.
 
 ---
+
+
+> **Fixed.** See `docs/ux-review.md` (filed there as WRUN-1, WRUN-2 and WRUN-3,
+> because that document already has a W-1 and a W-2) for what was changed and
+> what the mutation sweep had to say about it — including that the first
+> attempt at W-1 was incomplete, and that this run's own e2e was vacuous until
+> the blur and the cursor step were made a single gesture.
 
 ## What I only suspect
 
