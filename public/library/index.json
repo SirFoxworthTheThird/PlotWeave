@@ -363,6 +363,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and public-domain Harper's Weekly illustrations are recorded in Lore.",
       "worldId": "moonstone-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Moonstone%20novel%20-%20frontispiece.png?width=1000"
+    },
+    {
+      "id": "the-three-musketeers",
+      "title": "The Three Musketeers",
+      "author": "Alexandre Dumas",
+      "blurb": "A young Gascon joins Athos, Porthos, and Aramis as court secrets, English diamonds, Milady de Winter, and the siege of La Rochelle turn friendship into a test of loyalty.",
+      "data": "the-three-musketeers.pwk",
+      "dataBytes": 257317,
+      "counts": {
+        "characters": 23,
+        "chapters": 67,
+        "events": 67,
+        "locations": 19
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked historical maps and public-domain illustrations are recorded in Lore.",
+      "worldId": "three-musketeers-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dartagnan-musketeers%20-%20Maurice%20Leloir.jpg?width=1200"
     }
   ]
 }
