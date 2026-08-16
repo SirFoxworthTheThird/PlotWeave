@@ -331,6 +331,23 @@
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cover%20for%20A%20Tale%20of%20Two%20Cities%2C%20by%20Phiz.jpeg?width=1000"
     },
     {
+      "id": "jane-eyre",
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "blurb": "Jane Eyre moves from an unloved childhood through Lowood, Thornfield, the moors, and the discovery of family while insisting that love must preserve conscience and equality.",
+      "data": "jane-eyre.pwk",
+      "dataBytes": 330462,
+      "counts": {
+        "characters": 22,
+        "chapters": 38,
+        "events": 78,
+        "locations": 30
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps, representative plans, and public-domain book illustrations are recorded in Lore.",
+      "worldId": "jane-eyre-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Jeanne%20Eyre%20-%20Editions%20Hachette%201872.jpg?width=960"
+    },
+    {
       "id": "the-moonstone",
       "title": "The Moonstone",
       "author": "Wilkie Collins",
