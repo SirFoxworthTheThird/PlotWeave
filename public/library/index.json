@@ -397,6 +397,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked historical maps and public-domain illustrations are recorded in Lore.",
       "worldId": "three-musketeers-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dartagnan-musketeers%20-%20Maurice%20Leloir.jpg?width=1200"
+    },
+    {
+      "id": "the-woman-in-white",
+      "title": "The Woman in White",
+      "author": "Wilkie Collins",
+      "blurb": "A drawing master, two half-sisters, and a woman escaped from confinement assemble the evidence behind a conspiracy of identity, inheritance, and law.",
+      "data": "the-woman-in-white.pwk",
+      "dataBytes": 387240,
+      "counts": {
+        "characters": 18,
+        "chapters": 62,
+        "events": 62,
+        "locations": 23
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial chronology, not the novel’s prose. Historical maps and public-domain book illustrations are linked in the file.",
+      "worldId": "woman-in-white-world",
+      "cover": "https://upload.wikimedia.org/wikipedia/commons/2/23/The_woman_in_white_Cover_1890.jpg"
     }
   ]
 }
