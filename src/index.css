@@ -369,7 +369,11 @@
     --tl-backdrop:       none;
     --canvas: 45 6% 3%;
     --theme-backdrop: radial-gradient(circle at 72% 16%, hsl(45 10% 55% / 0.12), transparent 28%), linear-gradient(145deg, hsl(0 0% 3%), hsl(45 5% 9%));
-    --theme-atmosphere: repeating-linear-gradient(105deg, transparent 0 42px, hsl(45 18% 92% / 0.035) 42px 49px, transparent 49px 73px), radial-gradient(ellipse at center, transparent 55%, hsl(0 0% 0% / 0.24) 100%);
+    /* The light-leak bands are gone. Seven pixels of near-white every 73 read
+       as damage rather than film, and moving them behind the app only meant
+       they streaked the space around it instead of the text. The vignette is
+       the noir signature anyway, and it carries the theme on its own. */
+    --theme-atmosphere: radial-gradient(ellipse at center, transparent 55%, hsl(0 0% 0% / 0.24) 100%);
   }
 
   /* ── Romance (Cream & Rose-Gold) ── */

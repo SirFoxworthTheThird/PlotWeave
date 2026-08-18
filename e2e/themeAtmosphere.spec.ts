@@ -8,7 +8,8 @@ import { APP_THEMES, themeClass } from '../src/lib/themes'
  *
  * It was painted by `body::after` at `z-index: 9999` — the value dialogs use,
  * so it won a tie on document order and drew over cards, dialogs and their
- * text. Noir's film scratches ran straight across the words of a modal.
+ * text. Noir's light-leak bands ran straight across the words of a modal; they
+ * are gone now, and its vignette carries the theme instead.
  *
  * Some of it was not texture at all. Sci-fi's starfield was **two** circles at
  * fixed viewport percentages, which reads as dead pixels; default, cyberpunk
@@ -69,6 +70,25 @@ test.describe('Theme atmosphere', () => {
   })
 
   /**
+   * Noir carries no bands, and this is **taste rather than the shape rule**.
+   *
+   * Seven pixels of near-white every 73 is a repeating pattern, so everything
+   * above permits it; it was removed because it reads as damage rather than
+   * film, and moving the layer behind the app only meant it streaked the space
+   * around the cards instead of the words. Recorded here because a decision
+   * nothing checks is one the next edit undoes by accident.
+   */
+  test('leaves noir its vignette and no scratches', async ({ page }) => {
+    await themedWorld(page)
+    await applyTheme(page, themeClass('noir'))
+
+    const value = await atmosphereOf(page)
+    expect(value, 'noir should carry no bands').not.toContain('repeating-linear-gradient(')
+    // The pair: it is not simply empty — the vignette is what carries the theme.
+    expect(value).toContain('radial-gradient(')
+  })
+
+  /**
    * Where the layer sits, measured rather than asserted about the stylesheet:
    * the same dialog is photographed with the texture on and with it suppressed,
    * and the two must be identical — the texture cannot reach the dialog.
@@ -78,8 +98,16 @@ test.describe('Theme atmosphere', () => {
    */
   test('is painted behind the app, not over it', async ({ page }) => {
     await themedWorld(page)
-    // Noir, because its hatching is the boldest and it was the worst offender.
-    await applyTheme(page, themeClass('noir'))
+    /*
+      Cyberpunk, because a grid is the boldest repeating texture left and it
+      crosses the whole window — so if this layer ever climbs back over the app,
+      the dialog's pixels change and this fails loudly.
+
+      It was noir until noir's light-leak bands were removed; a vignette alone
+      still proves the point but barely reaches the middle of the screen, which
+      is a thinner test than it reads as.
+    */
+    await applyTheme(page, themeClass('cyberpunk'))
     await page.waitForTimeout(400)
 
     const dialog = page.locator('#root').getByText('Your story begins with a moment').locator('..')
