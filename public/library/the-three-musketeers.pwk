@@ -7,7 +7,7 @@
     "name": "The Three Musketeers",
     "description": "Alexandre Dumas’s historical adventure follows the young Gascon d’Artagnan as he reaches Paris, joins Athos, Porthos, and Aramis, and is drawn into the conflict between Queen Anne, Cardinal Richelieu, Milady de Winter, and the siege of La Rochelle. Friendship turns a series of duels into a shared code, while letters, jewels, disguises, and old crimes make private loyalty politically dangerous.",
     "coverImageId": "three-musketeers-image-cover",
-    "theme": "theme-action",
+    "theme": "theme-adventure",
     "readingMode": true,
     "createdAt": 1786579200000,
     "updatedAt": 1786579200000,

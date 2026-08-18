@@ -7,7 +7,7 @@
     "name": "The Count of Monte Cristo",
     "description": "Alexandre Dumas’s vast adventure of Edmond Dantès, a Marseille sailor erased by conspiracy and remade by imprisonment, education, and treasure. Returning as the Count of Monte Cristo, he enters the lives of his betrayers and their children, only to discover that reward and revenge cannot be controlled with equal certainty.",
     "coverImageId": "count-of-monte-cristo-image-cover",
-    "theme": "theme-action",
+    "theme": "theme-adventure",
     "readingMode": true,
     "createdAt": 1786291200000,
     "updatedAt": 1786291200000,
