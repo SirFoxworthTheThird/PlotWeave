@@ -534,7 +534,7 @@ export default function WorldDashboardView() {
       {!gate.active && recentEvents.length > 0 && (
         <div>
           {/*
-            DASH-3: "Recent Scenes" never said what recent meant, and across two
+            DASH-3: "Recent Events" never said what recent meant, and across two
             columns the order was anyone's guess. The heading names the ordering
             and each row carries how long ago it was, so the sequence is legible
             from the rows themselves rather than from where they happen to land.
@@ -577,7 +577,7 @@ export default function WorldDashboardView() {
         <div>
           <SectionHeading
             icon={FileEdit}
-            aside={<span className="text-xs text-[hsl(var(--muted-foreground))]">{plural(totalEvents, 'event')}</span>}
+            aside={<span className="text-xs text-[hsl(var(--muted-foreground))]">{plural(totalEvents, 'scene')}</span>}
           >
             Scene Status
           </SectionHeading>

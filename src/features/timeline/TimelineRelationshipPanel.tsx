@@ -361,7 +361,7 @@ function RelationshipCard({ rel, timelines, allEvents, allChapters, characters, 
                 Sync Points
               </p>
               <p className="text-[10px] text-[hsl(var(--muted-foreground))] mb-2 leading-relaxed">
-                When inner playback reaches the left event, the outer cursor snaps to the right event.
+                When inner playback reaches the left scene, the outer cursor snaps to the right scene.
               </p>
               {rel.syncPoints.length > 0 && (
                 <div className="space-y-1 mb-2">
@@ -378,7 +378,7 @@ function RelationshipCard({ rel, timelines, allEvents, allChapters, characters, 
               )}
               {innerOptions.length === 0 || outerOptions.length === 0 ? (
                 <p className="text-xs text-[hsl(var(--muted-foreground))] italic">
-                  Add events to both timelines to create sync points.
+                  Add scenes to both timelines to create sync points.
                 </p>
               ) : (
                 <AddSyncPointForm

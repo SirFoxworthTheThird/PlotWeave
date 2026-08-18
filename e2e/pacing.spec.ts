@@ -62,7 +62,7 @@ test.describe('Pacing curve', () => {
     // scene picker (WB-1), so an absence here would pass either way.
     await page.locator('g.cursor-pointer').first().click()
     await page.getByTitle("Writer's Brief").click()
-    await expect(page.getByText('Active Event')).toBeVisible()
+    await expect(page.getByText('Active scene')).toBeVisible()
   })
 
   test('clicking the active tension level clears the rating', async ({ page }) => {

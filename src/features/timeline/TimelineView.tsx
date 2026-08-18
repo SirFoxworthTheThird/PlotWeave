@@ -522,7 +522,7 @@ export default function TimelineView() {
                   if (shown.length === 0) {
                     return (
                       <p className="py-6 text-center text-sm text-[hsl(var(--muted-foreground))]">
-                        No chapters advance this thread yet — tag scenes with it on their event cards.
+                        No chapters advance this thread yet — tag scenes with it on their scene cards.
                       </p>
                     )
                   }
