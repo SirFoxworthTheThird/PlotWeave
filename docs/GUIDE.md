@@ -1957,7 +1957,9 @@ decision back to the setting above. So a Gothic novel can be Horror and a space
 opera Sci-Fi while everything else stays with whatever you chose for the app.
 The nine are Dark Slate, Fantasy, Sci-Fi, Cyberpunk, Horror, Western, Action,
 Noir and Romance; each changes colours, fonts, textures and the timeline bar's
-pulse together.
+pulse together. A theme's texture — Noir's film scratches, Cyberpunk's grid,
+Fantasy's cross-hatch — sits *behind* the app, in the space around your cards
+and panels, so it never lies over anything you are reading.
 
 The **cover image** appears on the world's card in the selector and in the
 dashboard header. **Upload** an image file or **link** one by URL (the link

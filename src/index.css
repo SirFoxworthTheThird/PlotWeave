@@ -35,7 +35,7 @@
        the only one still carrying it. */
     --app-image: none;
     --theme-backdrop: radial-gradient(circle at 18% 12%, hsl(211 48% 22% / 0.5), transparent 34%), linear-gradient(145deg, hsl(222 47% 8%), hsl(215 38% 13%));
-    --theme-atmosphere: linear-gradient(115deg, transparent 0 48%, hsl(210 70% 65% / 0.025) 48% 49%, transparent 49% 100%);
+    --theme-atmosphere: none;
     --leaflet-bg: 222, 47%, 8%;
     --leaflet-card: 222, 47%, 22%;
     --leaflet-border: 217, 33%, 22%;
@@ -181,7 +181,7 @@
     --leaflet-muted: 203, 30%, 63%;
     --canvas: 222 60% 3%;
     --theme-backdrop: radial-gradient(circle at 72% 18%, hsl(187 70% 44% / 0.18), transparent 24%), radial-gradient(circle at 18% 76%, hsl(225 65% 30% / 0.22), transparent 36%), linear-gradient(145deg, hsl(226 58% 3%), hsl(216 47% 9%));
-    --theme-atmosphere: radial-gradient(circle at 18% 22%, white 0 1px, transparent 1.5px), radial-gradient(circle at 76% 68%, hsl(185 80% 80% / 0.7) 0 1px, transparent 1.5px), repeating-linear-gradient(90deg, transparent 0 79px, hsl(185 65% 60% / 0.025) 79px 80px), repeating-linear-gradient(0deg, transparent 0 79px, hsl(185 65% 60% / 0.025) 79px 80px);
+    --theme-atmosphere: repeating-linear-gradient(90deg, transparent 0 79px, hsl(185 65% 60% / 0.025) 79px 80px), repeating-linear-gradient(0deg, transparent 0 79px, hsl(185 65% 60% / 0.025) 79px 80px);
   }
 
   /* ── Cyberpunk (Neon Noir) ── */
@@ -215,7 +215,7 @@
     --leaflet-muted: 275, 22%, 66%;
     --canvas: 266 38% 4%;
     --theme-backdrop: radial-gradient(circle at 84% 16%, hsl(304 88% 52% / 0.22), transparent 28%), radial-gradient(circle at 12% 82%, hsl(72 82% 50% / 0.1), transparent 28%), linear-gradient(145deg, hsl(267 38% 4%), hsl(250 31% 10%));
-    --theme-atmosphere: repeating-linear-gradient(90deg, transparent 0 39px, hsl(304 90% 65% / 0.035) 39px 40px), repeating-linear-gradient(0deg, transparent 0 39px, hsl(72 85% 65% / 0.025) 39px 40px), linear-gradient(115deg, transparent 0 73%, hsl(304 88% 58% / 0.045) 73% 73.5%, transparent 73.5% 100%);
+    --theme-atmosphere: repeating-linear-gradient(90deg, transparent 0 39px, hsl(304 90% 65% / 0.035) 39px 40px), repeating-linear-gradient(0deg, transparent 0 39px, hsl(72 85% 65% / 0.025) 39px 40px);
   }
 
   /* ── Horror (Blood & Shadow) ── */
@@ -326,7 +326,7 @@
     --tl-backdrop:       none;
     --canvas: 214 22% 5%;
     --theme-backdrop: radial-gradient(circle at 88% 14%, hsl(24 95% 50% / 0.2), transparent 25%), linear-gradient(145deg, hsl(215 20% 5%), hsl(210 15% 12%));
-    --theme-atmosphere: repeating-linear-gradient(-45deg, transparent 0 14px, hsl(24 95% 58% / 0.025) 14px 15px), linear-gradient(110deg, transparent 0 70%, hsl(24 95% 55% / 0.04) 70% 71%, transparent 71% 100%);
+    --theme-atmosphere: repeating-linear-gradient(-45deg, transparent 0 14px, hsl(24 95% 58% / 0.025) 14px 15px);
   }
 
   /* ── Noir (Moody Grayscale) ── */
@@ -412,7 +412,7 @@
     --tl-backdrop:       blur(8px) saturate(140%);
     --canvas: 330 24% 5%;
     --theme-backdrop: radial-gradient(circle at 20% 12%, hsl(345 55% 56% / 0.16), transparent 30%), radial-gradient(circle at 82% 82%, hsl(35 55% 56% / 0.1), transparent 34%), linear-gradient(145deg, hsl(330 24% 6%), hsl(342 20% 12%));
-    --theme-atmosphere: radial-gradient(ellipse at 24% 16%, hsl(345 58% 68% / 0.08), transparent 46%), repeating-radial-gradient(circle at 80% 10%, transparent 0 28px, hsl(35 38% 80% / 0.018) 29px 30px);
+    --theme-atmosphere: radial-gradient(ellipse at 24% 16%, hsl(345 58% 68% / 0.08), transparent 46%);
   }
 
   .theme-fantasy,
@@ -450,13 +450,24 @@
     transition: background-color 180ms ease, color 180ms ease;
   }
 
+  /*
+    The theme's texture — grain, hatching, a grid — sits *behind* the app.
+
+    It used to be `z-index: 9999`, which is the value dialogs use, so it won a
+    tie on document order and painted over cards, dialogs and their text.
+    Noir's film scratches ran straight across the words of a modal. What is
+    meant to be a whisper behind the furniture was in front of all of it.
+
+    Zero here, and a stacking context on `#root` above it: the layer stays over
+    the page's own background and under everything the app draws.
+  */
   body::after {
     content: '';
     position: fixed;
     inset: 0;
     background: var(--theme-atmosphere);
     pointer-events: none;
-    z-index: 9999;
+    z-index: 0;
   }
 
   h1,
@@ -475,6 +486,11 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    /* Above the atmosphere layer. Everything the app draws lives in here, so
+       one stacking context puts all of it over the texture without touching a
+       single component's own z-index. */
+    position: relative;
+    z-index: 1;
   }
 }
 

@@ -1,0 +1,98 @@
+import { test, expect, type Page } from '@playwright/test'
+import { resetDB } from './helpers/reset'
+import { APP_THEMES, themeClass } from '../src/lib/themes'
+
+/**
+ * The theme "atmosphere" is the texture behind the app — grain, hatching, a
+ * grid. It is meant to be a whisper, and it was neither behind nor a whisper.
+ *
+ * It was painted by `body::after` at `z-index: 9999` — the value dialogs use,
+ * so it won a tie on document order and drew over cards, dialogs and their
+ * text. Noir's film scratches ran straight across the words of a modal.
+ *
+ * Some of it was not texture at all. Sci-fi's starfield was **two** circles at
+ * fixed viewport percentages, which reads as dead pixels; default, cyberpunk
+ * and action each drew a single hard-edged band across the whole window, which
+ * reads as a scratch on the screen; romance drew concentric rings.
+ *
+ * The rule that separates the two is shape, not taste: a repeating pattern or a
+ * soft radial glow is texture; a single hard-edged line or an isolated dot is a
+ * mark. These read the *computed* values, so they check what the browser
+ * resolves rather than what the stylesheet appears to say.
+ */
+
+async function themedWorld(page: Page) {
+  await page.goto('/')
+  await resetDB(page)
+  await page.getByRole('button', { name: 'New World' }).click()
+  await page.getByLabel('Name').fill('Theme Probe')
+  await page.getByRole('button', { name: 'Create World' }).last().click()
+  await expect(page).toHaveURL(/#\/worlds\//, { timeout: 30_000 })
+  return page.url().split('/worlds/')[1].split('/')[0]
+}
+
+const applyTheme = (page: Page, cls: string | null) => page.evaluate((c) => {
+  const root = document.documentElement
+  for (const name of Array.from(root.classList)) {
+    if (name.startsWith('theme-')) root.classList.remove(name)
+  }
+  if (c) root.classList.add(c)
+}, cls)
+
+const atmosphereOf = (page: Page) => page.evaluate(() =>
+  getComputedStyle(document.documentElement).getPropertyValue('--theme-atmosphere').trim())
+
+test.describe('Theme atmosphere', () => {
+  test.describe.configure({ timeout: 300_000 })
+
+  test('carries texture, and no hard-edged marks, in every theme', async ({ page }) => {
+    await themedWorld(page)
+
+    let withTexture = 0
+    for (const t of APP_THEMES) {
+      await applyTheme(page, themeClass(t.id))
+      const value = await atmosphereOf(page)
+
+      // A bare `linear-gradient` across a fixed percentage is one line drawn
+      // over the whole window. Hatching is `repeating-linear-gradient`.
+      expect(value.replace(/repeating-linear-gradient\(/g, ''), `${t.id}: single band`)
+        .not.toContain('linear-gradient(')
+      // `white 0 1px, transparent 1.5px` at one position is a speck, not a star.
+      expect(value, `${t.id}: isolated dot`).not.toMatch(/\b0 1px\b/)
+
+      if (value.includes('repeating-linear-gradient(')) withTexture++
+    }
+
+    // The presence half: a rule banning every gradient would satisfy the two
+    // assertions above while emptying the feature.
+    expect(withTexture, 'themes still carrying repeating texture').toBeGreaterThanOrEqual(6)
+  })
+
+  /**
+   * Where the layer sits, measured rather than asserted about the stylesheet:
+   * the same dialog is photographed with the texture on and with it suppressed,
+   * and the two must be identical — the texture cannot reach the dialog.
+   *
+   * The background behind it must *differ* between those two states, or this
+   * would pass just as well on a theme with no texture at all.
+   */
+  test('is painted behind the app, not over it', async ({ page }) => {
+    await themedWorld(page)
+    // Noir, because its hatching is the boldest and it was the worst offender.
+    await applyTheme(page, themeClass('noir'))
+    await page.waitForTimeout(400)
+
+    const dialog = page.locator('#root').getByText('Your story begins with a moment').locator('..')
+    await expect(dialog).toBeVisible()
+
+    const withTexture = { dialog: await dialog.screenshot(), page: await page.screenshot({ clip: { x: 60, y: 60, width: 300, height: 90 } }) }
+
+    await page.evaluate(() => document.documentElement.style.setProperty('--theme-atmosphere', 'none'))
+    await page.waitForTimeout(400)
+
+    const without = { dialog: await dialog.screenshot(), page: await page.screenshot({ clip: { x: 60, y: 60, width: 300, height: 90 } }) }
+
+    expect(withTexture.dialog.equals(without.dialog), 'the texture must not reach the dialog').toBe(true)
+    expect(withTexture.page.equals(without.page), 'but it must be painting somewhere').toBe(false)
+  })
+})
