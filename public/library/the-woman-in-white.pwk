@@ -5872,10 +5872,11 @@
       "id": "woman-in-white-chapter-01",
       "timelineId": "woman-in-white-timeline-main",
       "number": 1,
-      "title": "First Epoch — Walter I: A Case Outside the Law",
+      "title": "First Epoch — Walter I",
       "summary": "Walter frames the following documents as testimony assembled for a wrong that ordinary legal process could not repair.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "A Case Outside the Law."
     },
     {
       "worldId": "woman-in-white-world",
@@ -5884,10 +5885,11 @@
       "id": "woman-in-white-chapter-02",
       "timelineId": "woman-in-white-timeline-main",
       "number": 2,
-      "title": "Walter II: The Last Day of July",
+      "title": "Walter II",
       "summary": "On the last day of July 1849, Walter returns from Hampstead toward London after visiting his mother and sister.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Last Day of July."
     },
     {
       "worldId": "woman-in-white-world",
@@ -5896,10 +5898,11 @@
       "id": "woman-in-white-chapter-03",
       "timelineId": "woman-in-white-timeline-main",
       "number": 3,
-      "title": "Walter III: Pesca’s Proposal",
+      "title": "Walter III",
       "summary": "Professor Pesca brings Walter an offer to teach drawing to two young women at Limmeridge House.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Pesca’s Proposal."
     },
     {
       "worldId": "woman-in-white-world",
@@ -5908,10 +5911,11 @@
       "id": "woman-in-white-chapter-04",
       "timelineId": "woman-in-white-timeline-main",
       "number": 4,
-      "title": "Walter IV: The Woman on Finchley Road",
+      "title": "Walter IV",
       "summary": "Walking home by moonlight, Walter meets a frightened woman in white and helps her find a cab into London.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Woman on Finchley Road."
     },
     {
       "worldId": "woman-in-white-world",
@@ -5920,10 +5924,11 @@
       "id": "woman-in-white-chapter-05",
       "timelineId": "woman-in-white-timeline-main",
       "number": 5,
-      "title": "Walter V: Escape from the Asylum",
+      "title": "Walter V",
       "summary": "Men searching the road reveal that the woman Walter assisted has escaped from a private asylum.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Escape from the Asylum."
     },
     {
       "worldId": "woman-in-white-world",
@@ -5932,10 +5937,11 @@
       "id": "woman-in-white-chapter-06",
       "timelineId": "woman-in-white-timeline-main",
       "number": 6,
-      "title": "Walter VI: Arrival at Limmeridge",
+      "title": "Walter VI",
       "summary": "Walter travels north and is welcomed at Limmeridge by Marian Halcombe.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Arrival at Limmeridge."
     },
     {
       "worldId": "woman-in-white-world",
@@ -5944,10 +5950,11 @@
       "id": "woman-in-white-chapter-07",
       "timelineId": "woman-in-white-timeline-main",
       "number": 7,
-      "title": "Walter VII: Mr Fairlie’s Drawings",
+      "title": "Walter VII",
       "summary": "Frederick Fairlie interviews Walter amid his collections and carefully managed invalid comforts.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Mr Fairlie’s Drawings."
     },
     {
       "worldId": "woman-in-white-world",
@@ -5956,10 +5963,11 @@
       "id": "woman-in-white-chapter-08",
       "timelineId": "woman-in-white-timeline-main",
       "number": 8,
-      "title": "Walter VIII: Laura and the Likeness",
+      "title": "Walter VIII",
       "summary": "Walter meets Laura and is startled by her resemblance to the woman he encountered outside London.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Laura and the Likeness."
     },
     {
       "worldId": "woman-in-white-world",
@@ -5968,10 +5976,11 @@
       "id": "woman-in-white-chapter-09",
       "timelineId": "woman-in-white-timeline-main",
       "number": 9,
-      "title": "Walter IX: Three Months at Limmeridge",
+      "title": "Walter IX",
       "summary": "Lessons, walks, and shared days draw Walter and Laura together while Marian sees the attachment grow.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Three Months at Limmeridge."
     },
     {
       "worldId": "woman-in-white-world",
@@ -5980,10 +5989,11 @@
       "id": "woman-in-white-chapter-10",
       "timelineId": "woman-in-white-timeline-main",
       "number": 10,
-      "title": "Walter X: Laura’s Engagement",
+      "title": "Walter X",
       "summary": "Marian tells Walter that Laura is already promised to Sir Percival Glyde.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Laura’s Engagement."
     },
     {
       "worldId": "woman-in-white-world",
@@ -5992,10 +6002,11 @@
       "id": "woman-in-white-chapter-11",
       "timelineId": "woman-in-white-timeline-main",
       "number": 11,
-      "title": "Walter XI: Walter Must Leave",
+      "title": "Walter XI",
       "summary": "Walter agrees that remaining at Limmeridge would deepen Laura’s distress and prepares to resign.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Walter Must Leave."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6004,10 +6015,11 @@
       "id": "woman-in-white-chapter-12",
       "timelineId": "woman-in-white-timeline-main",
       "number": 12,
-      "title": "Walter XII: The Warning Letter",
+      "title": "Walter XII",
       "summary": "An anonymous letter warns Laura not to marry Sir Percival and associates him with cruelty and confinement.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Warning Letter."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6016,10 +6028,11 @@
       "id": "woman-in-white-chapter-13",
       "timelineId": "woman-in-white-timeline-main",
       "number": 13,
-      "title": "Walter XIII: Anne at the Churchyard",
+      "title": "Walter XIII",
       "summary": "Walter finds Anne Catherick beside Mrs Fairlie’s grave and confirms her bond with Limmeridge.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Anne at the Churchyard."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6028,10 +6041,11 @@
       "id": "woman-in-white-chapter-14",
       "timelineId": "woman-in-white-timeline-main",
       "number": 14,
-      "title": "Walter XIV: The Secret and the Farewell",
+      "title": "Walter XIV",
       "summary": "Anne cannot fully disclose Percival’s secret; Walter leaves Limmeridge after a final painful meeting with Laura.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Secret and the Farewell."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6040,10 +6054,11 @@
       "id": "woman-in-white-chapter-15",
       "timelineId": "woman-in-white-timeline-main",
       "number": 15,
-      "title": "Walter XV: Gilmore Arrives",
+      "title": "Walter XV",
       "summary": "Walter’s first narrative closes as Vincent Gilmore reaches Limmeridge to consider the marriage arrangements.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Gilmore Arrives."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6052,10 +6067,11 @@
       "id": "woman-in-white-chapter-16",
       "timelineId": "woman-in-white-timeline-main",
       "number": 16,
-      "title": "Gilmore I: Sir Percival’s Explanation",
+      "title": "Gilmore I",
       "summary": "Percival answers questions about Anne by presenting himself as the responsible party who arranged her confinement.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Sir Percival’s Explanation."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6064,10 +6080,11 @@
       "id": "woman-in-white-chapter-17",
       "timelineId": "woman-in-white-timeline-main",
       "number": 17,
-      "title": "Gilmore II: The Settlement Begins",
+      "title": "Gilmore II",
       "summary": "Gilmore examines Laura’s property and the financial terms proposed for the marriage.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Settlement Begins."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6076,10 +6093,11 @@
       "id": "woman-in-white-chapter-18",
       "timelineId": "woman-in-white-timeline-main",
       "number": 18,
-      "title": "Gilmore III: Laura Accepts the Marriage",
+      "title": "Gilmore III",
       "summary": "Laura refuses to break the promise made to her father, even after Gilmore explains the settlement’s danger.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Laura Accepts the Marriage."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6088,10 +6106,11 @@
       "id": "woman-in-white-chapter-19",
       "timelineId": "woman-in-white-timeline-main",
       "number": 19,
-      "title": "Gilmore IV: The Settlement Is Signed",
+      "title": "Gilmore IV",
       "summary": "Fairlie declines to fight the terms, and the marriage settlement is completed over Gilmore’s objections.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Settlement Is Signed."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6100,10 +6119,11 @@
       "id": "woman-in-white-chapter-20",
       "timelineId": "woman-in-white-timeline-main",
       "number": 20,
-      "title": "Marian I: November 8",
+      "title": "Marian I",
       "summary": "Marian begins her record of Laura’s final weeks before marriage and the household’s subdued preparations.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "November 8."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6112,10 +6132,11 @@
       "id": "woman-in-white-chapter-21",
       "timelineId": "woman-in-white-timeline-main",
       "number": 21,
-      "title": "Marian II: December 22",
+      "title": "Marian II",
       "summary": "Laura marries Sir Percival and leaves Limmeridge, while Marian prepares to join her after the wedding journey.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "December 22."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6124,10 +6145,11 @@
       "id": "woman-in-white-chapter-22",
       "timelineId": "woman-in-white-timeline-main",
       "number": 22,
-      "title": "Second Epoch — Marian I: Blackwater Park",
+      "title": "Second Epoch — Marian I",
       "summary": "In June 1850 Marian records her arrival at Blackwater Park and the oppressive condition of Percival’s estate.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Blackwater Park."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6136,10 +6158,11 @@
       "id": "woman-in-white-chapter-23",
       "timelineId": "woman-in-white-timeline-main",
       "number": 23,
-      "title": "Marian II: Count Fosco Observes",
+      "title": "Marian II",
       "summary": "Fosco fascinates and unsettles Marian while winning influence over Percival and the household.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Count Fosco Observes."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6148,10 +6171,11 @@
       "id": "woman-in-white-chapter-24",
       "timelineId": "woman-in-white-timeline-main",
       "number": 24,
-      "title": "Marian III: Anne Appears Near the Park",
+      "title": "Marian III",
       "summary": "Signs that Anne Catherick is nearby revive the warning and Percival’s fear of exposure.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Anne Appears Near the Park."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6160,10 +6184,11 @@
       "id": "woman-in-white-chapter-25",
       "timelineId": "woman-in-white-timeline-main",
       "number": 25,
-      "title": "Marian IV: Pressure for Laura’s Signature",
+      "title": "Marian IV",
       "summary": "Percival attempts to make Laura sign a document without explaining its effect on her money.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Pressure for Laura’s Signature."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6172,10 +6197,11 @@
       "id": "woman-in-white-chapter-26",
       "timelineId": "woman-in-white-timeline-main",
       "number": 26,
-      "title": "Marian V: A Message for Anne",
+      "title": "Marian V",
       "summary": "Marian and Laura arrange a cautious meeting with Anne near the lake.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "A Message for Anne."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6184,10 +6210,11 @@
       "id": "woman-in-white-chapter-27",
       "timelineId": "woman-in-white-timeline-main",
       "number": 27,
-      "title": "Marian VI: Anne’s Fear",
+      "title": "Marian VI",
       "summary": "Anne reveals that Percival’s secret could ruin him, but illness and terror keep her explanation incomplete.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Anne’s Fear."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6196,10 +6223,11 @@
       "id": "woman-in-white-chapter-28",
       "timelineId": "woman-in-white-timeline-main",
       "number": 28,
-      "title": "Marian VII: The Household Is Divided",
+      "title": "Marian VII",
       "summary": "Percival dismisses servants and isolates Laura while Fosco manages appearances and practical arrangements.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Household Is Divided."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6208,10 +6236,11 @@
       "id": "woman-in-white-chapter-29",
       "timelineId": "woman-in-white-timeline-main",
       "number": 29,
-      "title": "Marian VIII: The Conversation at the Boathouse",
+      "title": "Marian VIII",
       "summary": "From the rain outside the library, Marian overhears Percival and Fosco planning to secure Laura’s fortune and exploit Anne’s resemblance.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Conversation at the Boathouse."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6220,10 +6249,11 @@
       "id": "woman-in-white-chapter-30",
       "timelineId": "woman-in-white-timeline-main",
       "number": 30,
-      "title": "Marian IX: Fever",
+      "title": "Marian IX",
       "summary": "The exposure leaves Marian dangerously ill, removing Laura’s strongest defender at the moment the plan advances.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Fever."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6232,10 +6262,11 @@
       "id": "woman-in-white-chapter-31",
       "timelineId": "woman-in-white-timeline-main",
       "number": 31,
-      "title": "Marian X: The Diary Changes Hands",
+      "title": "Marian X",
       "summary": "Marian’s narrative breaks as Fosco reads and annotates the diary, proving how completely the conspirators control the house.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Diary Changes Hands."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6244,10 +6275,11 @@
       "id": "woman-in-white-chapter-32",
       "timelineId": "woman-in-white-timeline-main",
       "number": 32,
-      "title": "Fairlie: The Summons from Blackwater",
+      "title": "Fairlie",
       "summary": "Fairlie explains how Fosco’s correspondence persuaded him to receive Laura at Limmeridge while Marian was supposedly too ill to travel.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Summons from Blackwater."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6256,10 +6288,11 @@
       "id": "woman-in-white-chapter-33",
       "timelineId": "woman-in-white-timeline-main",
       "number": 33,
-      "title": "Michelson I: The House Is Emptied",
+      "title": "Michelson I",
       "summary": "Mrs Michelson records servants departing and Laura being told that Marian has already left Blackwater.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The House Is Emptied."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6268,10 +6301,11 @@
       "id": "woman-in-white-chapter-34",
       "timelineId": "woman-in-white-timeline-main",
       "number": 34,
-      "title": "Michelson II: Laura Leaves Blackwater",
+      "title": "Michelson II",
       "summary": "Laura departs under Madame Fosco’s escort, while Marian is secretly moved after her.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Laura Leaves Blackwater."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6280,10 +6314,11 @@
       "id": "woman-in-white-chapter-35",
       "timelineId": "woman-in-white-timeline-main",
       "number": 35,
-      "title": "Hester Pinhorn: The Sick Woman",
+      "title": "Hester Pinhorn",
       "summary": "Hester Pinhorn’s testimony places Anne, gravely ill, in Fosco’s London house before the death announced as Laura’s.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Sick Woman."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6292,10 +6327,11 @@
       "id": "woman-in-white-chapter-36",
       "timelineId": "woman-in-white-timeline-main",
       "number": 36,
-      "title": "Doctor Goodricke: The Medical Record",
+      "title": "Doctor Goodricke",
       "summary": "Doctor Goodricke records the final illness and death of the woman presented to him as Lady Glyde.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Medical Record."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6304,10 +6340,11 @@
       "id": "woman-in-white-chapter-37",
       "timelineId": "woman-in-white-timeline-main",
       "number": 37,
-      "title": "Jane Gould: Preparing the Burial",
+      "title": "Jane Gould",
       "summary": "Jane Gould’s evidence helps complete the official chain from the London death to the coffin sent north.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Preparing the Burial."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6316,10 +6353,11 @@
       "id": "woman-in-white-chapter-38",
       "timelineId": "woman-in-white-timeline-main",
       "number": 38,
-      "title": "The Tombstone at Limmeridge",
+      "title": "The Tombstone",
       "summary": "A formal record states that Laura, Lady Glyde, died on July 25, 1850, and was buried beside her mother.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "At Limmeridge."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6328,10 +6366,11 @@
       "id": "woman-in-white-chapter-39",
       "timelineId": "woman-in-white-timeline-main",
       "number": 39,
-      "title": "Walter: Return to England",
+      "title": "Walter",
       "summary": "Walter lands at Liverpool on October 13 and learns that Laura is officially dead.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Return to England."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6340,10 +6379,11 @@
       "id": "woman-in-white-chapter-40",
       "timelineId": "woman-in-white-timeline-main",
       "number": 40,
-      "title": "Third Epoch — Walter I: Laura at Her Own Grave",
+      "title": "Third Epoch — Walter I",
       "summary": "At Limmeridge Churchyard, Walter sees Marian with a living woman he recognizes as Laura beside Laura’s own tombstone.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Laura at Her Own Grave."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6352,10 +6392,11 @@
       "id": "woman-in-white-chapter-41",
       "timelineId": "woman-in-white-timeline-main",
       "number": 41,
-      "title": "Walter II: Marian’s Account",
+      "title": "Walter II",
       "summary": "Marian explains how she found Laura confined under Anne Catherick’s name and removed her from the asylum.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Marian’s Account."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6364,10 +6405,11 @@
       "id": "woman-in-white-chapter-42",
       "timelineId": "woman-in-white-timeline-main",
       "number": 42,
-      "title": "Walter III: The Conspiracy Takes Shape",
+      "title": "Walter III",
       "summary": "Walter combines Marian’s diary, the burial record, and Laura’s fragments of memory into a working theory of exchanged identities.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Conspiracy Takes Shape."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6376,10 +6418,11 @@
       "id": "woman-in-white-chapter-43",
       "timelineId": "woman-in-white-timeline-main",
       "number": 43,
-      "title": "Walter IV: The Law Refuses the Case",
+      "title": "Walter IV",
       "summary": "Mr Kyrle explains that Laura’s appearance and private testimony cannot overcome the certificate, burial, and witnesses.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Law Refuses the Case."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6388,10 +6431,11 @@
       "id": "woman-in-white-chapter-44",
       "timelineId": "woman-in-white-timeline-main",
       "number": 44,
-      "title": "Walter V: Hampshire Inquiry",
+      "title": "Walter V",
       "summary": "Walter returns to Hampshire to trace Anne’s history and the witnesses around Blackwater Park.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Hampshire Inquiry."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6400,10 +6444,11 @@
       "id": "woman-in-white-chapter-45",
       "timelineId": "woman-in-white-timeline-main",
       "number": 45,
-      "title": "Walter VI: Mrs Clements",
+      "title": "Walter VI",
       "summary": "Mrs Clements tells Walter about Anne’s childhood, her devotion to Mrs Fairlie, and Mrs Catherick’s dealings with Percival.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Mrs Clements."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6412,10 +6457,11 @@
       "id": "woman-in-white-chapter-46",
       "timelineId": "woman-in-white-timeline-main",
       "number": 46,
-      "title": "Walter VII: Anne’s Parentage",
+      "title": "Walter VII",
       "summary": "Walter discovers that Anne and Laura shared a father, explaining their resemblance without making them interchangeable.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Anne’s Parentage."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6424,10 +6470,11 @@
       "id": "woman-in-white-chapter-47",
       "timelineId": "woman-in-white-timeline-main",
       "number": 47,
-      "title": "Walter VIII: Laura’s Memory",
+      "title": "Walter VIII",
       "summary": "In the safety of Gower’s Walk, Laura gradually recalls the London journey and the moment her identity was taken from her.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Laura’s Memory."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6436,10 +6483,11 @@
       "id": "woman-in-white-chapter-48",
       "timelineId": "woman-in-white-timeline-main",
       "number": 48,
-      "title": "Walter IX: Mrs Catherick at Welmingham",
+      "title": "Walter IX",
       "summary": "Walter confronts Mrs Catherick and learns that Percival’s terror centres on the old parish register.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Mrs Catherick at Welmingham."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6448,10 +6496,11 @@
       "id": "woman-in-white-chapter-49",
       "timelineId": "woman-in-white-timeline-main",
       "number": 49,
-      "title": "Walter X: The Vestry Fire",
+      "title": "Walter X",
       "summary": "Percival breaks into the vestry to destroy the register, accidentally sets the building alight, and is trapped.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Vestry Fire."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6460,10 +6509,11 @@
       "id": "woman-in-white-chapter-50",
       "timelineId": "woman-in-white-timeline-main",
       "number": 50,
-      "title": "Walter XI: The Inquest",
+      "title": "Walter XI",
       "summary": "The inquest confirms Percival’s accidental death but cannot replace the destroyed register as evidence in Laura’s case.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Inquest."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6472,10 +6522,11 @@
       "id": "woman-in-white-chapter-51",
       "timelineId": "woman-in-white-timeline-main",
       "number": 51,
-      "title": "Mrs Catherick: Her Written Account",
+      "title": "Mrs Catherick",
       "summary": "Mrs Catherick writes the history of Percival’s illegitimate birth, the forged marriage entry, and Anne’s accidental knowledge.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Her Written Account."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6484,10 +6535,11 @@
       "id": "woman-in-white-chapter-52",
       "timelineId": "woman-in-white-timeline-main",
       "number": 52,
-      "title": "Walter I: The Register’s Secret",
+      "title": "Walter I",
       "summary": "Walter verifies Mrs Catherick’s account and distinguishes Percival’s motive from Fosco’s execution of the identity exchange.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Register’s Secret."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6496,10 +6548,11 @@
       "id": "woman-in-white-chapter-53",
       "timelineId": "woman-in-white-timeline-main",
       "number": 53,
-      "title": "Walter II: Home at Gower’s Walk",
+      "title": "Walter II",
       "summary": "Walter returns to Laura and Marian, preserving their concealed household while the final investigation continues.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Home at Gower’s Walk."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6508,10 +6561,11 @@
       "id": "woman-in-white-chapter-54",
       "timelineId": "woman-in-white-timeline-main",
       "number": 54,
-      "title": "Walter III: Marriage and Recovery",
+      "title": "Walter III",
       "summary": "Walter and Laura marry privately, choosing a shared life before public restoration of her name is complete.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Marriage and Recovery."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6520,10 +6574,11 @@
       "id": "woman-in-white-chapter-55",
       "timelineId": "woman-in-white-timeline-main",
       "number": 55,
-      "title": "Walter IV: Watch on Fosco",
+      "title": "Walter IV",
       "summary": "Walter watches Fosco’s St John’s Wood house and studies its visitors, routines, and vulnerabilities.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Watch on Fosco."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6532,10 +6587,11 @@
       "id": "woman-in-white-chapter-56",
       "timelineId": "woman-in-white-timeline-main",
       "number": 56,
-      "title": "Walter V: Pesca Recognises Fosco",
+      "title": "Walter V",
       "summary": "At the opera, Pesca sees Fosco and reacts with fear and recognition that contradicts the Count’s public identity.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Pesca Recognises Fosco."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6544,10 +6600,11 @@
       "id": "woman-in-white-chapter-57",
       "timelineId": "woman-in-white-timeline-main",
       "number": 57,
-      "title": "Walter VI: The Brotherhood’s Mark",
+      "title": "Walter VI",
       "summary": "Pesca explains the brotherhood’s discipline and gives Walter leverage more immediate than English legal proceedings.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Brotherhood’s Mark."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6556,10 +6613,11 @@
       "id": "woman-in-white-chapter-58",
       "timelineId": "woman-in-white-timeline-main",
       "number": 58,
-      "title": "Walter VII: Confronting Fosco",
+      "title": "Walter VII",
       "summary": "Walter confronts Fosco at Forest Road and demands a complete written confession in exchange for time to leave England.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Confronting Fosco."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6568,10 +6626,11 @@
       "id": "woman-in-white-chapter-59",
       "timelineId": "woman-in-white-timeline-main",
       "number": 59,
-      "title": "Fosco: The Confession",
+      "title": "Fosco",
       "summary": "Fosco writes how Anne died under Laura’s name and Laura was committed as Anne, fixing the dates and responsibilities.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "The Confession."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6580,10 +6639,11 @@
       "id": "woman-in-white-chapter-60",
       "timelineId": "woman-in-white-timeline-main",
       "number": 60,
-      "title": "Conclusion I: Laura’s Identity Restored",
+      "title": "Conclusion I",
       "summary": "Fosco’s confession and the corrected chronology allow Laura’s name to be restored publicly at Limmeridge.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Laura’s Identity Restored."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6592,10 +6652,11 @@
       "id": "woman-in-white-chapter-61",
       "timelineId": "woman-in-white-timeline-main",
       "number": 61,
-      "title": "Conclusion II: Fosco’s Death in Paris",
+      "title": "Conclusion II",
       "summary": "While working in Paris, Walter and Pesca identify Fosco after his body is recovered from the Seine and displayed at the Morgue.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Fosco’s Death in Paris."
     },
     {
       "worldId": "woman-in-white-world",
@@ -6604,10 +6665,11 @@
       "id": "woman-in-white-chapter-62",
       "timelineId": "woman-in-white-timeline-main",
       "number": 62,
-      "title": "Conclusion III: Heir of Limmeridge",
+      "title": "Conclusion III",
       "summary": "Walter, Laura, and Marian return to Limmeridge with Walter and Laura’s son, now heir to the estate.",
       "status": "final",
-      "targetWordCount": null
+      "targetWordCount": null,
+      "synopsis": "Heir of Limmeridge."
     }
   ],
   "events": [
@@ -6618,7 +6680,7 @@
       "id": "woman-in-white-event-walter-1",
       "chapterId": "woman-in-white-chapter-01",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "First Epoch — Walter I: A Case Outside the Law",
+      "title": "First Epoch — Walter I",
       "description": "Walter frames the following documents as testimony assembled for a wrong that ordinary legal process could not repair.",
       "locationMarkerId": "woman-in-white-location-clements-inn",
       "involvedCharacterIds": [
@@ -6649,7 +6711,7 @@
       "id": "woman-in-white-event-walter-2",
       "chapterId": "woman-in-white-chapter-02",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter II: The Last Day of July",
+      "title": "Walter II",
       "description": "On the last day of July 1849, Walter returns from Hampstead toward London after visiting his mother and sister.",
       "locationMarkerId": "woman-in-white-location-hampstead",
       "involvedCharacterIds": [
@@ -6680,7 +6742,7 @@
       "id": "woman-in-white-event-walter-3",
       "chapterId": "woman-in-white-chapter-03",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter III: Pesca’s Proposal",
+      "title": "Walter III",
       "description": "Professor Pesca brings Walter an offer to teach drawing to two young women at Limmeridge House.",
       "locationMarkerId": "woman-in-white-location-hampstead",
       "involvedCharacterIds": [
@@ -6710,7 +6772,7 @@
       "id": "woman-in-white-event-walter-4",
       "chapterId": "woman-in-white-chapter-04",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter IV: The Woman on Finchley Road",
+      "title": "Walter IV",
       "description": "Walking home by moonlight, Walter meets a frightened woman in white and helps her find a cab into London.",
       "locationMarkerId": "woman-in-white-location-finchley-road",
       "involvedCharacterIds": [
@@ -6746,7 +6808,7 @@
       "id": "woman-in-white-event-walter-5",
       "chapterId": "woman-in-white-chapter-05",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter V: Escape from the Asylum",
+      "title": "Walter V",
       "description": "Men searching the road reveal that the woman Walter assisted has escaped from a private asylum.",
       "locationMarkerId": "woman-in-white-location-finchley-road",
       "involvedCharacterIds": [
@@ -6781,7 +6843,7 @@
       "id": "woman-in-white-event-walter-6",
       "chapterId": "woman-in-white-chapter-06",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter VI: Arrival at Limmeridge",
+      "title": "Walter VI",
       "description": "Walter travels north and is welcomed at Limmeridge by Marian Halcombe.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -6814,7 +6876,7 @@
       "id": "woman-in-white-event-walter-7",
       "chapterId": "woman-in-white-chapter-07",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter VII: Mr Fairlie’s Drawings",
+      "title": "Walter VII",
       "description": "Frederick Fairlie interviews Walter amid his collections and carefully managed invalid comforts.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -6846,7 +6908,7 @@
       "id": "woman-in-white-event-walter-8",
       "chapterId": "woman-in-white-chapter-08",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter VIII: Laura and the Likeness",
+      "title": "Walter VIII",
       "description": "Walter meets Laura and is startled by her resemblance to the woman he encountered outside London.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -6880,7 +6942,7 @@
       "id": "woman-in-white-event-walter-9",
       "chapterId": "woman-in-white-chapter-09",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter IX: Three Months at Limmeridge",
+      "title": "Walter IX",
       "description": "Lessons, walks, and shared days draw Walter and Laura together while Marian sees the attachment grow.",
       "locationMarkerId": "woman-in-white-location-cumberland-coast",
       "involvedCharacterIds": [
@@ -6913,7 +6975,7 @@
       "id": "woman-in-white-event-walter-10",
       "chapterId": "woman-in-white-chapter-10",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter X: Laura’s Engagement",
+      "title": "Walter X",
       "description": "Marian tells Walter that Laura is already promised to Sir Percival Glyde.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -6946,7 +7008,7 @@
       "id": "woman-in-white-event-walter-11",
       "chapterId": "woman-in-white-chapter-11",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter XI: Walter Must Leave",
+      "title": "Walter XI",
       "description": "Walter agrees that remaining at Limmeridge would deepen Laura’s distress and prepares to resign.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -6979,7 +7041,7 @@
       "id": "woman-in-white-event-walter-12",
       "chapterId": "woman-in-white-chapter-12",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter XII: The Warning Letter",
+      "title": "Walter XII",
       "description": "An anonymous letter warns Laura not to marry Sir Percival and associates him with cruelty and confinement.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -7016,7 +7078,7 @@
       "id": "woman-in-white-event-walter-13",
       "chapterId": "woman-in-white-chapter-13",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter XIII: Anne at the Churchyard",
+      "title": "Walter XIII",
       "description": "Walter finds Anne Catherick beside Mrs Fairlie’s grave and confirms her bond with Limmeridge.",
       "locationMarkerId": "woman-in-white-location-limmeridge-churchyard",
       "involvedCharacterIds": [
@@ -7052,7 +7114,7 @@
       "id": "woman-in-white-event-walter-14",
       "chapterId": "woman-in-white-chapter-14",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter XIV: The Secret and the Farewell",
+      "title": "Walter XIV",
       "description": "Anne cannot fully disclose Percival’s secret; Walter leaves Limmeridge after a final painful meeting with Laura.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -7087,7 +7149,7 @@
       "id": "woman-in-white-event-walter-15",
       "chapterId": "woman-in-white-chapter-15",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter XV: Gilmore Arrives",
+      "title": "Walter XV",
       "description": "Walter’s first narrative closes as Vincent Gilmore reaches Limmeridge to consider the marriage arrangements.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -7121,7 +7183,7 @@
       "id": "woman-in-white-event-gilmore-1",
       "chapterId": "woman-in-white-chapter-16",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Gilmore I: Sir Percival’s Explanation",
+      "title": "Gilmore I",
       "description": "Percival answers questions about Anne by presenting himself as the responsible party who arranged her confinement.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -7157,7 +7219,7 @@
       "id": "woman-in-white-event-gilmore-2",
       "chapterId": "woman-in-white-chapter-17",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Gilmore II: The Settlement Begins",
+      "title": "Gilmore II",
       "description": "Gilmore examines Laura’s property and the financial terms proposed for the marriage.",
       "locationMarkerId": "woman-in-white-location-gilmore-kyrle",
       "involvedCharacterIds": [
@@ -7193,7 +7255,7 @@
       "id": "woman-in-white-event-gilmore-3",
       "chapterId": "woman-in-white-chapter-18",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Gilmore III: Laura Accepts the Marriage",
+      "title": "Gilmore III",
       "description": "Laura refuses to break the promise made to her father, even after Gilmore explains the settlement’s danger.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -7230,7 +7292,7 @@
       "id": "woman-in-white-event-gilmore-4",
       "chapterId": "woman-in-white-chapter-19",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Gilmore IV: The Settlement Is Signed",
+      "title": "Gilmore IV",
       "description": "Fairlie declines to fight the terms, and the marriage settlement is completed over Gilmore’s objections.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -7267,7 +7329,7 @@
       "id": "woman-in-white-event-marian-1",
       "chapterId": "woman-in-white-chapter-20",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian I: November 8",
+      "title": "Marian I",
       "description": "Marian begins her record of Laura’s final weeks before marriage and the household’s subdued preparations.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -7302,7 +7364,7 @@
       "id": "woman-in-white-event-marian-2",
       "chapterId": "woman-in-white-chapter-21",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian II: December 22",
+      "title": "Marian II",
       "description": "Laura marries Sir Percival and leaves Limmeridge, while Marian prepares to join her after the wedding journey.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -7338,7 +7400,7 @@
       "id": "woman-in-white-event-blackwater-1",
       "chapterId": "woman-in-white-chapter-22",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Second Epoch — Marian I: Blackwater Park",
+      "title": "Second Epoch — Marian I",
       "description": "In June 1850 Marian records her arrival at Blackwater Park and the oppressive condition of Percival’s estate.",
       "locationMarkerId": "woman-in-white-location-blackwater-house",
       "involvedCharacterIds": [
@@ -7377,7 +7439,7 @@
       "id": "woman-in-white-event-blackwater-2",
       "chapterId": "woman-in-white-chapter-23",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian II: Count Fosco Observes",
+      "title": "Marian II",
       "description": "Fosco fascinates and unsettles Marian while winning influence over Percival and the household.",
       "locationMarkerId": "woman-in-white-location-blackwater-house",
       "involvedCharacterIds": [
@@ -7411,7 +7473,7 @@
       "id": "woman-in-white-event-blackwater-3",
       "chapterId": "woman-in-white-chapter-24",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian III: Anne Appears Near the Park",
+      "title": "Marian III",
       "description": "Signs that Anne Catherick is nearby revive the warning and Percival’s fear of exposure.",
       "locationMarkerId": "woman-in-white-location-east-drive",
       "involvedCharacterIds": [
@@ -7448,7 +7510,7 @@
       "id": "woman-in-white-event-blackwater-4",
       "chapterId": "woman-in-white-chapter-25",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian IV: Pressure for Laura’s Signature",
+      "title": "Marian IV",
       "description": "Percival attempts to make Laura sign a document without explaining its effect on her money.",
       "locationMarkerId": "woman-in-white-location-blackwater-house",
       "involvedCharacterIds": [
@@ -7485,7 +7547,7 @@
       "id": "woman-in-white-event-blackwater-5",
       "chapterId": "woman-in-white-chapter-26",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian V: A Message for Anne",
+      "title": "Marian V",
       "description": "Marian and Laura arrange a cautious meeting with Anne near the lake.",
       "locationMarkerId": "woman-in-white-location-blackwater-lake",
       "involvedCharacterIds": [
@@ -7522,7 +7584,7 @@
       "id": "woman-in-white-event-blackwater-6",
       "chapterId": "woman-in-white-chapter-27",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian VI: Anne’s Fear",
+      "title": "Marian VI",
       "description": "Anne reveals that Percival’s secret could ruin him, but illness and terror keep her explanation incomplete.",
       "locationMarkerId": "woman-in-white-location-blackwater-lake",
       "involvedCharacterIds": [
@@ -7557,7 +7619,7 @@
       "id": "woman-in-white-event-blackwater-7",
       "chapterId": "woman-in-white-chapter-28",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian VII: The Household Is Divided",
+      "title": "Marian VII",
       "description": "Percival dismisses servants and isolates Laura while Fosco manages appearances and practical arrangements.",
       "locationMarkerId": "woman-in-white-location-blackwater-house",
       "involvedCharacterIds": [
@@ -7597,7 +7659,7 @@
       "id": "woman-in-white-event-blackwater-8",
       "chapterId": "woman-in-white-chapter-29",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian VIII: The Conversation at the Boathouse",
+      "title": "Marian VIII",
       "description": "From the rain outside the library, Marian overhears Percival and Fosco planning to secure Laura’s fortune and exploit Anne’s resemblance.",
       "locationMarkerId": "woman-in-white-location-blackwater-lake",
       "involvedCharacterIds": [
@@ -7635,7 +7697,7 @@
       "id": "woman-in-white-event-blackwater-9",
       "chapterId": "woman-in-white-chapter-30",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian IX: Fever",
+      "title": "Marian IX",
       "description": "The exposure leaves Marian dangerously ill, removing Laura’s strongest defender at the moment the plan advances.",
       "locationMarkerId": "woman-in-white-location-blackwater-house",
       "involvedCharacterIds": [
@@ -7673,7 +7735,7 @@
       "id": "woman-in-white-event-blackwater-10",
       "chapterId": "woman-in-white-chapter-31",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Marian X: The Diary Changes Hands",
+      "title": "Marian X",
       "description": "Marian’s narrative breaks as Fosco reads and annotates the diary, proving how completely the conspirators control the house.",
       "locationMarkerId": "woman-in-white-location-blackwater-house",
       "involvedCharacterIds": [
@@ -7710,7 +7772,7 @@
       "id": "woman-in-white-event-fairlie-account",
       "chapterId": "woman-in-white-chapter-32",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Fairlie: The Summons from Blackwater",
+      "title": "Fairlie",
       "description": "Fairlie explains how Fosco’s correspondence persuaded him to receive Laura at Limmeridge while Marian was supposedly too ill to travel.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -7744,7 +7806,7 @@
       "id": "woman-in-white-event-michelson-1",
       "chapterId": "woman-in-white-chapter-33",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Michelson I: The House Is Emptied",
+      "title": "Michelson I",
       "description": "Mrs Michelson records servants departing and Laura being told that Marian has already left Blackwater.",
       "locationMarkerId": "woman-in-white-location-blackwater-house",
       "involvedCharacterIds": [
@@ -7780,7 +7842,7 @@
       "id": "woman-in-white-event-michelson-2",
       "chapterId": "woman-in-white-chapter-34",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Michelson II: Laura Leaves Blackwater",
+      "title": "Michelson II",
       "description": "Laura departs under Madame Fosco’s escort, while Marian is secretly moved after her.",
       "locationMarkerId": "woman-in-white-location-east-drive",
       "involvedCharacterIds": [
@@ -7816,7 +7878,7 @@
       "id": "woman-in-white-event-pinhorn",
       "chapterId": "woman-in-white-chapter-35",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Hester Pinhorn: The Sick Woman",
+      "title": "Hester Pinhorn",
       "description": "Hester Pinhorn’s testimony places Anne, gravely ill, in Fosco’s London house before the death announced as Laura’s.",
       "locationMarkerId": "woman-in-white-location-st-johns-wood",
       "involvedCharacterIds": [
@@ -7853,7 +7915,7 @@
       "id": "woman-in-white-event-goodricke",
       "chapterId": "woman-in-white-chapter-36",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Doctor Goodricke: The Medical Record",
+      "title": "Doctor Goodricke",
       "description": "Doctor Goodricke records the final illness and death of the woman presented to him as Lady Glyde.",
       "locationMarkerId": "woman-in-white-location-st-johns-wood",
       "involvedCharacterIds": [
@@ -7890,7 +7952,7 @@
       "id": "woman-in-white-event-jane-gould",
       "chapterId": "woman-in-white-chapter-37",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Jane Gould: Preparing the Burial",
+      "title": "Jane Gould",
       "description": "Jane Gould’s evidence helps complete the official chain from the London death to the coffin sent north.",
       "locationMarkerId": "woman-in-white-location-st-johns-wood",
       "involvedCharacterIds": [
@@ -7924,7 +7986,7 @@
       "id": "woman-in-white-event-tombstone",
       "chapterId": "woman-in-white-chapter-38",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "The Tombstone at Limmeridge",
+      "title": "The Tombstone",
       "description": "A formal record states that Laura, Lady Glyde, died on July 25, 1850, and was buried beside her mother.",
       "locationMarkerId": "woman-in-white-location-limmeridge-churchyard",
       "involvedCharacterIds": [
@@ -7962,7 +8024,7 @@
       "id": "woman-in-white-event-return",
       "chapterId": "woman-in-white-chapter-39",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter: Return to England",
+      "title": "Walter",
       "description": "Walter lands at Liverpool on October 13 and learns that Laura is officially dead.",
       "locationMarkerId": "woman-in-white-location-liverpool",
       "involvedCharacterIds": [
@@ -7997,7 +8059,7 @@
       "id": "woman-in-white-event-third-1",
       "chapterId": "woman-in-white-chapter-40",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Third Epoch — Walter I: Laura at Her Own Grave",
+      "title": "Third Epoch — Walter I",
       "description": "At Limmeridge Churchyard, Walter sees Marian with a living woman he recognizes as Laura beside Laura’s own tombstone.",
       "locationMarkerId": "woman-in-white-location-limmeridge-churchyard",
       "involvedCharacterIds": [
@@ -8035,7 +8097,7 @@
       "id": "woman-in-white-event-third-2",
       "chapterId": "woman-in-white-chapter-41",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter II: Marian’s Account",
+      "title": "Walter II",
       "description": "Marian explains how she found Laura confined under Anne Catherick’s name and removed her from the asylum.",
       "locationMarkerId": "woman-in-white-location-gowers-walk",
       "involvedCharacterIds": [
@@ -8072,7 +8134,7 @@
       "id": "woman-in-white-event-third-3",
       "chapterId": "woman-in-white-chapter-42",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter III: The Conspiracy Takes Shape",
+      "title": "Walter III",
       "description": "Walter combines Marian’s diary, the burial record, and Laura’s fragments of memory into a working theory of exchanged identities.",
       "locationMarkerId": "woman-in-white-location-gowers-walk",
       "involvedCharacterIds": [
@@ -8110,7 +8172,7 @@
       "id": "woman-in-white-event-third-4",
       "chapterId": "woman-in-white-chapter-43",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter IV: The Law Refuses the Case",
+      "title": "Walter IV",
       "description": "Mr Kyrle explains that Laura’s appearance and private testimony cannot overcome the certificate, burial, and witnesses.",
       "locationMarkerId": "woman-in-white-location-gilmore-kyrle",
       "involvedCharacterIds": [
@@ -8148,7 +8210,7 @@
       "id": "woman-in-white-event-third-5",
       "chapterId": "woman-in-white-chapter-44",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter V: Hampshire Inquiry",
+      "title": "Walter V",
       "description": "Walter returns to Hampshire to trace Anne’s history and the witnesses around Blackwater Park.",
       "locationMarkerId": "woman-in-white-location-blackwater-house",
       "involvedCharacterIds": [
@@ -8184,7 +8246,7 @@
       "id": "woman-in-white-event-third-6",
       "chapterId": "woman-in-white-chapter-45",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter VI: Mrs Clements",
+      "title": "Walter VI",
       "description": "Mrs Clements tells Walter about Anne’s childhood, her devotion to Mrs Fairlie, and Mrs Catherick’s dealings with Percival.",
       "locationMarkerId": "woman-in-white-location-clements-inn",
       "involvedCharacterIds": [
@@ -8219,7 +8281,7 @@
       "id": "woman-in-white-event-third-7",
       "chapterId": "woman-in-white-chapter-46",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter VII: Anne’s Parentage",
+      "title": "Walter VII",
       "description": "Walter discovers that Anne and Laura shared a father, explaining their resemblance without making them interchangeable.",
       "locationMarkerId": "woman-in-white-location-clements-inn",
       "involvedCharacterIds": [
@@ -8252,7 +8314,7 @@
       "id": "woman-in-white-event-third-8",
       "chapterId": "woman-in-white-chapter-47",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter VIII: Laura’s Memory",
+      "title": "Walter VIII",
       "description": "In the safety of Gower’s Walk, Laura gradually recalls the London journey and the moment her identity was taken from her.",
       "locationMarkerId": "woman-in-white-location-gowers-walk",
       "involvedCharacterIds": [
@@ -8289,7 +8351,7 @@
       "id": "woman-in-white-event-third-9",
       "chapterId": "woman-in-white-chapter-48",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter IX: Mrs Catherick at Welmingham",
+      "title": "Walter IX",
       "description": "Walter confronts Mrs Catherick and learns that Percival’s terror centres on the old parish register.",
       "locationMarkerId": "woman-in-white-location-old-welmingham",
       "involvedCharacterIds": [
@@ -8325,7 +8387,7 @@
       "id": "woman-in-white-event-third-10",
       "chapterId": "woman-in-white-chapter-49",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter X: The Vestry Fire",
+      "title": "Walter X",
       "description": "Percival breaks into the vestry to destroy the register, accidentally sets the building alight, and is trapped.",
       "locationMarkerId": "woman-in-white-location-old-welmingham",
       "involvedCharacterIds": [
@@ -8363,7 +8425,7 @@
       "id": "woman-in-white-event-third-11",
       "chapterId": "woman-in-white-chapter-50",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter XI: The Inquest",
+      "title": "Walter XI",
       "description": "The inquest confirms Percival’s accidental death but cannot replace the destroyed register as evidence in Laura’s case.",
       "locationMarkerId": "woman-in-white-location-old-welmingham",
       "involvedCharacterIds": [
@@ -8396,7 +8458,7 @@
       "id": "woman-in-white-event-catherick-account",
       "chapterId": "woman-in-white-chapter-51",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Mrs Catherick: Her Written Account",
+      "title": "Mrs Catherick",
       "description": "Mrs Catherick writes the history of Percival’s illegitimate birth, the forged marriage entry, and Anne’s accidental knowledge.",
       "locationMarkerId": "woman-in-white-location-old-welmingham",
       "involvedCharacterIds": [
@@ -8431,7 +8493,7 @@
       "id": "woman-in-white-event-final-1",
       "chapterId": "woman-in-white-chapter-52",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter I: The Register’s Secret",
+      "title": "Walter I",
       "description": "Walter verifies Mrs Catherick’s account and distinguishes Percival’s motive from Fosco’s execution of the identity exchange.",
       "locationMarkerId": "woman-in-white-location-clements-inn",
       "involvedCharacterIds": [
@@ -8466,7 +8528,7 @@
       "id": "woman-in-white-event-final-2",
       "chapterId": "woman-in-white-chapter-53",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter II: Home at Gower’s Walk",
+      "title": "Walter II",
       "description": "Walter returns to Laura and Marian, preserving their concealed household while the final investigation continues.",
       "locationMarkerId": "woman-in-white-location-gowers-walk",
       "involvedCharacterIds": [
@@ -8500,7 +8562,7 @@
       "id": "woman-in-white-event-final-3",
       "chapterId": "woman-in-white-chapter-54",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter III: Marriage and Recovery",
+      "title": "Walter III",
       "description": "Walter and Laura marry privately, choosing a shared life before public restoration of her name is complete.",
       "locationMarkerId": "woman-in-white-location-gowers-walk",
       "involvedCharacterIds": [
@@ -8533,7 +8595,7 @@
       "id": "woman-in-white-event-final-4",
       "chapterId": "woman-in-white-chapter-55",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter IV: Watch on Fosco",
+      "title": "Walter IV",
       "description": "Walter watches Fosco’s St John’s Wood house and studies its visitors, routines, and vulnerabilities.",
       "locationMarkerId": "woman-in-white-location-st-johns-wood",
       "involvedCharacterIds": [
@@ -8568,7 +8630,7 @@
       "id": "woman-in-white-event-final-5",
       "chapterId": "woman-in-white-chapter-56",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter V: Pesca Recognises Fosco",
+      "title": "Walter V",
       "description": "At the opera, Pesca sees Fosco and reacts with fear and recognition that contradicts the Count’s public identity.",
       "locationMarkerId": "woman-in-white-location-opera",
       "involvedCharacterIds": [
@@ -8605,7 +8667,7 @@
       "id": "woman-in-white-event-final-6",
       "chapterId": "woman-in-white-chapter-57",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter VI: The Brotherhood’s Mark",
+      "title": "Walter VI",
       "description": "Pesca explains the brotherhood’s discipline and gives Walter leverage more immediate than English legal proceedings.",
       "locationMarkerId": "woman-in-white-location-clements-inn",
       "involvedCharacterIds": [
@@ -8640,7 +8702,7 @@
       "id": "woman-in-white-event-final-7",
       "chapterId": "woman-in-white-chapter-58",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Walter VII: Confronting Fosco",
+      "title": "Walter VII",
       "description": "Walter confronts Fosco at Forest Road and demands a complete written confession in exchange for time to leave England.",
       "locationMarkerId": "woman-in-white-location-st-johns-wood",
       "involvedCharacterIds": [
@@ -8679,7 +8741,7 @@
       "id": "woman-in-white-event-fosco-confession",
       "chapterId": "woman-in-white-chapter-59",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Fosco: The Confession",
+      "title": "Fosco",
       "description": "Fosco writes how Anne died under Laura’s name and Laura was committed as Anne, fixing the dates and responsibilities.",
       "locationMarkerId": "woman-in-white-location-st-johns-wood",
       "involvedCharacterIds": [
@@ -8718,7 +8780,7 @@
       "id": "woman-in-white-event-conclusion-1",
       "chapterId": "woman-in-white-chapter-60",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Conclusion I: Laura’s Identity Restored",
+      "title": "Conclusion I",
       "description": "Fosco’s confession and the corrected chronology allow Laura’s name to be restored publicly at Limmeridge.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
@@ -8756,7 +8818,7 @@
       "id": "woman-in-white-event-conclusion-2",
       "chapterId": "woman-in-white-chapter-61",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Conclusion II: Fosco’s Death in Paris",
+      "title": "Conclusion II",
       "description": "While working in Paris, Walter and Pesca identify Fosco after his body is recovered from the Seine and displayed at the Morgue.",
       "locationMarkerId": "woman-in-white-location-paris-morgue",
       "involvedCharacterIds": [
@@ -8792,7 +8854,7 @@
       "id": "woman-in-white-event-conclusion-3",
       "chapterId": "woman-in-white-chapter-62",
       "timelineId": "woman-in-white-timeline-main",
-      "title": "Conclusion III: Heir of Limmeridge",
+      "title": "Conclusion III",
       "description": "Walter, Laura, and Marian return to Limmeridge with Walter and Laura’s son, now heir to the estate.",
       "locationMarkerId": "woman-in-white-location-limmeridge-house",
       "involvedCharacterIds": [
