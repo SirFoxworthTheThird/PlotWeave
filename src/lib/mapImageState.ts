@@ -49,3 +49,21 @@ export function mapImageState(input: {
   if (input.load === 'loading') return 'loading'
   return 'ready'
 }
+
+/**
+ * The address to probe, or `null` for one that cannot be a dead link.
+ *
+ * Only `http(s)` is probed, and that is not an optimisation. A blob holding
+ * uploaded bytes is resolved with `URL.createObjectURL`, which mints a **new**
+ * string on every call, so anything keyed on the url of an uploaded image
+ * re-runs on every render and never settles. `useImageLoad` did exactly that
+ * in its first form and left every map on its spinner — 77 e2e failures, every
+ * one a canvas that never drew.
+ *
+ * Local bytes also cannot fail the way a link can: if they are not there, the
+ * record is absent, and `mapImageState` answers `not-downloaded` first.
+ */
+export function probeableAddress(url: string | undefined): string | null {
+  if (!url) return null
+  return /^https?:/i.test(url) ? url : null
+}

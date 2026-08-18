@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { mapImageState, type ImageLoad } from '@/lib/mapImageState'
+import { mapImageState, probeableAddress, type ImageLoad } from '@/lib/mapImageState'
 
 /**
  * The order of these branches is the whole content of the function, and every
@@ -59,5 +59,33 @@ describe('mapImageState', () => {
 
   it('prefers unreachable over loading once there is an address that failed', () => {
     expect(mapImageState({ ...base, load: 'failed' })).not.toBe('loading')
+  })
+})
+
+/**
+ * The rule that cost 77 e2e failures. `URL.createObjectURL` returns a new
+ * string each call, so an uploaded image's url is a different value on every
+ * render; anything keyed on it never settles, and the map sits on its spinner
+ * forever. Only an address that can actually be a dead link is probed.
+ */
+describe('probeableAddress', () => {
+  it('probes a remote address', () => {
+    expect(probeableAddress('https://upload.wikimedia.org/a.jpg')).toBe('https://upload.wikimedia.org/a.jpg')
+    expect(probeableAddress('http://example.test/a.jpg')).toBe('http://example.test/a.jpg')
+  })
+
+  it('does not probe an object url, however many times it is minted', () => {
+    // Two different strings for the same uploaded picture, which is exactly
+    // what two renders produce.
+    expect(probeableAddress('blob:http://localhost:4173/8f2c-1')).toBeNull()
+    expect(probeableAddress('blob:http://localhost:4173/8f2c-2')).toBeNull()
+  })
+
+  it('does not probe an inlined picture', () => {
+    expect(probeableAddress('data:image/png;base64,iVBORw0KGgo=')).toBeNull()
+  })
+
+  it('has nothing to probe before the record has been read', () => {
+    expect(probeableAddress(undefined)).toBeNull()
   })
 })
