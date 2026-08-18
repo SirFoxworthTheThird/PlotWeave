@@ -111,7 +111,7 @@ function AddSyncPointForm({
     <div className="flex items-center gap-1.5">
       <Select value={innerId} onValueChange={setInnerId}>
         <SelectTrigger className="h-7 flex-1 text-xs">
-          <SelectValue placeholder="Inner event…" />
+          <SelectValue placeholder="Inner scene…" />
         </SelectTrigger>
         <SelectContent>
           {innerOptions.map((o) => (
@@ -122,7 +122,7 @@ function AddSyncPointForm({
       <ArrowRight className="h-3 w-3 shrink-0 text-[hsl(var(--muted-foreground))]" />
       <Select value={outerId} onValueChange={setOuterId}>
         <SelectTrigger className="h-7 flex-1 text-xs">
-          <SelectValue placeholder="Outer event…" />
+          <SelectValue placeholder="Outer scene…" />
         </SelectTrigger>
         <SelectContent>
           {outerOptions.map((o) => (
@@ -143,8 +143,8 @@ function AddSyncPointForm({
     <BlockingReason
       className="text-[10px]"
       checks={[
-        { met: !!innerId, need: 'an inner event' },
-        { met: !!outerId, need: 'an outer event' },
+        { met: !!innerId, need: 'an inner scene' },
+        { met: !!outerId, need: 'an outer scene' },
       ]}
     />
     </div>

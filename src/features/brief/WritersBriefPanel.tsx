@@ -379,7 +379,7 @@ export function WritersBriefPanel() {
                   <p className="text-xs text-[hsl(var(--muted-foreground))]">
                     {characters.length === 0
                       ? 'No characters created yet.'
-                      : 'No character states recorded for this event.'}
+                      : 'No character states recorded for this scene.'}
                   </p>
                 ) : (
                   <div className="space-y-2">

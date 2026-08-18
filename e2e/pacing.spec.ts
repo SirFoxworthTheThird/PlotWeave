@@ -24,9 +24,9 @@ async function setupEvent(page: Page) {
   await expect(page).toHaveURL(/#\/worlds\/.+\/timeline\/.+/)
 
   const main = page.getByRole('main')
-  await main.getByRole('button', { name: 'Add Event' }).first().click()
-  await page.getByPlaceholder('Event title').fill('The Departure')
-  await page.getByRole('button', { name: 'Add Event' }).last().click()
+  await main.getByRole('button', { name: 'Add Scene' }).first().click()
+  await page.getByPlaceholder('Scene title').fill('The Departure')
+  await page.getByRole('button', { name: 'Add Scene' }).last().click()
   await expect(main.getByRole('button', { name: 'The Departure', exact: true })).toBeVisible()
 }
 

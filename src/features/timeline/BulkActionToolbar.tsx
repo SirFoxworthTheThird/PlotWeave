@@ -58,7 +58,7 @@ export function BulkActionToolbar({ timelineId }: BulkActionToolbarProps) {
           open={confirmOpen}
           onOpenChange={setConfirmOpen}
           title={`Delete ${count} event${count > 1 ? 's' : ''}?`}
-          description="All selected events and their snapshots will be permanently deleted."
+          description="All selected scenes and their snapshots will be permanently deleted."
           onConfirm={handleDelete}
         />
 
