@@ -742,6 +742,43 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
           />
         )}
 
+        {/*
+          The picture's record is here and it points at the web, which did not
+          answer. Every image in the Library is stored that way — 1,573 of them
+          across the 25 books, on twenty-odd hosts — so this is not an edge case
+          for a companion someone reads on a train.
+
+          A banner, not a replacement, and it took two goes to learn why. The
+          canvas was silent about this, which left a reader three explanations
+          for a blank rectangle and made two of them ours. But replacing the
+          canvas with an empty state lost the sidebar; replacing only the canvas
+          lost the markers, routes and regions, which Leaflet still draws in
+          pixel space with no picture behind them — an unlabelled diagram of the
+          place, which is worth more than a paragraph about its absence. Each
+          attempt was caught by a spec written for something else.
+
+          So the map keeps everything it can still do, and the banner says why
+          it looks the way it does. A reader is offered nothing to act on:
+          supplying a picture is an author's action, and unlike `EmptyState`
+          this is our own markup, so the gate here is load-bearing.
+        */}
+        {imageState === 'unreachable' && (
+          <div className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-1.5 border-b border-[hsl(var(--border))] bg-[hsl(var(--muted)/0.4)] px-4 py-2">
+            <ImageOff className="h-4 w-4 shrink-0 text-[hsl(var(--muted-foreground))]" aria-hidden="true" />
+            <p className="min-w-[13rem] flex-1 text-xs text-[hsl(var(--muted-foreground))]">
+              {gate.active
+                ? "This map's picture could not be loaded — it is kept on the web rather than in the book, so it needs a connection. Everything marked on the map is still here."
+                : "This map's picture could not be loaded. It is linked from the web rather than stored here, and that address did not answer. Everything marked on the map is still here."}
+            </p>
+            {!gate.active && (
+              <Button size="sm" variant="outline" className="shrink-0 gap-1.5 text-xs" onClick={() => setReplaceImageOpen(true)}>
+                <Upload className="h-3.5 w-3.5" />
+                Add map image
+              </Button>
+            )}
+          </div>
+        )}
+
         {/* Map canvas. data-film-strip lifts Leaflet's bottom controls clear of
             the character film strip, which shares the canvas's bottom edge. */}
         <div
@@ -750,45 +787,6 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
           style={canvasTransitionStyle}
           onTransitionEnd={handleCanvasTransitionEnd}
         >
-          {/*
-            The record is here and it points at the web, which did not answer.
-
-            Every picture in the Library is stored this way — 1,573 of them
-            across the 25 books, on twenty-odd hosts — so this is not an edge
-            case for a companion someone reads on a train; it is what the
-            Library looks like offline. The canvas used to be blank and silent,
-            framed by a sidebar and zoom controls, which leaves three
-            explanations available to the reader and makes two of them ours.
-
-            This replaces the **canvas** and nothing else. The first attempt
-            replaced the whole screen, which took the sidebar away with it —
-            and the sidebar is where the map's places, routes and regions are
-            listed, so the notice was busy claiming they were still there while
-            having just removed them. Seven reading-mode specs failed on that,
-            all of them opening a character from a sidebar that was gone.
-
-            `EmptyState` drops its call to action while reading, so a reader is
-            told what happened and offered nothing to do; supplying a picture is
-            an author's action.
-          */}
-          {imageState === 'unreachable' ? (
-            <EmptyState
-              icon={ImageOff}
-              title="This map's picture could not be loaded"
-              description={
-                gate.active
-                  ? 'The picture for this map is kept on the web rather than in the book, so it needs a connection to appear. Nothing is being held back from you — the places, routes and regions on this map are all here, listed beside it.'
-                  : 'The picture for this map is linked from the web rather than stored here, and that address did not answer. Everything else about the map — its locations, routes and regions — is present. Check your connection, or add a picture of your own to keep it working offline.'
-              }
-              className="h-full"
-              action={
-                <Button className="gap-1.5" onClick={() => setReplaceImageOpen(true)}>
-                  <Upload className="h-4 w-4" />
-                  Add map image
-                </Button>
-              }
-            />
-          ) : (
           <LeafletMapCanvas
             key={layerId}
             layer={layer}
@@ -907,7 +905,6 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
                 : null
             }
           />
-          )}
 
           {/* Floating map controls — the map runs edge to edge underneath them.
               pointer-events-none on the band lets drags pass through the gap.

@@ -67,12 +67,17 @@ test.describe('A map whose picture lives on the web', () => {
     await expect(page.getByText(UNREACHABLE)).toBeVisible()
 
     /*
-      The claim the screen makes has to be true, or it is a worse lie than
-      silence: *the places, routes and regions on this map are all here, listed
-      beside it.* The first version of this fix replaced the whole screen and
-      took that sidebar away with it — seven reading-mode specs failed on it,
-      every one opening a character from a sidebar that was no longer there.
+      The claim the banner makes has to be true, or it is a worse lie than
+      silence: *everything marked on the map is still here.* Two attempts got
+      that wrong. Replacing the whole screen took the sidebar away — seven
+      reading-mode specs failed, every one opening a character from a sidebar
+      that was gone. Replacing only the canvas took the markers, routes and
+      regions, which Leaflet draws in pixel space with or without a picture
+      behind them.
+
+      So both are checked: the sidebar sections, and the canvas itself.
     */
+    await expect(page.locator('.leaflet-container')).toBeVisible()
     // Reached through `main`, because the nav rail carries "Characters",
     // "Locations" and "Maps" too. The section headers read as upper case only
     // through CSS; their accessible names are title case, and each carries its
