@@ -65,9 +65,24 @@ test.describe('A map whose picture lives on the web', () => {
     await libraryMapWithRemote(page, 'refused')
 
     await expect(page.getByText(UNREACHABLE)).toBeVisible()
-    // The claim the screen makes has to be true, or it is a worse lie than
-    // silence: the map's own contents are still listed beside it.
-    await expect(page.getByText('England and the Case').first()).toBeVisible()
+
+    /*
+      The claim the screen makes has to be true, or it is a worse lie than
+      silence: *the places, routes and regions on this map are all here, listed
+      beside it.* The first version of this fix replaced the whole screen and
+      took that sidebar away with it — seven reading-mode specs failed on it,
+      every one opening a character from a sidebar that was no longer there.
+    */
+    // Reached through `main`, because the nav rail carries "Characters",
+    // "Locations" and "Maps" too. The section headers read as upper case only
+    // through CSS; their accessible names are title case, and each carries its
+    // count.
+    const panels = page.getByRole('main')
+    await expect(panels.getByRole('button', { name: /^Map Layers \d/ })).toBeVisible()
+    await expect(panels.getByRole('button', { name: /^Characters \d/ })).toBeVisible()
+    await expect(panels.getByRole('button', { name: /^Locations \d/ })).toBeVisible()
+    // And the layers themselves are still listed, which is half the claim.
+    await expect(panels.getByRole('button', { name: 'London and Its Environs, 1855' })).toBeVisible()
   })
 
   /**
