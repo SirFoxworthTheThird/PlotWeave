@@ -278,7 +278,7 @@ export default function WorldDashboardView() {
       countSuffix: '%',
       onClick: () => navigate('arc'),
       pills: !gate.active && eventsWithSnap > 0
-        ? [{ label: `/ ${totalEvents} events`, value: eventsWithSnap }]
+        ? [{ label: `/ ${totalEvents} scenes`, value: eventsWithSnap }]
         : [],
       description: gate.active ? 'how the cast changes' : 'opens the Character Arc grid',
     },

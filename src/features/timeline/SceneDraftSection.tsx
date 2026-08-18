@@ -169,7 +169,7 @@ export function SceneDraftSection({
               key={m.characterId}
               onClick={() => onAddCharacter(m.characterId)}
               className="flex items-center gap-1 rounded-full border border-dashed border-[hsl(var(--border))] px-2 py-0.5 text-[10px] text-[hsl(var(--muted-foreground))] hover:border-[hsl(var(--ring))] hover:text-[hsl(var(--foreground))] transition-colors"
-              title={`${m.name} appears ${m.count}× — click to add to this event`}
+              title={`${m.name} appears ${m.count}× — click to add to this scene`}
             >
               <Plus className="h-2.5 w-2.5" /> {m.name}
             </button>
