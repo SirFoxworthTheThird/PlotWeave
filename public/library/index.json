@@ -24,7 +24,7 @@
       "author": "J.R.R. Tolkien",
       "blurb": "The Ring leaves the Shire. Track the Fellowship across Eriador and Moria, and see who knows what, and when.",
       "data": "the-fellowship-of-the-ring.pwk",
-      "dataBytes": 587296,
+      "dataBytes": 587307,
       "counts": {
         "characters": 45,
         "chapters": 22,
@@ -42,7 +42,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "Kvothe tells his own story over the first of three days — from the troupe, to Tarbean, to the University.",
       "data": "the-name-of-the-wind.pwk",
-      "dataBytes": 522301,
+      "dataBytes": 522312,
       "counts": {
         "characters": 56,
         "chapters": 94,
@@ -61,7 +61,7 @@
       "author": "J.R.R. Tolkien",
       "blurb": "The Fellowship is broken. Follow three separate journeys as they diverge across Rohan, Fangorn and the Emyn Muil.",
       "data": "the-two-towers.pwk",
-      "dataBytes": 535910,
+      "dataBytes": 535921,
       "counts": {
         "characters": 67,
         "chapters": 21,
@@ -79,7 +79,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "The second day of Kvothe's telling: Vintas, the Eld, Ademre and Felurian.",
       "data": "the-wise-man-s-fear.pwk",
-      "dataBytes": 612960,
+      "dataBytes": 612971,
       "counts": {
         "characters": 80,
         "chapters": 154,
@@ -166,7 +166,7 @@
       "author": "Arthur Conan Doyle",
       "blurb": "Holmes and Watson follow a family curse from London clues to Dartmoor, where an inheritance plot hides behind the legend of a spectral hound.",
       "data": "the-hound-of-the-baskervilles.pwk",
-      "dataBytes": 228344,
+      "dataBytes": 228347,
       "counts": {
         "characters": 19,
         "chapters": 15,
@@ -200,7 +200,7 @@
       "author": "Robert Louis Stevenson",
       "blurb": "Jim Hawkins follows a pirate map from the Admiral Benbow to the Hispaniola and a remote island where loyalty, mutiny, and buried treasure collide.",
       "data": "treasure-island.pwk",
-      "dataBytes": 382693,
+      "dataBytes": 382695,
       "counts": {
         "characters": 25,
         "chapters": 34,
@@ -217,7 +217,7 @@
       "author": "Jules Verne",
       "blurb": "Phileas Fogg wagers that railways and steamships can carry him around the globe in eighty days, while a mistaken detective, missed connections, and acts of loyalty transform the race.",
       "data": "around-the-world-in-eighty-days.pwk",
-      "dataBytes": 498967,
+      "dataBytes": 498970,
       "counts": {
         "characters": 24,
         "chapters": 37,
@@ -302,7 +302,7 @@
       "author": "Alexandre Dumas",
       "blurb": "Edmond Dantès returns from wrongful imprisonment with a new identity and immense fortune, setting reward and revenge in motion across Marseille, Rome, and Paris.",
       "data": "the-count-of-monte-cristo.pwk",
-      "dataBytes": 720064,
+      "dataBytes": 720067,
       "counts": {
         "characters": 41,
         "chapters": 117,
@@ -319,7 +319,7 @@
       "author": "Charles Dickens",
       "blurb": "Lucie Manette, Charles Darnay, and Sydney Carton are bound across London and Paris as private resurrection, inherited injustice, revolution, and chosen sacrifice converge.",
       "data": "a-tale-of-two-cities.pwk",
-      "dataBytes": 341133,
+      "dataBytes": 341137,
       "counts": {
         "characters": 25,
         "chapters": 45,
@@ -370,7 +370,7 @@
       "author": "Baroness Orczy",
       "blurb": "A hidden English League races across revolutionary France while Marguerite Blakeney struggles to protect her brother, restore trust, and reach the Channel escape.",
       "data": "the-scarlet-pimpernel.pwk",
-      "dataBytes": 253753,
+      "dataBytes": 253757,
       "counts": {
         "characters": 15,
         "chapters": 31,
@@ -387,7 +387,7 @@
       "author": "Alexandre Dumas",
       "blurb": "A young Gascon joins Athos, Porthos, and Aramis as court secrets, English diamonds, Milady de Winter, and the siege of La Rochelle turn friendship into a test of loyalty.",
       "data": "the-three-musketeers.pwk",
-      "dataBytes": 464826,
+      "dataBytes": 464829,
       "counts": {
         "characters": 25,
         "chapters": 67,
@@ -404,7 +404,7 @@
       "author": "Wilkie Collins",
       "blurb": "A drawing master, two half-sisters, and a woman escaped from confinement assemble the evidence behind a conspiracy of identity, inheritance, and law.",
       "data": "the-woman-in-white.pwk",
-      "dataBytes": 387169,
+      "dataBytes": 387172,
       "counts": {
         "characters": 18,
         "chapters": 62,
@@ -421,7 +421,7 @@
       "author": "Arthur Conan Doyle",
       "blurb": "A reporter, two rival professors, and a veteran explorer cross into an isolated plateau where prehistoric life survives—and must return with proof the world cannot dismiss.",
       "data": "the-lost-world.pwk",
-      "dataBytes": 278758,
+      "dataBytes": 278761,
       "counts": {
         "characters": 10,
         "chapters": 16,
