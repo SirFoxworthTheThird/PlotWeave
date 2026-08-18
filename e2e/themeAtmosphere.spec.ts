@@ -46,6 +46,34 @@ const atmosphereOf = (page: Page) => page.evaluate(() =>
 test.describe('Theme atmosphere', () => {
   test.describe.configure({ timeout: 300_000 })
 
+  /**
+   * Every theme the picker offers must actually be styled.
+   *
+   * Three shipped books asked for `theme-gothic`, `theme-mystery` and
+   * `theme-mythic` when no such rule existed: the class matched nothing, the
+   * world fell back to Dark Slate, and the Settings picker showed no card as
+   * chosen. A unit test catches a *book* naming a theme that is not registered
+   * — `libraryThemes.test.ts` does — but not a theme that is registered and
+   * never styled, because vitest stubs the stylesheet. Only a browser can see
+   * that the class does something.
+   */
+  test('every theme in the picker actually restyles the app', async ({ page }) => {
+    await themedWorld(page)
+
+    await applyTheme(page, null)
+    const base = await page.evaluate(() =>
+      getComputedStyle(document.documentElement).getPropertyValue('--background').trim())
+    expect(base, 'the default theme should define a background').not.toBe('')
+
+    for (const t of APP_THEMES) {
+      if (t.id === 'default') continue
+      await applyTheme(page, themeClass(t.id))
+      const background = await page.evaluate(() =>
+        getComputedStyle(document.documentElement).getPropertyValue('--background').trim())
+      expect(background, `${t.id} has no stylesheet rule of its own`).not.toBe(base)
+    }
+  })
+
   test('carries texture, and no hard-edged marks, in every theme', async ({ page }) => {
     await themedWorld(page)
 
