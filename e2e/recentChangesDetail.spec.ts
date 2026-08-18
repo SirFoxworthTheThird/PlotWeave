@@ -54,14 +54,21 @@ test.describe('Recent changes says what changed', () => {
   test('names the field an edit touched, not just the record', async ({ page }) => {
     await worldWithAScene(page)
 
-    // Rate the scene's tension. The write carries no name and no title, which
-    // is the case the review filed: it used to read "Edited event" flat.
-    await page.getByRole('button', { name: /Dramatic Tension/i }).first().click()
-    await page.getByTitle('Intense (4/5)').click()
-    await page.waitForTimeout(1200)
+    /*
+      Type a chapter note. `updateChapter(id, { notes })` carries no name and no
+      title, which is exactly the case the review filed: the row used to read
+      "Edited chapter" flat, whatever had been touched.
+
+      The scene's tension rating is the same shape and was the first choice,
+      but that section only renders once the card is in edit mode, and driving
+      that adds two clicks this test is not about.
+    */
+    await page.getByLabel("Writer's notes for this chapter").fill('Remember the gate.')
+    await expect(page.getByText('Auto-saved')).toBeVisible()
+    await page.waitForTimeout(1500)
 
     await openRecentChanges(page)
-    await expect(panel(page).getByText('Edited event — tension')).toBeVisible()
+    await expect(panel(page).getByText('Edited chapter — notes')).toBeVisible()
   })
 
   /**
