@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useMemo } from 'react'
 import L from 'leaflet'
 import { useParams } from 'react-router-dom'
-import { Upload, Map as MapIcon, X, Route, Sparkles, Type, Trash2, Crosshair, ImageUp, Layers } from 'lucide-react'
+import { Upload, Map as MapIcon, X, Route, Sparkles, Type, Trash2, Crosshair, ImageUp, ImageOff, Layers } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAppStore, useActiveMapLayerId } from '@/store'
 import { useRootMapLayers, updateMapLayer, deleteMapLevel } from '@/db/hooks/useMapLayers'
@@ -41,7 +41,7 @@ import type { LocationMarker } from '@/types'
 
 function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
   const {
-    layer, imageUrl, imageMissing, markers, allLayers, allMarkers, characters,
+    layer, imageUrl, imageState, markers, allLayers, allMarkers, characters,
     activeEventId, orderedEvents,
     activeChapter, activeMomentLabel,
     snapshots, prevSnapshots,
@@ -523,7 +523,7 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
     )
   }
 
-  if (!layer.imageId) {
+  if (imageState === 'no-image') {
     return (
       <div className="flex h-full flex-col overflow-hidden">
         <div className="flex shrink-0 items-center justify-between border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4 py-2">
@@ -546,9 +546,16 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
         <EmptyState
           icon={ImageUp}
           title="This map needs an image"
-          description="Upload an image or link to one. Existing locations will remain attached to this map and will be rescaled to the new image if needed."
+          description={
+            gate.active
+              ? 'No picture was ever drawn for this map. Nothing is being held back from you.'
+              : 'Upload an image or link to one. Existing locations will remain attached to this map and will be rescaled to the new image if needed.'
+          }
           className="flex-1"
           action={
+            // Offered unconditionally: `EmptyState` drops the call to action
+            // while reading, so a second gate here would be dead code claiming
+            // to be the rule.
             <Button className="gap-1.5" onClick={() => setReplaceImageOpen(true)}>
               <Upload className="h-4 w-4" />
               Add map image
@@ -577,7 +584,7 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
     writer cannot tell a slow map from a missing one, and the way out — the
     Library's "with images" download — is never mentioned.
   */
-  if (imageMissing) {
+  if (imageState === 'not-downloaded') {
     return (
       <div className="flex h-full flex-col overflow-hidden">
         <div className="flex shrink-0 items-center justify-between border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4 py-2">
@@ -589,9 +596,16 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
         <EmptyState
           icon={ImageUp}
           title="This map's image isn't here"
-          description="The map itself — its locations, routes and regions — is all present; only the picture is missing. Worlds from the Library keep their images in a separate bundle, so a download without images leaves the maps blank. Download the world again from the Library with images included, or add a picture of your own."
+          description={
+            gate.active
+              ? "The map itself — its places, routes and regions — is all here; only the picture is missing, because a book's images are kept in a separate bundle from its text. Nothing is being held back from you."
+              : 'The map itself — its locations, routes and regions — is all present; only the picture is missing. Worlds from the Library keep their images in a separate bundle, so a download without images leaves the maps blank. Download the world again from the Library with images included, or add a picture of your own.'
+          }
           className="flex-1"
           action={
+            // Offered unconditionally: `EmptyState` drops the call to action
+            // while reading, so a second gate here would be dead code claiming
+            // to be the rule.
             <Button className="gap-1.5" onClick={() => setReplaceImageOpen(true)}>
               <Upload className="h-4 w-4" />
               Add map image
@@ -608,7 +622,74 @@ function MapView({ worldId, layerId }: { worldId: string; layerId: string }) {
     )
   }
 
-  if (!imageUrl) {
+  /*
+    The record is here and it points at the web, which did not answer.
+
+    Every picture in the Library is stored this way — 1,573 of them across the
+    25 books, on twenty-odd hosts — so this is not an edge case for a companion
+    someone reads on a train; it is what the Library looks like offline. The
+    screen used to draw its whole frame around an empty canvas: sidebar,
+    markers, zoom controls, scale bar, and nothing where the map goes. Of the
+    three explanations that leaves a reader — no map was drawn, the app is
+    broken, the picture is being withheld — two are wrong and both are ours.
+
+    The reader is told what happened and is offered nothing to do about it,
+    because there is nothing they should do: the map's own contents are here,
+    and adding a picture of their own is an author's action.
+  */
+  if (imageState === 'unreachable') {
+    return (
+      <div className="flex h-full flex-col overflow-hidden">
+        <div className="flex shrink-0 items-center justify-between border-b border-[hsl(var(--border))] bg-[hsl(var(--card))] px-4 py-2">
+          <div className="min-w-0">
+            <p className="truncate text-sm font-semibold text-[hsl(var(--foreground))]">{layer.name}</p>
+            <p className="truncate text-[11px] text-[hsl(var(--muted-foreground))]">Picture could not be loaded</p>
+          </div>
+          {layer.parentMapId && (
+            <Button
+              size="sm"
+              variant="outline"
+              className="gap-1.5 text-xs"
+              onClick={() => setActiveMapLayerId(layer.parentMapId!)}
+            >
+              <Layers className="h-3.5 w-3.5" />
+              Parent map
+            </Button>
+          )}
+        </div>
+        <EmptyState
+          icon={ImageOff}
+          title="This map's picture could not be loaded"
+          description={
+            gate.active
+              ? 'The picture for this map is kept on the web rather than in the book, so it needs a connection to appear. Nothing is being held back from you — the places, routes and regions on this map are all here, and they are listed beside it.'
+              : 'The picture for this map is linked from the web rather than stored here, and that address did not answer. Everything else about the map — its locations, routes and regions — is present. Check your connection, or add a picture of your own to keep it working offline.'
+          }
+          className="flex-1"
+          action={
+            // Offered unconditionally: `EmptyState` drops the call to action
+            // while reading, so a second gate here would be dead code claiming
+            // to be the rule.
+            <Button className="gap-1.5" onClick={() => setReplaceImageOpen(true)}>
+              <Upload className="h-4 w-4" />
+              Add map image
+            </Button>
+          }
+        />
+        <UploadMapDialog
+          open={replaceImageOpen}
+          onOpenChange={setReplaceImageOpen}
+          worldId={worldId}
+          replaceLayerId={layer.id}
+        />
+      </div>
+    )
+  }
+
+  // The second half of this condition adds no case: `mapImageState` returns
+  // 'loading' exactly when there is no url yet. It is here so the compiler can
+  // narrow `imageUrl` to a string for the canvas below.
+  if (imageState === 'loading' || !imageUrl) {
     return (
       <div className="flex h-full items-center justify-center">
         <div className="h-6 w-6 animate-spin rounded-full border-2 border-[hsl(var(--border))] border-t-[hsl(var(--ring))]" />

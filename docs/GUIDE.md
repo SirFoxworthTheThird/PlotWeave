@@ -1222,6 +1222,14 @@ routes and regions are all still there. This happens to worlds taken from the
 is a separate download. Fetch the world again with images included, or add a
 picture of your own from that screen.
 
+**If a map's picture is linked from the web** rather than stored in the world,
+the screen says *"This map's picture could not be loaded"* when that address
+doesn't answer — most often because you're offline. Again the map itself is
+untouched: its locations, routes and regions are all present and listed beside
+it. Worlds from the **Library** link their pictures this way, so their maps
+need a connection the first time you open them. Adding a picture of your own
+stores it in the world, which keeps it working offline.
+
 ### Setting a map's scale
 
 **Set map scale** (in the map tools menu) asks you to click two points and say
