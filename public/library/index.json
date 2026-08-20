@@ -431,6 +431,40 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Historical maps and public-domain book illustrations are linked in the file.",
       "worldId": "lost-world-world",
       "cover": "https://arthurconandoyle.co.uk/images/characters/original%20serialization%20of%20The%20Lost%20World%20in%20Strand%20Magazine-11042019144308.jpg"
+    },
+    {
+      "id": "the-secret-garden",
+      "title": "The Secret Garden",
+      "author": "Frances Hodgson Burnett",
+      "blurb": "An orphaned girl discovers a locked garden and a hidden cousin; restoring one hidden life awakens the other and draws a grieving family home.",
+      "data": "the-secret-garden.pwk",
+      "dataBytes": 302814,
+      "counts": {
+        "characters": 12,
+        "chapters": 27,
+        "events": 54,
+        "locations": 29
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Linked period maps, plans, and public-domain book illustrations are recorded in Lore.",
+      "worldId": "secret-garden-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Houghton%20AC85%20B9345%20911s%20-%20Secret%20Garden%2C%201911%20-%20cover.jpg?width=900"
+    },
+    {
+      "id": "neuromancer",
+      "title": "Neuromancer",
+      "author": "William Gibson",
+      "blurb": "A washed-up console cowboy is hired to break an AI's cage, navigating cyberspace and corporate dynasties from Chiba City to a space station orbit.",
+      "data": "neuromancer.pwk",
+      "dataBytes": 203078,
+      "counts": {
+        "characters": 12,
+        "chapters": 23,
+        "events": 47,
+        "locations": 18
+      },
+      "notice": "Unofficial reference for a copyrighted novel (1984). This example contains original structural summaries, not the novel's prose. Imagery is editorial and not sourced from the novel's editions.",
+      "worldId": "neuromancer-world",
+      "cover": null
     }
   ]
 }
