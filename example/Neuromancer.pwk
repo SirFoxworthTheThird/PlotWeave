@@ -5193,7 +5193,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-cover",
       "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Neuromancer_(Book)_Cover.jpg?width=800"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Some%20neuromancer%20landscape.jpg?width=800"
     },
     {
       "worldId": "neuromancer-world",
@@ -5201,7 +5201,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-sprawl",
       "mimeType": "image/svg+xml",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/USA_eastern_seaboard_1996.jpg?width=1600"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Map%20of%20USA%20highlighting%20Eastern%20Seaboard.png?width=1600"
     },
     {
       "worldId": "neuromancer-world",
@@ -5209,14 +5209,14 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-chiba",
       "mimeType": "image/svg+xml",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chiba_city_map.svg?width=1200"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Map%20of%20wards%20in%20Chiba%20city%2C%20Chiba%20prefecture%2C%20Japan.svg?width=1200"
     },
     {
       "worldId": "neuromancer-world",
       "createdAt": 1787443200000,
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-freeside",
-      "mimeType": "image/svg+xml",
+      "mimeType": "image/jpeg",
       "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/International_Space_Station_after_undocking_of_STS-132.jpg?width=1200"
     },
     {
@@ -5224,8 +5224,8 @@
       "createdAt": 1787443200000,
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-straylight",
-      "mimeType": "image/svg+xml",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Attingham_Park_ground_floor_plan.jpg?width=1400"
+      "mimeType": "image/jpeg",
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Plan%20of%20first%20floor%20of%20the%20Executive%20Mansion%20LCCN96515459.jpg?width=1400"
     },
     {
       "worldId": "neuromancer-world",
@@ -5233,7 +5233,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-cyberdeck",
       "mimeType": "image/jpeg",
-      "url": "https://cdn.mos.cms.futurecdn.net/vChFZfGvjJWPx6tQ3f4C6.jpg"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Computer%20motherboard%2011.jpg?width=800"
     },
     {
       "worldId": "neuromancer-world",
@@ -5241,7 +5241,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-freeside-station",
       "mimeType": "image/jpeg",
-      "url": "https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2010/02/space_station_as_ever/9968498-2-eng-GB/Space_station_as_EVER_pillars.jpg"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/STS-135%20final%20flyaround%20of%20ISS%201.jpg?width=1200"
     },
     {
       "worldId": "neuromancer-world",
@@ -5249,7 +5249,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-night-city",
       "mimeType": "image/jpeg",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Akihabara_Night.jpg/1280px-Akihabara_Night.jpg"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Akihabara_Night.jpg?width=1280"
     },
     {
       "worldId": "neuromancer-world",
@@ -5257,7 +5257,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-matrix-green",
       "mimeType": "image/gif",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Matrixanim.gif/220px-Matrixanim.gif"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Digital%20rain%20animation%20big%20letters%20shine.gif?width=220"
     },
     {
       "worldId": "neuromancer-world",
@@ -5265,7 +5265,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-neon-alley",
       "mimeType": "image/jpeg",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Kabukicho_at_night_2.jpg/1280px-Kabukicho_at_night_2.jpg"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kabukicho%20red%20gate%20and%20colorful%20neon%20street%20signs%20at%20night%2C%20Shinjuku%2C%20Tokyo%2C%20Japan.jpg?width=1280"
     },
     {
       "worldId": "neuromancer-world",
@@ -5273,7 +5273,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-orbital-view",
       "mimeType": "image/jpeg",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/ISS-42_Earth%27s_atmosphere_with_aurora.jpg/1280px-ISS-42_Earth%27s_atmosphere_with_aurora.jpg"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20aurora%20folds%20through%20Earth's%20atmosphere%20(iss072e023504).jpg?width=1280"
     },
     {
       "worldId": "neuromancer-world",
@@ -5281,7 +5281,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-item-mirrorshades",
       "mimeType": "image/jpeg",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ray-Ban_Wayfarer.jpg/800px-Ray-Ban_Wayfarer.jpg"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wayfarer%20Sunglasses%2C%20Rostov-on-Don%2C%20Russia.jpg?width=800"
     },
     {
       "worldId": "neuromancer-world",
@@ -5289,7 +5289,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-item-microsoft",
       "mimeType": "image/jpeg",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Intel_8080 processor.jpg/800px-Intel_8080_processor.jpg"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Intel%20SB80486DX2-50.jpg?width=800"
     },
     {
       "worldId": "neuromancer-world",
@@ -5297,7 +5297,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-item-simstim",
       "mimeType": "image/jpeg",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Headphones.jpg/800px-Headphones.jpg"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Headphones.jpg?width=800"
     },
     {
       "worldId": "neuromancer-world",
@@ -5305,7 +5305,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-item-razor",
       "mimeType": "image/jpeg",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Razor_blade.jpg/800px-Razor_blade.jpg"
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Razor%20blade%20(358309802).jpg?width=800"
     }
   ],
   "travelModes": [
