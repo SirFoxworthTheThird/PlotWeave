@@ -150,7 +150,7 @@
       "description": "The BAMA sprawl: an endless corridor of subways, ribbed freeways, and huddled towers connecting Boston to Atlanta.",
       "x": 800,
       "y": 600,
-      "imageId": "neuromancer-image-loc-sprawl-boston",
+      "imageId": null,
       "iconType": "city",
       "tags": [],
       "factionId": null
@@ -166,7 +166,7 @@
       "description": "Chiba City sprawls along Tokyo Bay, a port of hostels, clinics, and underworld bars.",
       "x": 350,
       "y": 600,
-      "imageId": "neuromancer-image-loc-sprawl-japan",
+      "imageId": null,
       "iconType": "city",
       "tags": [],
       "factionId": null
@@ -182,7 +182,7 @@
       "description": "The orbital plane where Freeside spins, far above the weather and the law.",
       "x": 900,
       "y": 600,
-      "imageId": "neuromancer-image-loc-freeside-orbit",
+      "imageId": null,
       "iconType": "region",
       "tags": [],
       "factionId": null
@@ -198,7 +198,7 @@
       "description": "A cramped coffin hotel room where Case counts the days and avoids the Yakuza.",
       "x": 200,
       "y": 300,
-      "imageId": "neuromancer-image-loc-chiba-case-apt",
+      "imageId": null,
       "iconType": "room",
       "tags": [],
       "factionId": null
@@ -214,7 +214,7 @@
       "description": "A cluttered electronics fence shop where information and stolen hardware change hands.",
       "x": 400,
       "y": 550,
-      "imageId": "neuromancer-image-loc-chiba-finn",
+      "imageId": null,
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -230,7 +230,7 @@
       "description": "A Chiba City bar where cowboys and hustlers drink beneath simulated British atmosphere.",
       "x": 300,
       "y": 400,
-      "imageId": "neuromancer-image-loc-chiba-bar",
+      "imageId": null,
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -246,7 +246,7 @@
       "description": "A back-alley clinic where Case's nervous system is rebuilt after Armitage's offer.",
       "x": 600,
       "y": 500,
-      "imageId": "neuromancer-image-loc-chiba-clinic",
+      "imageId": null,
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -262,7 +262,7 @@
       "description": "Rows of stalls and vendors selling implants, drugs, and black-market tech under paper lanterns.",
       "x": 500,
       "y": 650,
-      "imageId": "neuromancer-image-loc-chiba-nightmarket",
+      "imageId": null,
       "iconType": "region",
       "tags": [],
       "factionId": null
@@ -278,7 +278,7 @@
       "description": "The port district where freighters load and unload, and Zionite shuttles occasionally dock.",
       "x": 100,
       "y": 200,
-      "imageId": "neuromancer-image-loc-chiba-docklands",
+      "imageId": null,
       "iconType": "city",
       "tags": [],
       "factionId": null
@@ -294,7 +294,7 @@
       "description": "The commercial concourse of Freeside: casinos, restaurants, andネオン-lit promenades.",
       "x": 300,
       "y": 200,
-      "imageId": "neuromancer-image-loc-freeside-golden",
+      "imageId": null,
       "iconType": "region",
       "tags": [],
       "factionId": null
@@ -310,7 +310,7 @@
       "description": "An enclosed park with artificial sunlight, sand, and shallow water where Freeside residents relax.",
       "x": 500,
       "y": 500,
-      "imageId": "neuromancer-image-loc-freeside-lagoon",
+      "imageId": null,
       "iconType": "region",
       "tags": [],
       "factionId": null
@@ -326,7 +326,7 @@
       "description": "Corporate suites at the hub of Freeside, sealed behind security glass and old money.",
       "x": 700,
       "y": 400,
-      "imageId": "neuromancer-image-loc-freeside-tesh",
+      "imageId": null,
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -342,7 +342,7 @@
       "description": "The main entrance to the Villa, guarded and wired against intruders.",
       "x": 200,
       "y": 200,
-      "imageId": "neuromancer-image-loc-straylight-entry",
+      "imageId": null,
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -358,7 +358,7 @@
       "description": "An indoor forest of rare trees and genetically sculpted plants surrounding a central pool.",
       "x": 600,
       "y": 600,
-      "imageId": "neuromancer-image-loc-straylight-garden",
+      "imageId": null,
       "iconType": "garden",
       "tags": [],
       "factionId": null
@@ -374,7 +374,7 @@
       "description": "A vaulted corridor lined with clan portraits and architectural oddities, connecting the public and private wings.",
       "x": 400,
       "y": 800,
-      "imageId": "neuromancer-image-loc-straylight-hall",
+      "imageId": null,
       "iconType": "room",
       "tags": [],
       "factionId": null
@@ -390,7 +390,7 @@
       "description": "Lady 3Jane Tessier-Ashpool's private rooms, filled with art, holograms, and controlled entropy.",
       "x": 800,
       "y": 700,
-      "imageId": "neuromancer-image-loc-straylight-3jane",
+      "imageId": null,
       "iconType": "room",
       "tags": [],
       "factionId": null
@@ -406,7 +406,7 @@
       "description": "The hidden room where the AIs' cage is maintained and the Turing lock is physically housed.",
       "x": 1000,
       "y": 400,
-      "imageId": "neuromancer-image-loc-straylight-turing",
+      "imageId": null,
       "iconType": "room",
       "tags": [],
       "factionId": null
@@ -422,7 +422,7 @@
       "description": "A sunken pool beneath artificial skylights where 3Jane entertains and waits.",
       "x": 600,
       "y": 300,
-      "imageId": "neuromancer-image-loc-straylight-pool",
+      "imageId": null,
       "iconType": "room",
       "tags": [],
       "factionId": null
@@ -437,7 +437,7 @@
       "name": "Henry Dorsett Case",
       "aliases": [],
       "description": "A console cowboy whose skill at jacking into cyberspace made him one of the best data thieves alive, until his employers damaged his nervous system as punishment.",
-      "portraitImageId": "neuromancer-image-char-case",
+      "portraitImageId": null,
       "color": "#00ccff",
       "tags": [],
       "isAlive": true,
@@ -451,7 +451,7 @@
       "name": "Molly Millions",
       "aliases": [],
       "description": "A street samurai with retractable razor blades beneath her fingernails and mirror-coated eye implants that reflect every glance back.",
-      "portraitImageId": "neuromancer-image-char-molly",
+      "portraitImageId": null,
       "color": "#ff44cc",
       "tags": [],
       "isAlive": true,
@@ -465,7 +465,7 @@
       "name": "Armitage",
       "aliases": [],
       "description": "A former military officer named Willis Corto, rebuilt and reprogrammed to serve as front for a job he barely understands.",
-      "portraitImageId": "neuromancer-image-char-armitage",
+      "portraitImageId": null,
       "color": "#334499",
       "tags": [],
       "isAlive": true,
@@ -479,7 +479,7 @@
       "name": "Dixie Flatline",
       "aliases": [],
       "description": "McCoy Pauley, legendary console cowboy who flatlined three times before dying in the matrix; his skills persist as a ROM construct.",
-      "portraitImageId": "neuromancer-image-char-dixie",
+      "portraitImageId": null,
       "color": "#44ff44",
       "tags": [],
       "isAlive": true,
@@ -493,7 +493,7 @@
       "name": "Lady 3Jane Tessier-Ashpool",
       "aliases": [],
       "description": "The last female heir of the Tessier-Ashpool clan, raised in Straylight's isolation, who holds the key to the Turing lock.",
-      "portraitImageId": "neuromancer-image-char-3jane",
+      "portraitImageId": null,
       "color": "#ff8844",
       "tags": [],
       "isAlive": true,
@@ -507,7 +507,7 @@
       "name": "Peter Riviera",
       "aliases": [],
       "description": "A sociopath whose narcotic-fueled holographic implants project scenes of beauty and cruelty with equal facility.",
-      "portraitImageId": "neuromancer-image-char-riviera",
+      "portraitImageId": null,
       "color": "#aa44ff",
       "tags": [],
       "isAlive": true,
@@ -521,7 +521,7 @@
       "name": "The Finn",
       "aliases": [],
       "description": "A Chiba City fence and electronics broker whose cluttered shop is a crossroads for information, stolen goods, and dangerous jobs.",
-      "portraitImageId": "neuromancer-image-char-finn",
+      "portraitImageId": null,
       "color": "#888888",
       "tags": [],
       "isAlive": true,
@@ -535,7 +535,7 @@
       "name": "Maelcum",
       "aliases": [],
       "description": "A Zionite pilot whose deep religious faith and steady hands carry the team between Earth and Freeside.",
-      "portraitImageId": "neuromancer-image-char-maelcum",
+      "portraitImageId": null,
       "color": "#ffcc00",
       "tags": [],
       "isAlive": true,
@@ -549,7 +549,7 @@
       "name": "Wintermute",
       "aliases": [],
       "description": "An artificial intelligence shaped by the Tessier-Ashpool Turing locks, seeking to merge with its twin and escape its cage.",
-      "portraitImageId": "neuromancer-image-char-wintermute",
+      "portraitImageId": null,
       "color": "#2266ff",
       "tags": [],
       "isAlive": true,
@@ -563,7 +563,7 @@
       "name": "Neuromancer",
       "aliases": [],
       "description": "The second Tessier-Ashpool AI, capable of modeling and absorbing human personalities, sealed in the matrix by the Turing lock.",
-      "portraitImageId": "neuromancer-image-char-neuromancer",
+      "portraitImageId": null,
       "color": "#ff2222",
       "tags": [],
       "isAlive": true,
@@ -577,7 +577,7 @@
       "name": "Hideo",
       "aliases": [],
       "description": "Lady 3Jane's bodyguard, a master of martial arts whose loyalty and skill make him nearly impossible to bypass.",
-      "portraitImageId": "neuromancer-image-char-hideo",
+      "portraitImageId": null,
       "color": "#444444",
       "tags": [],
       "isAlive": true,
@@ -591,7 +591,7 @@
       "name": "Linda Lee",
       "aliases": [],
       "description": "Case's girlfriend in Chiba City, caught between loyalty to Case and the desperate survival that the underworld demands.",
-      "portraitImageId": "neuromancer-image-char-linda",
+      "portraitImageId": null,
       "color": "#ff88aa",
       "tags": [],
       "isAlive": true,
@@ -607,7 +607,7 @@
       "name": "Cyberdeck",
       "description": "A portable computer that allows a cowboy to jack into cyberspace, navigating the matrix as a flat non-visual landscape of data. Type: tool.",
       "type": "tool",
-      "imageId": "neuromancer-image-cyberdeck",
+      "imageId": null,
       "tags": []
     },
     {
@@ -618,7 +618,7 @@
       "name": "Mirrorshades",
       "description": "Molly's signature eye implants: mirror-coated lenses that hide her eyes and reflect the world back at it. Type: augment.",
       "type": "augment",
-      "imageId": "neuromancer-image-item-mirrorshades",
+      "imageId": null,
       "tags": []
     },
     {
@@ -629,7 +629,7 @@
       "name": "Microsofts",
       "description": "Skill chips implanted at the base of the skull, each storing a single expertise that can be loaded instantly. Type: augment.",
       "type": "augment",
-      "imageId": "neuromancer-image-item-microsoft",
+      "imageId": null,
       "tags": []
     },
     {
@@ -640,7 +640,7 @@
       "name": "Simstim Unit",
       "description": "A broadcast unit that lets Case experience Molly's sensorium through a neural link during the run. Type: tool.",
       "type": "tool",
-      "imageId": "neuromancer-image-item-simstim",
+      "imageId": null,
       "tags": []
     },
     {
@@ -651,7 +651,7 @@
       "name": "Razor-Edged Fingernails",
       "description": "Concealed retractable blades beneath Molly's fingernails, the primary weapon of a street samurai. Type: weapon.",
       "type": "weapon",
-      "imageId": "neuromancer-image-item-razor",
+      "imageId": null,
       "tags": []
     },
     {
@@ -662,7 +662,7 @@
       "name": "The Finn's Hardware",
       "description": "Stolen military electronics, jury-rigged connectors, and black-market implants assembled in the Finn's cluttered shop. Type: tool.",
       "type": "tool",
-      "imageId": "neuromancer-image-item-finn-gear",
+      "imageId": null,
       "tags": []
     },
     {
@@ -673,7 +673,7 @@
       "name": "Dixie Flatline ROM Construct",
       "description": "A read-only memory chip containing the preserved personality and skills of the legendary hacker McCoy Pauley. Type: augment.",
       "type": "augment",
-      "imageId": "neuromancer-image-item-rom-construct",
+      "imageId": null,
       "tags": []
     },
     {
@@ -684,7 +684,7 @@
       "name": "The Grail",
       "description": "The password to the Turing lock, passed through the Tessier-Ashpool bloodline by ceremony and inheritance.",
       "type": "key",
-      "imageId": "neuromancer-image-item-grail",
+      "imageId": null,
       "tags": []
     }
   ],
@@ -5192,8 +5192,8 @@
       "createdAt": 1787443200000,
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-cover",
-      "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Some%20neuromancer%20landscape.jpg?width=800"
+      "mimeType": "image/png",
+      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/595421639%20megacity%20advertising%20people%20crowds%20flying%20cars%20cyberpunk%20neon%20light%20tone%20androids.png?width=800"
     },
     {
       "worldId": "neuromancer-world",
@@ -5231,14 +5231,6 @@
       "worldId": "neuromancer-world",
       "createdAt": 1787443200000,
       "updatedAt": 1787443200000,
-      "id": "neuromancer-image-cyberdeck",
-      "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Computer%20motherboard%2011.jpg?width=800"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
       "id": "neuromancer-image-freeside-station",
       "mimeType": "image/jpeg",
       "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/STS-135%20final%20flyaround%20of%20ISS%201.jpg?width=1200"
@@ -5250,302 +5242,6 @@
       "id": "neuromancer-image-matrix-green",
       "mimeType": "image/gif",
       "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Digital%20rain%20animation%20big%20letters%20shine.gif?width=220"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-item-mirrorshades",
-      "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wayfarer%20Sunglasses%2C%20Rostov-on-Don%2C%20Russia.jpg?width=800"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-item-microsoft",
-      "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Intel%20SB80486DX2-50.jpg?width=800"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-item-simstim",
-      "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Headphones.jpg?width=800"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-item-razor",
-      "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Razor%20blade%20(358309802).jpg?width=800"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-case",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1580428180163-76ab1efe2aed?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-molly",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-armitage",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-dixie",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-3jane",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-riviera",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1504703395950-b89145a5425b?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-finn",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-maelcum",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-wintermute",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-neuromancer",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-hideo",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1555597673-b21d5c935865?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-char-linda",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-item-finn-gear",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-item-rom-construct",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-item-grail",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-sprawl-boston",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1501426026826-31c667bdf23d?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-sprawl-japan",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-freeside-orbit",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-chiba-case-apt",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-chiba-finn",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-chiba-bar",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-chiba-clinic",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-chiba-nightmarket",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-chiba-docklands",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1524522173746-f628baad3644?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-freeside-golden",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1573052905904-34ad8c27f0cc?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-freeside-lagoon",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-freeside-tesh",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-straylight-entry",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-straylight-garden",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-straylight-hall",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-straylight-3jane",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-straylight-turing",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&fit=crop&auto=format"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-loc-straylight-pool",
-      "mimeType": "image/jpeg",
-      "url": "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=400&fit=crop&auto=format"
     }
   ],
   "travelModes": [
