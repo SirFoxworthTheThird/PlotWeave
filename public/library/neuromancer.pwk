@@ -437,7 +437,7 @@
       "name": "Henry Dorsett Case",
       "aliases": [],
       "description": "A console cowboy whose skill at jacking into cyberspace made him one of the best data thieves alive, until his employers damaged his nervous system as punishment.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#00ccff",
       "tags": [],
       "isAlive": true,
@@ -451,7 +451,7 @@
       "name": "Molly Millions",
       "aliases": [],
       "description": "A street samurai with retractable razor blades beneath her fingernails and mirror-coated eye implants that reflect every glance back.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#ff44cc",
       "tags": [],
       "isAlive": true,
@@ -465,7 +465,7 @@
       "name": "Armitage",
       "aliases": [],
       "description": "A former military officer named Willis Corto, rebuilt and reprogrammed to serve as front for a job he barely understands.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#334499",
       "tags": [],
       "isAlive": true,
@@ -479,7 +479,7 @@
       "name": "Dixie Flatline",
       "aliases": [],
       "description": "McCoy Pauley, legendary console cowboy who flatlined three times before dying in the matrix; his skills persist as a ROM construct.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#44ff44",
       "tags": [],
       "isAlive": true,
@@ -493,7 +493,7 @@
       "name": "Lady 3Jane Tessier-Ashpool",
       "aliases": [],
       "description": "The last female heir of the Tessier-Ashpool clan, raised in Straylight's isolation, who holds the key to the Turing lock.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#ff8844",
       "tags": [],
       "isAlive": true,
@@ -507,7 +507,7 @@
       "name": "Peter Riviera",
       "aliases": [],
       "description": "A sociopath whose narcotic-fueled holographic implants project scenes of beauty and cruelty with equal facility.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#aa44ff",
       "tags": [],
       "isAlive": true,
@@ -521,7 +521,7 @@
       "name": "The Finn",
       "aliases": [],
       "description": "A Chiba City fence and electronics broker whose cluttered shop is a crossroads for information, stolen goods, and dangerous jobs.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#888888",
       "tags": [],
       "isAlive": true,
@@ -535,7 +535,7 @@
       "name": "Maelcum",
       "aliases": [],
       "description": "A Zionite pilot whose deep religious faith and steady hands carry the team between Earth and Freeside.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#ffcc00",
       "tags": [],
       "isAlive": true,
@@ -549,7 +549,7 @@
       "name": "Wintermute",
       "aliases": [],
       "description": "An artificial intelligence shaped by the Tessier-Ashpool Turing locks, seeking to merge with its twin and escape its cage.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#2266ff",
       "tags": [],
       "isAlive": true,
@@ -563,7 +563,7 @@
       "name": "Neuromancer",
       "aliases": [],
       "description": "The second Tessier-Ashpool AI, capable of modeling and absorbing human personalities, sealed in the matrix by the Turing lock.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#ff2222",
       "tags": [],
       "isAlive": true,
@@ -577,7 +577,7 @@
       "name": "Hideo",
       "aliases": [],
       "description": "Lady 3Jane's bodyguard, a master of martial arts whose loyalty and skill make him nearly impossible to bypass.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#444444",
       "tags": [],
       "isAlive": true,
@@ -591,7 +591,7 @@
       "name": "Linda Lee",
       "aliases": [],
       "description": "Case's girlfriend in Chiba City, caught between loyalty to Case and the desperate survival that the underworld demands.",
-      "portraitImageId": "neuromancer-image-night-city",
+      "portraitImageId": null,
       "color": "#ff88aa",
       "tags": [],
       "isAlive": true,
@@ -607,7 +607,7 @@
       "name": "Cyberdeck",
       "description": "A portable computer that allows a cowboy to jack into cyberspace, navigating the matrix as a flat non-visual landscape of data. Type: tool.",
       "type": "tool",
-      "imageId": null,
+      "imageId": "neuromancer-image-cyberdeck",
       "tags": []
     },
     {
@@ -618,7 +618,7 @@
       "name": "Mirrorshades",
       "description": "Molly's signature eye implants: mirror-coated lenses that hide her eyes and reflect the world back at it. Type: augment.",
       "type": "augment",
-      "imageId": null,
+      "imageId": "neuromancer-image-item-mirrorshades",
       "tags": []
     },
     {
@@ -629,7 +629,7 @@
       "name": "Microsofts",
       "description": "Skill chips implanted at the base of the skull, each storing a single expertise that can be loaded instantly. Type: augment.",
       "type": "augment",
-      "imageId": null,
+      "imageId": "neuromancer-image-item-microsoft",
       "tags": []
     },
     {
@@ -640,7 +640,7 @@
       "name": "Simstim Unit",
       "description": "A broadcast unit that lets Case experience Molly's sensorium through a neural link during the run. Type: tool.",
       "type": "tool",
-      "imageId": null,
+      "imageId": "neuromancer-image-item-simstim",
       "tags": []
     },
     {
@@ -651,7 +651,7 @@
       "name": "Razor-Edged Fingernails",
       "description": "Concealed retractable blades beneath Molly's fingernails, the primary weapon of a street samurai. Type: weapon.",
       "type": "weapon",
-      "imageId": null,
+      "imageId": "neuromancer-image-item-razor",
       "tags": []
     },
     {
@@ -5200,7 +5200,7 @@
       "createdAt": 1787443200000,
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-sprawl",
-      "mimeType": "image/svg+xml",
+      "mimeType": "image/png",
       "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Map%20of%20USA%20highlighting%20Eastern%20Seaboard.png?width=1600"
     },
     {
@@ -5247,33 +5247,9 @@
       "worldId": "neuromancer-world",
       "createdAt": 1787443200000,
       "updatedAt": 1787443200000,
-      "id": "neuromancer-image-night-city",
-      "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Akihabara_Night.jpg?width=1280"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
       "id": "neuromancer-image-matrix-green",
       "mimeType": "image/gif",
       "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Digital%20rain%20animation%20big%20letters%20shine.gif?width=220"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-neon-alley",
-      "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kabukicho%20red%20gate%20and%20colorful%20neon%20street%20signs%20at%20night%2C%20Shinjuku%2C%20Tokyo%2C%20Japan.jpg?width=1280"
-    },
-    {
-      "worldId": "neuromancer-world",
-      "createdAt": 1787443200000,
-      "updatedAt": 1787443200000,
-      "id": "neuromancer-image-orbital-view",
-      "mimeType": "image/jpeg",
-      "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20aurora%20folds%20through%20Earth's%20atmosphere%20(iss072e023504).jpg?width=1280"
     },
     {
       "worldId": "neuromancer-world",
@@ -5391,7 +5367,7 @@
       "title": "Cyberspace",
       "body": "A consensual hallucination: a graphical representation of data from every computer in the human system, navigated by console cowboys.",
       "tags": [],
-      "coverImageId": null,
+      "coverImageId": "neuromancer-image-matrix-green",
       "linkedEntityIds": [],
       "visibleFromEventId": null
     },
@@ -5430,7 +5406,7 @@
       "title": "The Turing-Locked AIs",
       "body": "Two artificial intelligences created by the Tessier-Ashpool clan, separated by the Turing lock and each seeking to merge with its twin.",
       "tags": [],
-      "coverImageId": null,
+      "coverImageId": "neuromancer-image-freeside-station",
       "linkedEntityIds": [],
       "visibleFromEventId": null
     }
