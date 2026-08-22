@@ -12,7 +12,28 @@
     "createdAt": 1787443200000,
     "updatedAt": 1787443200000,
     "continuityStaleThreshold": 5,
-    "calendar": null,
+    "calendar": {
+      "startYear": 1,
+      "yearSuffix": " of the Straylight Run",
+      "months": [
+        {
+          "name": "Cycle One",
+          "days": 30
+        },
+        {
+          "name": "Cycle Two",
+          "days": 30
+        },
+        {
+          "name": "Cycle Three",
+          "days": 30
+        },
+        {
+          "name": "Cycle Four",
+          "days": 30
+        }
+      ]
+    },
     "wordTarget": null
   },
   "mapLayers": [
@@ -4957,7 +4978,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-timeline-main",
       "name": "The Straylight Run",
-      "description": "One forward chronology; memories and simulations are marked as flashbacks within it.",
+      "description": "One forward chronology measured in editorial mission days from the opening in Chiba; memories and simulations are marked as flashbacks within it.",
       "color": "#2bd7ca",
       "dayOffset": 0
     }
@@ -7084,8 +7105,8 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-lore-sources",
       "categoryId": "neuromancer-lore-category-sources",
-      "title": "Illustration and Map Sources",
-      "body": "Portraits and location art are credited Neuromancer concept illustrations; maps are original PlotWeave schematics.",
+      "title": "Illustration, Map, and Calendar Sources",
+      "body": "Portraits and location art are credited Neuromancer concept illustrations; the spatial maps are original PlotWeave assets. Calendar dates are editorial mission days measured from the opening in Chiba, not claimed Gregorian dates from the novel.",
       "tags": [],
       "coverImageId": "neuromancer-image-cover",
       "linkedEntityIds": [],
