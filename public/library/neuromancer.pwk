@@ -7,7 +7,7 @@
     "name": "Neuromancer",
     "description": "William Gibson’s cyberpunk novel follows console cowboy Case from Night City through a corporate data theft, an orbital heist, and a struggle between two artificial intelligences. Molly’s physical infiltration and Case’s matrix run converge inside Villa Straylight, where memory, engineered identity, addiction, and machine agency become inseparable.",
     "coverImageId": "neuromancer-image-cover",
-    "theme": "cyberpunk",
+    "theme": "theme-cyberpunk",
     "readingMode": true,
     "createdAt": 1787443200000,
     "updatedAt": 1787443200000,
