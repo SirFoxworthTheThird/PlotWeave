@@ -455,14 +455,14 @@
       "author": "William Gibson",
       "blurb": "A damaged console cowboy joins a physical and virtual heist that will decide whether two imprisoned artificial intelligences can become one.",
       "data": "neuromancer.pwk",
-      "dataBytes": 262983,
+      "dataBytes": 262964,
       "counts": {
         "characters": 17,
         "chapters": 24,
         "events": 29,
         "locations": 45
       },
-      "notice": "Unofficial reference for a copyrighted novel (1984). It contains original summaries, credited linked illustrations, one original portrait, and original schematic maps—not the novel’s prose.",
+      "notice": "Unofficial reference for a copyrighted novel (1984). It contains original summaries, credited linked illustrations, one original portrait, and original spatial maps and plans—not the novel’s prose.",
       "worldId": "neuromancer-world",
       "cover": "https://shop.suntup.press/cdn/shop/products/Molly-CMYK_sized_1a831c57-9abb-4ca1-97d6-990e21fc197e_1024x1024.jpg?v=1597688476"
     }
