@@ -431,6 +431,40 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Historical maps and public-domain book illustrations are linked in the file.",
       "worldId": "lost-world-world",
       "cover": "https://arthurconandoyle.co.uk/images/characters/original%20serialization%20of%20The%20Lost%20World%20in%20Strand%20Magazine-11042019144308.jpg"
+    },
+    {
+      "id": "the-secret-garden",
+      "title": "The Secret Garden",
+      "author": "Frances Hodgson Burnett",
+      "blurb": "An orphaned girl discovers a locked garden and a hidden cousin; restoring one hidden life awakens the other and draws a grieving family home.",
+      "data": "the-secret-garden.pwk",
+      "dataBytes": 302814,
+      "counts": {
+        "characters": 12,
+        "chapters": 27,
+        "events": 54,
+        "locations": 29
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Linked period maps, plans, and public-domain book illustrations are recorded in Lore.",
+      "worldId": "secret-garden-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Houghton%20AC85%20B9345%20911s%20-%20Secret%20Garden%2C%201911%20-%20cover.jpg?width=900"
+    },
+    {
+      "id": "neuromancer",
+      "title": "Neuromancer",
+      "author": "William Gibson",
+      "blurb": "A damaged console cowboy joins a physical and virtual heist that will decide whether two imprisoned artificial intelligences can become one.",
+      "data": "neuromancer.pwk",
+      "dataBytes": 258801,
+      "counts": {
+        "characters": 17,
+        "chapters": 24,
+        "events": 29,
+        "locations": 45
+      },
+      "notice": "Unofficial reference for a copyrighted novel (1984). It contains original summaries, credited linked illustrations, one original portrait, and original schematic maps—not the novel’s prose.",
+      "worldId": "neuromancer-world",
+      "cover": "https://shop.suntup.press/cdn/shop/products/Molly-CMYK_sized_1a831c57-9abb-4ca1-97d6-990e21fc197e_1024x1024.jpg?v=1597688476"
     }
   ]
 }
