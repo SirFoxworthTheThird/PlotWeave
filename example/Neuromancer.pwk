@@ -6371,7 +6371,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-world",
       "mimeType": "image/svg+xml",
-      "url": "/library/neuromancer/maps/world.svg"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/maps/world.svg"
     },
     {
       "worldId": "neuromancer-world",
@@ -6379,7 +6379,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-chiba",
       "mimeType": "image/svg+xml",
-      "url": "/library/neuromancer/maps/chiba.svg"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/maps/chiba.svg"
     },
     {
       "worldId": "neuromancer-world",
@@ -6387,7 +6387,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-sprawl",
       "mimeType": "image/svg+xml",
-      "url": "/library/neuromancer/maps/sprawl.svg"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/maps/sprawl.svg"
     },
     {
       "worldId": "neuromancer-world",
@@ -6395,7 +6395,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-istanbul",
       "mimeType": "image/svg+xml",
-      "url": "/library/neuromancer/maps/istanbul.svg"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/maps/istanbul.svg"
     },
     {
       "worldId": "neuromancer-world",
@@ -6403,7 +6403,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-zion",
       "mimeType": "image/svg+xml",
-      "url": "/library/neuromancer/maps/zion.svg"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/maps/zion.svg"
     },
     {
       "worldId": "neuromancer-world",
@@ -6411,7 +6411,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-freeside",
       "mimeType": "image/svg+xml",
-      "url": "/library/neuromancer/maps/freeside.svg"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/maps/freeside.svg"
     },
     {
       "worldId": "neuromancer-world",
@@ -6419,7 +6419,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-straylight",
       "mimeType": "image/svg+xml",
-      "url": "/library/neuromancer/maps/straylight.svg"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/maps/straylight.svg"
     },
     {
       "worldId": "neuromancer-world",
@@ -6427,7 +6427,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-map-matrix",
       "mimeType": "image/svg+xml",
-      "url": "/library/neuromancer/maps/matrix.svg"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/maps/matrix.svg"
     },
     {
       "worldId": "neuromancer-world",
@@ -6547,7 +6547,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-portrait-ashpool",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/ashpool.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/ashpool.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6595,7 +6595,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-item-fletcher",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/items/fletcher.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/items/fletcher.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6603,7 +6603,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-item-braun-drone",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/items/braun-drone.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/items/braun-drone.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6619,7 +6619,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-item-chubb-key",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/items/chubb-key.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/items/chubb-key.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6627,7 +6627,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-item-shuriken",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/items/shuriken.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/items/shuriken.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6635,7 +6635,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-1",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/chatsubo.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/chatsubo.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6643,7 +6643,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-2",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/deane.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/deane.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6651,7 +6651,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-3",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/arcade.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/arcade.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6659,7 +6659,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-4",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/cheap-hotel.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/cheap-hotel.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6667,7 +6667,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-5",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/chiba-hilton.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/chiba-hilton.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6675,7 +6675,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-6",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/clinic.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/clinic.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6683,7 +6683,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-7",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/sammis.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/sammis.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6691,7 +6691,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-8",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/night-market.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/night-market.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6699,7 +6699,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-9",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/loft.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/loft.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6707,7 +6707,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-10",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/finn-shop.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/finn-shop.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6715,7 +6715,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-11",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/sensenet.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/sensenet.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6723,7 +6723,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-12",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/metro.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/metro.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6731,7 +6731,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-13",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/baltimore.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/baltimore.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6739,7 +6739,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-14",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/transit.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/transit.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6747,7 +6747,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-15",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/ihilton.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/ihilton.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6755,7 +6755,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-16",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/bazaar.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/bazaar.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6763,7 +6763,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-17",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/alley.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/alley.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6771,7 +6771,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-18",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/phones.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/phones.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6779,7 +6779,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-19",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/dock.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/dock.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6787,7 +6787,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-20",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/hub.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/hub.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6795,7 +6795,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-21",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/founders.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/founders.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6803,7 +6803,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-22",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/garvey.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/garvey.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6811,7 +6811,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-23",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/fdock.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/fdock.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6819,7 +6819,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-24",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/intercontinental.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/intercontinental.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6827,7 +6827,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-25",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/rue.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/rue.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6835,7 +6835,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-26",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/emergency.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/emergency.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6843,7 +6843,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-27",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/bridge.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/bridge.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6851,7 +6851,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-28",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/sdock.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/sdock.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6859,7 +6859,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-29",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/corridor.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/corridor.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6867,7 +6867,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-30",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/ashpool-room.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/ashpool-room.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6875,7 +6875,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-31",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/library.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/library.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6883,7 +6883,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-32",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/pool.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/pool.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6891,7 +6891,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-33",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/core.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/core.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6899,7 +6899,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-34",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/snice.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/snice.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6907,7 +6907,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-35",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/berne.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/berne.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6915,7 +6915,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-36",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/kuang.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/kuang.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6923,7 +6923,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-37",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/beach.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/beach.png"
     },
     {
       "worldId": "neuromancer-world",
@@ -6931,7 +6931,7 @@
       "updatedAt": 1787443200000,
       "id": "neuromancer-image-location-38",
       "mimeType": "image/png",
-      "url": "/library/neuromancer/art/locations/tacore.png"
+      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/neuromancer/art/locations/tacore.png"
     }
   ],
   "travelModes": [],
