@@ -228,7 +228,9 @@ test.describe('Naming things from the scene prose', () => {
     const dialog = page.getByRole('dialog')
     await expect(dialog.getByText('Setting', { exact: true })).toBeVisible()
     await dialog.getByPlaceholder('Scene title').fill('A letter under the door')
-    await dialog.getByRole('combobox').filter({ hasText: /Nowhere in particular/ }).click()
+    // The Radix select trigger exposes as a `button` here, not a `combobox` —
+    // the first version of this waited five minutes for a role that is not on it.
+    await dialog.getByRole('button', { name: 'Nowhere in particular' }).click()
     await page.getByRole('option', { name: 'The Ledger Room' }).click()
     await dialog.getByRole('button', { name: 'Add Scene' }).click()
 
