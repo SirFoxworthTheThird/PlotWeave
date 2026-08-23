@@ -489,14 +489,14 @@
       "author": "Lewis Carroll",
       "blurb": "A curious girl follows a hurried White Rabbit into a dream world where size, language, time, games, and authority refuse to behave.",
       "data": "alice-in-wonderland.pwk",
-      "dataBytes": 354454,
+      "dataBytes": 354470,
       "counts": {
         "characters": 24,
         "chapters": 12,
         "events": 51,
         "locations": 37
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial dream calendar, not the novel’s prose. Public-domain Tenniel and Newell illustrations and original interpretive maps are credited in Lore.",
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial dream calendar, not the novel’s prose. Public-domain Tenniel and Newell illustrations and original fantasy maps are credited in Lore.",
       "worldId": "alice-wonderland-world",
       "cover": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/alice-in-wonderland/art/tenniel/tenniel-01.gif"
     }
