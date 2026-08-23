@@ -482,6 +482,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial chronology, not the novel’s prose. Period maps, original interpretive plans, and illustration sources are recorded in Lore.",
       "worldId": "invisible-man-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wells%20-%20The%20Invisible%20Man%20-%20Pearson%20cover%201897.jpg?width=900"
+    },
+    {
+      "id": "alice-in-wonderland",
+      "title": "Alice’s Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "blurb": "A curious girl follows a hurried White Rabbit into a dream world where size, language, time, games, and authority refuse to behave.",
+      "data": "alice-in-wonderland.pwk",
+      "dataBytes": 354454,
+      "counts": {
+        "characters": 24,
+        "chapters": 12,
+        "events": 51,
+        "locations": 37
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial dream calendar, not the novel’s prose. Public-domain Tenniel and Newell illustrations and original interpretive maps are credited in Lore.",
+      "worldId": "alice-wonderland-world",
+      "cover": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/alice-in-wonderland/art/tenniel/tenniel-01.gif"
     }
   ]
 }
