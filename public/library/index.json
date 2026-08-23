@@ -499,6 +499,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial dream calendar, not the novel’s prose. Public-domain Tenniel and Newell illustrations and original fantasy maps are credited in Lore.",
       "worldId": "alice-wonderland-world",
       "cover": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/alice-in-wonderland/art/tenniel/tenniel-01.gif"
+    },
+    {
+      "id": "peter-pan",
+      "title": "Peter and Wendy",
+      "author": "J. M. Barrie",
+      "blurb": "Three London children fly to Neverland, where Peter Pan’s eternal childhood meets stories, pirates, loyalty, home, and the cost of time.",
+      "data": "peter-pan.pwk",
+      "dataBytes": 348957,
+      "counts": {
+        "characters": 14,
+        "chapters": 17,
+        "events": 46,
+        "locations": 34
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Public-domain F. D. Bedford plates and original PlotWeave portraits and fantasy maps are credited in Lore.",
+      "worldId": "peter-pan-world",
+      "cover": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/icover.jpg"
     }
   ]
 }
