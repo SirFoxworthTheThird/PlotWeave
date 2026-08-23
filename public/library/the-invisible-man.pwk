@@ -6411,7 +6411,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-map-iping",
       "mimeType": "image/svg+xml",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/maps/iping.svg"
+      "url": "library/the-invisible-man/maps/iping.svg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6419,7 +6419,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-map-coach",
       "mimeType": "image/svg+xml",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/maps/coach-and-horses.svg"
+      "url": "library/the-invisible-man/maps/coach-and-horses.svg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6435,7 +6435,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-map-burdock",
       "mimeType": "image/svg+xml",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/maps/port-burdock.svg"
+      "url": "library/the-invisible-man/maps/port-burdock.svg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6443,7 +6443,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-map-kemp",
       "mimeType": "image/svg+xml",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/maps/kemp-house.svg"
+      "url": "library/the-invisible-man/maps/kemp-house.svg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6451,7 +6451,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-london-gate",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/london-gate.jpg"
+      "url": "library/the-invisible-man/art/locations/london-gate.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6459,7 +6459,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-bramblehurst",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/bramblehurst.jpg"
+      "url": "library/the-invisible-man/art/locations/bramblehurst.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6467,7 +6467,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-iping-gate",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/iping-gate.jpg"
+      "url": "library/the-invisible-man/art/locations/iping-gate.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6475,7 +6475,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-port-stowe",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/port-stowe.jpg"
+      "url": "library/the-invisible-man/art/locations/port-stowe.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6483,7 +6483,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-burdock-gate",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/burdock-gate.jpg"
+      "url": "library/the-invisible-man/art/locations/burdock-gate.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6491,7 +6491,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-southern-downs",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/southern-downs.jpg"
+      "url": "library/the-invisible-man/art/locations/southern-downs.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6499,7 +6499,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-coach-gate",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/coach-gate.jpg"
+      "url": "library/the-invisible-man/art/locations/coach-gate.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6507,7 +6507,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-village-green",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/village-green.jpg"
+      "url": "library/the-invisible-man/art/locations/village-green.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6515,7 +6515,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-cuss-surgery",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/cuss-surgery.jpg"
+      "url": "library/the-invisible-man/art/locations/cuss-surgery.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6523,7 +6523,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-vicarage",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/vicarage.jpg"
+      "url": "library/the-invisible-man/art/locations/vicarage.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6531,7 +6531,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-huxter-shop",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/huxter-shop.jpg"
+      "url": "library/the-invisible-man/art/locations/huxter-shop.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6539,7 +6539,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-forge",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/forge.jpg"
+      "url": "library/the-invisible-man/art/locations/forge.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6547,7 +6547,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-police",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/police.jpg"
+      "url": "library/the-invisible-man/art/locations/police.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6555,7 +6555,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-iping-road",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/iping-road.jpg"
+      "url": "library/the-invisible-man/art/locations/iping-road.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6563,7 +6563,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-parlour",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/parlour.jpg"
+      "url": "library/the-invisible-man/art/locations/parlour.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6571,7 +6571,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-griffin-room",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/griffin-room.jpg"
+      "url": "library/the-invisible-man/art/locations/griffin-room.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6579,7 +6579,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-bar",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/bar.jpg"
+      "url": "library/the-invisible-man/art/locations/bar.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6587,7 +6587,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-kitchen",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/kitchen.jpg"
+      "url": "library/the-invisible-man/art/locations/kitchen.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6595,7 +6595,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-yard",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/yard.jpg"
+      "url": "library/the-invisible-man/art/locations/yard.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6603,7 +6603,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-great-portland",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/great-portland.jpg"
+      "url": "library/the-invisible-man/art/locations/great-portland.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6611,7 +6611,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-oxford-street",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/oxford-street.jpg"
+      "url": "library/the-invisible-man/art/locations/oxford-street.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6619,7 +6619,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-omnium",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/omnium.jpg"
+      "url": "library/the-invisible-man/art/locations/omnium.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6627,7 +6627,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-drury-lane",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/drury-lane.jpg"
+      "url": "library/the-invisible-man/art/locations/drury-lane.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6635,7 +6635,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-cab-shelter",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/cab-shelter.jpg"
+      "url": "library/the-invisible-man/art/locations/cab-shelter.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6643,7 +6643,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-station-burdock",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/station-burdock.jpg"
+      "url": "library/the-invisible-man/art/locations/station-burdock.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6651,7 +6651,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-jolly-cricketers",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/jolly-cricketers.jpg"
+      "url": "library/the-invisible-man/art/locations/jolly-cricketers.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6659,7 +6659,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-burdock-street",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/burdock-street.jpg"
+      "url": "library/the-invisible-man/art/locations/burdock-street.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6667,7 +6667,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-burdock-police",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/burdock-police.jpg"
+      "url": "library/the-invisible-man/art/locations/burdock-police.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6675,7 +6675,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-kemp-gate",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/kemp-gate.jpg"
+      "url": "library/the-invisible-man/art/locations/kemp-gate.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6683,7 +6683,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-kemp-hill",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/kemp-hill.jpg"
+      "url": "library/the-invisible-man/art/locations/kemp-hill.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6691,7 +6691,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-wicksteed-field",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/wicksteed-field.jpg"
+      "url": "library/the-invisible-man/art/locations/wicksteed-field.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6699,7 +6699,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-study",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/study.jpg"
+      "url": "library/the-invisible-man/art/locations/study.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6707,7 +6707,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-bedroom",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/bedroom.jpg"
+      "url": "library/the-invisible-man/art/locations/bedroom.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6715,7 +6715,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-dining-room",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/dining-room.jpg"
+      "url": "library/the-invisible-man/art/locations/dining-room.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6723,7 +6723,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-kemp-kitchen",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/kemp-kitchen.jpg"
+      "url": "library/the-invisible-man/art/locations/kemp-kitchen.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6731,7 +6731,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-stair-hall",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/stair-hall.jpg"
+      "url": "library/the-invisible-man/art/locations/stair-hall.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6739,7 +6739,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-locations-garden",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/locations/garden.jpg"
+      "url": "library/the-invisible-man/art/locations/garden.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6747,7 +6747,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-griffin",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/griffin.jpg"
+      "url": "library/the-invisible-man/art/characters/griffin.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6755,7 +6755,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-kemp",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/kemp.jpg"
+      "url": "library/the-invisible-man/art/characters/kemp.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6763,7 +6763,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-marvel",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/marvel.jpg"
+      "url": "library/the-invisible-man/art/characters/marvel.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6771,7 +6771,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-mrs-hall",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/mrs-hall.jpg"
+      "url": "library/the-invisible-man/art/characters/mrs-hall.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6779,7 +6779,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-george-hall",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/george-hall.jpg"
+      "url": "library/the-invisible-man/art/characters/george-hall.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6787,7 +6787,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-henfrey",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/henfrey.jpg"
+      "url": "library/the-invisible-man/art/characters/henfrey.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6795,7 +6795,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-fearenside",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/fearenside.jpg"
+      "url": "library/the-invisible-man/art/characters/fearenside.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6803,7 +6803,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-cuss",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/cuss.jpg"
+      "url": "library/the-invisible-man/art/characters/cuss.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6811,7 +6811,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-bunting",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/bunting.jpg"
+      "url": "library/the-invisible-man/art/characters/bunting.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6819,7 +6819,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-mrs-bunting",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/mrs-bunting.jpg"
+      "url": "library/the-invisible-man/art/characters/mrs-bunting.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6827,7 +6827,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-jaffers",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/jaffers.jpg"
+      "url": "library/the-invisible-man/art/characters/jaffers.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6835,7 +6835,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-huxter",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/huxter.jpg"
+      "url": "library/the-invisible-man/art/characters/huxter.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6843,7 +6843,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-wadgers",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/wadgers.jpg"
+      "url": "library/the-invisible-man/art/characters/wadgers.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6851,7 +6851,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-mariner",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/mariner.jpg"
+      "url": "library/the-invisible-man/art/characters/mariner.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6859,7 +6859,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-barman",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/barman.jpg"
+      "url": "library/the-invisible-man/art/characters/barman.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6867,7 +6867,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-adye",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/adye.jpg"
+      "url": "library/the-invisible-man/art/characters/adye.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6875,7 +6875,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-wicksteed",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/wicksteed.jpg"
+      "url": "library/the-invisible-man/art/characters/wicksteed.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6883,7 +6883,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-characters-father",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/characters/father.jpg"
+      "url": "library/the-invisible-man/art/characters/father.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6891,7 +6891,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-items-portmanteau",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/items/portmanteau.jpg"
+      "url": "library/the-invisible-man/art/items/portmanteau.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6899,7 +6899,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-items-bottles",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/items/bottles.jpg"
+      "url": "library/the-invisible-man/art/items/bottles.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6907,7 +6907,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-items-bandages",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/items/bandages.jpg"
+      "url": "library/the-invisible-man/art/items/bandages.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6915,7 +6915,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-items-goggles",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/items/goggles.jpg"
+      "url": "library/the-invisible-man/art/items/goggles.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6923,7 +6923,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-items-notebooks",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/items/notebooks.jpg"
+      "url": "library/the-invisible-man/art/items/notebooks.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6931,7 +6931,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-items-money",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/items/money.jpg"
+      "url": "library/the-invisible-man/art/items/money.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6939,7 +6939,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-items-revolver",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/items/revolver.jpg"
+      "url": "library/the-invisible-man/art/items/revolver.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6947,7 +6947,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-items-iron-rod",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/items/iron-rod.jpg"
+      "url": "library/the-invisible-man/art/items/iron-rod.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6955,7 +6955,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-items-axe",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/items/axe.jpg"
+      "url": "library/the-invisible-man/art/items/axe.jpg"
     },
     {
       "worldId": "invisible-man-world",
@@ -6963,7 +6963,7 @@
       "updatedAt": 1787529600000,
       "id": "invisible-man-image-items-clothes",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/the-invisible-man/art/items/clothes.jpg"
+      "url": "library/the-invisible-man/art/items/clothes.jpg"
     }
   ],
   "travelModes": [
