@@ -455,7 +455,7 @@
       "author": "William Gibson",
       "blurb": "A damaged console cowboy joins a physical and virtual heist that will decide whether two imprisoned artificial intelligences can become one.",
       "data": "neuromancer.pwk",
-      "dataBytes": 263563,
+      "dataBytes": 259330,
       "counts": {
         "characters": 17,
         "chapters": 24,
@@ -472,7 +472,7 @@
       "author": "H. G. Wells",
       "blurb": "A physicist who erases his visible body discovers that secrecy, hunger, weather, fear, and violence make invisibility a prison as much as a power.",
       "data": "the-invisible-man.pwk",
-      "dataBytes": 282794,
+      "dataBytes": 277067,
       "counts": {
         "characters": 18,
         "chapters": 29,
@@ -489,7 +489,7 @@
       "author": "Lewis Carroll",
       "blurb": "A curious girl follows a hurried White Rabbit into a dream world where size, language, time, games, and authority refuse to behave.",
       "data": "alice-in-wonderland.pwk",
-      "dataBytes": 354470,
+      "dataBytes": 347498,
       "counts": {
         "characters": 24,
         "chapters": 12,
@@ -498,7 +498,7 @@
       },
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial dream calendar, not the novel’s prose. Public-domain Tenniel and Newell illustrations and original fantasy maps are credited in Lore.",
       "worldId": "alice-wonderland-world",
-      "cover": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/alice-in-wonderland/art/tenniel/tenniel-01.gif"
+      "cover": "library/alice-in-wonderland/art/tenniel/tenniel-01.gif"
     },
     {
       "id": "peter-pan",
@@ -506,7 +506,7 @@
       "author": "J. M. Barrie",
       "blurb": "Three London children fly to Neverland, where Peter Pan’s eternal childhood meets stories, pirates, loyalty, home, and the cost of time.",
       "data": "peter-pan.pwk",
-      "dataBytes": 348957,
+      "dataBytes": 345471,
       "counts": {
         "characters": 14,
         "chapters": 17,
@@ -515,7 +515,7 @@
       },
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Public-domain F. D. Bedford plates and original PlotWeave portraits and fantasy maps are credited in Lore.",
       "worldId": "peter-pan-world",
-      "cover": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/icover.jpg"
+      "cover": "library/peter-pan/art/bedford/icover.jpg"
     }
   ]
 }

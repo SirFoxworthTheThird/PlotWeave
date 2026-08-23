@@ -8876,7 +8876,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-map-story-skies",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/maps/story-skies.png"
+      "url": "library/peter-pan/maps/story-skies.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8884,7 +8884,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-map-london",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/maps/london.png"
+      "url": "library/peter-pan/maps/london.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8892,7 +8892,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-map-neverland",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/maps/neverland.png"
+      "url": "library/peter-pan/maps/neverland.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8900,7 +8900,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-map-darling-house",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/maps/darling-house.png"
+      "url": "library/peter-pan/maps/darling-house.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8908,7 +8908,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-map-home-under-ground",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/maps/home-under-ground.png"
+      "url": "library/peter-pan/maps/home-under-ground.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8916,7 +8916,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-map-jolly-roger",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/maps/jolly-roger.png"
+      "url": "library/peter-pan/maps/jolly-roger.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8924,7 +8924,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-peter",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/peter.png"
+      "url": "library/peter-pan/art/characters/peter.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8932,7 +8932,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-wendy",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/wendy.png"
+      "url": "library/peter-pan/art/characters/wendy.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8940,7 +8940,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-john",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/john.png"
+      "url": "library/peter-pan/art/characters/john.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8948,7 +8948,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-michael",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/michael.png"
+      "url": "library/peter-pan/art/characters/michael.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8956,7 +8956,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-tinker-bell",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/tinker-bell.png"
+      "url": "library/peter-pan/art/characters/tinker-bell.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8964,7 +8964,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-hook",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/hook.png"
+      "url": "library/peter-pan/art/characters/hook.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8972,7 +8972,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-smee",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/smee.png"
+      "url": "library/peter-pan/art/characters/smee.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8980,7 +8980,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-mrs-darling",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/mrs-darling.png"
+      "url": "library/peter-pan/art/characters/mrs-darling.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8988,7 +8988,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-mr-darling",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/mr-darling.png"
+      "url": "library/peter-pan/art/characters/mr-darling.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -8996,7 +8996,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-nana",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/nana.png"
+      "url": "library/peter-pan/art/characters/nana.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9004,7 +9004,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-tiger-lily",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/tiger-lily.png"
+      "url": "library/peter-pan/art/characters/tiger-lily.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9012,7 +9012,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-slightly",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/slightly.png"
+      "url": "library/peter-pan/art/characters/slightly.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9020,7 +9020,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-tootles",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/tootles.png"
+      "url": "library/peter-pan/art/characters/tootles.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9028,7 +9028,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-portrait-crocodile",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/characters/crocodile.png"
+      "url": "library/peter-pan/art/characters/crocodile.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9036,7 +9036,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-item-shadow",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/items/shadow.png"
+      "url": "library/peter-pan/art/items/shadow.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9044,7 +9044,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-item-fairy-dust",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/items/fairy-dust.png"
+      "url": "library/peter-pan/art/items/fairy-dust.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9052,7 +9052,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-item-acorn",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/items/acorn.png"
+      "url": "library/peter-pan/art/items/acorn.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9060,7 +9060,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-item-hook",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/items/hook.png"
+      "url": "library/peter-pan/art/items/hook.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9068,7 +9068,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-item-clock",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/items/clock.png"
+      "url": "library/peter-pan/art/items/clock.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9076,7 +9076,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-item-medicine",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/items/medicine.png"
+      "url": "library/peter-pan/art/items/medicine.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9084,7 +9084,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-item-story",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/items/story.png"
+      "url": "library/peter-pan/art/items/story.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9092,7 +9092,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-item-sewing-basket",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/items/sewing-basket.png"
+      "url": "library/peter-pan/art/items/sewing-basket.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9100,7 +9100,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-item-pirate-sword",
       "mimeType": "image/png",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/items/pirate-sword.png"
+      "url": "library/peter-pan/art/items/pirate-sword.png"
     },
     {
       "worldId": "peter-pan-world",
@@ -9108,7 +9108,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-icover",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/icover.jpg"
+      "url": "library/peter-pan/art/bedford/icover.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9116,7 +9116,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i005",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i005.jpg"
+      "url": "library/peter-pan/art/bedford/i005.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9124,7 +9124,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i044",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i044.jpg"
+      "url": "library/peter-pan/art/bedford/i044.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9132,7 +9132,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i078",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i078.jpg"
+      "url": "library/peter-pan/art/bedford/i078.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9140,7 +9140,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i090",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i090.jpg"
+      "url": "library/peter-pan/art/bedford/i090.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9148,7 +9148,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i130",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i130.jpg"
+      "url": "library/peter-pan/art/bedford/i130.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9156,7 +9156,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i148",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i148.jpg"
+      "url": "library/peter-pan/art/bedford/i148.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9164,7 +9164,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i166",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i166.jpg"
+      "url": "library/peter-pan/art/bedford/i166.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9172,7 +9172,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i192",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i192.jpg"
+      "url": "library/peter-pan/art/bedford/i192.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9180,7 +9180,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i218",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i218.jpg"
+      "url": "library/peter-pan/art/bedford/i218.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9188,7 +9188,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i228",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i228.jpg"
+      "url": "library/peter-pan/art/bedford/i228.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9196,7 +9196,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i254",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i254.jpg"
+      "url": "library/peter-pan/art/bedford/i254.jpg"
     },
     {
       "worldId": "peter-pan-world",
@@ -9204,7 +9204,7 @@
       "updatedAt": 1787529600000,
       "id": "peter-pan-image-bedford-i288",
       "mimeType": "image/jpeg",
-      "url": "https://raw.githubusercontent.com/SirFoxworthTheThird/PlotWeave/development/public/library/peter-pan/art/bedford/i288.jpg"
+      "url": "library/peter-pan/art/bedford/i288.jpg"
     }
   ],
   "travelModes": [],
