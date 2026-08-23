@@ -243,8 +243,15 @@ export function SceneDraftSection({
         boxes. That is ambiguous to a reader before it is ambiguous to a
         locator.
       */}
-      <p className="text-[10px] text-[hsl(var(--muted-foreground))]" role="status">
-        {draft === null ? 'Draft auto-saved' : 'Saving draft…'}
+      <p className="text-[10px] text-[hsl(var(--muted-foreground))]">
+        {/*
+          The save state is the live region, and only the save state. The
+          paragraph count sits beside it *outside* `role="status"` on purpose:
+          a live region announces every change, and a number that moves as you
+          type would have a screen reader reciting the count on every pause. It
+          is a thing to glance at, not a thing to be told.
+        */}
+        <span role="status">{draft === null ? 'Draft auto-saved' : 'Saving draft…'}</span>
         {/*
           W23-8: a **blank line** starts a new paragraph here, not a single
           Enter — the Manuscript and every export split on `\n\s*\n`, so

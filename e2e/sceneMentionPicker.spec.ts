@@ -202,15 +202,13 @@ test.describe('Naming things from the scene prose', () => {
     await page.keyboard.type('One line.')
     await page.keyboard.press('Enter')
     await page.keyboard.type('Second line, one Enter.')
-    await expect(page.getByRole('status').filter({ hasText: /paragraph/ }))
-      .toContainText('1 paragraph')
+    await expect(page.getByText(/paragraph/).first()).toContainText('1 paragraph')
 
     // A blank line: two.
     await page.keyboard.press('Enter')
     await page.keyboard.press('Enter')
     await page.keyboard.type('Third line, blank line before it.')
-    await expect(page.getByRole('status').filter({ hasText: /paragraph/ }))
-      .toContainText('2 paragraphs')
+    await expect(page.getByText(/paragraphs/).first()).toContainText('2 paragraphs')
   })
 
   /**
