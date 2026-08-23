@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
 import { PenLine, History, Maximize2, Plus } from 'lucide-react'
 import { wordCount, detectMentions } from '@/lib/manuscript'
+import { splitParagraphs } from '@/lib/manuscriptParagraphs'
 import { useSceneText, setSceneText } from '@/db/hooks/useManuscript'
 import { useSceneRevisions } from '@/db/hooks/useSceneRevisions'
 import { SceneDraftEditor } from './SceneDraftEditor'
@@ -135,6 +136,9 @@ export function SceneDraftSection({
 
   const sceneValue = draft ?? sceneText?.text ?? ''
   const sceneWords = draft === null ? (sceneText?.wordCount ?? 0) : wordCount(sceneValue)
+  /** What the Manuscript and every export will make of this text — one split,
+   *  shared, so the number here cannot drift from the pages it describes. */
+  const paragraphCount = splitParagraphs(sceneValue).length
   const mentions = detectMentions(sceneValue, characters)
   // Nudge only for names that aren't accounted for as present OR mentioned.
   const untaggedMentions = mentions.filter(
@@ -241,6 +245,26 @@ export function SceneDraftSection({
       */}
       <p className="text-[10px] text-[hsl(var(--muted-foreground))]" role="status">
         {draft === null ? 'Draft auto-saved' : 'Saving draft…'}
+        {/*
+          W23-8: a **blank line** starts a new paragraph here, not a single
+          Enter — the Manuscript and every export split on `\n\s*\n`, so
+          "One line.⏎Second line." is read back, and written out, as one
+          paragraph. The rule is right and should stay: prose pasted from a
+          text file or a PDF arrives hard-wrapped at some column, and treating
+          every newline as a break would turn it into one paragraph per line.
+
+          What was wrong is that it was stated **nowhere** — the guide mentions
+          paragraph preservation only for *manuscript import* — so a writer
+          found out on reading their own book back, or on exporting it.
+
+          Saying it as a **count of what you actually have** rather than as a
+          rule: type one Enter, watch it still say one paragraph, and the rule
+          explains itself without a tooltip. It appears only once there is
+          prose, and only once there is more than nothing to count.
+        */}
+        {sceneWords > 0 && (
+          <> · {paragraphCount} {paragraphCount === 1 ? 'paragraph' : 'paragraphs'}</>
+        )}
       </p>
       {untaggedMentions.length > 0 && (
         <div className="flex flex-wrap items-center gap-1.5">
