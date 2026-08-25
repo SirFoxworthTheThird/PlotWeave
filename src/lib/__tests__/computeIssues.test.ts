@@ -360,7 +360,8 @@ describe('craft observations are not filed as warnings', () => {
     input.chapters = [chapter('c1', 1)]
     input.characters = [character('mira', 'Mira'), character('rell', 'Rell')]
     input.allEvents = [
-      // A book whose habit is to switch every scene, then does not.
+      // A book whose habit is to switch every scene, then does not. Five in a
+      // row, which is the floor: four is a moment, not a stretch.
       event('e1', 'c1', 0, { povCharacterId: 'rell' }),
       event('e2', 'c1', 1, { povCharacterId: 'mira' }),
       event('e3', 'c1', 2, { povCharacterId: 'rell' }),
@@ -368,6 +369,7 @@ describe('craft observations are not filed as warnings', () => {
       event('e5', 'c1', 4, { povCharacterId: 'mira' }),
       event('e6', 'c1', 5, { povCharacterId: 'mira' }),
       event('e7', 'c1', 6, { povCharacterId: 'mira' }),
+      event('e8', 'c1', 7, { povCharacterId: 'mira' }),
     ]
     const found = computeContinuityIssues(input).filter((i) => i.kind === 'pov-consecutive')
     expect(found).toHaveLength(1)
@@ -1090,6 +1092,26 @@ describe('a long run of one point of view', () => {
     // Two in a row is not a run worth naming, even in a book that alternates
     // every single scene.
     expect(runsFound([1, 1, 1, 1, 2])).toHaveLength(0)
+  })
+
+  /**
+   * And needs five, which is the measured half of the rule.
+   *
+   * On the shipped Monte Cristo the median run is 1, so twice it is 2 and the
+   * smallest reportable run already cleared the bar — twelve findings, eight of
+   * them runs of three or four. Three scenes in one head is a paragraph of a
+   * book that changes viewpoint constantly. With the floor the same book
+   * reports three: the run of ten, and the two of five.
+   */
+  it('does not name three or four scenes in a book that alternates every one', () => {
+    expect(runsFound([1, 1, 1, 1, 3])).toHaveLength(0)
+    expect(runsFound([1, 1, 1, 1, 4])).toHaveLength(0)
+  })
+
+  it('but does name five — the pair, so the floor is a floor and not a wall', () => {
+    const found = runsFound([1, 1, 1, 1, 5])
+    expect(found).toHaveLength(1)
+    expect(found[0].message).toContain('5 scenes running')
   })
 })
 
