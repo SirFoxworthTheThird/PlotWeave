@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { cn } from '@/lib/utils'
 import { useAppStore } from '@/store'
@@ -59,8 +59,15 @@ export function OnboardingWizard({ worldId, onExit }: OnboardingWizardProps) {
     is something to come back to. This effect runs on mount too, and storing the
     pristine step 1 would mean the sight of the guide counted as being part-way
     through it. See `hasGuideProgress`.
+
+    A layout effect, so the write lands before the new step is painted. As a
+    passive effect it ran *after* paint, leaving a window where the guide was
+    visibly on step 2 and storage still said step 1 — reload inside it and the
+    progress was gone. The e2e caught it as a flake, which is what that window
+    looks like from the outside; a writer who finishes a step and reloads at
+    once is in the same window.
   */
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!hasGuideProgress(state)) return
     try { localStorage.setItem(storageKey, JSON.stringify(state)) } catch { /* private mode */ }
   }, [storageKey, state])
