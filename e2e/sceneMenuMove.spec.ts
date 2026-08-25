@@ -44,6 +44,13 @@ async function worldWithTwoChapters(page: Page): Promise<string> {
       structureBeat: null, status: 'draft', povCharacterId: null, tension: null,
       isFlashback: false, createdAt: now, updatedAt: now,
     })
+    // Prose, or there is nothing to export and the Manuscript screen correctly
+    // disables its own tools.
+    await db.sceneTexts.add({
+      id: 'st1', worldId: id, eventId: 'ev1',
+      text: 'The bell did not ring, and the whole street heard it not ring.',
+      wordCount: 12, createdAt: now, updatedAt: now,
+    })
   }, worldId)
   return worldId
 }
