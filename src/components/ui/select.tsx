@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { computeSelectPosition } from '@/lib/selectPosition'
 import { selectItemLabel } from '@/lib/selectLabel'
 import { matchesQuery } from '@/lib/selectFilter'
+import { useFieldId } from './field'
 
 interface SelectContextValue {
   value: string
@@ -80,8 +81,10 @@ function Select({ value: controlledValue, defaultValue = '', onValueChange, chil
 }
 
 const SelectTrigger = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
-  ({ className, children, ...props }, ref) => {
+  ({ className, children, id, ...props }, ref) => {
     const { open, setOpen, triggerRef, listboxId } = React.useContext(SelectContext)
+    // The trigger is the focusable control, so a <Field>'s label points here.
+    const fieldId = useFieldId(id)
 
     function handleRef(el: HTMLButtonElement | null) {
       (triggerRef as React.MutableRefObject<HTMLButtonElement | null>).current = el
@@ -92,6 +95,7 @@ const SelectTrigger = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttrib
     return (
       <button
         ref={handleRef}
+        id={fieldId}
         type="button"
         /*
           F16: the trigger was a bare button, so a screen reader announced
