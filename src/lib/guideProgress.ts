@@ -70,6 +70,22 @@ export function readGuide(raw: string | null): StoredGuide | null {
 }
 
 /**
+ * Whether anything has happened that is worth coming back to.
+ *
+ * Being *shown* the guide is not progress. The persisting effect runs on mount,
+ * so without this the mere sight of step 1 was stored — and then a writer who
+ * left the guide alone, went to the Timeline screen and built a timeline by
+ * hand came back to the dashboard and was asked, at step 1 of 4, to name the
+ * timeline they had just named. Three specs and a fourth intermittently caught
+ * exactly that, having gone to the dashboard for something else entirely.
+ *
+ * Stepping back to 1 still counts, because by then step 1 has made its scene.
+ */
+export function hasGuideProgress(p: GuideProgress): boolean {
+  return p.step > 1 || p.createdEventId !== null
+}
+
+/**
  * Whether to put the guide on screen.
  *
  * Stored progress wins over the world's shape, which is the finding: after step

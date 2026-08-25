@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { cn } from '@/lib/utils'
 import { useAppStore } from '@/store'
-import { guideKey, readGuide, type GuideProgress, type GuideStep } from '@/lib/guideProgress'
+import { guideKey, hasGuideProgress, readGuide, type GuideProgress, type GuideStep } from '@/lib/guideProgress'
 import { StepTimeline } from './steps/StepTimeline'
 import { StepCharacter } from './steps/StepCharacter'
 import { StepPlace } from './steps/StepPlace'
@@ -53,9 +53,15 @@ export function OnboardingWizard({ worldId, onExit }: OnboardingWizardProps) {
     }
   })
 
-  // Written on every change rather than at each of the six places that make
-  // one, so a step added later cannot forget to record itself.
+  /*
+    Written on every change rather than at each of the six places that make one,
+    so a step added later cannot forget to record itself — but only once there
+    is something to come back to. This effect runs on mount too, and storing the
+    pristine step 1 would mean the sight of the guide counted as being part-way
+    through it. See `hasGuideProgress`.
+  */
   useEffect(() => {
+    if (!hasGuideProgress(state)) return
     try { localStorage.setItem(storageKey, JSON.stringify(state)) } catch { /* private mode */ }
   }, [storageKey, state])
 

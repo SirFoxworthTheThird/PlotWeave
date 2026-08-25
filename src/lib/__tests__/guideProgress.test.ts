@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { guideKey, readGuide, shouldShowGuide, type GuideProgress } from '@/lib/guideProgress'
+import { guideKey, hasGuideProgress, readGuide, shouldShowGuide, type GuideProgress } from '@/lib/guideProgress'
 
 /**
  * N14: the guide kept its progress in component state, and the condition that
@@ -76,5 +76,35 @@ describe('shouldShowGuide', () => {
 
   it('waits for the count rather than flashing the guide at every world', () => {
     expect(shouldShowGuide({ stored: null, timelineCount: undefined })).toBe(false)
+  })
+})
+
+describe('hasGuideProgress', () => {
+  const fresh = {
+    step: 1 as const,
+    createdEventId: null,
+    createdCharacterId: null,
+    createdEventTitle: null,
+    createdCharacterName: null,
+  }
+
+  /**
+   * Being shown the guide is not being part-way through it. The persisting
+   * effect runs on mount, so storing this state made the mere sight of step 1
+   * count as progress — and a writer who ignored the guide, built a timeline on
+   * the Timeline screen and came back to the dashboard was asked to name it
+   * again. Three specs caught that, having gone to the dashboard for something
+   * else entirely.
+   */
+  it('is false for a guide that has only been looked at', () => {
+    expect(hasGuideProgress(fresh)).toBe(false)
+  })
+
+  it('is true once a step has moved on', () => {
+    expect(hasGuideProgress({ ...fresh, step: 2, createdEventId: 'ev1' })).toBe(true)
+  })
+
+  it('stays true when you walk back to step 1, since step 1 has already built', () => {
+    expect(hasGuideProgress({ ...fresh, step: 1, createdEventId: 'ev1' })).toBe(true)
   })
 })
