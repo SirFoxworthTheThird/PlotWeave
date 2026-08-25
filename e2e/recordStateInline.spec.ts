@@ -40,16 +40,22 @@ async function chapterWithACastGap(page: Page): Promise<string> {
     await db.chapters.add({ id: 'ch1', worldId: id, timelineId: 'tl', number: 1, title: 'One', synopsis: '', notes: '', wordGoal: null, createdAt: now, updatedAt: now })
     await db.characters.add({ id: 'corvin', worldId: id, name: 'Corvin Adze', description: '', aliases: [], tags: [], portraitImageId: null, isAlive: true, color: null, createdAt: now, updatedAt: now })
 
-    const ev = (eid: string, title: string, sortOrder: number) => ({
+    const ev = (eid: string, title: string, sortOrder: number, cast: string[]) => ({
       id: eid, worldId: id, chapterId: 'ch1', timelineId: 'tl', title,
       description: '', sortOrder, tags: [], locationMarkerId: null,
-      involvedCharacterIds: ['corvin'], mentionedCharacterIds: [], involvedItemIds: [],
+      involvedCharacterIds: cast, mentionedCharacterIds: [], involvedItemIds: [],
       threadIds: [], motifIds: [], travelDays: null, inWorldTime: null,
       structureBeat: null, status: 'draft', povCharacterId: null, tension: null,
       isFlashback: false, createdAt: now, updatedAt: now,
     })
-    await db.events.add(ev('ev0', earlier, 0))
-    await db.events.add(ev('ev1', scene, 1))
+    /*
+      The earlier scene has his state but not his cast, and the later one the
+      reverse. That is deliberate on both counts: it leaves exactly one gap row
+      to click, and it is the distinction the app draws anyway — recording where
+      somebody is says where they are, not that they are in the scene.
+    */
+    await db.events.add(ev('ev0', earlier, 0, []))
+    await db.events.add(ev('ev1', scene, 1, ['corvin']))
 
     // Recorded at the *earlier* scene only, so the later one is a gap and the
     // prefill has somewhere to come from.
@@ -77,10 +83,14 @@ test.describe('Recording state from the scene', () => {
     await page.goto(`/#/worlds/${worldId}/timeline/ch1`, { waitUntil: 'load' })
     await settleNav(page)
 
-    // The gap is on the later scene, and nothing is recorded there yet.
+    // The seed landed: state at the earlier scene, none at the later one. Two
+    // gap rows once meant the earlier snapshot had not been written at all, and
+    // without this check the prefill assertions below could pass on nothing.
+    expect(await snapshotAt(page, 'ev0')).not.toBeNull()
+    expect(await snapshotAt(page, 'ev1')).toBeNull()
+
     const gap = page.getByRole('button', { name: /Corvin Adze no state recorded/ })
     await expect(gap).toBeVisible({ timeout: 30_000 })
-    expect(await snapshotAt(page, 'ev1')).toBeNull()
 
     await gap.click()
 
@@ -92,7 +102,7 @@ test.describe('Recording state from the scene', () => {
     // Change where he is and add the note for this moment.
     await page.getByRole('button', { name: /Where.*Gullbone Cistern/ }).click()
     await page.getByRole('option', { name: 'Hollowmark Tower' }).click()
-    await page.getByLabel('Note').fill('At the top of the stair.')
+    await page.getByRole('textbox', { name: 'Note', exact: true }).fill('At the top of the stair.')
     await page.getByRole('button', { name: 'Record state' }).click()
 
     // Written at *this* scene — not the one the prefill came from.
