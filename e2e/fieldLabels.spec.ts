@@ -68,11 +68,19 @@ test.describe('Editing controls have names', () => {
 
     const main = page.getByRole('main')
     // The five the report measured, each resolved by accessible name alone.
-    await expect(main.getByLabel('Current Location')).toBeVisible()
+    /*
+      Named by its label *and* the value it shows, so a writer hears both and a
+      voice-control user can ask for what is on screen. An associated <label>
+      replaces a button's content in its name rather than adding to it, and
+      wrapping this picker in a Field lost "Château d'If" from ten specs.
+    */
+    await expect(main.getByLabel(/Current Location/)).toBeVisible()
+    await expect(main.getByRole('button', { name: /Current Location Unknown \/ not set/ })).toBeVisible()
     await expect(main.getByLabel('Status Notes')).toBeVisible()
     await expect(main.getByLabel('Inventory Notes')).toBeVisible()
     await expect(main.getByLabel('New item name')).toBeVisible()
-    await expect(main.getByLabel('Add an item this character is carrying')).toBeVisible()
+    // This one names itself by its content, which never changes to a value.
+    await expect(main.getByRole('button', { name: 'Add existing item' })).toBeVisible()
 
     // And the name reaches the control, not just the page: typing into the
     // field found by its label puts the text in that field.

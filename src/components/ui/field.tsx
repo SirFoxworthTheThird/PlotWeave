@@ -23,12 +23,38 @@ import { Label, labelClass } from './label'
  * shape is a `role="group"` with its own name, and for a label over something
  * that is not a control at all, see `FieldName`.
  */
-const FieldIdContext = React.createContext<string | undefined>(undefined)
+interface FieldIds {
+  /** Goes on the control, and is what the label's `htmlFor` points at. */
+  id: string
+  /** Goes on the label, so a control can name itself by label *and* content. */
+  labelId: string
+}
+
+const FieldIdContext = React.createContext<FieldIds | undefined>(undefined)
 
 /** The id a `Field` minted for its control, unless the caller set its own. */
 export function useFieldId(explicit?: string): string | undefined {
   const fromField = React.useContext(FieldIdContext)
-  return explicit ?? fromField
+  return explicit ?? fromField?.id
+}
+
+/**
+ * The id of this field's label, for a control whose *content* is also part of
+ * its name.
+ *
+ * An associated `<label>` does not add to a button's name, it replaces it. So
+ * wrapping the location picker in a `Field` made it announce "Current Location"
+ * where it used to announce "Château d'If" — the field gained a name and the
+ * answer disappeared, and a voice-control user asking for what they could see
+ * on screen no longer had anything to say. Ten specs caught this by looking
+ * these triggers up by their value.
+ *
+ * `aria-labelledby` listing the label and then the control itself is the usual
+ * shape for a select: the control's own content is spliced back in, and the
+ * name becomes "Current Location Château d'If" — the field and its answer.
+ */
+export function useFieldLabelId(): string | undefined {
+  return React.useContext(FieldIdContext)?.labelId
 }
 
 interface FieldProps {
@@ -40,10 +66,12 @@ interface FieldProps {
 
 export function Field({ label, children, className, labelClassName }: FieldProps) {
   const id = React.useId()
+  const labelId = `${id}-label`
+  const ids = React.useMemo(() => ({ id, labelId }), [id, labelId])
   return (
-    <FieldIdContext.Provider value={id}>
+    <FieldIdContext.Provider value={ids}>
       <div className={cn('flex flex-col gap-1.5', className)}>
-        <Label htmlFor={id} className={labelClassName}>{label}</Label>
+        <Label id={labelId} htmlFor={id} className={labelClassName}>{label}</Label>
         {children}
       </div>
     </FieldIdContext.Provider>

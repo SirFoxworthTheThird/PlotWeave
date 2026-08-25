@@ -111,12 +111,16 @@ function GoalRow({ goal, isActive, options, onDelete }: {
 
       {/* Optional time scoping */}
       <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-        <FieldName className="text-[hsl(var(--muted-foreground))]">From</FieldName>
+        <FieldName id={`${goal.id}-from`} className="text-[hsl(var(--muted-foreground))]">From</FieldName>
         <Select
           value={goal.startEventId ?? '__none__'}
           onValueChange={(v) => updateCharacterGoal(goal.id, { startEventId: v === '__none__' ? null : v })}
         >
-          <SelectTrigger className="h-7 w-52 text-xs" aria-label="Goal starts at"><SelectValue placeholder="the beginning" /></SelectTrigger>
+          <SelectTrigger
+            id={`${goal.id}-from-picker`}
+            className="h-7 w-52 text-xs"
+            aria-labelledby={`${goal.id}-from ${goal.id}-from-picker`}
+          ><SelectValue placeholder="the beginning" /></SelectTrigger>
           <SelectContent>
             <SelectItem value="__none__">The beginning</SelectItem>
             {options.events.map((ev) => (
@@ -124,12 +128,16 @@ function GoalRow({ goal, isActive, options, onDelete }: {
             ))}
           </SelectContent>
         </Select>
-        <FieldName className="text-[hsl(var(--muted-foreground))]">until</FieldName>
+        <FieldName id={`${goal.id}-until`} className="text-[hsl(var(--muted-foreground))]">until</FieldName>
         <Select
           value={goal.endEventId ?? '__none__'}
           onValueChange={(v) => updateCharacterGoal(goal.id, { endEventId: v === '__none__' ? null : v })}
         >
-          <SelectTrigger className="h-7 w-52 text-xs" aria-label="Goal ends at"><SelectValue placeholder="the end" /></SelectTrigger>
+          <SelectTrigger
+            id={`${goal.id}-until-picker`}
+            className="h-7 w-52 text-xs"
+            aria-labelledby={`${goal.id}-until ${goal.id}-until-picker`}
+          ><SelectValue placeholder="the end" /></SelectTrigger>
           <SelectContent>
             <SelectItem value="__none__">The end</SelectItem>
             {options.events.map((ev) => (

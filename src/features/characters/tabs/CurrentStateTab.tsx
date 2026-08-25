@@ -533,7 +533,7 @@ export function CurrentStateTab({ character }: CurrentStateTabProps) {
           if (available.length === 0) return null
           return (
             <Select onValueChange={(v) => mark(() => setInventoryIds((ids) => [...ids, v]))} value="">
-              <SelectTrigger className="text-xs" aria-label="Add an item this character is carrying">
+              <SelectTrigger className="text-xs">
                 <SelectValue placeholder="Add existing item..." />
               </SelectTrigger>
               <SelectContent>
