@@ -13,7 +13,17 @@ import { resetDB } from './helpers/reset'
  * `src/lib/__tests__/guideProgress.test.ts`. These are about the reload.
  */
 
-const STEP_2 = /Step 2 of 4/
+/*
+  The step the guide is *on*, not merely one it lists.
+
+  The indicator renders all four labels at once — "Step 1 of 4: Begin your
+  story", "Step 2 of 4: Add a character", and so on — and only the current one
+  is suffixed "(current)". Matching without that suffix matches from the moment
+  the wizard appears, so the wait before the reload returned instantly at step 1
+  and the assertion after it would have passed on a guide that had restarted
+  from the beginning. It was vacuous in both directions at once.
+*/
+const ON_STEP_2 = /Step 2 of 4:.*\(current\)/
 
 async function newWorld(page: Page): Promise<string> {
   await page.goto('/')
@@ -31,7 +41,7 @@ async function completeStepOne(page: Page) {
   await page.getByPlaceholder('The Age of Embers, The Long Road, Act One…').fill('The Drowning Year')
   await page.getByPlaceholder('The wreck, A letter arrives, The gate opens…').fill('The ninth bell does not ring')
   await page.getByRole('button', { name: 'Create and continue' }).click()
-  await expect(page.getByLabel(STEP_2)).toBeVisible({ timeout: 20_000 })
+  await expect(page.getByLabel(ON_STEP_2)).toBeVisible({ timeout: 20_000 })
 }
 
 test.describe('The first-run guide survives a reload', () => {
@@ -44,7 +54,7 @@ test.describe('The first-run guide survives a reload', () => {
     await page.reload({ waitUntil: 'load' })
 
     // The finding: this used to be the dashboard, with steps 2 to 4 skipped.
-    await expect(page.getByLabel(STEP_2)).toBeVisible({ timeout: 20_000 })
+    await expect(page.getByLabel(ON_STEP_2)).toBeVisible({ timeout: 20_000 })
     await expect(page.getByRole('navigation', { name: 'Wizard progress' })).toBeVisible()
   })
 
