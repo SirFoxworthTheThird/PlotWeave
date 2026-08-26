@@ -11,10 +11,10 @@ import { describeLinked, describeLocaliseResult } from '@/lib/localiseImages'
  *
  * PlotWeave's first promise is that a story never leaves the device, and
  * pictures are the documented exception: a picture is either bytes you uploaded
- * or a **link** to somebody else's server. That is why a library download is
- * 363 KB rather than 15 MB, and it is also why a downloaded book's maps do not
- * draw on a train — and why a `.pwk` kept as a backup slowly stops matching
- * what it looked like, as links rot.
+ * or a **link** to somewhere else. That is why *Alice in Wonderland* downloads
+ * as a 347,498-byte `.pwk` when its pictures are 28 MB, and it is also why a
+ * downloaded book's maps do not draw on a train — and why a `.pwk` kept as a
+ * backup slowly stops matching what it looked like, as links rot.
  *
  * So the copy is offered rather than assumed. It is the choice of whoever is
  * about to get on a plane, and the count is shown before anything is fetched.

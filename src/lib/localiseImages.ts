@@ -17,9 +17,10 @@ import { formatBytes } from './library'
  * failed quietly would be worse than not having it — a writer would think their
  * world was portable when it was not.
  *
- * **And it is never automatic.** Linking is why a library download is 363 KB
- * rather than 15 MB, and 26 of the 30 shipped worlds link on purpose. Copying
- * is the choice of whoever is about to get on a plane.
+ * **And it is never automatic.** Linking is why a library download is small:
+ * all thirty shipped worlds link rather than bundle, and *Alice in Wonderland*
+ * is a 347,498-byte `.pwk` against 28,505,956 bytes of pictures. Copying is the
+ * choice of whoever is about to get on a plane.
  */
 
 export interface LocaliseResult {
@@ -28,11 +29,26 @@ export interface LocaliseResult {
   bytes: number
 }
 
-/** The host a linked picture comes from, for grouping failures by site. */
+/**
+ * The host a linked picture comes from, for grouping failures by site.
+ *
+ * Two of the shipped worlds — Alice and Peter Pan — link their pictures by
+ * *relative* path (`library/alice-in-wonderland/art/tenniel/tenniel-01.gif`),
+ * served from wherever the app itself is, and `new URL` throws on those. Taking
+ * the first forty characters instead would count eighty-four pictures as a
+ * handful of different "sites", so a relative path is resolved against the page
+ * first and only then given up on.
+ */
 export function hostOf(url: string): string {
   try {
     return new URL(url).host
   } catch {
+    try {
+      // `file://` has no host, which is why this is guarded rather than trusted:
+      // under Electron the fallback below is the answer.
+      const host = typeof location === 'undefined' ? '' : new URL(url, location.href).host
+      if (host) return host
+    } catch { /* not a path either — fall through */ }
     return url.slice(0, 40)
   }
 }
@@ -45,13 +61,17 @@ export function hostOf(url: string): string {
  * is genuinely unknown until each one is fetched, and guessing at it would be
  * inventing a number. So this says what is known: how many, and from how many
  * different places.
+ *
+ * It does not say "on the web", because for a library world it would not be
+ * true — those pictures are served from the same place the app is.
  */
 export function describeLinked(urls: readonly string[]): string {
   if (urls.length === 0) return 'Every picture in this world is already saved on this device.'
   const hosts = new Set(urls.map(hostOf)).size
-  const pictures = `${urls.length} picture${urls.length === 1 ? '' : 's'}`
   const sites = `${hosts} site${hosts === 1 ? '' : 's'}`
-  return `${pictures} in this world are links to ${sites} on the web, fetched each time they are shown.`
+  return urls.length === 1
+    ? `1 picture in this world is a link rather than a file kept here, fetched from ${sites} each time it is shown.`
+    : `${urls.length} pictures in this world are links rather than files kept here, fetched from ${sites} each time they are shown.`
 }
 
 /** What to say afterwards, including the part that did not work. */

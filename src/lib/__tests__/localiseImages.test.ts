@@ -7,9 +7,31 @@ describe('hostOf', () => {
   })
 
   it('does not throw on something that is not a URL', () => {
-    // A stored `url` is validated on the way in, but a `.pwk` from elsewhere is
-    // not this app's data and should not be able to break a summary line.
-    expect(hostOf('not a url')).toBe('not a url')
+    /*
+      A stored `url` is validated on the way in, but a `.pwk` from elsewhere is
+      not this app's data and should not be able to break a summary line. What
+      it reports for junk is the app's own origin, and that is the honest
+      answer rather than a shrug: `fetch('not a url')` goes there too, so that
+      is the site that will have refused.
+    */
+    expect(() => hostOf('not a url')).not.toThrow()
+    expect(hostOf('not a url')).toBe(hostOf('library/x.png'))
+  })
+
+  /*
+    Two shipped worlds link their pictures by relative path, served from
+    wherever the app is. Eighty-four of those are one site, and the failure
+    mode this guards is the slice fallback making them several: the first forty
+    characters of `library/alice-in-wonderland/art/…` and of
+    `library/alice-in-wonderland/maps/…` differ.
+  */
+  it('treats relative paths as the one site the app is served from', () => {
+    const art = hostOf('library/alice-in-wonderland/art/tenniel/tenniel-01.gif')
+    const maps = hostOf('library/alice-in-wonderland/maps/wonderland.png')
+    expect(art).toBe(maps)
+    expect(art).not.toContain('library/')
+    // Presence beside the absence: a real host is still read as itself.
+    expect(hostOf('https://upload.wikimedia.org/a.jpg')).not.toBe(art)
   })
 })
 
@@ -23,12 +45,25 @@ describe('describeLinked', () => {
       'https://a.example/1.jpg', 'https://a.example/2.jpg', 'https://b.example/3.jpg',
     ]
     expect(describeLinked(urls)).toBe(
-      '3 pictures in this world are links to 2 sites on the web, fetched each time they are shown.')
+      '3 pictures in this world are links rather than files kept here, '
+      + 'fetched from 2 sites each time they are shown.')
   })
 
   it('agrees in number for one of each', () => {
     expect(describeLinked(['https://a.example/1.jpg']))
-      .toBe('1 picture in this world are links to 1 site on the web, fetched each time they are shown.')
+      .toBe('1 picture in this world is a link rather than a file kept here, '
+        + 'fetched from 1 site each time it is shown.')
+  })
+
+  /*
+    A library world is the case this feature exists for, and its pictures are
+    relative paths on the app's own origin. Counting those as eighty-four
+    different sites would be the line's one job done wrong.
+  */
+  it('counts a library world\'s relative paths as one site', () => {
+    const urls = Array.from({ length: 84 }, (_, i) =>
+      `library/alice-in-wonderland/art/tenniel/tenniel-${i}.gif`)
+    expect(describeLinked(urls)).toContain('from 1 site each time')
   })
 })
 

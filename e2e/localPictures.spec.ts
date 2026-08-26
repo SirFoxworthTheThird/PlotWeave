@@ -9,10 +9,10 @@ import { dismissFirstRunGuide } from './helpers/nav'
  *
  * PlotWeave's first promise is that a story never leaves the device, and
  * pictures are the documented exception: a picture is either bytes in this
- * browser or a link to one on the web. That is why a library download is 363 KB
- * rather than 15 MB, and also why a downloaded book's maps do not draw on a
- * train, and why a `.pwk` kept as a backup slowly stops matching what it looked
- * like as links rot.
+ * browser or a link to one elsewhere. That is why *Alice in Wonderland*
+ * downloads as a 347,498-byte `.pwk` when its pictures are 28 MB, and also why
+ * a downloaded book's maps do not draw on a train, and why a `.pwk` kept as a
+ * backup slowly stops matching what it looked like as links rot.
  *
  * **The failure path is the point of this spec.** A linked picture is drawn by
  * the browser as an `<img>`, which needs no permission; copying its bytes needs
@@ -108,7 +108,7 @@ test.describe('saving linked pictures to this device', () => {
     expect(state.noUrl, 'a refusal must not cost the picture').toContain('refused.png')
 
     // Run again and only the one that cannot be copied is left to try.
-    await expect(section.getByText(/1 picture in this world are links/)).toBeVisible({ timeout: 20_000 })
+    await expect(section.getByText(/1 picture in this world is a link/)).toBeVisible({ timeout: 20_000 })
   })
 
   test('says there is nothing to do when every picture is already here', async ({ page }) => {
