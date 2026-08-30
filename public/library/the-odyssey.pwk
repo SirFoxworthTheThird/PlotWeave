@@ -9371,6 +9371,19 @@
       "coverImageId": "odyssey-image-art-eurycleia",
       "linkedEntityIds": [],
       "visibleFromEventId": "odyssey-event-066"
+    },
+    {
+      "worldId": "odyssey-world",
+      "createdAt": 1786291200000,
+      "updatedAt": 1786291200000,
+      "id": "odyssey-lore-11",
+      "categoryId": "odyssey-lore-category-epic",
+      "title": "Text, Translation, and Book Titles",
+      "body": "Homer’s poem is divided into twenty-four books that carry numbers rather than titles. The book names used here are editorial signposts of the kind translators supply, written for this example rather than taken from the Greek, and chosen to help you find a place in the poem rather than to describe it. Summaries and notes throughout are newly written. Linked artwork and maps are public-domain images from Wikimedia Commons, used to represent what the poem describes rather than to identify real sites.",
+      "tags": [],
+      "coverImageId": null,
+      "linkedEntityIds": [],
+      "visibleFromEventId": "odyssey-event-001"
     }
   ],
   "factions": [
