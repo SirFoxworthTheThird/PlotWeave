@@ -1771,6 +1771,13 @@ relationships, so it doesn't shift between visits.
 
 ![Focusing the relationship graph on one character](images/56-relationship-focus.png)
 
+**While reading, the graph opens close enough to read.** Fitting a whole cast on
+screen is what a writer wants — the shape is the answer — but for a reader with
+one question ("how is this person connected to that one?") a graph fitted so far
+out that the names are illegible is no answer at all. In reading mode it opens
+at the zoom the labels need, showing part of the graph rather than all of it;
+pan to reach the rest.
+
 Three controls keep a big cast under control:
 
 - **Tidy up** re-runs the arrangement and discards any cards you dragged by hand.
