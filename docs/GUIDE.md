@@ -194,6 +194,12 @@ Turning reading mode off in a world's settings moves it back up to *Your
 worlds*, since at that point you are editing it rather than reading it. With
 nothing in reading mode there is only one list and no headings at all.
 
+**Once a book has your place in it, its shelf comes first.** Downloaded and
+never opened, it stays below — but the moment a book knows which chapter you are
+on, it is what you came back for, and on a phone that is the difference between
+your book being on screen and being a scroll away. Your drafts are still there,
+directly beneath.
+
 Each card carries the world's name, a date, its description, and how much is in
 it — chapters and cast — so you can tell two drafts apart without opening either.
 
