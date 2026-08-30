@@ -146,7 +146,7 @@
       "mapLayerId": "time-machine-map-richmond",
       "linkedMapLayerId": "time-machine-map-future",
       "name": "Richmond in the Distant Future",
-      "description": "Portal to the Thames Valley as the Time Traveller encounters it in the year 802,701.",
+      "description": "The Thames Valley as the Time Traveller finds it in the year 802,701: parkland and crumbling ruins where Richmond once stood.",
       "x": 926,
       "y": 1435,
       "imageId": "time-machine-image-finlay-1",
@@ -5714,7 +5714,7 @@
       "tags": [],
       "coverImageId": "time-machine-image-finlay-1",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "time-machine-event-1"
     },
     {
       "worldId": "time-machine-world",
@@ -5727,7 +5727,7 @@
       "tags": [],
       "coverImageId": "time-machine-image-finlay-1",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "time-machine-event-35"
     },
     {
       "worldId": "time-machine-world",
@@ -5740,7 +5740,7 @@
       "tags": [],
       "coverImageId": "time-machine-image-finlay-2",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "time-machine-event-10"
     },
     {
       "worldId": "time-machine-world",
@@ -5753,7 +5753,7 @@
       "tags": [],
       "coverImageId": "time-machine-image-finlay-4",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "time-machine-event-38"
     },
     {
       "worldId": "time-machine-world",
@@ -5766,7 +5766,7 @@
       "tags": [],
       "coverImageId": "time-machine-image-finlay-3",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "time-machine-event-24"
     },
     {
       "worldId": "time-machine-world",
@@ -5779,7 +5779,7 @@
       "tags": [],
       "coverImageId": "time-machine-image-finlay-4",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "time-machine-event-29"
     },
     {
       "worldId": "time-machine-world",
@@ -5792,7 +5792,7 @@
       "tags": [],
       "coverImageId": "time-machine-image-title-page",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "time-machine-event-1"
     },
     {
       "worldId": "time-machine-world",
@@ -5805,7 +5805,7 @@
       "tags": [],
       "coverImageId": "time-machine-image-cover",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "time-machine-event-1"
     },
     {
       "worldId": "time-machine-world",
@@ -5818,7 +5818,7 @@
       "tags": [],
       "coverImageId": "time-machine-image-map-richmond",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "time-machine-event-1"
     }
   ],
   "factions": [
