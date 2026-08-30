@@ -408,6 +408,18 @@ that undoes the thing reading mode is for, so both of them ask before doing it,
 and both offer to step the cursor instead. While writing, where "all chapters"
 is just the default view, it stays a single click.
 
+**The chapter bar shows numbers, not titles, for what you have not read.** Along
+the bottom of the screen a chapter you have reached carries its title, and one
+you have not carries only its number; the scenes inside it are named by their
+position — *"Chapter 9, moment 1 — not yet reached"* — rather than by what
+happens in them. A chapter title is often the event itself, and dimming one you
+can still read is not hiding it.
+
+**Skipping ahead asks first.** Moving your place on into the next chapter, or
+back to any chapter, happens the moment you click. Jumping two or more chapters
+forward asks — it will show you everyone and everywhere the story introduces in
+between. Coming back hides them again; what it cannot do is unshow them.
+
 **A chapter you have not reached yet does not open.** On the timeline its row
 does not expand — the scene list inside would name what happens in it — and its
 summary stays hidden, as it always has. The chapter's own title stays visible,
