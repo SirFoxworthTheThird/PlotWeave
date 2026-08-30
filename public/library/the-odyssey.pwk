@@ -9253,7 +9253,7 @@
       "tags": [],
       "coverImageId": "odyssey-image-art-homecoming",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "odyssey-event-020"
     },
     {
       "worldId": "odyssey-world",
@@ -9266,7 +9266,7 @@
       "tags": [],
       "coverImageId": "odyssey-image-art-bow",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "odyssey-event-001"
     },
     {
       "worldId": "odyssey-world",
@@ -9279,7 +9279,7 @@
       "tags": [],
       "coverImageId": "odyssey-image-art-athena",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "odyssey-event-011"
     },
     {
       "worldId": "odyssey-world",
@@ -9292,7 +9292,7 @@
       "tags": [],
       "coverImageId": "odyssey-image-art-zeus",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "odyssey-event-001"
     },
     {
       "worldId": "odyssey-world",
@@ -9305,7 +9305,7 @@
       "tags": [],
       "coverImageId": "odyssey-image-art-phaeacia",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "odyssey-event-001"
     },
     {
       "worldId": "odyssey-world",
@@ -9318,7 +9318,7 @@
       "tags": [],
       "coverImageId": "odyssey-image-art-suitors",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "odyssey-event-001"
     },
     {
       "worldId": "odyssey-world",
@@ -9331,7 +9331,7 @@
       "tags": [],
       "coverImageId": "odyssey-image-art-alcinous",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "odyssey-event-014"
     },
     {
       "worldId": "odyssey-world",
@@ -9344,7 +9344,7 @@
       "tags": [],
       "coverImageId": "odyssey-image-art-underworld",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "odyssey-event-032"
     },
     {
       "worldId": "odyssey-world",
@@ -9357,7 +9357,7 @@
       "tags": [],
       "coverImageId": "odyssey-image-art-bow",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "odyssey-event-064"
     },
     {
       "worldId": "odyssey-world",
@@ -9370,7 +9370,7 @@
       "tags": [],
       "coverImageId": "odyssey-image-art-eurycleia",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "odyssey-event-066"
     }
   ],
   "factions": [
