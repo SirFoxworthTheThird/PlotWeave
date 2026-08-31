@@ -1,71 +1,140 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1300" height="900" viewBox="0 0 1300 900">
+  <!-- The Palace of Oz, as a plan. Room positions match the world's markers. -->
   <defs>
-    <pattern id="marble" width="40" height="40" patternUnits="userSpaceOnUse">
-      <rect width="40" height="40" fill="#cfe8d6"/>
-      <path d="M0 20 H40 M20 0 V40" stroke="#bcdcc6" stroke-width="2"/>
+    <pattern id="paper" width="150" height="150" patternUnits="userSpaceOnUse">
+      <rect width="150" height="150" fill="#e7dfc4"/>
+      <g fill="#cfc39c" fill-opacity=".5">
+        <circle cx="30" cy="44" r="1.5"/><circle cx="104" cy="22" r="1.3"/><circle cx="66" cy="104" r="1.4"/>
+        <circle cx="132" cy="120" r="1.2"/><circle cx="14" cy="128" r="1.3"/>
+      </g>
     </pattern>
-    <radialGradient id="dome" cx="50%" cy="45%">
-      <stop offset="0%" stop-color="#eafaf0"/><stop offset="100%" stop-color="#9fd4b3"/>
+    <pattern id="poche" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="8" height="8" fill="#3f7a5c"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#1c4c36" stroke-width="3"/>
+    </pattern>
+    <pattern id="tile" width="34" height="34" patternUnits="userSpaceOnUse">
+      <rect width="34" height="34" fill="#d9eede"/>
+      <path d="M0 17 H34 M17 0 V34" stroke="#b3d8c2" stroke-width="1.4"/>
+      <circle cx="17" cy="17" r="1.8" fill="#8fc3a1"/>
+    </pattern>
+    <radialGradient id="dome" cx="50%" cy="44%" r="60%">
+      <stop offset="0%" stop-color="#f0fbf3"/><stop offset="100%" stop-color="#a8d8bd"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="64%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#1e3a28" stop-opacity=".22"/>
     </radialGradient>
     <style>
-      .t{font-family:Georgia,'Times New Roman',serif;fill:#1f4633}
-      .title{font-size:40px;font-weight:bold}
-      .feat{font-size:21px}
-      .note{font-size:17px;font-style:italic;fill:#3d6650}
-      .room{fill:#d9efe0;stroke:#2f7a52;stroke-width:6}
-      .hall{fill:#c6e5d1;stroke:#2f7a52;stroke-width:6}
-      .door{stroke:#14472d;stroke-width:9;stroke-linecap:round}
+      .t{font-family:Georgia,'Times New Roman',serif;fill:#153f2b}
+      .feat{font-size:21px;paint-order:stroke;stroke:#eaf5ee;stroke-width:5;stroke-linejoin:round}
+      .note{font-size:16px;font-style:italic;fill:#3d6650}
+      .wall{fill:url(#poche);stroke:#123c29;stroke-width:2.4}
+      .floor{fill:url(#tile);stroke:#123c29;stroke-width:2.4}
+      .swing{fill:none;stroke:#2f7a52;stroke-width:1.8;stroke-dasharray:5 4}
     </style>
   </defs>
 
-  <rect width="1300" height="900" fill="#b9cdbe"/>
-  <rect x="70" y="150" width="1160" height="690" rx="18" fill="url(#marble)" stroke="#14472d" stroke-width="9"/>
+  <rect width="1300" height="900" fill="url(#paper)"/>
 
-  <!-- the corridor the green girl leads her guests along -->
-  <rect x="150" y="250" width="470" height="96" rx="10" class="hall"/>
-  <text class="t feat" x="385" y="306" text-anchor="middle">Corridor of Guest Rooms</text>
+  <!-- outer shell, drawn as a poché wall with a tiled interior -->
+  <path d="M62 146 H1238 V854 H62 Z M84 168 H1216 V832 H84 Z" class="wall" fill-rule="evenodd"/>
+  <rect x="84" y="168" width="1132" height="664" fill="url(#tile)"/>
 
-  <!-- the sweetest little room in the world -->
-  <rect x="170" y="384" width="220" height="140" rx="10" class="room"/>
-  <g transform="translate(280,450)">
-    <rect x="-62" y="-30" width="124" height="46" rx="8" fill="#bfe6cd" stroke="#2f7a52" stroke-width="4"/>
-    <circle cx="0" cy="34" r="16" fill="#bfe6cd" stroke="#2f7a52" stroke-width="4"/>
+  <!-- the corridor of guest rooms, at 385,298 -->
+  <g>
+    <rect x="150" y="248" width="470" height="100" class="floor"/>
+    <g stroke="#9fcbb2" stroke-width="1.6"><path d="M150 298 H620"/></g>
+    <g fill="none" stroke="#2f7a52" stroke-width="2.2">
+      <path d="M212 248 v14 M274 248 v14 M336 248 v14 M398 248 v14 M460 248 v14 M522 248 v14 M584 248 v14"/>
+    </g>
   </g>
-  <text class="t feat" x="280" y="556" text-anchor="middle">Dorothy’s Green Room</text>
-  <path class="door" d="M280 346 V384"/>
 
-  <!-- the way in, past the soldier with the green whiskers -->
-  <rect x="150" y="600" width="200" height="150" rx="10" class="hall"/>
-  <text class="t feat" x="250" y="666" text-anchor="middle">Palace</text>
-  <text class="t feat" x="250" y="692" text-anchor="middle">Gates</text>
-  <path class="door" d="M70 675 H150"/>
-
-  <!-- where the court waits every morning without ever being admitted -->
-  <rect x="400" y="600" width="250" height="150" rx="10" class="room"/>
-  <text class="t feat" x="525" y="666" text-anchor="middle">The Waiting</text>
-  <text class="t feat" x="525" y="692" text-anchor="middle">Hall</text>
-  <path class="door" d="M350 675 H400"/>
-  <path class="door" d="M590 346 V600"/>
-
-  <!-- the great domed throne room -->
-  <circle cx="800" cy="470" r="176" fill="url(#dome)" stroke="#14472d" stroke-width="9"/>
-  <circle cx="800" cy="470" r="140" fill="none" stroke="#7cc19b" stroke-width="4"/>
-  <g transform="translate(800,470)">
-    <rect x="-42" y="-30" width="84" height="76" rx="10" fill="#8fcfa9" stroke="#14472d" stroke-width="6"/>
-    <rect x="-42" y="-72" width="84" height="46" rx="8" fill="#a9dcbc" stroke="#14472d" stroke-width="6"/>
+  <!-- Dorothy's green room, at 280,454 -->
+  <g>
+    <rect x="170" y="386" width="220" height="136" class="floor"/>
+    <rect x="192" y="404" width="112" height="52" rx="7" fill="#bfe3cf" stroke="#2f7a52" stroke-width="2.6"/>
+    <path d="M192 422 h112" stroke="#2f7a52" stroke-width="2"/>
+    <circle cx="336" cy="424" r="17" fill="#bfe3cf" stroke="#2f7a52" stroke-width="2.6"/>
+    <path d="M336 414 v20 M326 424 h20" stroke="#2f7a52" stroke-width="1.8"/>
+    <rect x="196" y="474" width="80" height="30" rx="5" fill="#d3ecdd" stroke="#2f7a52" stroke-width="2.4"/>
+    <path d="M280 386 v-38" class="swing"/>
+    <path d="M266 348 a20 20 0 0 1 20 20" class="swing"/>
   </g>
-  <text class="t feat" x="800" y="262" text-anchor="middle">The Throne Room</text>
-  <path class="door" d="M650 636 L690 598"/>
 
-  <!-- the small chamber behind it, where the properties are kept -->
-  <rect x="1010" y="330" width="190" height="160" rx="10" class="room"/>
-  <g transform="translate(1105,404)">
-    <circle cx="-38" cy="-4" r="24" fill="#bfe6cd" stroke="#2f7a52" stroke-width="4"/>
-    <rect x="-4" y="-28" width="44" height="52" rx="6" fill="#bfe6cd" stroke="#2f7a52" stroke-width="4"/>
+  <!-- the palace gates, at 250,675 -->
+  <g>
+    <rect x="150" y="600" width="200" height="150" class="floor"/>
+    <path d="M84 675 h66" stroke="#123c29" stroke-width="10"/>
+    <path d="M150 640 v70" stroke="#2f7a52" stroke-width="4"/>
+    <path d="M150 640 a35 35 0 0 1 35 35" class="swing"/>
+    <rect x="200" y="700" width="90" height="34" rx="4" fill="#cfe8d9" stroke="#2f7a52" stroke-width="2.4"/>
+    <g stroke="#8fc3a1" stroke-width="1.6"><path d="M212 700 v34 M232 700 v34 M252 700 v34 M272 700 v34"/></g>
   </g>
-  <text class="t feat" x="1105" y="526" text-anchor="middle">The Little Back Chamber</text>
-  <path class="door" d="M976 410 H1010"/>
 
-  <text class="t title" x="60" y="80">The Palace of Oz</text>
-  <text class="t note" x="60" y="112">Seven passages and three flights of stairs, flattened onto one plan</text>
+  <!-- the waiting hall, at 525,675 -->
+  <g>
+    <rect x="400" y="600" width="250" height="150" class="floor"/>
+    <g fill="#cfe8d9" stroke="#2f7a52" stroke-width="2.2">
+      <rect x="424" y="624" width="46" height="20" rx="5"/><rect x="424" y="712" width="46" height="20" rx="5"/>
+      <rect x="588" y="624" width="46" height="20" rx="5"/><rect x="588" y="712" width="46" height="20" rx="5"/>
+    </g>
+    <path d="M350 675 h50" stroke="#2f7a52" stroke-width="4"/>
+    <path d="M350 675 a25 25 0 0 1 25 -25" class="swing"/>
+  </g>
+
+  <!-- the domed throne room, at 800,470 -->
+  <g>
+    <circle cx="800" cy="470" r="178" fill="url(#dome)" stroke="#123c29" stroke-width="6"/>
+    <circle cx="800" cy="470" r="150" fill="none" stroke="#7cc19b" stroke-width="2.4"/>
+    <g stroke="#9fd6b6" stroke-width="1.6">
+      <path d="M800 292 V648 M622 470 H978 M674 344 L926 596 M926 344 L674 596"/>
+    </g>
+    <circle cx="800" cy="470" r="66" fill="#cdeadb" stroke="#3f9a68" stroke-width="2"/>
+    <g transform="translate(800,470)">
+      <rect x="-44" y="-26" width="88" height="76" rx="9" fill="#8fcfa9" stroke="#123c29" stroke-width="3.4"/>
+      <rect x="-44" y="-70" width="88" height="48" rx="8" fill="#a9dcbc" stroke="#123c29" stroke-width="3.4"/>
+      <g fill="#e8f7ee"><circle cx="-22" cy="-46" r="5"/><circle cx="0" cy="-52" r="6"/><circle cx="22" cy="-46" r="5"/></g>
+    </g>
+    <!-- the light above, drawn as a lantern ring -->
+    <circle cx="800" cy="470" r="196" fill="none" stroke="#3f9a68" stroke-width="1.6" stroke-dasharray="3 9"/>
+    <path d="M650 616 L672 594" stroke="#2f7a52" stroke-width="4"/>
+    <path d="M650 616 a30 30 0 0 0 22 -22" class="swing"/>
+  </g>
+
+  <!-- the little back chamber, at 1105,410 -->
+  <g>
+    <rect x="1010" y="330" width="190" height="160" class="floor"/>
+    <g transform="translate(1105,404)">
+      <ellipse cx="-40" cy="-6" rx="26" ry="30" fill="#cfe8d9" stroke="#2f7a52" stroke-width="2.6"/>
+      <g stroke="#2f7a52" stroke-width="1.8" fill="none"><path d="M-50 -14 q10 8 20 0 M-46 2 q10 8 12 0"/></g>
+      <rect x="-4" y="-30" width="46" height="56" rx="5" fill="#cfe8d9" stroke="#2f7a52" stroke-width="2.6"/>
+      <path d="M-4 -12 h46 M19 -30 v56" stroke="#2f7a52" stroke-width="1.8"/>
+    </g>
+    <path d="M978 410 h32" stroke="#2f7a52" stroke-width="4"/>
+    <path d="M978 410 a32 32 0 0 1 32 -32" class="swing"/>
+  </g>
+
+  <!-- connections -->
+  <g stroke="#2f7a52" stroke-width="3.4" fill="none" stroke-dasharray="12 8" opacity=".75">
+    <path d="M590 600 V348"/>
+    <path d="M280 600 V522"/>
+  </g>
+
+  <g class="t feat">
+    <text x="385" y="222" text-anchor="middle">Corridor of Guest Rooms</text>
+    <text x="280" y="560" text-anchor="middle">Dorothy’s Green Room</text>
+    <text x="250" y="788" text-anchor="middle">The Palace Gates</text>
+    <text x="525" y="788" text-anchor="middle">The Waiting Hall</text>
+    <text x="800" y="252" text-anchor="middle">The Throne Room</text>
+    <text x="1105" y="530" text-anchor="middle">The Little Back Chamber</text>
+  </g>
+
+  <rect width="1300" height="900" fill="url(#vignette)"/>
+  <g transform="translate(44,36)">
+    <rect x="0" y="0" width="486" height="92" rx="6" fill="#eef7f0" fill-opacity=".88" stroke="#1c5c3a" stroke-width="3"/>
+    <rect x="8" y="8" width="470" height="76" rx="4" fill="none" stroke="#1c5c3a" stroke-width="1.3" stroke-opacity=".6"/>
+    <text class="t" x="22" y="50" font-size="40" font-weight="bold">The Palace of Oz</text>
+    <text class="t note" x="22" y="76">Seven passages and three flights of stairs, flattened onto one plan</text>
+  </g>
+  <rect x="16" y="16" width="1268" height="868" rx="6" fill="none" stroke="#1c5c3a" stroke-width="4"/>
 </svg>

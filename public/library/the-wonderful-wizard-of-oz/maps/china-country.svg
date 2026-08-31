@@ -1,76 +1,158 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1250" height="850" viewBox="0 0 1250 850">
+  <!-- The Dainty China Country. Feature positions match the world's markers. -->
   <defs>
-    <linearGradient id="platter" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#eef0f2"/>
-    </linearGradient>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <radialGradient id="glaze" cx="42%" cy="34%" r="78%">
+      <stop offset="0%" stop-color="#ffffff"/><stop offset="62%" stop-color="#f4f6f8"/>
+      <stop offset="100%" stop-color="#dfe4ea"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="66%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#4a3f52" stop-opacity=".2"/>
+    </radialGradient>
+    <pattern id="paper" width="150" height="150" patternUnits="userSpaceOnUse">
+      <rect width="150" height="150" fill="#ded5d2"/>
+      <g fill="#c6b9ba" fill-opacity=".5">
+        <circle cx="28" cy="42" r="1.5"/><circle cx="102" cy="20" r="1.3"/><circle cx="64" cy="102" r="1.4"/>
+        <circle cx="130" cy="118" r="1.2"/><circle cx="16" cy="126" r="1.3"/>
+      </g>
+    </pattern>
+    <!-- a willow-pattern band for the walls -->
+    <pattern id="willow" width="64" height="40" patternUnits="userSpaceOnUse">
+      <rect width="64" height="40" fill="#f6f8fa"/>
+      <g fill="none" stroke="#5b7fa8" stroke-width="2">
+        <path d="M6 30 q10 -18 22 -4 q10 12 20 -6"/>
+        <path d="M10 12 q6 -6 12 0 M40 22 q6 -6 12 0"/>
+      </g>
+      <g fill="#5b7fa8"><circle cx="18" cy="8" r="2"/><circle cx="52" cy="12" r="1.8"/><circle cx="34" cy="34" r="1.6"/></g>
+    </pattern>
+    <pattern id="crazing" width="120" height="120" patternUnits="userSpaceOnUse">
+      <path d="M0 26 L34 44 L18 88 M34 44 L82 30 L120 58 M82 30 L96 0 M18 88 L60 108 L120 96 M60 108 L44 120"
+            fill="none" stroke="#c9cdd4" stroke-width="1.1" stroke-opacity=".85"/>
+    </pattern>
+
     <style>
-      .t{font-family:Georgia,'Times New Roman',serif;fill:#4a3f4a}
-      .title{font-size:40px;font-weight:bold}
-      .feat{font-size:21px}
-      .note{font-size:17px;font-style:italic;fill:#6d6070}
-      .wall{fill:#f4f1ec;stroke:#b6a9a0;stroke-width:9}
-      .track{fill:none;stroke:#c2b4bd;stroke-width:6;stroke-linecap:round;stroke-dasharray:14 12}
+      .t{font-family:Georgia,'Times New Roman',serif;fill:#463b4a}
+      .feat{font-size:21px;paint-order:stroke;stroke:#fbfcfd;stroke-width:5;stroke-linejoin:round}
+      .note{font-size:16px;font-style:italic;fill:#6d6070}
+      .porc{stroke:#9aa3ad;stroke-width:3}
     </style>
   </defs>
 
-  <rect width="1250" height="850" fill="#ded6d0"/>
-  <rect x="70" y="150" width="1110" height="620" rx="14" fill="url(#platter)" stroke="#c9bcb4" stroke-width="5"/>
+  <rect width="1250" height="850" fill="url(#paper)"/>
 
-  <!-- the two china walls: one climbed into, one climbed out of -->
-  <rect x="70" y="150" width="1110" height="40" class="wall"/>
-  <rect x="70" y="730" width="1110" height="40" class="wall"/>
-  <text class="t feat" x="625" y="140" text-anchor="middle">The High China Wall</text>
-  <text class="t note" x="1000" y="118" text-anchor="middle">climbed by the Woodman’s ladder</text>
-  <text class="t feat" x="625" y="806" text-anchor="middle">The Low China Wall</text>
+  <!-- the floor: smooth and shining as the bottom of a platter -->
+  <rect x="70" y="150" width="1110" height="620" rx="16" fill="url(#glaze)" stroke="#b9c0c8" stroke-width="4"/>
+  <rect x="70" y="150" width="1110" height="620" rx="16" fill="url(#crazing)"/>
+  <ellipse cx="430" cy="330" rx="260" ry="120" fill="#ffffff" opacity=".55"/>
 
-  <path class="track" d="M330 190 C360 300 470 330 560 380 C680 448 760 520 800 620 C830 690 840 716 846 730"/>
+  <!-- the two china walls, at 330,170 and 846,750 -->
+  <g filter="url(#wobble)">
+    <rect x="70" y="150" width="1110" height="44" fill="url(#willow)" stroke="#8e97a2" stroke-width="4"/>
+    <rect x="70" y="726" width="1110" height="44" fill="url(#willow)" stroke="#8e97a2" stroke-width="4"/>
+    <path d="M70 194 H1180 M70 726 H1180" stroke="#aab2bb" stroke-width="2"/>
+  </g>
+  <!-- the ladder the Woodman makes, leaning on the high wall -->
+  <g transform="translate(330,170)" stroke="#a3865c" stroke-width="4" fill="none">
+    <path d="M-34 96 L-14 -24 M6 96 L26 -24"/>
+    <path d="M-30 72 L2 72 M-25 48 L7 48 M-20 24 L12 24 M-15 0 L17 0"/>
+  </g>
 
-  <!-- the milkmaid, her cow, and the spilt pail -->
-  <g transform="translate(330,330)">
-    <ellipse cx="0" cy="66" rx="120" ry="26" fill="#f2eef0"/>
-    <g fill="#f7f3f4" stroke="#a9a0a6" stroke-width="4">
-      <ellipse cx="-24" cy="6" rx="54" ry="34"/><circle cx="34" cy="-10" r="24"/>
-      <path d="M-62 30 v34 M-30 34 v30 M6 34 v30 M32 30 v34"/>
+  <path d="M330 214 C360 300 470 330 560 380 C680 448 760 520 800 620 C830 690 840 716 846 726"
+        fill="none" stroke="#c2b4bd" stroke-width="6" stroke-linecap="round" stroke-dasharray="15 13"/>
+
+  <!-- the milkmaid, her cow and the broken pail, at 330,340 -->
+  <g transform="translate(330,340)">
+    <ellipse cx="6" cy="60" rx="132" ry="26" fill="#e6e9ee" opacity=".8"/>
+    <g class="porc" fill="#ffffff">
+      <ellipse cx="-16" cy="4" rx="58" ry="36"/>
+      <circle cx="44" cy="-16" r="26"/>
+      <path d="M-58 32 v36 M-24 38 v32 M10 38 v32 M40 30 v38"/>
+      <path d="M62 -34 q10 -10 6 -20 M28 -36 q-8 -12 -2 -20"/>
     </g>
-    <g fill="#e2b7c2" stroke="#a9a0a6" stroke-width="4"><circle cx="-96" cy="4" r="20"/>
-      <rect x="-112" y="24" width="32" height="42" rx="8"/></g>
-    <g fill="#dbd3d8" stroke="#a9a0a6" stroke-width="3"><path d="M-140 60 l22 -20 l14 16 z"/></g>
+    <g fill="#d6b0be" stroke="#9aa3ad" stroke-width="2.6">
+      <circle cx="-104" cy="-6" r="21"/>
+      <path d="M-124 14 q20 -12 40 0 l6 46 h-52 z"/>
+    </g>
+    <g fill="#e8eaef" stroke="#9aa3ad" stroke-width="2.4">
+      <path d="M-156 62 l24 -22 l14 18 z"/>
+      <path d="M-134 66 l16 -8 l4 10 z"/>
+    </g>
+    <path d="M40 26 l14 26" stroke="#9aa3ad" stroke-width="3" fill="none"/>
   </g>
-  <text class="t feat" x="330" y="446" text-anchor="middle">The Milkmaid’s Farm</text>
 
-  <!-- the Princess who will not be chased -->
-  <g transform="translate(700,346)">
-    <circle cx="0" cy="-30" r="22" fill="#f8f4f5" stroke="#a9a0a6" stroke-width="4"/>
-    <path d="M-34 44 C-34 -4 34 -4 34 44 Z" fill="#d9c7e4" stroke="#a9a0a6" stroke-width="4"/>
-    <path d="M-14 -48 l6 -14 l8 12 l8 -12 l6 14 z" fill="#e8d79a" stroke="#a9a0a6" stroke-width="3"/>
+  <!-- the Princess who will not be chased, at 700,350 -->
+  <g transform="translate(700,350)">
+    <ellipse cx="0" cy="58" rx="62" ry="16" fill="#e6e9ee" opacity=".8"/>
+    <circle cx="0" cy="-34" r="24" fill="#ffffff" stroke="#9aa3ad" stroke-width="3"/>
+    <path d="M-40 52 C-40 -6 40 -6 40 52 Z" fill="#dccbe8" stroke="#9aa3ad" stroke-width="3"/>
+    <g fill="#f0e6f6" stroke="#b7aec4" stroke-width="1.6">
+      <path d="M-26 30 q26 12 52 0 M-32 44 q32 14 64 0"/>
+    </g>
+    <path d="M-16 -54 l6 -16 l8 13 l8 -13 l6 16 z" fill="#e8d79a" stroke="#9aa3ad" stroke-width="2.4"/>
+    <g fill="#c98fa6"><circle cx="-8" cy="-34" r="2.4"/><circle cx="8" cy="-34" r="2.4"/></g>
   </g>
-  <text class="t feat" x="700" y="428" text-anchor="middle">The Princess’s Meadow</text>
 
-  <!-- Mr Joker, mended in a hundred places -->
+  <!-- Mr Joker, mended in a hundred places, at 986,300 -->
   <g transform="translate(986,300)">
-    <circle cx="0" cy="-26" r="21" fill="#f8f4f5" stroke="#a9a0a6" stroke-width="4"/>
-    <path d="M-30 40 C-30 -2 30 -2 30 40 Z" fill="#efc7a8" stroke="#a9a0a6" stroke-width="4"/>
-    <path d="M-12 -44 l12 -18 l12 18 z" fill="#cf8f8f" stroke="#a9a0a6" stroke-width="3"/>
-    <g stroke="#bfb2b8" stroke-width="2.5"><path d="M-18 10 l14 8 M4 4 l12 12 M-6 26 l16 -6"/></g>
+    <ellipse cx="0" cy="54" rx="52" ry="14" fill="#e6e9ee" opacity=".8"/>
+    <circle cx="0" cy="-30" r="23" fill="#ffffff" stroke="#9aa3ad" stroke-width="3"/>
+    <path d="M-34 46 C-34 -4 34 -4 34 46 Z" fill="#f0c9a6" stroke="#9aa3ad" stroke-width="3"/>
+    <path d="M-14 -50 l14 -22 l14 22 z" fill="#cf8f8f" stroke="#9aa3ad" stroke-width="2.4"/>
+    <circle cx="0" cy="-74" r="5" fill="#cf8f8f" stroke="#9aa3ad" stroke-width="2"/>
+    <g fill="#c98fa6"><circle cx="-8" cy="-32" r="4"/><circle cx="8" cy="-32" r="4"/></g>
+    <!-- the cracks he has been mended along -->
+    <g stroke="#a9b0b9" stroke-width="1.8" fill="none">
+      <path d="M-22 8 l16 10 M2 0 l14 14 M-8 26 l18 -8 M-18 34 l14 6 M10 30 l12 -10"/>
+      <path d="M-9 -40 l6 8 M6 -22 l7 6"/>
+    </g>
   </g>
-  <text class="t feat" x="986" y="386" text-anchor="middle">Mr Joker’s Corner</text>
 
-  <!-- the little church the Lion's tail brings down -->
-  <g transform="translate(430,616)">
-    <rect x="-58" y="-24" width="116" height="72" fill="#f8f4f5" stroke="#a9a0a6" stroke-width="5"/>
-    <path d="M-58 -24 L0 -70 L58 -24 Z" fill="#cfd9e8" stroke="#a9a0a6" stroke-width="5"/>
-    <rect x="-14" y="8" width="28" height="40" fill="#c9bcc4"/>
-    <path d="M0 -70 v-22 M-9 -84 h18" stroke="#a9a0a6" stroke-width="4"/>
+  <!-- the china church the Lion's tail takes out, at 430,610 -->
+  <g transform="translate(430,610)">
+    <ellipse cx="0" cy="58" rx="84" ry="18" fill="#e6e9ee" opacity=".8"/>
+    <rect x="-62" y="-18" width="124" height="72" fill="#ffffff" stroke="#9aa3ad" stroke-width="3.4"/>
+    <path d="M-62 -18 L0 -68 L62 -18 Z" fill="#cfdcea" stroke="#9aa3ad" stroke-width="3.4" stroke-linejoin="round"/>
+    <rect x="-16" y="16" width="32" height="38" rx="15" fill="#c9bcc4" stroke="#9aa3ad" stroke-width="2.6"/>
+    <g fill="#cfdcea" stroke="#9aa3ad" stroke-width="2.2">
+      <rect x="-48" y="4" width="20" height="24" rx="9"/><rect x="28" y="4" width="20" height="24" rx="9"/>
+    </g>
+    <path d="M0 -68 v-26 M-10 -84 h20" stroke="#9aa3ad" stroke-width="3.4"/>
+    <path d="M-62 -18 H62" stroke="#b9c0c8" stroke-width="2"/>
   </g>
-  <text class="t feat" x="430" y="700" text-anchor="middle">The China Church</text>
 
-  <!-- barns and stock -->
-  <g transform="translate(1040,600)" fill="#f8f4f5" stroke="#a9a0a6" stroke-width="4">
-    <rect x="-70" y="-16" width="140" height="60" rx="6"/>
-    <path d="M-78 -16 L0 -58 L78 -16 Z" fill="#e7dfe2"/>
+  <!-- china barns and stock -->
+  <g transform="translate(1046,600)">
+    <ellipse cx="0" cy="52" rx="86" ry="16" fill="#e6e9ee" opacity=".8"/>
+    <rect x="-72" y="-14" width="144" height="62" rx="6" fill="#ffffff" stroke="#9aa3ad" stroke-width="3"/>
+    <path d="M-80 -14 L0 -60 L80 -14 Z" fill="#e7dfe2" stroke="#9aa3ad" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="-20" y="14" width="40" height="34" fill="#dfe4ea" stroke="#9aa3ad" stroke-width="2.4"/>
+    <g class="porc" fill="#ffffff" transform="translate(-118,26) scale(.55)">
+      <ellipse cx="0" cy="0" rx="40" ry="24"/><circle cx="42" cy="-14" r="18"/>
+      <path d="M-28 20 v24 M-4 22 v22 M20 20 v24"/>
+    </g>
   </g>
-  <text class="t feat" x="1040" y="692" text-anchor="middle">China Barns</text>
 
-  <text class="t title" x="60" y="80">The Dainty China Country</text>
-  <text class="t note" x="60" y="112">A floor smooth as a platter, and nothing on it taller than Dorothy’s knee</text>
+  <g class="t feat">
+    <text x="742" y="132" text-anchor="middle">The High China Wall</text>
+    <text x="846" y="806" text-anchor="middle">The Low China Wall</text>
+    <text x="330" y="454" text-anchor="middle">The Milkmaid’s Farm</text>
+    <text x="700" y="446" text-anchor="middle">The Princess’s Meadow</text>
+    <text x="986" y="388" text-anchor="middle">Mr Joker’s Corner</text>
+    <text x="430" y="700" text-anchor="middle">The China Church</text>
+    <text x="1046" y="690" text-anchor="middle">China Barns</text>
+  </g>
+  <text class="t note" x="906" y="132" text-anchor="start">climbed by the Woodman’s ladder</text>
+
+  <rect width="1250" height="850" fill="url(#vignette)"/>
+  <g transform="translate(44,32)">
+    <rect x="0" y="0" width="546" height="92" rx="6" fill="#fbfcfd" fill-opacity=".9" stroke="#8e97a2" stroke-width="3"/>
+    <rect x="8" y="8" width="530" height="76" rx="4" fill="none" stroke="#8e97a2" stroke-width="1.3" stroke-opacity=".6"/>
+    <text class="t" x="22" y="50" font-size="40" font-weight="bold">The Dainty China Country</text>
+    <text class="t note" x="22" y="76">A floor smooth as a platter, and nothing on it taller than Dorothy’s knee</text>
+  </g>
+  <rect x="16" y="16" width="1218" height="818" rx="6" fill="none" stroke="#8e97a2" stroke-width="4"/>
 </svg>

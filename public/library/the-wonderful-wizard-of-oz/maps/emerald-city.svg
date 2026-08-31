@@ -1,88 +1,171 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000">
+  <!-- The Emerald City. Feature positions match the world's location markers. -->
   <defs>
-    <radialGradient id="citylight" cx="50%" cy="45%">
-      <stop offset="0%" stop-color="#d8f0dd"/><stop offset="100%" stop-color="#a8d3b4"/>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="2" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <radialGradient id="glow" cx="50%" cy="46%" r="62%">
+      <stop offset="0%" stop-color="#e2f4e6"/><stop offset="70%" stop-color="#bfe2ca"/>
+      <stop offset="100%" stop-color="#9fcfb0"/>
     </radialGradient>
-    <pattern id="cobble" width="34" height="34" patternUnits="userSpaceOnUse">
-      <rect width="34" height="34" fill="#bfe0c6"/>
-      <path d="M0 17 H34 M17 0 V34" stroke="#a9cfb2" stroke-width="2"/>
-      <circle cx="17" cy="17" r="2.4" fill="#7fb894"/>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="62%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#1e3a28" stop-opacity=".26"/>
+    </radialGradient>
+    <pattern id="paper" width="140" height="140" patternUnits="userSpaceOnUse">
+      <rect width="140" height="140" fill="#e6dcbc"/>
+      <g fill="#cdbf99" fill-opacity=".5">
+        <circle cx="24" cy="38" r="1.6"/><circle cx="96" cy="18" r="1.4"/><circle cx="60" cy="92" r="1.5"/>
+        <circle cx="122" cy="108" r="1.3"/><circle cx="12" cy="120" r="1.4"/><circle cx="84" cy="64" r="1.2"/>
+      </g>
     </pattern>
+    <pattern id="courses" width="46" height="16" patternUnits="userSpaceOnUse">
+      <rect width="46" height="16" fill="#3f9a68"/>
+      <path d="M0 0 H46 M0 8 H46 M23 0 V8 M0 8 V16 M46 8 V16" stroke="#1c5c3a" stroke-width="1.6" fill="none"/>
+    </pattern>
+
+    <symbol id="roof" viewBox="0 0 70 52" overflow="visible">
+      <rect x="8" y="20" width="54" height="30" fill="#a8dcbc" stroke="#1c5c3a" stroke-width="2.4"/>
+      <path d="M2 20 L35 2 L68 20 Z" fill="#5fb389" stroke="#1c5c3a" stroke-width="2.4" stroke-linejoin="round"/>
+      <rect x="27" y="34" width="14" height="16" fill="#2f7a52"/>
+    </symbol>
+    <symbol id="spire" viewBox="0 0 34 78" overflow="visible">
+      <rect x="8" y="26" width="18" height="52" fill="#6cbf95" stroke="#14472d" stroke-width="2.6"/>
+      <path d="M8 26 L17 2 L26 26 Z" fill="#3f9a68" stroke="#14472d" stroke-width="2.6" stroke-linejoin="round"/>
+      <rect x="13" y="40" width="8" height="12" fill="#0e3a24"/>
+      <path d="M17 2 V-8" stroke="#14472d" stroke-width="2"/>
+    </symbol>
+
     <style>
-      .t{font-family:Georgia,'Times New Roman',serif;fill:#1f4633}
-      .title{font-size:42px;font-weight:bold}
-      .feat{font-size:21px}
-      .note{font-size:17px;font-style:italic;fill:#3d6650}
-      .street{fill:none;stroke:#8fc3a1;stroke-width:26;stroke-linecap:round}
-      .road{fill:none;stroke:#d9b23c;stroke-width:16;stroke-linecap:round}
-      .roadline{fill:none;stroke:#a2801f;stroke-width:16;stroke-linecap:round;stroke-dasharray:2 17}
+      .t{font-family:Georgia,'Times New Roman',serif;fill:#153f2b}
+      .feat{font-size:21px;paint-order:stroke;stroke:#e9f4ec;stroke-width:5;stroke-linejoin:round}
+      .note{font-size:16px;font-style:italic;fill:#3d6650}
     </style>
   </defs>
 
-  <rect width="1400" height="1000" fill="#cfd8c4"/>
-  <circle cx="660" cy="510" r="410" fill="url(#citylight)"/>
-  <clipPath id="walls"><circle cx="660" cy="510" r="398"/></clipPath>
-  <g clip-path="url(#walls)"><rect width="1400" height="1000" fill="url(#cobble)"/></g>
+  <rect width="1400" height="1000" fill="url(#paper)"/>
 
-  <!-- the great green wall, studded all round -->
-  <circle cx="660" cy="510" r="398" fill="none" stroke="#2f7a52" stroke-width="26"/>
-  <circle cx="660" cy="510" r="398" fill="none" stroke="#1e5c3c" stroke-width="5"/>
-  <g fill="#7ce0a8">
-    <circle cx="660" cy="112" r="7"/><circle cx="941" cy="229" r="7"/><circle cx="1058" cy="510" r="7"/>
-    <circle cx="941" cy="791" r="7"/><circle cx="660" cy="908" r="7"/><circle cx="379" cy="791" r="7"/>
-    <circle cx="262" cy="510" r="7"/><circle cx="379" cy="229" r="7"/>
+  <!-- the country outside the wall -->
+  <g opacity=".5" fill="#9fbf8e">
+    <circle cx="660" cy="510" r="452"/>
   </g>
 
-  <!-- the road of yellow brick arrives at the gate from the east -->
-  <path class="road" d="M1390 510 H1074"/>
-  <path class="roadline" d="M1390 510 H1074"/>
+  <g filter="url(#wobble)">
+    <circle cx="660" cy="510" r="398" fill="url(#glow)"/>
+    <!-- the paved streets -->
+    <g stroke="#8fc3a1" stroke-width="30" stroke-linecap="round" fill="none">
+      <path d="M1000 510 H796"/><path d="M660 250 V400"/><path d="M660 770 V620"/>
+      <path d="M340 510 H524"/><path d="M436 286 L568 418"/><path d="M436 734 L568 602"/>
+    </g>
+    <g stroke="#6ea882" stroke-width="1.6" fill="none" opacity=".8">
+      <path d="M1000 496 H796 M1000 524 H796 M646 250 V400 M674 250 V400
+               M646 620 V770 M674 620 V770 M340 496 H524 M340 524 H524"/>
+    </g>
+    <!-- the great green wall -->
+    <circle cx="660" cy="510" r="398" fill="none" stroke="url(#courses)" stroke-width="28"/>
+    <circle cx="660" cy="510" r="412" fill="none" stroke="#14472d" stroke-width="3"/>
+    <circle cx="660" cy="510" r="384" fill="none" stroke="#14472d" stroke-width="3"/>
+  </g>
 
-  <!-- the gate and the Guardian's little room just inside it -->
+  <!-- wall towers, and emeralds set in the stone -->
+  <g>
+    <g transform="translate(660,112)"><use href="#spire" x="-17" y="-40" width="34" height="78"/></g>
+    <g transform="translate(941,229)"><use href="#spire" x="-15" y="-36" width="30" height="70"/></g>
+    <g transform="translate(941,791)"><use href="#spire" x="-15" y="-36" width="30" height="70"/></g>
+    <g transform="translate(660,908)"><use href="#spire" x="-17" y="-40" width="34" height="78"/></g>
+    <g transform="translate(379,791)"><use href="#spire" x="-15" y="-36" width="30" height="70"/></g>
+    <g transform="translate(379,229)"><use href="#spire" x="-15" y="-36" width="30" height="70"/></g>
+    <g transform="translate(262,510)"><use href="#spire" x="-16" y="-38" width="32" height="74"/></g>
+  </g>
+  <g fill="#8ef0b8" stroke="#0e3a24" stroke-width="1.4">
+    <circle cx="800" cy="146" r="5"/><circle cx="1024" cy="330" r="5"/><circle cx="1024" cy="690" r="5"/>
+    <circle cx="800" cy="874" r="5"/><circle cx="520" cy="874" r="5"/><circle cx="296" cy="690" r="5"/>
+    <circle cx="296" cy="330" r="5"/><circle cx="520" cy="146" r="5"/>
+  </g>
+
+  <!-- the road of yellow brick arrives from the east -->
+  <path d="M1396 510 H1076" stroke="#d8ab34" stroke-width="20" stroke-linecap="round" filter="url(#wobble)"/>
+  <path d="M1396 510 H1076" stroke="#8f6d18" stroke-width="20" stroke-dasharray="1 15" stroke-opacity=".85" filter="url(#wobble)"/>
+
+  <!-- the great gate, at 1058,510 -->
   <g transform="translate(1058,510)">
-    <rect x="-26" y="-58" width="52" height="116" rx="8" fill="#3f9a68" stroke="#164a2f" stroke-width="6"/>
-    <circle cx="0" cy="0" r="13" fill="#d8f5e3" stroke="#164a2f" stroke-width="4"/>
+    <path d="M-30 62 V-24 a30 30 0 0 1 60 0 V62 Z" fill="#2f7a52" stroke="#0e3a24" stroke-width="4"/>
+    <path d="M0 62 V-46" stroke="#0e3a24" stroke-width="3"/>
+    <g fill="#8ef0b8" stroke="#0e3a24" stroke-width="1.4">
+      <circle cx="-14" cy="-14" r="4.5"/><circle cx="14" cy="-14" r="4.5"/>
+      <circle cx="-14" cy="16" r="4.5"/><circle cx="14" cy="16" r="4.5"/>
+      <circle cx="-14" cy="44" r="4.5"/><circle cx="14" cy="44" r="4.5"/>
+    </g>
+    <circle cx="42" cy="-6" r="9" fill="#d9f3e3" stroke="#0e3a24" stroke-width="2.6"/>
   </g>
-  <rect x="932" y="454" width="102" height="112" rx="10" fill="#bde6cb" stroke="#2f7a52" stroke-width="6"/>
-  <text class="t feat" x="940" y="608" text-anchor="middle">Guardian’s Room</text>
-  <text class="t feat" x="1215" y="464" text-anchor="middle">The Great Gate</text>
 
-  <!-- streets -->
-  <path class="street" d="M916 510 H796"/>
-  <path class="street" d="M660 300 V416"/>
-  <path class="street" d="M660 720 V612"/>
-  <path class="street" d="M420 510 H524"/>
-  <path class="street" d="M470 320 L568 418"/>
-  <path class="street" d="M470 700 L568 602"/>
+  <!-- the Guardian's room just inside the gate, at 940,470 -->
+  <g transform="translate(940,470)">
+    <rect x="-56" y="-46" width="112" height="104" rx="6" fill="#d6eedd" stroke="#1c5c3a" stroke-width="3.4"/>
+    <rect x="-34" y="-14" width="68" height="44" rx="4" fill="#9fd6b6" stroke="#1c5c3a" stroke-width="2.6"/>
+    <g stroke="#1c5c3a" stroke-width="2"><path d="M-34 8 H34 M-12 -14 V30 M12 -14 V30"/></g>
+    <path d="M40 -34 l14 -14 M50 -48 a7 7 0 1 0 .1 0" fill="none" stroke="#1c5c3a" stroke-width="2.6"/>
+  </g>
 
   <!-- shops along the streets -->
-  <g fill="#9ed4b0" stroke="#2f7a52" stroke-width="4">
-    <rect x="742" y="352" width="70" height="56" rx="6"/><rect x="742" y="612" width="70" height="56" rx="6"/>
-    <rect x="486" y="352" width="70" height="56" rx="6"/><rect x="486" y="612" width="70" height="56" rx="6"/>
-    <rect x="352" y="474" width="64" height="72" rx="6"/><rect x="628" y="212" width="64" height="66" rx="6"/>
-  </g>
-  <text class="t feat" x="396" y="592" text-anchor="middle">Green Streets and Shops</text>
+  <use href="#roof" x="726" y="330" width="70" height="52"/>
+  <use href="#roof" x="726" y="600" width="70" height="52"/>
+  <use href="#roof" x="470" y="330" width="70" height="52"/>
+  <use href="#roof" x="470" y="600" width="70" height="52"/>
+  <use href="#roof" x="330" y="440" width="66" height="49"/>
+  <use href="#roof" x="612" y="196" width="66" height="49"/>
+  <use href="#roof" x="612" y="782" width="62" height="46"/>
 
-  <!-- the Palace of Oz, exactly in the middle of the City -->
+  <!-- the Palace of Oz, at 660,510 -->
   <g transform="translate(660,510)">
-    <rect x="-118" y="-96" width="236" height="192" rx="12" fill="#57ab7c" stroke="#14472d" stroke-width="7"/>
-    <path d="M-70 -96 L-70 -150 L-40 -178 L-10 -150 L-10 -96 Z" fill="#48986c" stroke="#14472d" stroke-width="6"/>
-    <path d="M14 -96 L14 -164 L48 -196 L82 -164 L82 -96 Z" fill="#48986c" stroke="#14472d" stroke-width="6"/>
-    <rect x="-26" y="30" width="52" height="66" fill="#14472d"/>
-    <g fill="#bff0d2"><rect x="-90" y="-52" width="30" height="34"/><rect x="-30" y="-52" width="30" height="34"/>
-      <rect x="30" y="-52" width="30" height="34"/><rect x="70" y="-52" width="26" height="34"/></g>
+    <ellipse cx="0" cy="104" rx="150" ry="26" fill="#2f7a52" opacity=".22"/>
+    <rect x="-124" y="-40" width="248" height="146" fill="#7ec8a1" stroke="#0e3a24" stroke-width="4"/>
+    <g stroke="#3f9a68" stroke-width="2"><path d="M-124 -8 H124 M-124 26 H124 M-124 62 H124"/></g>
+    <use href="#spire" x="-96" y="-140" width="40" height="92"/>
+    <use href="#spire" x="-22" y="-166" width="46" height="106"/>
+    <use href="#spire" x="58" y="-134" width="38" height="88"/>
+    <path d="M-46 -40 a46 46 0 0 1 92 0 Z" fill="#5fb389" stroke="#0e3a24" stroke-width="3.4"/>
+    <path d="M0 -86 V-102 M-8 -102 h16" stroke="#0e3a24" stroke-width="2.6"/>
+    <rect x="-28" y="52" width="56" height="54" fill="#14472d" stroke="#0e3a24" stroke-width="3"/>
+    <path d="M0 52 V106" stroke="#3f9a68" stroke-width="2"/>
+    <g fill="#d9f3e3" stroke="#0e3a24" stroke-width="2">
+      <rect x="-100" y="4" width="26" height="30"/><rect x="-58" y="4" width="26" height="30"/>
+      <rect x="34" y="4" width="26" height="30"/><rect x="76" y="4" width="26" height="30"/>
+    </g>
   </g>
-  <text class="t feat" x="660" y="666" text-anchor="middle">The Palace of Oz</text>
-  <text class="t note" x="660" y="692" text-anchor="middle">the throne room lies within</text>
 
-  <!-- the ground in front of the palace, where the balloon was filled -->
-  <ellipse cx="660" cy="790" rx="132" ry="52" fill="#d5eddd" stroke="#2f7a52" stroke-width="5"/>
-  <g transform="translate(660,772)">
-    <path d="M-38 6 C-38 -34 38 -34 38 6 C38 26 16 42 0 46 C-16 42 -38 26 -38 6 Z"
-          fill="#a9dcbc" stroke="#2f7a52" stroke-width="5"/>
-    <path d="M-14 46 h28 v16 h-28 z" fill="#8a6b3f" stroke="#43331c" stroke-width="4"/>
+  <!-- the launching ground, at 660,790 -->
+  <g transform="translate(660,790)">
+    <ellipse cx="0" cy="16" rx="146" ry="56" fill="#d9efe1" stroke="#2f7a52" stroke-width="3.4"/>
+    <ellipse cx="0" cy="16" rx="128" ry="44" fill="none" stroke="#8fc3a1" stroke-width="1.8"/>
+    <g transform="translate(0,-14)">
+      <path d="M-44 8 C-44 -42 44 -42 44 8 C44 32 20 50 0 56 C-20 50 -44 32 -44 8 Z"
+            fill="#bfe6cf" stroke="#14472d" stroke-width="3.4"/>
+      <g stroke="#4f9e77" stroke-width="1.8" fill="none">
+        <path d="M-30 -14 q30 -16 60 0 M-38 6 q38 -18 76 0 M0 -34 V56"/>
+      </g>
+      <path d="M-16 56 h32 v18 h-32 z" fill="#a3714c" stroke="#43331c" stroke-width="2.6"/>
+      <path d="M-12 56 l-4 18 M12 56 l4 18" stroke="#43331c" stroke-width="1.8"/>
+    </g>
   </g>
-  <text class="t feat" x="660" y="862" text-anchor="middle">The Launching Ground</text>
 
-  <text class="t title" x="60" y="80">The Emerald City</text>
-  <text class="t note" x="60" y="112">Every visitor is locked into green spectacles at the gate</text>
+  <g class="t feat">
+    <text x="1210" y="470" text-anchor="middle">The Great Gate</text>
+    <text x="940" y="608" text-anchor="middle">Guardian’s Room</text>
+    <text x="396" y="596" text-anchor="middle">Green Streets and Shops</text>
+    <text x="660" y="700" text-anchor="middle">The Palace of Oz</text>
+    <text x="660" y="892" text-anchor="middle">The Launching Ground</text>
+  </g>
+  <text class="t note" x="660" y="724" text-anchor="middle">the throne room lies within</text>
+
+  <rect width="1400" height="1000" fill="url(#vignette)"/>
+  <g transform="translate(44,36)">
+    <rect x="0" y="0" width="520" height="96" rx="6" fill="#eef7f0" fill-opacity=".85" stroke="#1c5c3a" stroke-width="3"/>
+    <rect x="8" y="8" width="504" height="80" rx="4" fill="none" stroke="#1c5c3a" stroke-width="1.3" stroke-opacity=".6"/>
+    <text class="t" x="24" y="52" font-size="42" font-weight="bold">The Emerald City</text>
+    <text class="t note" x="24" y="78">Every visitor is locked into green spectacles at the gate</text>
+  </g>
+  <rect x="16" y="16" width="1368" height="968" rx="6" fill="none" stroke="#1c5c3a" stroke-width="4"/>
+  <rect x="27" y="27" width="1346" height="946" rx="4" fill="none" stroke="#1c5c3a" stroke-width="1.5" stroke-opacity=".6"/>
 </svg>

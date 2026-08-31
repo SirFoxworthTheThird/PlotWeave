@@ -75,8 +75,27 @@ Denslow image on Commons is 200px wide.
 
 ## The maps
 
-Baum published no map of Oz with the 1900 edition. The seven layers under `maps/`
-were drawn for this example from the geography the text itself states, and are
-interpretive rather than to scale. The `.svg` sources are committed beside the
-`.png` files the world actually references; `scripts/generate-wizard-of-oz-example.mjs`
-documents them and `scripts/render-oz-maps.mjs` rasterises the SVGs to PNG.
+Baum published no map of Oz with the 1900 edition, so every layer under `maps/`
+is an interpretation.
+
+**`land-of-oz.jpg` is not Denslow and not public domain.** It is a painted map
+supplied by this repository's owner, who states it is their own work. Two things
+about it are worth recording plainly:
+
+- Its **border vignettes follow the 1939 MGM film's character designs** (Glinda's
+  gown, the green-skinned Witch, the film's Scarecrow, Tin Man and Lion) rather
+  than Denslow's 1900 illustrations. That film is still in copyright. It is
+  included here at the owner's direction; it is the one asset in this book that
+  is not public domain, and it should not be reused elsewhere on the assumption
+  that it is.
+- Its **geography follows the later Oz books**, not this one. The Poppy Field is
+  drawn in Gillikin country and the China Country in the south-west, whereas the
+  1900 text puts both on Dorothy's road. Markers are placed on the features the
+  artwork actually draws and names, so a few of them sit in a different order
+  along the journey than the book describes. The world's Lore says so.
+
+The other six layers were drawn for this example from the geography the text
+states. Their `.svg` sources are committed beside the `.png` files the world
+references; `scripts/render-oz-maps.mjs` rasterises the SVGs to PNG, and
+`scripts/generate-wizard-of-oz-example.mjs` documents them. No layer carries a
+scale, so no distance should be read off any of them.
