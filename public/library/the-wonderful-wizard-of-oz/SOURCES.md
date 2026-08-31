@@ -78,24 +78,33 @@ Denslow image on Commons is 200px wide.
 Baum published no map of Oz with the 1900 edition, so every layer under `maps/`
 is an interpretation.
 
-**`land-of-oz.jpg` is not Denslow and not public domain.** It is a painted map
-supplied by this repository's owner, who states it is their own work. Two things
-about it are worth recording plainly:
+**Six of the seven layers were supplied by this repository's owner, who states
+they are their own AI-generated work.** They are `land-of-oz.jpg`,
+`emerald-city.jpg`, `palace-of-oz.jpg`, `yellow-castle.jpg`, `china-country.jpg`
+and `glinda-castle.jpg`. None of them is Denslow and none is public domain, so
+none should be reused elsewhere on the assumption that it is. `yellow-castle.jpg`
+is the supplied file downscaled from 2816×1536 to 2048×1117; the other five are
+the supplied files unchanged.
 
-- Its **border vignettes follow the 1939 MGM film's character designs** (Glinda's
-  gown, the green-skinned Witch, the film's Scarecrow, Tin Man and Lion) rather
-  than Denslow's 1900 illustrations. That film is still in copyright. It is
-  included here at the owner's direction; it is the one asset in this book that
-  is not public domain, and it should not be reused elsewhere on the assumption
-  that it is.
-- Its **geography follows the later Oz books**, not this one. The Poppy Field is
-  drawn in Gillikin country and the China Country in the south-west, whereas the
-  1900 text puts both on Dorothy's road. Markers are placed on the features the
-  artwork actually draws and names, so a few of them sit in a different order
-  along the journey than the book describes. The world's Lore says so.
+Two things about them are worth recording plainly:
 
-The other six layers were drawn for this example from the geography the text
-states. Their `.svg` sources are committed beside the `.png` files the world
-references; `scripts/render-oz-maps.mjs` rasterises the SVGs to PNG, and
-`scripts/generate-wizard-of-oz-example.mjs` documents them. No layer carries a
+- `land-of-oz.jpg`'s **border vignettes follow the 1939 MGM film's character
+  designs** (Glinda's gown, the green-skinned Witch, the film's Scarecrow, Tin
+  Man and Lion) rather than Denslow's 1900 illustrations. That film is still in
+  copyright. The image is included at the owner's direction.
+- The layers **carry names and geography the 1900 book does not**. `land-of-oz`
+  puts the Poppy Field in Gillikin country and the China Country in the
+  south-west, where the sequels put them rather than where Dorothy meets them.
+  `palace-of-oz` and `glinda-castle` name Princess Ozma, the Book of Records and
+  the Golden Castle of the South, all of which arrive in later books.
+  `emerald-city` gives the city four gates where the book gives it one, and
+  `china-country` names a china capital, Porcelainia, that the text does not.
+  Markers are placed on the features the artwork actually draws and names, so a
+  few of them sit in a different order along the journey than the book describes,
+  and a few carry names the artwork does not repeat. The world's Lore says so.
+
+`kansas.png` is the one layer drawn for this example, from the geography the
+text states. Its `.svg` source is committed beside the `.png` the world
+references; `scripts/render-oz-maps.mjs` rasterises it, and
+`scripts/generate-wizard-of-oz-example.mjs` documents it. No layer carries a
 scale, so no distance should be read off any of them.
