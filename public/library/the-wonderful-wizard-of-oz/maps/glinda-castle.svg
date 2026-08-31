@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="800" viewBox="0 0 1150 800">
+  <defs>
+    <radialGradient id="ruby" cx="50%" cy="45%">
+      <stop offset="0%" stop-color="#f6d3d6"/><stop offset="100%" stop-color="#d38b92"/>
+    </radialGradient>
+    <pattern id="tile" width="38" height="38" patternUnits="userSpaceOnUse">
+      <rect width="38" height="38" fill="#f3dfdc"/>
+      <path d="M0 19 H38 M19 0 V38" stroke="#e5c8c6" stroke-width="2"/>
+    </pattern>
+    <style>
+      .t{font-family:Georgia,'Times New Roman',serif;fill:#5a2a30}
+      .title{font-size:40px;font-weight:bold}
+      .feat{font-size:21px}
+      .note{font-size:17px;font-style:italic;fill:#7d4046}
+      .room{fill:#f7e6e4;stroke:#a84a52;stroke-width:6}
+      .door{stroke:#79262d;stroke-width:9;stroke-linecap:round}
+      .track{fill:none;stroke:#b98088;stroke-width:6;stroke-linecap:round;stroke-dasharray:14 12}
+    </style>
+  </defs>
+
+  <rect width="1150" height="800" fill="#dcc0bd"/>
+  <rect x="70" y="140" width="1010" height="600" rx="16" fill="url(#tile)" stroke="#79262d" stroke-width="10"/>
+  <g fill="#e7b4b8" stroke="#79262d" stroke-width="8">
+    <rect x="70" y="140" width="80" height="80"/><rect x="1000" y="140" width="80" height="80"/>
+    <rect x="70" y="660" width="80" height="80"/><rect x="1000" y="660" width="80" height="80"/>
+  </g>
+
+  <!-- the road up from the Quadling farms -->
+  <path class="track" d="M20 440 H150"/>
+
+  <!-- the gates, and the three girl soldiers before them -->
+  <g transform="translate(210,440)">
+    <rect x="-30" y="-70" width="60" height="140" rx="8" fill="#e7b4b8" stroke="#79262d" stroke-width="6"/>
+    <g fill="#c8555f" stroke="#79262d" stroke-width="3">
+      <circle cx="-2" cy="-38" r="11"/><circle cx="-2" cy="0" r="11"/><circle cx="-2" cy="38" r="11"/>
+    </g>
+  </g>
+  <text class="t feat" x="210" y="560" text-anchor="middle">The Castle Gates</text>
+  <text class="t note" x="210" y="586" text-anchor="middle">three girl soldiers in red and gold</text>
+  <text class="t note" x="258" y="612" text-anchor="middle">the road comes up from the Quadling farms</text>
+
+  <!-- the outer court -->
+  <rect x="300" y="330" width="230" height="220" rx="10" class="room"/>
+  <text class="t feat" x="415" y="428" text-anchor="middle">The Outer</text>
+  <text class="t feat" x="415" y="454" text-anchor="middle">Court</text>
+  <path class="door" d="M240 440 H300"/>
+
+  <!-- the room where four travellers make themselves presentable -->
+  <rect x="300" y="180" width="230" height="120" rx="10" class="room"/>
+  <g transform="translate(415,228)">
+    <rect x="-52" y="-24" width="104" height="18" rx="6" fill="#eec9c8" stroke="#a84a52" stroke-width="4"/>
+    <circle cx="-26" cy="14" r="14" fill="#eec9c8" stroke="#a84a52" stroke-width="4"/>
+    <rect x="4" y="2" width="46" height="24" rx="5" fill="#eec9c8" stroke="#a84a52" stroke-width="4"/>
+  </g>
+  <text class="t feat" x="415" y="288" text-anchor="middle">The Tiring Room</text>
+  <path class="door" d="M415 330 V300"/>
+
+  <!-- the great room with the throne of rubies -->
+  <rect x="600" y="220" width="400" height="380" rx="14" fill="url(#ruby)" stroke="#79262d" stroke-width="8"/>
+  <g transform="translate(800,400)">
+    <rect x="-70" y="-50" width="140" height="110" rx="12" fill="#c8555f" stroke="#79262d" stroke-width="6"/>
+    <rect x="-70" y="-108" width="140" height="66" rx="10" fill="#dd7c84" stroke="#79262d" stroke-width="6"/>
+    <g fill="#f7dcdd"><circle cx="-36" cy="-76" r="8"/><circle cx="0" cy="-84" r="9"/><circle cx="36" cy="-76" r="8"/></g>
+  </g>
+  <text class="t feat" x="800" y="640" text-anchor="middle">The Ruby Throne Room</text>
+  <path class="door" d="M530 440 H600"/>
+
+  <text class="t title" x="60" y="76">Glinda’s Castle</text>
+  <text class="t note" x="60" y="108">On the southern edge of the country, where the desert begins</text>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="900" viewBox="0 0 1250 900">
+  <defs>
+    <pattern id="flags" width="44" height="44" patternUnits="userSpaceOnUse">
+      <rect width="44" height="44" fill="#e8d79a"/>
+      <path d="M0 22 H44 M22 0 V44" stroke="#d6c184" stroke-width="2"/>
+    </pattern>
+    <style>
+      .t{font-family:Georgia,'Times New Roman',serif;fill:#4a3a15}
+      .title{font-size:40px;font-weight:bold}
+      .feat{font-size:21px}
+      .note{font-size:17px;font-style:italic;fill:#6b5620}
+      .room{fill:#f0e3ae;stroke:#7d6320;stroke-width:6}
+      .yard{fill:#dfd08f;stroke:#7d6320;stroke-width:6}
+      .door{stroke:#5d4816;stroke-width:9;stroke-linecap:round}
+      .bars{stroke:#6d5a2a;stroke-width:5}
+    </style>
+  </defs>
+
+  <rect width="1250" height="900" fill="#c9bb84"/>
+  <rect x="60" y="150" width="1130" height="690" rx="16" fill="url(#flags)" stroke="#5d4816" stroke-width="10"/>
+  <g fill="#e0cd8e" stroke="#5d4816" stroke-width="8">
+    <rect x="60" y="150" width="86" height="86"/><rect x="1104" y="150" width="86" height="86"/>
+    <rect x="60" y="754" width="86" height="86"/><rect x="1104" y="754" width="86" height="86"/>
+  </g>
+
+  <!-- the front doorstep, where the Monkeys set Dorothy down -->
+  <rect x="146" y="470" width="170" height="130" rx="8" class="room"/>
+  <text class="t feat" x="231" y="530" text-anchor="middle">The Front</text>
+  <text class="t feat" x="231" y="556" text-anchor="middle">Doorstep</text>
+  <path class="door" d="M60 536 H146"/>
+
+  <!-- the kitchen, and the floor the Witch melts across -->
+  <rect x="380" y="430" width="270" height="210" rx="8" class="room"/>
+  <g transform="translate(515,520)">
+    <rect x="-70" y="-30" width="70" height="60" rx="6" fill="#dfcb8a" stroke="#7d6320" stroke-width="5"/>
+    <circle cx="34" cy="0" r="28" fill="#dfcb8a" stroke="#7d6320" stroke-width="5"/>
+    <path d="M20 -14 A20 20 0 0 1 48 -14" fill="none" stroke="#7d6320" stroke-width="4"/>
+  </g>
+  <text class="t feat" x="515" y="608" text-anchor="middle">The Great Kitchen</text>
+  <path class="door" d="M316 536 H380"/>
+
+  <!-- the little yard with the high iron fence -->
+  <rect x="380" y="150" width="270" height="210" rx="8" class="yard"/>
+  <g class="bars" fill="none">
+    <path d="M392 150 V360 M416 150 V360 M440 150 V360 M464 150 V360 M488 150 V360
+             M512 150 V360 M536 150 V360 M560 150 V360 M584 150 V360 M608 150 V360 M632 150 V360"/>
+  </g>
+  <rect x="380" y="150" width="270" height="210" rx="8" fill="none" stroke="#5d4816" stroke-width="7"/>
+  <text class="t feat" x="470" y="404" text-anchor="middle">The Iron-Fenced Yard</text>
+  <path class="door" d="M600 430 V360"/>
+
+  <!-- where the Winkies work -->
+  <rect x="726" y="150" width="300" height="200" rx="8" class="room"/>
+  <g fill="#dfcb8a" stroke="#7d6320" stroke-width="5">
+    <rect x="756" y="196" width="80" height="56" rx="5"/><rect x="866" y="196" width="80" height="56" rx="5"/>
+    <rect x="756" y="272" width="80" height="46" rx="5"/><rect x="866" y="272" width="80" height="46" rx="5"/>
+  </g>
+  <text class="t feat" x="876" y="394" text-anchor="middle">The Winkie Workshops</text>
+
+  <!-- the cupboard where the Golden Cap is kept -->
+  <rect x="726" y="440" width="300" height="200" rx="8" class="room"/>
+  <g transform="translate(876,530)">
+    <rect x="-80" y="-46" width="160" height="96" rx="6" fill="#e6d49a" stroke="#7d6320" stroke-width="5"/>
+    <path d="M0 -46 V50" stroke="#7d6320" stroke-width="5"/>
+    <circle cx="-12" cy="4" r="5" fill="#7d6320"/><circle cx="12" cy="4" r="5" fill="#7d6320"/>
+  </g>
+  <text class="t feat" x="876" y="612" text-anchor="middle">The Witch’s Cupboard Room</text>
+  <path class="door" d="M650 536 H726"/>
+
+  <!-- the tower door she watches the country from -->
+  <g transform="translate(231,700)">
+    <rect x="-60" y="-56" width="120" height="112" rx="8" class="room"/>
+    <circle cx="0" cy="-10" r="22" fill="#e6d49a" stroke="#7d6320" stroke-width="5"/>
+    <path d="M-14 -10 h28" stroke="#7d6320" stroke-width="5"/>
+  </g>
+  <text class="t feat" x="231" y="790" text-anchor="middle">The Watching Door</text>
+
+  <text class="t title" x="60" y="80">The Yellow Castle of the West</text>
+  <text class="t note" x="60" y="112">One tower, one wicked Witch, and a country of yellow Winkies about it</text>
+</svg>

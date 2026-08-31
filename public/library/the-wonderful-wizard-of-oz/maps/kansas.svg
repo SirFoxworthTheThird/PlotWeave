@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="900" viewBox="0 0 1300 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9aa3a8"/><stop offset="100%" stop-color="#c9c6ba"/>
+    </linearGradient>
+    <pattern id="stubble" width="30" height="18" patternUnits="userSpaceOnUse">
+      <rect width="30" height="18" fill="#bdb69c"/>
+      <path d="M4 14 l3 -7 M14 16 l2 -8 M23 13 l3 -6" stroke="#a79f83" stroke-width="2" fill="none"/>
+    </pattern>
+    <style>
+      .t{font-family:Georgia,'Times New Roman',serif;fill:#33302a}
+      .title{font-size:42px;font-weight:bold}
+      .feat{font-size:21px}
+      .note{font-size:17px;font-style:italic;fill:#55503f}
+      .track{fill:none;stroke:#8a8168;stroke-width:6;stroke-linecap:round;stroke-dasharray:14 12}
+    </style>
+  </defs>
+
+  <rect width="1300" height="900" fill="url(#sky)"/>
+  <rect y="300" width="1300" height="600" fill="url(#stubble)"/>
+  <path d="M0 302 H1300" stroke="#8d876d" stroke-width="4"/>
+
+  <!-- the funnel coming down out of the north -->
+  <g opacity=".8">
+    <path d="M232 40 C300 40 320 70 300 110 C284 146 262 200 250 262 C244 290 238 296 232 300
+             C226 296 220 290 214 262 C202 200 180 146 164 110 C144 70 164 40 232 40 Z"
+          fill="#7f858a" opacity=".75"/>
+    <ellipse cx="232" cy="42" rx="86" ry="20" fill="#767c81" opacity=".8"/>
+  </g>
+  <text class="t feat" x="232" y="336" text-anchor="middle" fill="#3f3c33">The cyclone, out of the north</text>
+
+  <!-- fences -->
+  <g stroke="#8a7f62" stroke-width="5" fill="none">
+    <path d="M60 640 H1240"/><path d="M60 640 V600 M240 640 V600 M420 640 V600 M600 640 V600
+             M780 640 V600 M960 640 V600 M1140 640 V600 M1240 640 V600"/>
+  </g>
+
+  <!-- the little one-room farmhouse -->
+  <g transform="translate(430,470)">
+    <path d="M-92 14 L0 -60 L92 14 Z" fill="#8d7154" stroke="#4f3d2b" stroke-width="5"/>
+    <rect x="-72" y="14" width="144" height="96" fill="#b3a892" stroke="#4f3d2b" stroke-width="5"/>
+    <rect x="-16" y="52" width="34" height="58" fill="#5d4a34"/>
+    <rect x="-56" y="36" width="26" height="26" fill="#d8d3c2" stroke="#4f3d2b" stroke-width="4"/>
+    <rect x="32" y="36" width="26" height="26" fill="#d8d3c2" stroke="#4f3d2b" stroke-width="4"/>
+  </g>
+  <text class="t feat" x="430" y="626" text-anchor="middle">The Gale Farmhouse</text>
+
+  <!-- the cyclone cellar: a trap door and a ladder under the floor -->
+  <g transform="translate(614,556)">
+    <rect x="-40" y="-22" width="80" height="44" rx="5" fill="#7d6a4d" stroke="#48382a" stroke-width="5"/>
+    <path d="M-40 -22 L14 -40 L54 -40 L40 -22 Z" fill="#98866a" stroke="#48382a" stroke-width="5"/>
+    <path d="M-24 -6 H24 M-24 6 H24" stroke="#48382a" stroke-width="4"/>
+  </g>
+  <text class="t feat" x="614" y="612" text-anchor="middle">The Cyclone Cellar</text>
+
+  <!-- sheds where the stock is kept -->
+  <g transform="translate(880,486)">
+    <rect x="-104" y="-24" width="208" height="86" fill="#a2937a" stroke="#4f3d2b" stroke-width="5"/>
+    <path d="M-112 -24 L0 -74 L112 -24 Z" fill="#7f684c" stroke="#4f3d2b" stroke-width="5"/>
+    <rect x="-30" y="10" width="60" height="52" fill="#5d4a34"/>
+  </g>
+  <g fill="#6f6858">
+    <ellipse cx="1024" cy="576" rx="26" ry="15"/><rect x="1004" y="576" width="8" height="16"/>
+    <rect x="1036" y="576" width="8" height="16"/>
+    <ellipse cx="1096" cy="596" rx="24" ry="14"/><rect x="1078" y="596" width="7" height="15"/>
+    <rect x="1106" y="596" width="7" height="15"/>
+  </g>
+  <text class="t feat" x="880" y="660" text-anchor="middle">The Barnyard and Sheds</text>
+
+  <!-- the new farmhouse Uncle Henry built afterward -->
+  <g transform="translate(430,760)">
+    <path d="M-80 12 L0 -50 L80 12 Z" fill="#9c8264" stroke="#4f3d2b" stroke-width="5"/>
+    <rect x="-62" y="12" width="124" height="80" fill="#c4baa2" stroke="#4f3d2b" stroke-width="5"/>
+    <rect x="-14" y="46" width="30" height="46" fill="#5d4a34"/>
+    <rect x="-48" y="30" width="24" height="24" fill="#e0dccb" stroke="#4f3d2b" stroke-width="4"/>
+    <rect x="26" y="30" width="24" height="24" fill="#e0dccb" stroke="#4f3d2b" stroke-width="4"/>
+  </g>
+  <text class="t feat" x="430" y="884" text-anchor="middle">The New Farmhouse</text>
+
+  <path class="track" d="M520 700 C640 716 760 720 880 706"/>
+  <text class="t feat" x="1046" y="768" text-anchor="middle">The Open Prairie</text>
+  <text class="t note" x="1046" y="796" text-anchor="middle">gray to the edge of the sky, in every direction</text>
+
+  <text class="t title" x="60" y="80">The Kansas Prairie</text>
+  <text class="t note" x="60" y="112">The farm the cyclone empties, and the one Uncle Henry builds in its place</text>
+</svg>
