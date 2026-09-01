@@ -102,6 +102,13 @@ Centre: a white elephant with long tusks (Samantabhadra's) whose trunk crushes
 iron-backed men. Right, largest: the Great Roc of Ten Thousand Li, gold-winged,
 the Buddha's own kin — with the yin-yang vase at his belt.
 
+**1.12 The cover plate, `art/cover.jpg`.** Every other world in the Library
+shows a cover on its catalogue card; this one currently shows none, because
+there is no plate to show. It wants the four pilgrims and the horse on the
+road, in the same house style as the character portraits, wide enough to crop
+to a card — the monk on the white horse with the three of them around him, a
+mountain road under them and a great deal of sky. Landscape, not portrait.
+
 ---
 
 ## Tier 2 — arcs of three chapters or more with no picture at all
