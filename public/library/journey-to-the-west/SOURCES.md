@@ -26,14 +26,30 @@ couplet is a piece of the book and a translation of one is not.
 **Every image in this folder except the cover is AI-generated, and was supplied
 by the owner of this repository, who states it is their own work.** None of
 that is public domain, and none of it comes from any edition of the novel.
-There are 50 such images: 7 maps, 24 character portraits, 12 places and 7
-items.
+There are 88 such images: 8 maps, 41 character portraits, 20 places, 16 items,
+2 faction plates and 1 lore plate.
+
+They arrived in two batches and are in two visibly different styles. The first
+— the seven route and place maps, the four pilgrims and the other early
+portraits — is flatter and cleaner. The second is a painted, aged-paper style
+with a Chinese title cartouche and a block of explanatory text on almost every
+plate, several of them citing the chapters they illustrate. Both are kept as
+they came.
+
+Four of the second batch's plates draw more than one subject, and only three of
+those could be honestly split. `manjusri`/`samantabhadra`,
+`national-preceptor`/`fox-beauty` and `human-seed-bag`/`golden-cymbals` are
+each half of one supplied file, cropped down the seam so that each half keeps
+its own name-card. The three kings of Lion Camel Ridge could not be: the lion,
+the elephant and the roc overlap in one composition, and any vertical cut puts
+the elephant's name-card on the lion. That plate is therefore the cover of a
+faction rather than three portraits.
 
 Each was opened and looked at against the entity it is attached to before it
 was assigned (rule `EX-301`). Entities with no suitable picture were left
-without one rather than given a near-miss (`EX-302`): 97 of the 121 characters,
-124 of the 136 places, 15 of the 22 items and all 8 factions have no
-illustration at all. What is still wanted, and why, is listed in
+without one rather than given a near-miss (`EX-302`): 80 of the 121 characters,
+126 of the 146 places, 7 of the 23 items and 7 of the 9 factions have no
+illustration. What is still wanted, and why, is listed in
 `scripts/journey-to-the-west/ART-REQUESTS.md`.
 
 ### The cover
@@ -60,13 +76,28 @@ at a plate should be told when it disagrees with the record beside it.
 
 | File | What is wrong with it |
 | --- | --- |
-| `art/items/golden-fillet.jpg` | Captioned in frame as 金蓮冠, a lotus crown. The object in the book is a plain gold band with no ornament, which is the whole point of it. |
-| `art/items/purple-gold-bells.jpg` | Draws one hung temple bell. The book's object is three small bells on a cord at a belt, which shake out fire, smoke and sand. |
-| `art/places/purple-cloud-kingdom.jpg` | The banner in frame carries misspelt Roman lettering. |
-| `art/places/lotus-cave.jpg` | Reads as a quiet hillside shrine; the Lotus Cave is a demon stronghold. |
+| `maps/four-continents.jpg` | Nothing wrong with it — but it is a cosmological chart, not a survey, and the five layers that hang under it are placed by its captions rather than by any measured position. |
 | `maps/celestial-court.jpg` | Carries mangled English labels, among them "Lotasr's Combina" for what should be Laozi's furnace room. |
 | `maps/pilgrimage-route.jpg` | Labels a temple "THUNOERBOLT TEMPLE" — a misspelling of Thunderbolt — beside a cave glyph. It sits on the road east of Vulture Peak, and the world uses it for the Little Thunderclap Monastery, since a false Thunderclap before the real one fits both the label and the position. |
 | `maps/pilgrimage-route.jpg` | Duplicates the Gao Village and Tang Border labels, and places both **inside** the Tang frontier. The book puts Gao Village a long way past it. |
+
+All four plates that were wrong in the first batch have since been replaced —
+the fillet drawn as a lotus crown, the three bells drawn as one temple bell,
+the Purple Cinnabar banner with misspelt Roman lettering, and the Lotus Cave
+that read as a quiet hillside shrine. The originals are not kept.
+
+### The layer tree
+
+The world map is the parent of five of the other seven layers, and it is the
+chart's own captions that say so: the eastern continent's panel names
+Flower-Fruit Mountain, the southern one says "our Tang land is here", the note
+beside Mount Sumeru says the thirty-three heavens are on its summit, and each
+of the four seas is captioned with its dragon palace. Chang'an and Vulture
+Peak therefore sit three layers deep, under the road, under the world.
+
+The one gateway on that map the chart does not draw is the way down to the
+courts of the dead. It is pinned below the southern continent, which is what
+the underworld is under, and it is an approximation like the sixteen below.
 
 ### How markers are placed on the maps
 

@@ -73,8 +73,25 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
-      "id": "jw-map-route",
+      "id": "jw-map-world",
       "parentMapId": null,
+      "name": "The Four Continents",
+      "description": "The whole cosmos on one sheet: Mount Sumeru in the middle with the sun and moon going round it, four continents in four seas, and a dragon palace under each. The eastern continent is where the monkey is born, the southern one is the Tang empire, and the western one is where the scriptures are.",
+      "imageId": "jw-image-map-world",
+      "imageWidth": 1254,
+      "imageHeight": 1254,
+      "scalePixelsPerUnit": null,
+      "scaleUnit": null,
+      "levelGroupId": null,
+      "levelIndex": 0,
+      "levelLabel": ""
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-map-route",
+      "parentMapId": "jw-map-world",
       "name": "The Road West",
       "description": "The whole pilgrimage on one sheet: the Tang border, the mountain the monkey was pinned under, the rivers, the Women’s Kingdom, the Flaming Mountains and, at the far western end, Vulture Peak.",
       "imageId": "jw-image-map-route",
@@ -125,7 +142,7 @@
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "jw-map-ffm",
-      "parentMapId": null,
+      "parentMapId": "jw-map-world",
       "name": "Flower-Fruit Mountain",
       "description": "The monkey’s island in the Eastern Continent, with the waterfall, the iron bridge, the encampment below it, and a cut-away of the cave behind the water.",
       "imageId": "jw-image-map-ffm",
@@ -142,7 +159,7 @@
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "jw-map-heaven",
-      "parentMapId": null,
+      "parentMapId": "jw-map-world",
       "name": "The Celestial Court",
       "description": "Heaven as an estate: the Southern Gate, the Hall of Miraculous Mist, the Queen Mother’s lake, the stables, and the furnace room the elixir is cooked in.",
       "imageId": "jw-image-map-heaven",
@@ -159,7 +176,7 @@
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "jw-map-dragon-palace",
-      "parentMapId": null,
+      "parentMapId": "jw-map-world",
       "name": "The Dragon Palace of the Eastern Sea",
       "description": "The undersea halls the cudgel is taken from: the crystal palace, the throne, the armoury, and the pillar that gauges the depth of the sea.",
       "imageId": "jw-image-map-dragon-palace",
@@ -176,7 +193,7 @@
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "jw-map-underworld",
-      "parentMapId": null,
+      "parentMapId": "jw-map-world",
       "name": "The Underworld Courts",
       "description": "The bureaucracy below: the Gate of Ghosts, the bridge, the river, the Hall of Judgment, the register — and the hells drawn along the bottom of the sheet.",
       "imageId": "jw-image-map-underworld",
@@ -190,6 +207,166 @@
     }
   ],
   "locationMarkers": [
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-location-jambudvipa",
+      "mapLayerId": "jw-map-world",
+      "linkedMapLayerId": "jw-map-route",
+      "name": "Jambudvipa, the Southern Continent",
+      "description": "The continent the chart captions “our Tang land is here”, and the one the Buddha weighs and finds full of greed, killing and lawsuits — which is the whole reason for the errand.",
+      "x": 628,
+      "y": 339,
+      "imageId": null,
+      "iconType": "region",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-location-purvavideha",
+      "mapLayerId": "jw-map-world",
+      "linkedMapLayerId": "jw-map-ffm",
+      "name": "Purvavideha, the Eastern Continent",
+      "description": "The eastern continent, whose caption names Flower-Fruit Mountain and the isles of Penglai. A stone on a mountain here splits and lets out a monkey.",
+      "x": 1043,
+      "y": 644,
+      "imageId": null,
+      "iconType": "region",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-location-aparagodaniya",
+      "mapLayerId": "jw-map-world",
+      "linkedMapLayerId": null,
+      "name": "Aparagodaniya, the Western Continent",
+      "description": "The western continent — “where the Buddhas are, past, present and to come”. Vulture Peak stands here, and so, somewhere in it, does the cave where the monkey was taught.",
+      "x": 200,
+      "y": 644,
+      "imageId": null,
+      "iconType": "region",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-location-uttarakuru",
+      "mapLayerId": "jw-map-world",
+      "linkedMapLayerId": null,
+      "name": "Uttarakuru, the Northern Continent",
+      "description": "The northern continent: no cold and no heat, and lives long enough that nobody there needs anything. The book never goes near it.",
+      "x": 628,
+      "y": 999,
+      "imageId": null,
+      "iconType": "region",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-location-mount-sumeru",
+      "mapLayerId": "jw-map-world",
+      "linkedMapLayerId": "jw-map-heaven",
+      "name": "Mount Sumeru",
+      "description": "The axis of the world, eighty-four thousand yojanas high, with the sun and the moon going round its waist and the thirty-three heavens on its summit.",
+      "x": 628,
+      "y": 664,
+      "imageId": null,
+      "iconType": "landmark",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-location-east-sea",
+      "mapLayerId": "jw-map-world",
+      "linkedMapLayerId": "jw-map-dragon-palace",
+      "name": "The Eastern Sea",
+      "description": "The Fragrant Sea, and the dragon palace under it — the one with an iron pillar in the floor that sets the depth of the water.",
+      "x": 905,
+      "y": 979,
+      "imageId": null,
+      "iconType": "region",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-location-west-sea",
+      "mapLayerId": "jw-map-world",
+      "linkedMapLayerId": null,
+      "name": "The Western Sea",
+      "description": "The Salt Sea and its dragon palace: the court a black-carp courier is intercepted on the way to, and the water three rhinoceroses open a road through.",
+      "x": 307,
+      "y": 429,
+      "imageId": null,
+      "iconType": "region",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-location-north-sea",
+      "mapLayerId": "jw-map-world",
+      "linkedMapLayerId": null,
+      "name": "The Northern Sea",
+      "description": "The Brine Sea and its dragon palace, whose king is sent for twice — once to sit in a cauldron of oil as a cold wind, once to take a cold dragon out of one.",
+      "x": 310,
+      "y": 979,
+      "imageId": null,
+      "iconType": "region",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-location-south-sea",
+      "mapLayerId": "jw-map-world",
+      "linkedMapLayerId": null,
+      "name": "The Southern Sea",
+      "description": "The Sour Sea and its dragon palace. Potalaka is in this quarter, which is why Guanyin is the one who keeps arriving.",
+      "x": 920,
+      "y": 429,
+      "imageId": null,
+      "iconType": "region",
+      "tags": [],
+      "factionId": null
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-location-fengdu",
+      "mapLayerId": "jw-map-world",
+      "linkedMapLayerId": "jw-map-underworld",
+      "name": "The Way Down to the Courts of the Dead",
+      "description": "Under the southern continent: the road two summoners drag a sleeping soul along, and the one an emperor is carried down with a letter in his sleeve.",
+      "x": 628,
+      "y": 199,
+      "imageId": null,
+      "iconType": "landmark",
+      "tags": [],
+      "factionId": null
+    },
     {
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
@@ -265,7 +442,7 @@
       "description": "The border between Tang land and everywhere else, and the mountain a monkey has been pinned under for five hundred years with a paper seal on the summit.",
       "x": 612,
       "y": 262,
-      "imageId": null,
+      "imageId": "jw-image-place-five-phases-mountain",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -761,7 +938,7 @@
       "description": "Eight hundred li of fire with no grass on it, sixty li from farms of red brick that can only sow when somebody borrows a fan.",
       "x": 374,
       "y": 291,
-      "imageId": null,
+      "imageId": "jw-image-place-flaming-mountains",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -1001,7 +1178,7 @@
       "description": "A walled capital whose king and people were eaten five hundred years ago, and whose walls have carried black air ever since.",
       "x": 346,
       "y": 254,
-      "imageId": null,
+      "imageId": "jw-image-place-lion-camel-city",
       "iconType": "city",
       "tags": [],
       "factionId": null
@@ -1081,7 +1258,7 @@
       "description": "A boulder on Empty-Trap Mountain with a jar-mouth hole worn smooth in it, and three hundred li of country underneath.",
       "x": 216,
       "y": 236,
-      "imageId": null,
+      "imageId": "jw-image-place-bottomless-cave",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -1321,7 +1498,7 @@
       "description": "Eight or nine li of fast water with one round log laid across it, and a ferryman poling a boat that has no bottom.",
       "x": 126,
       "y": 290,
-      "imageId": null,
+      "imageId": "jw-image-place-cloud-reaching-ford",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -1465,7 +1642,7 @@
       "description": "A stone hut past the brambles where four old gentlemen keep a brazier, a pot of tea and a night of linked verse ready for anyone who can answer them.",
       "x": 300,
       "y": 240,
-      "imageId": null,
+      "imageId": "jw-image-place-wooden-immortal-hermitage",
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -1561,7 +1738,7 @@
       "description": "The bridge the three great lamp-vats stand on, where the whole prefecture waits on the fifteenth night for the Buddhas to come down and drink the oil.",
       "x": 156,
       "y": 274,
-      "imageId": null,
+      "imageId": "jw-image-place-golden-lamp-bridge",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -1865,7 +2042,7 @@
       "description": "The stone house behind the fall, with its tablet, its furniture, and room for a whole nation of monkeys.",
       "x": 740,
       "y": 184,
-      "imageId": null,
+      "imageId": "jw-image-place-water-curtain-cave",
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -2590,7 +2767,7 @@
         "The Patriarch"
       ],
       "description": "The master on the Mountain of Mind and Heart who gives the monkey a name, the transformations and the cloud — and forbids him ever to say who taught him.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-subhuti",
       "color": "#7a7060",
       "tags": [],
       "isAlive": true,
@@ -2606,7 +2783,7 @@
         "The Third Prince"
       ],
       "description": "A boy general with six arms and six weapons, who fights the monkey, loses, and turns up on the same side for the rest of the book.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-nezha",
       "color": "#b4585e",
       "tags": [],
       "isAlive": true,
@@ -2622,7 +2799,7 @@
         "The Pagoda-Bearing Heavenly King"
       ],
       "description": "Commander of the heavenly host and Nezha’s father, who carries a pagoda because he is afraid of his own son.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-li-jing",
       "color": "#7d6a52",
       "tags": [],
       "isAlive": true,
@@ -2638,7 +2815,7 @@
         "The True Lord of Guanjiangkou"
       ],
       "description": "The Jade Emperor’s nephew, who answers summonses and not orders, and the only being who ever beats the monkey in a fair contest.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-erlang-shen",
       "color": "#5f8a6f",
       "tags": [],
       "isAlive": true,
@@ -2666,7 +2843,7 @@
       "name": "Manjusri",
       "aliases": [],
       "description": "A bodhisattva whose blue lion causes two separate disasters, and who once spent three days at the bottom of a palace moat.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-manjusri",
       "color": "#6a7fa8",
       "tags": [],
       "isAlive": true,
@@ -2680,7 +2857,7 @@
       "name": "Samantabhadra",
       "aliases": [],
       "description": "A bodhisattva whose white elephant is the second of the three kings of Lion Camel Ridge.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-samantabhadra",
       "color": "#8a9a7a",
       "tags": [],
       "isAlive": true,
@@ -3104,7 +3281,7 @@
       "name": "The White Bone Lady",
       "aliases": [],
       "description": "A corpse-spirit who comes three times in three shapes, is killed three times, and gets the party broken up on her third try.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-white-bone-demon",
       "color": "#b0aca0",
       "tags": [],
       "isAlive": true,
@@ -3120,7 +3297,7 @@
         "Kui Wood Wolf"
       ],
       "description": "A lodge of Heaven absent four roll-calls, living as a demon lord with a princess he carried off from a moon-viewing.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-yellow-robe-monster",
       "color": "#a58a4a",
       "tags": [],
       "isAlive": true,
@@ -3309,7 +3486,7 @@
         "Dragon King of the Eastern Sea"
       ],
       "description": "The owner of the pillar that gauges the sea, who loses it, and who is called on for rain and errands for the rest of the book.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-ao-guang",
       "color": "#4f7a8a",
       "tags": [],
       "isAlive": true,
@@ -3353,7 +3530,7 @@
       "name": "Tiger Power, Deer Power and Goat Power",
       "aliases": [],
       "description": "Three court preceptors who brought the rain twenty years ago and have owned the kingdom’s monks ever since.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-three-daoist-immortals",
       "color": "#8a7a5f",
       "tags": [],
       "isAlive": true,
@@ -3367,7 +3544,7 @@
       "name": "The Great King of Miraculous Response",
       "aliases": [],
       "description": "A goldfish from a lotus pond that grew on sermons, and which takes a boy and a girl from the village every year for the rain.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-miraculous-response",
       "color": "#b58a4a",
       "tags": [],
       "isAlive": true,
@@ -3465,7 +3642,7 @@
       "name": "The Queen of West Liang",
       "aliases": [],
       "description": "The sovereign of a country with no men in it, who offers a kingdom in good faith to a man who cannot take it.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-west-liang-queen",
       "color": "#b57f8a",
       "tags": [],
       "isAlive": true,
@@ -3493,7 +3670,7 @@
       "name": "Sai Tai Sui",
       "aliases": [],
       "description": "Guanyin’s golden-haired hou, off its chain, holding a queen it has not touched and three bells it should not have.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-sai-tai-sui",
       "color": "#c2a052",
       "tags": [],
       "isAlive": true,
@@ -3647,7 +3824,7 @@
       "name": "The State Preceptor",
       "aliases": [],
       "description": "The old Daoist who supplied the girl and the prescription, and who is the Old Man of the South Pole’s white deer.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-national-preceptor",
       "color": "#9a8a72",
       "tags": [],
       "isAlive": true,
@@ -3661,7 +3838,7 @@
       "name": "The Beauty of Bhiksu",
       "aliases": [],
       "description": "Sixteen years old, given to a king three years ago by the man who calls himself her father, and a white-faced fox under it.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-fox-beauty",
       "color": "#b08a92",
       "tags": [],
       "isAlive": true,
@@ -3678,7 +3855,7 @@
         "Half-Guanyin"
       ],
       "description": "A mouse who stole the Buddha’s incense three hundred years ago, was spared, and set up tablets to the two who spared her.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-lady-earth-gusher",
       "color": "#a89a8a",
       "tags": [],
       "isAlive": true,
@@ -4003,7 +4180,7 @@
         "The Buddha of the Little Western Heaven"
       ],
       "description": "A boy who took his master’s bag and cymbals, set up a monastery one character short of the real one, and had it bowed to by people who could not read.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-yellow-brow",
       "color": "#b0973f",
       "tags": [],
       "isAlive": true,
@@ -4158,7 +4335,7 @@
       "name": "The Gold-Banded Cudgel",
       "description": "The iron rod that set the depth of the seas, thirteen thousand five hundred catties, which grows and shrinks to order and lives in an ear when it is not wanted.",
       "iconType": "weapon",
-      "imageId": null,
+      "imageId": "jw-image-item-gold-banded-cudgel",
       "tags": []
     },
     {
@@ -4169,7 +4346,7 @@
       "name": "The Nine-Toothed Rake",
       "description": "Five thousand and forty-eight catties of divine ice-iron, made in Heaven for a marshal of the reeds and used ever since on doors, demons and, once, eight hundred li of rotten fruit.",
       "iconType": "weapon",
-      "imageId": null,
+      "imageId": "jw-image-item-nine-toothed-rake",
       "tags": []
     },
     {
@@ -4180,7 +4357,7 @@
       "name": "The Demon-Quelling Staff",
       "description": "A moon-laurel branch banded with gold, the same weight as the rake, carried by the quietest of the three.",
       "iconType": "weapon",
-      "imageId": null,
+      "imageId": "jw-image-item-demon-quelling-staff",
       "tags": []
     },
     {
@@ -4191,7 +4368,7 @@
       "name": "The Nine-Ring Pilgrim Staff",
       "description": "One of the two things Guanyin sends ahead for the pilgrim: a ringed staff that is not a weapon and is never used as one.",
       "iconType": "tool",
-      "imageId": null,
+      "imageId": "jw-image-item-nine-ring-staff",
       "tags": []
     },
     {
@@ -4246,7 +4423,7 @@
       "name": "The Purple-Gold Alms Bowl",
       "description": "Put into the pilgrim’s hands by the emperor at the gate of Chang’an, carried for fourteen years, and given up at the last loft as the price of a canon with words in it.",
       "iconType": "container",
-      "imageId": null,
+      "imageId": "jw-image-item-purple-gold-bowl",
       "tags": []
     },
     {
@@ -4301,7 +4478,7 @@
       "name": "The Diamond Jade Bracelet",
       "description": "Made at the Han Pass and never lost an argument: it swallows any weapon thrown at it, including every weapon in Heaven, and ends up through an ox’s nose.",
       "iconType": "artifact",
-      "imageId": null,
+      "imageId": "jw-image-item-diamond-bracelet",
       "tags": []
     },
     {
@@ -4334,7 +4511,7 @@
       "name": "The Golden Cymbals",
       "description": "A pair that seal over a man with no seam, grow when he grows and shrink when he shrinks, and are opened only by a horn driven through the join.",
       "iconType": "artifact",
-      "imageId": null,
+      "imageId": "jw-image-item-golden-cymbals",
       "tags": []
     },
     {
@@ -4345,7 +4522,7 @@
       "name": "The Human-Seed Bag",
       "description": "An old white cloth wallet that holds however many people are thrown at it, including twenty-eight lodges of Heaven and five dragons.",
       "iconType": "container",
-      "imageId": null,
+      "imageId": "jw-image-item-human-seed-bag",
       "tags": []
     },
     {
@@ -4379,6 +4556,17 @@
       "description": "A pair taken off at the Double Fifth to tie the five-coloured threads, left in a dressing case, and worn up a monkey’s arm as proof.",
       "iconType": "clothing",
       "imageId": null,
+      "tags": []
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-item-peaches",
+      "name": "The Peaches of Immortality",
+      "description": "Three thousand six hundred trees in three ranks, ripening at three thousand, six thousand and nine thousand years, and doing something different to whoever eats each rank.",
+      "iconType": "artifact",
+      "imageId": "jw-image-item-peaches-of-immortality",
       "tags": []
     },
     {
@@ -22761,6 +22949,45 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-placement-020-peaches",
+      "itemId": "jw-item-peaches",
+      "eventId": "jw-event-peach-garden-given",
+      "locationMarkerId": "jw-location-peach-garden",
+      "mapLayerId": "jw-map-heaven",
+      "holderCharacterId": null,
+      "sortKey": 2000,
+      "notes": "The Peaches of Immortality is in play in this scene."
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-placement-021-peaches",
+      "itemId": "jw-item-peaches",
+      "eventId": "jw-event-peaches-eaten",
+      "locationMarkerId": "jw-location-peach-garden",
+      "mapLayerId": "jw-map-heaven",
+      "holderCharacterId": null,
+      "sortKey": 2100,
+      "notes": "The Peaches of Immortality is in play in this scene."
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-placement-022-peaches",
+      "itemId": "jw-item-peaches",
+      "eventId": "jw-event-seven-maidens",
+      "locationMarkerId": "jw-location-jasper-pool",
+      "mapLayerId": "jw-map-heaven",
+      "holderCharacterId": null,
+      "sortKey": 2200,
+      "notes": "The Peaches of Immortality is in play in this scene."
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-placement-026-cudgel",
       "itemId": "jw-item-cudgel",
       "eventId": "jw-event-moksa-loses",
@@ -26680,7 +26907,9 @@
         "jw-character-jade-emperor"
       ],
       "mentionedCharacterIds": [],
-      "involvedItemIds": [],
+      "involvedItemIds": [
+        "jw-item-peaches"
+      ],
       "tags": [],
       "sortOrder": 0,
       "travelDays": 20,
@@ -26709,7 +26938,9 @@
         "jw-character-wukong"
       ],
       "mentionedCharacterIds": [],
-      "involvedItemIds": [],
+      "involvedItemIds": [
+        "jw-item-peaches"
+      ],
       "tags": [],
       "sortOrder": 1,
       "travelDays": 4825,
@@ -26742,7 +26973,9 @@
         "jw-character-queen-mother"
       ],
       "mentionedCharacterIds": [],
-      "involvedItemIds": [],
+      "involvedItemIds": [
+        "jw-item-peaches"
+      ],
       "tags": [],
       "sortOrder": 2,
       "travelDays": 305,
@@ -34003,6 +34236,14 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-map-world",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/maps/four-continents.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-map-route",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/maps/pilgrimage-route.jpg"
@@ -34054,6 +34295,14 @@
       "id": "jw-image-map-underworld",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/maps/underworld.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-five-phases-mountain",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/five-phases-mountain.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -34123,6 +34372,14 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-place-flaming-mountains",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/flaming-mountains.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-place-little-thunderclap-monastery",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/places/little-thunderclap-monastery.jpg"
@@ -34147,9 +34404,57 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-place-lion-camel-city",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/lion-camel-city.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-place-bhiksu-kingdom",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/places/bhiksu-kingdom.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-bottomless-cave",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/bottomless-cave.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-cloud-reaching-ford",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/cloud-reaching-ford.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-wooden-immortal-hermitage",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/wooden-immortal-hermitage.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-golden-lamp-bridge",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/golden-lamp-bridge.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-water-curtain-cave",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/water-curtain-cave.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -34259,6 +34564,54 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-subhuti",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/subhuti.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-nezha",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/nezha.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-li-jing",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/li-jing.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-erlang-shen",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/erlang-shen.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-manjusri",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/manjusri.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-samantabhadra",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/samantabhadra.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-portrait-emperor-taizong",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/characters/emperor-taizong.jpg"
@@ -34286,6 +34639,22 @@
       "id": "jw-image-portrait-zhenyuan",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/characters/zhenyuan.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-white-bone-demon",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/white-bone-demon.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-yellow-robe-monster",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/yellow-robe-monster.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -34323,9 +34692,73 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-ao-guang",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/ao-guang.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-three-daoist-immortals",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/three-daoist-immortals.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-miraculous-response",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/miraculous-response.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-west-liang-queen",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/west-liang-queen.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-sai-tai-sui",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/sai-tai-sui.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-portrait-seven-spider-spirits",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/characters/seven-spider-spirits.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-national-preceptor",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/national-preceptor.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-fox-beauty",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/fox-beauty.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-lady-earth-gusher",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/lady-earth-gusher.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -34342,6 +34775,46 @@
       "id": "jw-image-portrait-jade-rabbit",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/characters/jade-rabbit.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-yellow-brow",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/yellow-brow.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-gold-banded-cudgel",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/gold-banded-cudgel.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-nine-toothed-rake",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/nine-toothed-rake.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-demon-quelling-staff",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/demon-quelling-staff.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-nine-ring-staff",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/nine-ring-staff.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -34379,6 +34852,14 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-item-purple-gold-bowl",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/purple-gold-bowl.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-item-ginseng-fruit",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/items/ginseng-fruit.jpg"
@@ -34398,6 +34879,62 @@
       "id": "jw-image-item-purple-gold-bells",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/items/purple-gold-bells.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-diamond-bracelet",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/diamond-bracelet.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-golden-cymbals",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/golden-cymbals.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-human-seed-bag",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/human-seed-bag.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-peaches-of-immortality",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/peaches-of-immortality.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-faction-ten-kings",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/factions/ten-kings.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-faction-lion-camel-three-kings",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/factions/lion-camel-three-kings.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-lore-fish-basket-guanyin",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/lore/fish-basket-guanyin.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -34646,6 +35183,19 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-lore-fish-basket",
+      "categoryId": "jw-lore-category-powers",
+      "title": "Where the Fish-Basket Guanyin Comes From",
+      "body": "Twice in this book Guanyin arrives in a hurry and out of costume. At the Heaven-Reaching River she comes out of her bamboo grove undressed, unpainted and with her hair unbraided, carrying a basket she has just split and woven herself, because the thing in the river is her own goldfish and the copper mace it fights with is a lotus bud from her pond. The whole village kneels in the mud to look at her, and a painter among them takes the likeness down before she goes. That is the origin the book gives for the Fish-Basket Guanyin, one of the standard forms she is painted in; she appears in it a second time, unremarked, to name the scorpion at Poison Enemy Mountain.",
+      "tags": [],
+      "coverImageId": "jw-image-lore-fish-basket-guanyin",
+      "linkedEntityIds": [],
+      "visibleFromEventId": "jw-event-the-fish-basket"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-lore-chronology",
       "categoryId": "jw-lore-category-sources",
       "title": "How This Chronology Was Reconstructed",
@@ -34785,7 +35335,7 @@
       "name": "The Courts of the Underworld",
       "description": "Ten kings, a register, a judge who can be written to, and a bureaucracy that turns out to be negotiable in both directions.",
       "color": "#6a5a7a",
-      "coverImageId": null,
+      "coverImageId": "jw-image-faction-ten-kings",
       "tags": []
     },
     {
@@ -34808,6 +35358,17 @@
       "description": "Three immortals who brought the rain when the monks could not, and made a kingdom’s monks into their servants for twenty years.",
       "color": "#7a6244",
       "coverImageId": null,
+      "tags": []
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-faction-lion-camel-kings",
+      "name": "The Three Kings of Lion Camel Ridge",
+      "description": "A blue lion who swallows a hundred thousand troops in a mouthful, a white elephant whose trunk crushes iron-backed men, and the Great Roc of Ten Thousand Li, who is the Buddha’s own kin and the only one of the three who will not go quietly.",
+      "color": "#6b5344",
+      "coverImageId": "jw-image-faction-lion-camel-three-kings",
       "tags": []
     }
   ],
@@ -35147,6 +35708,42 @@
       "startEventId": "jw-event-the-cart-pullers",
       "endEventId": "jw-event-head-belly-oil",
       "notes": ""
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-membership-lion-camel-kings-blue-lion-demon",
+      "factionId": "jw-faction-lion-camel-kings",
+      "characterId": "jw-character-blue-lion-demon",
+      "role": "Eldest of the three, and Manjusri’s mount",
+      "startEventId": "jw-event-the-yin-yang-vase",
+      "endEventId": "jw-event-the-peacocks-brother",
+      "notes": ""
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-membership-lion-camel-kings-yellow-tusk-elephant",
+      "factionId": "jw-faction-lion-camel-kings",
+      "characterId": "jw-character-yellow-tusk-elephant",
+      "role": "Second of the three, and Samantabhadra’s mount",
+      "startEventId": "jw-event-the-yin-yang-vase",
+      "endEventId": "jw-event-the-peacocks-brother",
+      "notes": ""
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-membership-lion-camel-kings-roc-demon",
+      "factionId": "jw-faction-lion-camel-kings",
+      "characterId": "jw-character-roc-demon",
+      "role": "Third of the three, and the one who settles rather than surrenders",
+      "startEventId": "jw-event-the-yin-yang-vase",
+      "endEventId": "jw-event-the-peacocks-brother",
+      "notes": ""
     }
   ],
   "factionRelationships": [
@@ -35189,6 +35786,16 @@
       "factionBId": "jw-faction-bull-clan",
       "stance": "hostile",
       "notes": "Three separate feuds — a son converted, a fan stolen twice, and a brother who wants revenge for a nephew who is not dead."
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-faction-relationship-lion-camel-vulture-peak",
+      "factionAId": "jw-faction-lion-camel-kings",
+      "factionBId": "jw-faction-vulture-peak",
+      "stance": "complicated",
+      "notes": "Two of the three are bodhisattvas’ mounts and the third is the Buddha’s own kin, so the alliance that nearly ends the journey is undone by its owners rather than beaten."
     },
     {
       "worldId": "journey-to-the-west-world",
