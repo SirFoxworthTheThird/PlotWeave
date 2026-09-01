@@ -23,17 +23,35 @@ couplet is a piece of the book and a translation of one is not.
 
 ## The pictures
 
-**Every image in this folder is AI-generated, and was supplied by the owner of
-this repository, who states it is their own work.** None of it is public
-domain, and none of it comes from any edition of the novel. There are 50
-images: 7 maps, 24 character portraits, 12 places and 7 items.
+**Every image in this folder except the cover is AI-generated, and was supplied
+by the owner of this repository, who states it is their own work.** None of
+that is public domain, and none of it comes from any edition of the novel.
+There are 50 such images: 7 maps, 24 character portraits, 12 places and 7
+items.
 
 Each was opened and looked at against the entity it is attached to before it
 was assigned (rule `EX-301`). Entities with no suitable picture were left
 without one rather than given a near-miss (`EX-302`): 97 of the 121 characters,
-124 of the 136 places, 15 of the 22 items and the world cover have no
+124 of the 136 places, 15 of the 22 items and all 8 factions have no
 illustration at all. What is still wanted, and why, is listed in
 `scripts/journey-to-the-west/ART-REQUESTS.md`.
+
+### The cover
+
+`art/cover.jpg` is the exception, and the only genuinely period image here. It
+is the left leaf of a double-page opening from the **Shidetang Hall of Jinling
+imprint, Wanli 20 (1592)** — 新刻出像官板大字西遊記, the edition in which this
+novel was first printed with illustrations. The leaf shows Sun Wukong with the
+gold-banded cudgel planted in the ground, under the Plantain Cave's own
+sign-board (芭蕉洞), captioned 調芭蕉扇, "fetching the plantain fan" — the
+episode this world models at chapters 59 to 61.
+
+It was downloaded from Wikimedia Commons
+([The Journey to the West, Shidetang Hall of Jinling in 1592.jpg](https://commons.wikimedia.org/wiki/File:The_Journey_to_the_West,_Shidetang_Hall_of_Jinling_in_1592.jpg)),
+cropped to the left leaf and re-encoded at 760px wide. Both the book and the
+1592 blocks are long out of copyright, and Commons records the file as public
+domain. It is committed here rather than linked, so a downloaded copy of this
+book draws its cover from the same origin as the app and contacts nobody.
 
 ### Known problems with the images that are here
 

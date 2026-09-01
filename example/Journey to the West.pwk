@@ -6,7 +6,7 @@
     "id": "journey-to-the-west-world",
     "name": "Journey to the West",
     "description": "A stone monkey fights Heaven to a standstill and is pinned under a mountain for five hundred years. A Tang emperor comes back from the underworld owing more than he can pay and sends a monk west for scriptures that will settle it. The two stories meet on a road eighty-one disasters long, walked by a pilgrim who cannot tell a demon from a widow, a pig who wants to go home, a river monster nobody listens to, a dragon in the shape of a horse, and the monkey — who is right about almost everything and is punished for it with a hat.",
-    "coverImageId": null,
+    "coverImageId": "jw-image-cover",
     "theme": "theme-fantasy",
     "readingMode": true,
     "createdAt": 1788393600000,
@@ -23879,6 +23879,19 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-placement-206-sleep-insects",
+      "itemId": "jw-item-sleep-insects",
+      "eventId": "jw-event-the-night-of-razors",
+      "locationMarkerId": "jw-location-dharma-kingdom",
+      "mapLayerId": "jw-map-route",
+      "holderCharacterId": null,
+      "sortKey": 20601,
+      "notes": "The Sleep-Insects is in play in this scene."
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-placement-207-heart-sutra",
       "itemId": "jw-item-heart-sutra",
       "eventId": "jw-event-the-four-line-verse",
@@ -32837,7 +32850,8 @@
       ],
       "mentionedCharacterIds": [],
       "involvedItemIds": [
-        "jw-item-cudgel"
+        "jw-item-cudgel",
+        "jw-item-sleep-insects"
       ],
       "tags": [],
       "sortOrder": 1,
@@ -34384,6 +34398,14 @@
       "id": "jw-image-item-purple-gold-bells",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/items/purple-gold-bells.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-cover",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/cover.jpg"
     }
   ],
   "travelModes": [],
@@ -34679,7 +34701,7 @@
       "id": "jw-lore-pictures",
       "categoryId": "jw-lore-category-sources",
       "title": "The Pictures in This World",
-      "body": "Every map, portrait, place and item picture here is an AI-generated image supplied by this world’s author, who states they are their own work. None of it is public domain and none of it comes from an edition of the novel. Each picture was opened and checked against the entity it is attached to before it was assigned. A great many characters and places have no picture at all rather than a borrowed or approximate one, which is the honest state of the set: SOURCES.md lists what is missing.",
+      "body": "Every map, portrait, place and item picture here is an AI-generated image supplied by this world’s author, who states they are their own work. None of it is public domain and none of it comes from an edition of the novel. Each picture was opened and checked against the entity it is attached to before it was assigned. A great many characters and places have no picture at all rather than a borrowed or approximate one, which is the honest state of the set: SOURCES.md lists what is missing. The one exception is the cover, which is a leaf of the 1592 Shidetang Hall imprint — the edition in which this novel was first printed with pictures — showing Sun Wukong with the cudgel outside the Plantain Cave. That one is genuinely public domain and genuinely from the book.",
       "tags": [],
       "coverImageId": null,
       "linkedEntityIds": [],
