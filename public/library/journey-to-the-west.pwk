@@ -554,7 +554,7 @@
       "description": "A ridge whose owner raises a wind out of the earth that blinds anything with eyes, including eyes that have been through a furnace.",
       "x": 470,
       "y": 276,
-      "imageId": null,
+      "imageId": "jw-image-place-yellow-wind-ridge",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -666,7 +666,7 @@
       "description": "Six hundred li of mountain held by two kings with five treasures between them and a standing order to catch monks.",
       "x": 396,
       "y": 314,
-      "imageId": null,
+      "imageId": "jw-image-place-pingding-mountain",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -698,7 +698,7 @@
       "description": "A monastery that puts a travelling monk in the corridor to sleep, and is knelt to by five hundred of its own after a stone lion is broken.",
       "x": 380,
       "y": 272,
-      "imageId": null,
+      "imageId": "jw-image-place-baolin-monastery",
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -826,7 +826,7 @@
       "description": "A mountain with towers in the valley that are not there, and a cave under them whose owner has a bracelet that swallows weapons.",
       "x": 310,
       "y": 148,
-      "imageId": null,
+      "imageId": "jw-image-place-jindou-mountain",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -1114,7 +1114,7 @@
       "description": "The mountain the Golden Queen was carried to, and the cave where three bells are kept on a cord at somebody’s belt.",
       "x": 274,
       "y": 242,
-      "imageId": null,
+      "imageId": "jw-image-place-qilin-mountain",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -1434,7 +1434,7 @@
       "description": "A city with a tower in the crossroads and a princess on top of it choosing a husband by throwing a ball into the crowd.",
       "x": 128,
       "y": 252,
-      "imageId": null,
+      "imageId": "jw-image-place-capital-of-india",
       "iconType": "city",
       "tags": [],
       "factionId": null
@@ -1530,7 +1530,7 @@
       "description": "Subhuti’s house on the Mountain of Mind and Heart, somewhere in the Western Continent, where a monkey spends twenty years learning the two things that make the rest of the book possible.",
       "x": 48,
       "y": 357,
-      "imageId": null,
+      "imageId": "jw-image-place-slanting-moon-cave",
       "iconType": "landmark",
       "tags": [],
       "factionId": null
@@ -1802,7 +1802,7 @@
       "description": "The Tang court: where the rescript is written, where the emperor comes back from the dead, and where the scriptures are handed over.",
       "x": 736,
       "y": 450,
-      "imageId": null,
+      "imageId": "jw-image-place-daming-palace",
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -1962,7 +1962,7 @@
       "description": "Where the Buddha sits on the nine-grade lotus and weighs what the eastern continent can be trusted with.",
       "x": 618,
       "y": 338,
-      "imageId": null,
+      "imageId": "jw-image-place-vulture-peak-great-hall",
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -2170,7 +2170,7 @@
       "description": "The throne hall of the Jade Emperor, where petitions are read, titles are invented, and one guest will not be put out of the doorway.",
       "x": 668,
       "y": 359,
-      "imageId": null,
+      "imageId": "jw-image-place-hall-of-miraculous-mist",
       "iconType": "building",
       "tags": [],
       "factionId": null
@@ -3083,7 +3083,7 @@
       "name": "Wei Zheng",
       "aliases": [],
       "description": "The minister who beheads a dragon in his sleep in the middle of a game of chess with the man who was guarding him.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-wei-zheng",
       "color": "#7a6f5a",
       "tags": [],
       "isAlive": true,
@@ -3097,7 +3097,7 @@
       "name": "Judge Cui",
       "aliases": [],
       "description": "The underworld clerk who owes his post to a dead minister, and who adds two strokes to a number in the Register of Life and Death.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-judge-cui",
       "color": "#6f6858",
       "tags": [],
       "isAlive": true,
@@ -3111,7 +3111,7 @@
       "name": "The Dragon King of the Jing River",
       "aliases": [],
       "description": "A dragon who cheats a rainfall by a few drops to win a bet with a fortune-teller, and loses his head over it.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-jing-river-dragon",
       "color": "#5a7a86",
       "tags": [],
       "isAlive": true,
@@ -3125,7 +3125,7 @@
       "name": "Chen Guangrui",
       "aliases": [],
       "description": "A scholar who takes first place, buys a fish and puts it back, and is murdered at a river crossing on the way to his post.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-chen-guangrui",
       "color": "#8a7a62",
       "tags": [],
       "isAlive": true,
@@ -3139,7 +3139,7 @@
       "name": "Lady Yin",
       "aliases": [],
       "description": "The chief minister’s daughter who throws the ball, loses her husband at a ford, and keeps a child alive by putting it in the river.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-lady-yin",
       "color": "#a8808a",
       "tags": [],
       "isAlive": true,
@@ -3211,7 +3211,7 @@
       "name": "The Black Bear Spirit",
       "aliases": [],
       "description": "A bear who reads scripture, keeps a garden, holds literary parties, and steals a cassock out of a fire that is not his.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-black-bear-spirit",
       "color": "#4f4a44",
       "tags": [],
       "isAlive": true,
@@ -3267,7 +3267,7 @@
       "name": "Clear Wind and Bright Moon",
       "aliases": [],
       "description": "The two boys left in charge of the orchard, who count the fruit, hand out two, and are still counting when the tree comes down.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-clear-wind-bright-moon",
       "color": "#8f9a7a",
       "tags": [],
       "isAlive": true,
@@ -3339,7 +3339,7 @@
       "name": "The King of Wuji",
       "aliases": [],
       "description": "A king pushed down his own well by a guest he had entertained for two years, and left there for three more.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-wuji-king",
       "color": "#8a7a6a",
       "tags": [],
       "isAlive": true,
@@ -3381,7 +3381,7 @@
       "name": "The Full-Truth Daoist",
       "aliases": [],
       "description": "The rainmaker who took a king’s face and his throne, and who turns out to have been sent, and to have been gelded first.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-blue-lion-impostor",
       "color": "#6f7a8f",
       "tags": [],
       "isAlive": true,
@@ -3684,7 +3684,7 @@
       "name": "The Golden Queen",
       "aliases": [],
       "description": "The senior consort of Purple Cinnabar, carried off at the Double Fifth and kept three years inside a coat of needles.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-golden-queen",
       "color": "#b58a9a",
       "tags": [],
       "isAlive": true,
@@ -3698,7 +3698,7 @@
       "name": "The King of Purple Cinnabar",
       "aliases": [],
       "description": "A king who swallowed a rice dumpling in terror three years ago and has not been well since, and who kept the reason to himself.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-zhuzi-king",
       "color": "#9a7a5a",
       "tags": [],
       "isAlive": true,
@@ -3983,7 +3983,7 @@
         "Cold-Avoiding, Heat-Avoiding and Dust-Avoiding"
       ],
       "description": "Three rhinoceroses a thousand years old who have loved scented oil since they were young, and who take it dressed as Buddhas.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-three-rhinoceros-kings",
       "color": "#6f7a72",
       "tags": [],
       "isAlive": true,
@@ -4055,7 +4055,7 @@
       "name": "Squire Kou",
       "aliases": [],
       "description": "A man of sixty-four who vowed at forty to feed ten thousand monks, reached the number, and was killed the same night for the send-off he threw.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-squire-kou",
       "color": "#9a8a6a",
       "tags": [],
       "isAlive": true,
@@ -4069,7 +4069,7 @@
       "name": "Mistress Kou",
       "aliases": [],
       "description": "The only one in the house who looked out from under the bed, and who named the four men she had fed for a fortnight.",
-      "portraitImageId": null,
+      "portraitImageId": "jw-image-portrait-mistress-kou",
       "color": "#a89098",
       "tags": [],
       "isAlive": true,
@@ -4434,7 +4434,7 @@
       "name": "The Heart Sutra",
       "description": "Fifty-four lines given away in a nest in a juniper, recited the whole way, and quoted back at the man who learned it whenever he is afraid of a noise.",
       "iconType": "document",
-      "imageId": null,
+      "imageId": "jw-image-item-heart-sutra",
       "tags": []
     },
     {
@@ -4489,7 +4489,7 @@
       "name": "The Gourd and the Jade Vase",
       "description": "Two of Laozi’s five: they take anyone who answers to their own name, and turn them to liquid in an hour and three quarters.",
       "iconType": "artifact",
-      "imageId": null,
+      "imageId": "jw-image-item-gourd-and-jade-vase",
       "tags": []
     },
     {
@@ -4500,7 +4500,7 @@
       "name": "The Yin-Yang Vase",
       "description": "Two feet four inches high and thirty-six bearers to carry it, with fire, snakes and three fire-dragons inside — and, after one visit, a hole in the bottom.",
       "iconType": "artifact",
-      "imageId": null,
+      "imageId": "jw-image-item-yin-yang-vase",
       "tags": []
     },
     {
@@ -4533,7 +4533,7 @@
       "name": "The Wind-Securing Pill",
       "description": "The Buddha left it with Lingji and Lingji sewed it into a collar, and it is why the second fanning does not move him.",
       "iconType": "consumable",
-      "imageId": null,
+      "imageId": "jw-image-item-wind-securing-pill",
       "tags": []
     },
     {
@@ -4544,7 +4544,7 @@
       "name": "The Sleep-Insects",
       "description": "Won off a heavenly king at a guessing game five hundred years ago and kept in a belt since, spent one nostril at a time.",
       "iconType": "consumable",
-      "imageId": null,
+      "imageId": "jw-image-item-sleep-insects",
       "tags": []
     },
     {
@@ -4555,7 +4555,7 @@
       "name": "The Golden Queen’s Bracelets",
       "description": "A pair taken off at the Double Fifth to tie the five-coloured threads, left in a dressing case, and worn up a monkey’s arm as proof.",
       "iconType": "clothing",
-      "imageId": null,
+      "imageId": "jw-image-item-golden-queen-bracelets",
       "tags": []
     },
     {
@@ -4577,7 +4577,7 @@
       "name": "The Register of Life and Death",
       "description": "The book with everything alive written in it, from which one entry — stone monkey, three hundred and forty-two years — is struck out with a borrowed brush.",
       "iconType": "document",
-      "imageId": null,
+      "imageId": "jw-image-item-register-of-life-and-death",
       "tags": []
     }
   ],
@@ -36100,6 +36100,14 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-place-yellow-wind-ridge",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/yellow-wind-ridge.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-place-wuzhuang-temple",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/places/wuzhuang-temple.jpg"
@@ -36108,9 +36116,25 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-place-pingding-mountain",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/pingding-mountain.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-place-lotus-cave",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/places/lotus-cave.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-baolin-monastery",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/baolin-monastery.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -36140,6 +36164,14 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-place-jindou-mountain",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/jindou-mountain.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-place-flaming-mountains",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/places/flaming-mountains.jpg"
@@ -36159,6 +36191,14 @@
       "id": "jw-image-place-purple-cloud-kingdom",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/places/purple-cloud-kingdom.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-qilin-mountain",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/qilin-mountain.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -36196,9 +36236,25 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-place-capital-of-india",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/capital-of-india.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-place-cloud-reaching-ford",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/places/cloud-reaching-ford.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-slanting-moon-cave",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/slanting-moon-cave.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -36220,9 +36276,33 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-place-daming-palace",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/daming-palace.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-vulture-peak-great-hall",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/vulture-peak-great-hall.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-place-water-curtain-cave",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/places/water-curtain-cave.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-place-hall-of-miraculous-mist",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/places/hall-of-miraculous-mist.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -36388,9 +36468,57 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-wei-zheng",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/wei-zheng.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-judge-cui",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/judge-cui.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-jing-river-dragon",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/jing-river-dragon.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-chen-guangrui",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/chen-guangrui.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-lady-yin",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/lady-yin.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-portrait-squire-gao",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/characters/squire-gao.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-black-bear-spirit",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/black-bear-spirit.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -36407,6 +36535,14 @@
       "id": "jw-image-portrait-zhenyuan",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/characters/zhenyuan.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-clear-wind-bright-moon",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/clear-wind-bright-moon.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -36431,6 +36567,22 @@
       "id": "jw-image-portrait-gold-and-silver-horn",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/characters/gold-and-silver-horn.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-wuji-king",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/wuji-king.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-blue-lion-impostor",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/blue-lion-impostor.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -36500,6 +36652,22 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-golden-queen",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/golden-queen.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-zhuzi-king",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/zhuzi-king.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-portrait-seven-spider-spirits",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/characters/seven-spider-spirits.jpg"
@@ -36540,9 +36708,33 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-three-rhinoceros-kings",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/three-rhinoceros-kings.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-portrait-jade-rabbit",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/characters/jade-rabbit.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-squire-kou",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/squire-kou.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-portrait-mistress-kou",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/characters/mistress-kou.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",
@@ -36628,6 +36820,14 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-item-heart-sutra",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/heart-sutra.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-item-ginseng-fruit",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/items/ginseng-fruit.jpg"
@@ -36660,6 +36860,22 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-item-gourd-and-jade-vase",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/gourd-and-jade-vase.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-yin-yang-vase",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/yin-yang-vase.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-item-golden-cymbals",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/items/golden-cymbals.jpg"
@@ -36676,9 +36892,41 @@
       "worldId": "journey-to-the-west-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
+      "id": "jw-image-item-wind-securing-pill",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/wind-securing-pill.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-sleep-insects",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/sleep-insects.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-golden-queen-bracelets",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/golden-queen-bracelets.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
       "id": "jw-image-item-peaches-of-immortality",
       "mimeType": "image/jpeg",
       "url": "library/journey-to-the-west/art/items/peaches-of-immortality.jpg"
+    },
+    {
+      "worldId": "journey-to-the-west-world",
+      "createdAt": 1788393600000,
+      "updatedAt": 1788393600000,
+      "id": "jw-image-item-register-of-life-and-death",
+      "mimeType": "image/jpeg",
+      "url": "library/journey-to-the-west/art/items/register-of-life-and-death.jpg"
     },
     {
       "worldId": "journey-to-the-west-world",

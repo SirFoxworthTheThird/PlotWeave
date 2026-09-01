@@ -26,7 +26,7 @@ couplet is a piece of the book and a translation of one is not.
 **Every image in this folder except the cover is AI-generated, and was supplied
 by the owner of this repository, who states it is their own work.** None of
 that is public domain, and none of it comes from any edition of the novel.
-There are 88 such images: 8 maps, 41 character portraits, 20 places, 16 items,
+There are 119 such images: 8 maps, 55 character portraits, 30 places, 23 items,
 2 faction plates and 1 lore plate.
 
 They arrived in two batches and are in two visibly different styles. The first
@@ -36,20 +36,25 @@ with a Chinese title cartouche and a block of explanatory text on almost every
 plate, several of them citing the chapters they illustrate. Both are kept as
 they came.
 
-Four of the second batch's plates draw more than one subject, and only three of
-those could be honestly split. `manjusri`/`samantabhadra`,
-`national-preceptor`/`fox-beauty` and `human-seed-bag`/`golden-cymbals` are
-each half of one supplied file, cropped down the seam so that each half keeps
-its own name-card. The three kings of Lion Camel Ridge could not be: the lion,
-the elephant and the roc overlap in one composition, and any vertical cut puts
-the elephant's name-card on the lion. That plate is therefore the cover of a
-faction rather than three portraits.
+Six supplied plates draw more than one subject, and five of those split
+honestly down the seam, each half keeping its own name-card:
+`manjusri`/`samantabhadra`, `national-preceptor`/`fox-beauty`,
+`human-seed-bag`/`golden-cymbals`, `wuji-king`/`blue-lion-impostor` and
+`squire-kou`/`mistress-kou`. The three kings of Lion Camel Ridge could not be:
+the lion, the elephant and the roc overlap in one composition, and any vertical
+cut puts the elephant's name-card on the lion. That plate is therefore the
+cover of a faction rather than three portraits.
+
+Two plates deliberately draw two objects and stay whole, because the world
+models them as one thing each: the gourd and the jade vase are a single item
+here, as Laozi's pair, and so are the peaches.
 
 Each was opened and looked at against the entity it is attached to before it
-was assigned (rule `EX-301`). Entities with no suitable picture were left
-without one rather than given a near-miss (`EX-302`): 80 of the 121 characters,
-126 of the 146 places, 7 of the 23 items and 7 of the 9 factions have no
-illustration. What is still wanted, and why, is listed in
+was assigned (rule `EX-301`). Every item in the world now has one. Entities
+with no suitable picture were left without one rather than given a near-miss
+(`EX-302`): 66 of the 121 characters, 116 of the 146 places and 7 of the 9
+factions have no illustration — and 33 of those places are gateways and
+continents that carry no scene of their own, so they do not want one. What is still wanted, and why, is listed in
 `scripts/journey-to-the-west/ART-REQUESTS.md`.
 
 ### The cover
