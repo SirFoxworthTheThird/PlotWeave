@@ -54,7 +54,7 @@ describe('index.html', () => {
   it('still loads the app from its own origin', () => {
     expect(markup).toContain('<div id="root">')
     expect(markup).toMatch(/<script type="module" src="\/src\/main\.tsx">/)
-    expect(markup).toContain('href="/favicon.svg"')
+    expect(markup).toContain('href="/favicon.png"')
   })
 
   /*

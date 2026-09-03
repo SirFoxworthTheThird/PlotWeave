@@ -3,13 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <!--
-      The SVG, not the PNG. `favicon.png` is 3.98 MB — it is the source art for
-      the packaged desktop icon, and it was being downloaded and decoded by every
-      browser to draw a 16px tab icon and, through `TopBar`, a 28px logo. The SVG
-      is the same mark at 9.5 KB. `favicon.png` stays in `public/` because
-      `electron/main.cjs` needs a raster for the window icon.
+      `favicon.png` is 3.98 MB, and every browser downloads it to draw a 16px tab
+      icon — through `TopBar` and `WorldSelectorView` it is also the 28px and
+      40px logo. That is a real cost on a first visit and it is not fixed here.
+
+      It was briefly pointed at `favicon.svg` on the assumption that the two were
+      the same mark at different sizes. They are not: the PNG is the PlotWeave
+      logo, a teal-and-gold PW monogram on a parchment map, and the SVG is an
+      unrelated purple-and-blue design. `favicon.jpg` is a third picture again, a
+      bronze compass. Three unrelated images share the name and only the PNG is
+      the brand, so there is no small file to switch to.
+
+      Fixing this properly means exporting the real logo at icon sizes, which
+      needs image tooling this environment does not have. Until then the correct
+      logo at the wrong weight beats the wrong logo at the right weight.
     -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PlotWeave — a story bible that knows what time it is</title>
 
