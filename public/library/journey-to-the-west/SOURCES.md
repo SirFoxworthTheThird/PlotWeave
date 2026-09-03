@@ -23,10 +23,10 @@ couplet is a piece of the book and a translation of one is not.
 
 ## The pictures
 
-**Every image in this folder except the cover is AI-generated, and was supplied
-by the owner of this repository, who states it is their own work.** None of
-that is public domain, and none of it comes from any edition of the novel.
-There are 119 such images: 8 maps, 55 character portraits, 30 places, 23 items,
+**The original 119 images were AI-generated and supplied by the owner of this
+repository, who states they are their own work.** They are not presented as
+public-domain material or illustrations from an edition of the novel.
+That original set comprises 8 maps, 55 character portraits, 30 places, 23 items,
 2 faction plates and 1 lore plate.
 
 They arrived in two batches and are in two visibly different styles. The first
@@ -49,13 +49,35 @@ Two plates deliberately draw two objects and stay whole, because the world
 models them as one thing each: the gourd and the jade vase are a single item
 here, as Laozi's pair, and so are the peaches.
 
-Each was opened and looked at against the entity it is attached to before it
-was assigned (rule `EX-301`). Every item in the world now has one. Entities
-with no suitable picture were left without one rather than given a near-miss
-(`EX-302`): 66 of the 121 characters, 116 of the 146 places and 7 of the 9
-factions have no illustration — and 33 of those places are gateways and
-continents that carry no scene of their own, so they do not want one. What is still wanted, and why, is listed in
-`scripts/journey-to-the-west/ART-REQUESTS.md`.
+Each supplied plate was opened and looked at against the entity it is attached
+to before assignment (rule `EX-301`). Every item already had an illustration.
+The original set left 66 character, 116 location and 7 faction images missing.
+
+### Additional generated illustrations
+
+At the author's request, 189 additional standalone entity illustrations were
+created using OpenAI's built-in image generation tool: 66 character portraits,
+116 location illustrations and 7 faction covers, with supplied plates as
+style references. These are modern artistic interpretations, not documentary
+portraits, historical maps or illustrations from the original edition.
+
+Each accepted addition is visually reviewed for its subject, composition and
+style before linking it to the corresponding entity. The original images and
+map layers are preserved. The new plates use the mature ink-and-mineral-wash
+look on aged paper; captions may be omitted so the application supplies the
+entity's name without potentially inaccurate in-image lettering.
+
+`scripts/journey-to-the-west/generated-art-manifest.json` records the file,
+subject slug, generation prompt and visual-review status for every addition.
+`scripts/journey-to-the-west/ART-REQUESTS.md` is regenerated from the PWK and
+records the current coverage and remaining gaps, including one-scene entities
+and gateways. A successful file/link check is not a claim of browser QA.
+
+The final inventory has no missing character, location, item or faction images.
+All 189 additions were opened and reviewed individually, with unsuitable drafts
+corrected before assignment. The original world cover, item art and eight maps
+were not replaced. Browser validation remains pending because the browser
+connection exposed no available browser during this artwork pass.
 
 ### The cover
 
