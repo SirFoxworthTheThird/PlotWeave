@@ -42,7 +42,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "Kvothe tells his own story over the first of three days — from the troupe, to Tarbean, to the University.",
       "data": "the-name-of-the-wind.pwk",
-      "dataBytes": 522312,
+      "dataBytes": 667880,
       "counts": {
         "characters": 56,
         "chapters": 94,
@@ -51,7 +51,7 @@
       },
       "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
       "images": "the-name-of-the-wind.pwb",
-      "imagesBytes": 3114803,
+      "imagesBytes": 1831070,
       "worldId": "10000000-0000-4000-a000-000000000000",
       "cover": "https://marc-simonetti-shop.myshopify.com/cdn/shop/products/nameofthewind_1200x1200.jpg?v=1574358352"
     },
@@ -79,7 +79,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "The second day of Kvothe's telling: Vintas, the Eld, Ademre and Felurian.",
       "data": "the-wise-man-s-fear.pwk",
-      "dataBytes": 613997,
+      "dataBytes": 799136,
       "counts": {
         "characters": 80,
         "chapters": 154,
@@ -87,8 +87,6 @@
         "locations": 71
       },
       "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
-      "images": "the-wise-man-s-fear.pwb",
-      "imagesBytes": 1284723,
       "worldId": "ag5-SfCGAP0HIVKimJBe7",
       "cover": "https://marc-simonetti-shop.myshopify.com/cdn/shop/products/wisemanfear01_1200x1200.jpg?v=1574360210"
     },
