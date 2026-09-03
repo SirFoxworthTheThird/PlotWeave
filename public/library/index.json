@@ -550,6 +550,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and a reconstructed chronology, not the novel’s prose. The chapter titles are the book’s own couplets, rendered in English; the verbatim Chinese ships beside the generator script. Every map and picture except the cover is the world author’s own AI-generated work and is not public domain; the cover is a leaf of the 1592 Shidetang first edition. SOURCES.md and the Lore say so.",
       "worldId": "journey-to-the-west-world",
       "cover": "library/journey-to-the-west/art/cover.jpg"
+    },
+    {
+      "id": "the-call-of-the-wild",
+      "title": "The Call of the Wild",
+      "author": "Jack London",
+      "blurb": "Buck is stolen from California and remade by the Klondike trail, where labour, leadership, devotion, and loss draw him toward the wolf pack.",
+      "data": "the-call-of-the-wild.pwk",
+      "dataBytes": 273589,
+      "counts": {
+        "characters": 21,
+        "chapters": 7,
+        "events": 39,
+        "locations": 18
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an explicitly editorial chronology, not the novel’s prose. Original map and illustration provenance is recorded in Lore.",
+      "worldId": "call-wild-world",
+      "cover": "library/the-call-of-the-wild/art/world.svg"
     }
   ]
 }
