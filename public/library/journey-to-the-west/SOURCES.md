@@ -33,8 +33,32 @@ They arrived in two batches and are in two visibly different styles. The first
 — the seven route and place maps, the four pilgrims and the other early
 portraits — is flatter and cleaner. The second is a painted, aged-paper style
 with a Chinese title cartouche and a block of explanatory text on almost every
-plate, several of them citing the chapters they illustrate. Both are kept as
-they came.
+plate, several of them citing the chapters they illustrate. The original files
+are retained as references; the seven submaps now use the replacement sheets
+described below rather than the original flatter maps.
+
+### Period-inspired replacement submaps
+
+Seven `maps/*-manuscript.png` sheets were generated with OpenAI's built-in image
+tool at the author's request. They preserve the broad supplied layouts while
+replacing cartoon figures, bright colours, English text boxes and modern
+infographic decorations with mature ink-and-mineral-wash cartography on aged
+paper. The Four Continents root chart is unchanged.
+
+The art direction evokes late-Ming pictorial gazetteers, the period of the
+novel's publication, while the depicted settings are Tang-era and mythological.
+These are modern interpretations, not authentic period maps. References for
+the tradition include the Library of Congress's
+[Illustrated Album of Yangzhou Prefecture](https://blogs.loc.gov/international-collections/2019/06/the-illustrated-album-of-yangzhou-prefecture/)
+and [Ming shan tu](https://www.loc.gov/item/2001530431/).
+
+Full prompts, dimensions and top-left pixel landmark anchors are recorded in
+`scripts/journey-to-the-west/generated-map-manifest.json`. All seven final
+images were opened and inspected. The generator rescales inherited road
+approximations and uses explicit new anchors for the detailed maps. This is
+not a claim of completed in-app validation: marker checks at useful zoom,
+deep gateways and playback are still pending because the browser connection
+returned no available browser. See `scripts/journey-to-the-west/MAP-REVIEW.md`.
 
 Six supplied plates draw more than one subject, and five of those split
 honestly down the seam, each half keeping its own name-card:
