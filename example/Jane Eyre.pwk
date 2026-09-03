@@ -8371,7 +8371,7 @@
       "id": "jane-eyre-lore-page-1",
       "categoryId": "jane-eyre-lore-category-sources",
       "title": "Text, Maps, and Illustrations",
-      "body": "The structure follows Charlotte Brontë’s 1847 public-domain novel as presented by Project Gutenberg. Linked visual material includes F. H. Townsend and Edmund H. Garrett book illustrations from Wikimedia Commons. Historical overview maps and representative floor plans are editorial spatial aids, not canonical plans.",
+      "body": "The structure follows Charlotte Brontë’s 1847 public-domain novel as presented by Project Gutenberg. Brontë’s chapters are numbered and carry no titles: the chapter names used here are editorial signposts written for this example, not the author’s words, and they are chosen to help you find a place in the book rather than to describe it. Linked visual material includes F. H. Townsend and Edmund H. Garrett book illustrations from Wikimedia Commons. Historical overview maps and representative floor plans are editorial spatial aids, not canonical plans.",
       "tags": [],
       "coverImageId": "jane-eyre-image-cover",
       "linkedEntityIds": [

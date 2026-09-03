@@ -16868,7 +16868,7 @@
       ],
       "coverImageId": null,
       "linkedEntityIds": [],
-      "visibleFromEventId": null,
+      "visibleFromEventId": "70000000-0000-4000-a000-000000000000",
       "createdAt": 1788451200000,
       "updatedAt": 1788451200000
     }

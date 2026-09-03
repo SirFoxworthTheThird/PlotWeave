@@ -22306,7 +22306,7 @@
       ],
       "coverImageId": null,
       "linkedEntityIds": [],
-      "visibleFromEventId": null,
+      "visibleFromEventId": "wmf-event-0",
       "createdAt": 1788458400000,
       "updatedAt": 1788458400000
     }
