@@ -18,7 +18,7 @@
       "months": [
         {
           "name": "Journey Days",
-          "days": 999
+          "days": 650
         }
       ]
     },
@@ -34,8 +34,8 @@
       "name": "Pacific Coast and the Klondike",
       "description": "A navigational overview of Buck’s forced route from California through Puget Sound to the Yukon and his final movement east of Dawson.",
       "imageId": "call-wild-image-map-pacific",
-      "imageWidth": 1400,
-      "imageHeight": 900,
+      "imageWidth": 1536,
+      "imageHeight": 1024,
       "scalePixelsPerUnit": null,
       "scaleUnit": null,
       "levelGroupId": null,
@@ -51,8 +51,8 @@
       "name": "The Northland Trail",
       "description": "An editorial trail map connecting Dyea, the Chilkoot crossing, Lake Bennett, the Yukon river route, Dawson, Skaguay, and the East Fork country.",
       "imageId": "call-wild-image-map-northland",
-      "imageWidth": 1400,
-      "imageHeight": 900,
+      "imageWidth": 1536,
+      "imageHeight": 1024,
       "scalePixelsPerUnit": null,
       "scaleUnit": null,
       "levelGroupId": null,
@@ -68,8 +68,8 @@
       "name": "A Northland Sled Camp",
       "description": "An interpretive plan of the repeated camp arrangement: tent and fire at the centre, dogs secured near the sled, trail beyond the timber.",
       "imageId": "call-wild-image-map-camp",
-      "imageWidth": 1400,
-      "imageHeight": 900,
+      "imageWidth": 1536,
+      "imageHeight": 1024,
       "scalePixelsPerUnit": null,
       "scaleUnit": null,
       "levelGroupId": null,
@@ -87,8 +87,8 @@
       "linkedMapLayerId": null,
       "name": "Judge Miller’s Estate",
       "description": "A broad Santa Clara Valley property with lawns, orchards, veranda, and bathing tank where Buck lives as a trusted household dog.",
-      "x": 220,
-      "y": 210,
+      "x": 995,
+      "y": 239,
       "imageId": "call-wild-image-location-santa",
       "iconType": "home",
       "tags": [],
@@ -103,8 +103,8 @@
       "linkedMapLayerId": null,
       "name": "Seattle Depot and Saloon",
       "description": "Rail yards and a back-room yard mark the transfer from domestic theft into the northern dog trade.",
-      "x": 305,
-      "y": 440,
+      "x": 990,
+      "y": 459,
       "imageId": "call-wild-image-location-seattle",
       "iconType": "building",
       "tags": [],
@@ -119,8 +119,8 @@
       "linkedMapLayerId": "call-wild-map-northland",
       "name": "Alaska and the Yukon",
       "description": "The northern field of snow trails, river ice, mining settlements, and forest beyond settled authority.",
-      "x": 760,
-      "y": 615,
+      "x": 690,
+      "y": 744,
       "imageId": "call-wild-image-location-north-gate",
       "iconType": "region",
       "tags": [],
@@ -135,8 +135,8 @@
       "linkedMapLayerId": null,
       "name": "East Fork Country",
       "description": "Remote tributaries east of Dawson hold Thornton’s camp, the lost mine, and the valley where Buck joins the wolves.",
-      "x": 1190,
-      "y": 470,
+      "x": 1230,
+      "y": 799,
       "imageId": "call-wild-image-location-east-overview",
       "iconType": "region",
       "tags": [],
@@ -151,8 +151,8 @@
       "linkedMapLayerId": null,
       "name": "Dyea Beach",
       "description": "A tide-washed landing beneath steep passes where dogs, freight, and stampeders enter the winter trail.",
-      "x": 170,
-      "y": 220,
+      "x": 385,
+      "y": 374,
       "imageId": "call-wild-image-location-dyea",
       "iconType": "landmark",
       "tags": [],
@@ -167,8 +167,8 @@
       "linkedMapLayerId": null,
       "name": "Chilkoot Pass",
       "description": "A steep snowbound ascent where harness teams haul loads over the coastal mountains.",
-      "x": 300,
-      "y": 390,
+      "x": 650,
+      "y": 374,
       "imageId": "call-wild-image-location-chilkoot",
       "iconType": "mountain",
       "tags": [],
@@ -183,8 +183,8 @@
       "linkedMapLayerId": null,
       "name": "Lake Bennett",
       "description": "The frozen lake and camp serve as a staging place before the long mail run down the Yukon system.",
-      "x": 450,
-      "y": 450,
+      "x": 705,
+      "y": 519,
       "imageId": "call-wild-image-location-bennett",
       "iconType": "water",
       "tags": [],
@@ -199,8 +199,8 @@
       "linkedMapLayerId": null,
       "name": "Thirty Mile River",
       "description": "Fast water hidden by uncertain ice makes this reach especially dangerous for men, dogs, and sled.",
-      "x": 600,
-      "y": 510,
+      "x": 820,
+      "y": 634,
       "imageId": "call-wild-image-location-thirty-mile",
       "iconType": "water",
       "tags": [],
@@ -215,8 +215,8 @@
       "linkedMapLayerId": null,
       "name": "Dawson City",
       "description": "The gold-rush settlement receives official mail, exhausted teams, and men whose fortunes depend on the trail.",
-      "x": 820,
-      "y": 590,
+      "x": 980,
+      "y": 799,
       "imageId": "call-wild-image-location-dawson",
       "iconType": "town",
       "tags": [],
@@ -231,8 +231,8 @@
       "linkedMapLayerId": null,
       "name": "Skaguay",
       "description": "The coastal supply town where a worn mail team is sold to inexperienced stampeders.",
-      "x": 160,
-      "y": 310,
+      "x": 245,
+      "y": 539,
       "imageId": "call-wild-image-location-skaguay",
       "iconType": "town",
       "tags": [],
@@ -247,8 +247,8 @@
       "linkedMapLayerId": "call-wild-map-camp",
       "name": "East Fork Camp",
       "description": "Thornton’s seasonal camp lies away from the main route, close to timber, river, and the search for a legendary mine.",
-      "x": 1100,
-      "y": 400,
+      "x": 1200,
+      "y": 524,
       "imageId": "call-wild-image-location-east-fork",
       "iconType": "camp",
       "tags": [],
@@ -263,8 +263,8 @@
       "linkedMapLayerId": null,
       "name": "The Wolf Valley",
       "description": "A long, secluded valley of stream, forest, game trails, and an old human trace, beyond the last camp.",
-      "x": 1210,
-      "y": 550,
+      "x": 1340,
+      "y": 724,
       "imageId": "call-wild-image-location-wolf-valley",
       "iconType": "forest",
       "tags": [],
@@ -279,8 +279,8 @@
       "linkedMapLayerId": null,
       "name": "Camp Fire",
       "description": "The working centre for food, warmth, judgment, and companionship after a day on the trail.",
-      "x": 700,
-      "y": 480,
+      "x": 680,
+      "y": 459,
       "imageId": "call-wild-image-location-fire",
       "iconType": "campfire",
       "tags": [],
@@ -295,8 +295,8 @@
       "linkedMapLayerId": null,
       "name": "Dogs’ Sleeping Line",
       "description": "Snow hollows near the sled give each dog a defensible sleeping place in severe cold.",
-      "x": 470,
-      "y": 340,
+      "x": 230,
+      "y": 634,
       "imageId": "call-wild-image-location-dog-line",
       "iconType": "custom",
       "tags": [],
@@ -311,8 +311,8 @@
       "linkedMapLayerId": null,
       "name": "Freight Sled",
       "description": "Harness, traces, and packed cargo organize the team’s daily labour and hierarchy.",
-      "x": 880,
-      "y": 330,
+      "x": 1000,
+      "y": 514,
       "imageId": "call-wild-image-location-sled",
       "iconType": "custom",
       "tags": [],
@@ -327,8 +327,8 @@
       "linkedMapLayerId": null,
       "name": "Canvas Tent",
       "description": "A compact human shelter whose occupants and discipline determine whether a camp survives.",
-      "x": 700,
-      "y": 660,
+      "x": 650,
+      "y": 739,
       "imageId": "call-wild-image-location-tent",
       "iconType": "custom",
       "tags": [],
@@ -343,8 +343,8 @@
       "linkedMapLayerId": null,
       "name": "Forest Edge",
       "description": "Spruce and pine begin close to camp, holding game, danger, and the sounds that awaken Buck’s older instincts.",
-      "x": 1110,
-      "y": 610,
+      "x": 1250,
+      "y": 844,
       "imageId": "call-wild-image-location-forest",
       "iconType": "forest",
       "tags": [],
@@ -359,8 +359,8 @@
       "linkedMapLayerId": null,
       "name": "Frozen Trail",
       "description": "Packed snow leaves camp toward the next river bend, pass, or settlement.",
-      "x": 1160,
-      "y": 250,
+      "x": 1100,
+      "y": 194,
       "imageId": "call-wild-image-location-trail",
       "iconType": "road",
       "tags": [],
@@ -6604,416 +6604,416 @@
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-world",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/world.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/world.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-map-pacific",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/maps/pacific.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/maps/pacific.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-map-northland",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/maps/northland.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/maps/northland.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-map-camp",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/maps/camp.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/maps/camp.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-buck",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-buck.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-buck.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-manuel",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-manuel.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-manuel.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-red-sweater",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-red-sweater.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-red-sweater.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-perrault",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-perrault.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-perrault.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-francois",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-francois.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-francois.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-spitz",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-spitz.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-spitz.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-curly",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-curly.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-curly.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-dave",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-dave.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-dave.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-sol-leks",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-sol-leks.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-sol-leks.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-scotch-halfbreed",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-scotch-halfbreed.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-scotch-halfbreed.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-hal",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-hal.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-hal.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-charles",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-charles.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-charles.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-mercedes",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-mercedes.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-mercedes.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-thornton",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-thornton.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-thornton.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-skeet",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-skeet.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-skeet.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-nig",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-nig.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-nig.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-hans",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-hans.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-hans.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-pete",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-pete.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-pete.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-black-burton",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-black-burton.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-black-burton.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-yeehat-chief",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-yeehat-chief.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-yeehat-chief.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-character-timber-wolf",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/character-timber-wolf.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/character-timber-wolf.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-item-club",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/item-club.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/item-club.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-item-sled",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/item-sled.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/item-sled.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-item-traces",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/item-traces.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/item-traces.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-item-moccasins",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/item-moccasins.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/item-moccasins.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-item-revolver",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/item-revolver.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/item-revolver.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-item-club-hal",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/item-club-hal.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/item-club-hal.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-item-thousand",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/item-thousand.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/item-thousand.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-item-gold",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/item-gold.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/item-gold.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-item-antlers",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/item-antlers.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/item-antlers.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-santa",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-santa.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-santa.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-seattle",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-seattle.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-seattle.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-north-gate",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-north-gate.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-north-gate.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-east-overview",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-east-overview.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-east-overview.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-dyea",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-dyea.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-dyea.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-chilkoot",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-chilkoot.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-chilkoot.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-bennett",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-bennett.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-bennett.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-thirty-mile",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-thirty-mile.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-thirty-mile.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-dawson",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-dawson.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-dawson.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-skaguay",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-skaguay.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-skaguay.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-east-fork",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-east-fork.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-east-fork.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-wolf-valley",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-wolf-valley.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-wolf-valley.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-fire",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-fire.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-fire.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-dog-line",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-dog-line.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-dog-line.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-sled",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-sled.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-sled.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-tent",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-tent.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-tent.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-forest",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-forest.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-forest.jpg"
     },
     {
       "worldId": "call-wild-world",
       "createdAt": 1788393600000,
       "updatedAt": 1788393600000,
       "id": "call-wild-image-location-trail",
-      "mimeType": "image/svg+xml",
-      "url": "library/the-call-of-the-wild/art/location-trail.svg"
+      "mimeType": "image/jpeg",
+      "url": "library/the-call-of-the-wild/art/location-trail.jpg"
     }
   ],
   "travelModes": [
@@ -7192,7 +7192,7 @@
       "id": "call-wild-lore-art",
       "categoryId": "call-wild-lore-category-sources",
       "title": "Artwork and Map Provenance",
-      "body": "The navigable maps and entity illustrations are original SVG assets created for PlotWeave. They use restrained period-inspired forms rather than photographs. Maps are separate from portraits, object art, and place art.",
+      "body": "The navigable maps, world cover, portraits, object studies, and place illustrations are original AI-generated raster artwork created for this PlotWeave example. They use a mature, period-inspired adventure-book style rather than photographs. Every entity has its own subject-specific composition, and maps remain visually and functionally distinct from entity artwork.",
       "tags": [],
       "coverImageId": "call-wild-image-world",
       "linkedEntityIds": [],

@@ -557,7 +557,7 @@
       "author": "Jack London",
       "blurb": "Buck is stolen from California and remade by the Klondike trail, where labour, leadership, devotion, and loss draw him toward the wolf pack.",
       "data": "the-call-of-the-wild.pwk",
-      "dataBytes": 273589,
+      "dataBytes": 273587,
       "counts": {
         "characters": 21,
         "chapters": 7,
@@ -566,7 +566,7 @@
       },
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an explicitly editorial chronology, not the novel’s prose. Original map and illustration provenance is recorded in Lore.",
       "worldId": "call-wild-world",
-      "cover": "library/the-call-of-the-wild/art/world.svg"
+      "cover": "library/the-call-of-the-wild/art/world.jpg"
     }
   ]
 }
