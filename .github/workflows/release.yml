@@ -243,15 +243,20 @@ jobs:
             exit 1
           fi
           # The body is what the composed file says, not the previous run's.
-          # Line endings are normalised on both sides before comparing, so this
-          # is a check on what the notes say rather than on how they are
-          # encoded. A release body composed by this workflow comes back as it
-          # was sent; a body that had been through the Releases page might not.
-          jq -r '.body' release.json | tr -d '\r' > release-body-got.md
-          tr -d '\r' < RELEASE_BODY.md > release-body-want.md
-          if ! diff -q release-body-got.md release-body-want.md > /dev/null; then
+          #
+          # Compared as shell strings rather than as files, because `$( )`
+          # strips trailing newlines from both sides and the two disagree about
+          # exactly one: `jq -r` prints a newline after a value that already
+          # ends in one. Comparing the files failed on that alone — `130d129`,
+          # one empty line — while the notes were identical. Carriage returns
+          # go too, so this asks what the notes say rather than how they are
+          # encoded; every other difference, including a single changed word,
+          # still fails the run.
+          got=$(jq -r '.body' release.json | tr -d '\r')
+          want=$(tr -d '\r' < RELEASE_BODY.md)
+          if [ "$got" != "$want" ]; then
             echo "::error::Release $RELEASE_ID does not carry the notes composed for $VERSION."
-            diff release-body-got.md release-body-want.md | head -40
+            diff <(printf '%s\n' "$got") <(printf '%s\n' "$want") | head -40
             exit 1
           fi
           echo "Release $RELEASE_ID tags $VERSION at $GITHUB_SHA and carries its notes."
