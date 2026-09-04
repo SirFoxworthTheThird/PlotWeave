@@ -7049,7 +7049,7 @@
       "tags": [],
       "coverImageId": "war-of-the-worlds-image-correa6",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "war-of-the-worlds-event-1-2"
     },
     {
       "worldId": "war-of-the-worlds-world",
@@ -7062,7 +7062,7 @@
       "tags": [],
       "coverImageId": "war-of-the-worlds-image-correa17",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "war-of-the-worlds-event-19-2"
     },
     {
       "worldId": "war-of-the-worlds-world",
@@ -7075,7 +7075,7 @@
       "tags": [],
       "coverImageId": "war-of-the-worlds-image-correa21",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "war-of-the-worlds-event-15-2"
     },
     {
       "worldId": "war-of-the-worlds-world",
@@ -7088,7 +7088,7 @@
       "tags": [],
       "coverImageId": "war-of-the-worlds-image-mapEnvirons",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "war-of-the-worlds-event-1-1"
     },
     {
       "worldId": "war-of-the-worlds-world",
@@ -7101,7 +7101,7 @@
       "tags": [],
       "coverImageId": "war-of-the-worlds-image-cover",
       "linkedEntityIds": [],
-      "visibleFromEventId": null
+      "visibleFromEventId": "war-of-the-worlds-event-1-1"
     }
   ],
   "factions": [

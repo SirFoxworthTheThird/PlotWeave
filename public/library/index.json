@@ -42,7 +42,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "Kvothe tells his own story over the first of three days — from the troupe, to Tarbean, to the University.",
       "data": "the-name-of-the-wind.pwk",
-      "dataBytes": 522312,
+      "dataBytes": 667914,
       "counts": {
         "characters": 56,
         "chapters": 94,
@@ -51,7 +51,7 @@
       },
       "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
       "images": "the-name-of-the-wind.pwb",
-      "imagesBytes": 3114803,
+      "imagesBytes": 1831070,
       "worldId": "10000000-0000-4000-a000-000000000000",
       "cover": "https://marc-simonetti-shop.myshopify.com/cdn/shop/products/nameofthewind_1200x1200.jpg?v=1574358352"
     },
@@ -79,7 +79,7 @@
       "author": "Patrick Rothfuss",
       "blurb": "The second day of Kvothe's telling: Vintas, the Eld, Ademre and Felurian.",
       "data": "the-wise-man-s-fear.pwk",
-      "dataBytes": 613997,
+      "dataBytes": 799145,
       "counts": {
         "characters": 80,
         "chapters": 154,
@@ -87,8 +87,6 @@
         "locations": 71
       },
       "notice": "Unofficial, fan-made reference. Structural notes only — no text from the book is included. Not affiliated with or endorsed by the author or publisher.",
-      "images": "the-wise-man-s-fear.pwb",
-      "imagesBytes": 1284723,
       "worldId": "ag5-SfCGAP0HIVKimJBe7",
       "cover": "https://marc-simonetti-shop.myshopify.com/cdn/shop/products/wisemanfear01_1200x1200.jpg?v=1574360210"
     },
@@ -98,7 +96,7 @@
       "author": "Bram Stoker",
       "blurb": "Journals, letters, logs, and telegrams converge as Dracula moves from Transylvania to England and the hunters follow him home.",
       "data": "dracula.pwk",
-      "dataBytes": 371984,
+      "dataBytes": 369731,
       "counts": {
         "characters": 25,
         "chapters": 27,
@@ -516,6 +514,57 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Public-domain F. D. Bedford plates and original PlotWeave portraits and fantasy maps are credited in Lore.",
       "worldId": "peter-pan-world",
       "cover": "library/peter-pan/art/bedford/icover.jpg"
+    },
+    {
+      "id": "the-wonderful-wizard-of-oz",
+      "title": "The Wonderful Wizard of Oz",
+      "author": "L. Frank Baum",
+      "blurb": "A cyclone, a road of yellow brick, and four travellers asking a wizard for the four things they already have.",
+      "data": "the-wonderful-wizard-of-oz.pwk",
+      "dataBytes": 581102,
+      "counts": {
+        "characters": 21,
+        "chapters": 24,
+        "events": 87,
+        "locations": 55
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. W. W. Denslow’s 1900 illustrations are public domain and ship with the book. The maps are the world author’s own work and are not public domain; SOURCES.md and the Lore say so.",
+      "worldId": "wizard-of-oz-world",
+      "cover": "library/the-wonderful-wizard-of-oz/art/cover.jpg"
+    },
+    {
+      "id": "journey-to-the-west",
+      "title": "Journey to the West",
+      "author": "Wu Cheng’en",
+      "blurb": "A monkey who fought Heaven, a monk who cannot tell a demon from a widow, and eighty-one disasters between Chang’an and Vulture Peak.",
+      "data": "journey-to-the-west.pwk",
+      "dataBytes": 1494512,
+      "counts": {
+        "characters": 121,
+        "chapters": 100,
+        "events": 240,
+        "locations": 146
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and a reconstructed chronology, not the novel’s prose. The chapter titles are the book’s own couplets, rendered in English; the verbatim Chinese ships beside the generator script. The maps and illustrations are modern AI-generated interpretations: original artwork supplied by the world author, with additional illustrations generated at their request. The cover is a public-domain leaf of the 1592 Shidetang first edition. SOURCES.md and the generation manifest record provenance.",
+      "worldId": "journey-to-the-west-world",
+      "cover": "library/journey-to-the-west/art/cover.jpg"
+    },
+    {
+      "id": "the-call-of-the-wild",
+      "title": "The Call of the Wild",
+      "author": "Jack London",
+      "blurb": "Buck is stolen from California and remade by the Klondike trail, where labour, leadership, devotion, and loss draw him toward the wolf pack.",
+      "data": "the-call-of-the-wild.pwk",
+      "dataBytes": 273587,
+      "counts": {
+        "characters": 21,
+        "chapters": 7,
+        "events": 39,
+        "locations": 18
+      },
+      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an explicitly editorial chronology, not the novel’s prose. Original map and illustration provenance is recorded in Lore.",
+      "worldId": "call-wild-world",
+      "cover": "library/the-call-of-the-wild/art/world.jpg"
     }
   ]
 }
