@@ -190,10 +190,17 @@ jobs:
         with:
           draft: true
           # Named explicitly rather than inferred from the ref: on a manual run
-          # the ref is a branch, and this is also what creates the tag — it is
-          # placed on the commit that was built, so the release and the tag
-          # cannot disagree about what shipped.
+          # the ref is a branch, not a tag.
           tag_name: ${{ steps.version.outputs.value }}
+          # A draft does not create the git tag; it records where the tag should
+          # go when someone publishes it. Left as a branch name — the default is
+          # the ref this ran on — that means "wherever main happens to be when
+          # the button is pressed", which is not necessarily where it was when
+          # these binaries were built. A draft left for a week while main moves
+          # on would tag code that was never in the download, and nothing about
+          # the tag would show it. Pinned to the commit instead, so the tag can
+          # only land on what was built.
+          target_commitish: ${{ github.sha }}
           files: artifacts/*
           body_path: RELEASE_BODY.md
 
@@ -228,6 +235,13 @@ jobs:
             echo "::error::Release $RELEASE_ID is tagged '$tag', expected '$VERSION'."
             exit 1
           fi
+          # A branch name here rather than a commit would mean the tag lands
+          # wherever that branch has got to by the time the draft is published.
+          target=$(jq -r '.target_commitish' release.json)
+          if [ "$target" != "$GITHUB_SHA" ]; then
+            echo "::error::Release $RELEASE_ID would tag '$target', not the commit built ($GITHUB_SHA)."
+            exit 1
+          fi
           # The body is what the composed file says, not the previous run's.
           # Line endings are normalised on both sides before comparing, so this
           # is a check on what the notes say rather than on how they are
@@ -240,4 +254,4 @@ jobs:
             diff release-body-got.md release-body-want.md | head -40
             exit 1
           fi
-          echo "Release $RELEASE_ID is tagged $tag and carries the notes for $VERSION."
+          echo "Release $RELEASE_ID tags $VERSION at $GITHUB_SHA and carries its notes."
