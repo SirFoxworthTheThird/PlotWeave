@@ -572,14 +572,14 @@
       "author": "Homer",
       "blurb": "A quarrel over honour removes Achilles from the Achaean line as Troy’s defenders and the divided gods press the war toward the beached ships.",
       "data": "the-iliad.pwk",
-      "dataBytes": 427845,
+      "dataBytes": 1256724,
       "counts": {
         "characters": 52,
         "chapters": 24,
         "events": 75,
         "locations": 17
       },
-      "notice": "Unofficial reference for a public-domain ancient epic. This example contains original structural summaries and editorial chronology, not the prose of any translation. The cover is an original AI-generated interpretation created for PlotWeave; map sourcing and editorial method are recorded in Lore.",
+      "notice": "Unofficial reference for a public-domain ancient epic. Structural summaries and editorial chronology are original PlotWeave material; scene drafts reproduce Samuel Butler’s public-domain translation. The cover is an original AI-generated interpretation created for PlotWeave; source, map sourcing, and editorial method are recorded in Lore.",
       "worldId": "iliad-world",
       "cover": "library/the-iliad/art/cover.jpg"
     }
