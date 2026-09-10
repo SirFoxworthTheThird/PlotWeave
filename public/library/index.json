@@ -565,6 +565,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an explicitly editorial chronology, not the novel’s prose. Original map and illustration provenance is recorded in Lore.",
       "worldId": "call-wild-world",
       "cover": "library/the-call-of-the-wild/art/world.jpg"
+    },
+    {
+      "id": "the-iliad",
+      "title": "The Iliad",
+      "author": "Homer",
+      "blurb": "The wrath of Achilles withdraws the Achaeans’ greatest fighter, destroys Patroclus and Hector, and ends in a meeting between enemies joined by grief.",
+      "data": "the-iliad.pwk",
+      "dataBytes": 342067,
+      "counts": {
+        "characters": 45,
+        "chapters": 24,
+        "events": 72,
+        "locations": 17
+      },
+      "notice": "Unofficial reference for a public-domain ancient epic. This example contains original structural summaries and editorial chronology, not the prose of any translation. Map sourcing and editorial method are recorded in Lore.",
+      "worldId": "iliad-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Achilles%20and%20Priam%20by%20Jules%20Bastien-Lepage.jpg?width=960"
     }
   ]
 }
