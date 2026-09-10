@@ -6,7 +6,7 @@
     "id": "iliad-world",
     "name": "The Iliad",
     "description": "Homer’s epic traces the wrath of Achilles through plague, quarrel, withdrawal, battlefield collapse, the death of Patroclus, vengeance against Hector, and a final encounter between two grieving enemies.",
-    "coverImageId": null,
+    "coverImageId": "iliad-image-cover",
     "theme": "theme-mythic",
     "readingMode": true,
     "createdAt": 1799539200000,
@@ -9461,6 +9461,14 @@
       "mimeType": "image/png",
       "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Odyssey%20(Butler)%20Map.png?width=1920",
       "createdAt": 1799539200000
+    },
+    {
+      "worldId": "iliad-world",
+      "createdAt": 1799539200000,
+      "updatedAt": 1799539200000,
+      "id": "iliad-image-cover",
+      "mimeType": "image/jpeg",
+      "url": "library/the-iliad/art/cover.jpg"
     }
   ],
   "loreCategories": [
