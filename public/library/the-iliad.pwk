@@ -1002,7 +1002,7 @@
       "name": "First Armour of Achilles",
       "description": "Armour carried from Peleus, lent to Patroclus, taken by Hector, and destined to outlive each wearer.",
       "iconType": "shield",
-      "imageId": "iliad-image-art-objects",
+      "imageId": "iliad-image-art-achilles",
       "tags": []
     },
     {
@@ -1057,7 +1057,7 @@
       "name": "Hector’s Horsehair-Crested Helmet",
       "description": "The frightening helmet removed when its nodding crest makes the infant Astyanax cry.",
       "iconType": "shield",
-      "imageId": "iliad-image-art-objects",
+      "imageId": "iliad-image-art-hector-family",
       "tags": []
     },
     {
