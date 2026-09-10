@@ -580,8 +580,7 @@
         "locations": 17
       },
       "notice": "Unofficial reference for a public-domain ancient epic. This example contains original structural summaries and editorial chronology, not the prose of any translation. Map sourcing and editorial method are recorded in Lore.",
-      "worldId": "iliad-world",
-      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Achilles%20and%20Priam%20by%20Jules%20Bastien-Lepage.jpg?width=960"
+      "worldId": "iliad-world"
     }
   ]
 }
