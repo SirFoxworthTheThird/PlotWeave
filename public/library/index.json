@@ -582,6 +582,23 @@
       "notice": "Unofficial reference for a public-domain ancient epic. Structural summaries and editorial chronology are original PlotWeave material; scene drafts reproduce Samuel Butler’s public-domain translation. The cover is an original AI-generated interpretation created for PlotWeave; source, map sourcing, and editorial method are recorded in Lore.",
       "worldId": "iliad-world",
       "cover": "library/the-iliad/art/cover.jpg"
+    },
+    {
+      "id": "moby-dick",
+      "title": "Moby-Dick; or, The Whale",
+      "author": "Herman Melville",
+      "blurb": "Ishmael joins the Pequod, where Captain Ahab turns a whaling voyage into a consuming hunt for the white sperm whale that maimed him.",
+      "data": "moby-dick.pwk",
+      "dataBytes": 573853,
+      "counts": {
+        "characters": 21,
+        "chapters": 136,
+        "events": 136,
+        "locations": 26
+      },
+      "notice": "Unofficial structural reference for a public-domain novel. Includes original summaries, an editorial calendar, and original generated illustrations; it does not include the novel’s prose.",
+      "worldId": "moby-dick-world",
+      "cover": "library/moby-dick/art/world.png"
     }
   ]
 }
