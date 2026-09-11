@@ -283,14 +283,14 @@
       "author": "Homer",
       "blurb": "Odysseus crosses a mythic Mediterranean while Telemachus and Penelope defend the household awaiting his return.",
       "data": "the-odyssey.pwk",
-      "dataBytes": 348051,
+      "dataBytes": 387253,
       "counts": {
         "characters": 43,
         "chapters": 24,
         "events": 68,
         "locations": 34
       },
-      "notice": "Unofficial reference for a public-domain epic. This example contains original structural summaries and editorial reconstruction, not the poem’s prose.",
+      "notice": "Unofficial reference for a public-domain epic. This example contains original scene drafts, structural summaries, and editorial reconstruction rather than the poem’s prose.",
       "worldId": "odyssey-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Schmied%20illustration%20Odyss%C3%A9e-CompBibliophilesAutoClubFrance-1932vol3p173.png?width=1200"
     },
@@ -565,6 +565,23 @@
       "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an explicitly editorial chronology, not the novel’s prose. Original map and illustration provenance is recorded in Lore.",
       "worldId": "call-wild-world",
       "cover": "library/the-call-of-the-wild/art/world.jpg"
+    },
+    {
+      "id": "the-iliad",
+      "title": "The Iliad",
+      "author": "Homer",
+      "blurb": "A quarrel over honour removes Achilles from the Achaean line as Troy’s defenders and the divided gods press the war toward the beached ships.",
+      "data": "the-iliad.pwk",
+      "dataBytes": 1253464,
+      "counts": {
+        "characters": 52,
+        "chapters": 24,
+        "events": 75,
+        "locations": 17
+      },
+      "notice": "Unofficial reference for a public-domain ancient epic. Structural summaries and editorial chronology are original PlotWeave material; scene drafts reproduce Samuel Butler’s public-domain translation. The cover is an original AI-generated interpretation created for PlotWeave; source, map sourcing, and editorial method are recorded in Lore.",
+      "worldId": "iliad-world",
+      "cover": "library/the-iliad/art/cover.jpg"
     }
   ]
 }
