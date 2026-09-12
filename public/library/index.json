@@ -487,14 +487,14 @@
       "author": "J. M. Barrie",
       "blurb": "Three London children fly to Neverland, where Peter Pan’s eternal childhood meets stories, pirates, loyalty, home, and the cost of time.",
       "data": "peter-pan.pwk",
-      "dataBytes": 345471,
+      "dataBytes": 622555,
       "counts": {
         "characters": 14,
         "chapters": 17,
-        "events": 46,
+        "events": 47,
         "locations": 34
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Public-domain F. D. Bedford plates and original PlotWeave portraits and fantasy maps are credited in Lore.",
+      "notice": "Unofficial reading-mode edition of a public-domain novel. The manuscript contains the complete narrative text of the 1911 Peter and Wendy from Project Gutenberg eBook #16; Gutenberg packaging, its contents list, and the closing title are excluded. Structural summaries, event divisions, chronology, portraits, and maps are editorial. Public-domain F. D. Bedford plates and original PlotWeave artwork are credited in Lore.",
       "worldId": "peter-pan-world",
       "cover": "library/peter-pan/art/bedford/icover.jpg"
     },
