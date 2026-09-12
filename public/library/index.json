@@ -96,14 +96,14 @@
       "author": "Bram Stoker",
       "blurb": "Journals, letters, logs, and telegrams converge as Dracula moves from Transylvania to England and the hunters follow him home.",
       "data": "dracula.pwk",
-      "dataBytes": 369731,
+      "dataBytes": 1344857,
       "counts": {
         "characters": 25,
         "chapters": 27,
         "events": 84,
         "locations": 60
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Historical maps are public-domain or marked with no known copyright restrictions; source details are included in Lore.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. The manuscript contains the complete narrative text of Project Gutenberg eBook #345, divided among the original 27 chapters and modeled events; Gutenberg packaging and advertisements are excluded. Linked maps and public-domain illustrations are recorded in Lore.",
       "worldId": "dracula-1897-world",
       "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Dracula1st.jpeg/960px-Dracula1st.jpeg"
     },
