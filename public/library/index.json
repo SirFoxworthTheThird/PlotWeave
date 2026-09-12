@@ -402,14 +402,14 @@
       "author": "Arthur Conan Doyle",
       "blurb": "A reporter, two rival professors, and a veteran explorer cross into an isolated plateau where prehistoric life survives—and must return with proof the world cannot dismiss.",
       "data": "the-lost-world.pwk",
-      "dataBytes": 278761,
+      "dataBytes": 709305,
       "counts": {
         "characters": 10,
         "chapters": 16,
         "events": 32,
         "locations": 27
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Historical maps and public-domain book illustrations are linked in the file.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. The manuscript contains the complete narrative text of Project Gutenberg eBook #139 across all 16 chapters; Gutenberg packaging and front matter are excluded. Linked maps and public-domain illustrations are recorded in Lore.",
       "worldId": "lost-world-world",
       "cover": "https://arthurconandoyle.co.uk/images/characters/original%20serialization%20of%20The%20Lost%20World%20in%20Strand%20Magazine-11042019144308.jpg"
     },
