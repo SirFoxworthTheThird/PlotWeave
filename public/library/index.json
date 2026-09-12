@@ -419,14 +419,14 @@
       "author": "Frances Hodgson Burnett",
       "blurb": "An orphaned girl discovers a locked garden and a hidden cousin; restoring one hidden life awakens the other and draws a grieving family home.",
       "data": "the-secret-garden.pwk",
-      "dataBytes": 302814,
+      "dataBytes": 758138,
       "counts": {
         "characters": 12,
         "chapters": 27,
         "events": 54,
         "locations": 29
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. Linked period maps, plans, and public-domain book illustrations are recorded in Lore.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. The manuscript contains the complete narrative text of Project Gutenberg eBook #17396, divided among the original 27 chapters and modeled events; Gutenberg packaging and editorial matter are excluded. Linked period maps, plans, and public-domain book illustrations are recorded in Lore.",
       "worldId": "secret-garden-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Houghton%20AC85%20B9345%20911s%20-%20Secret%20Garden%2C%201911%20-%20cover.jpg?width=900"
     },
