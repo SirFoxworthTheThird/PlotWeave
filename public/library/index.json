@@ -283,14 +283,14 @@
       "author": "Homer",
       "blurb": "Odysseus crosses a mythic Mediterranean while Telemachus and Penelope defend the household awaiting his return.",
       "data": "the-odyssey.pwk",
-      "dataBytes": 387133,
+      "dataBytes": 979231,
       "counts": {
         "characters": 43,
         "chapters": 24,
         "events": 68,
         "locations": 34
       },
-      "notice": "Unofficial reference for a public-domain epic. This example contains original scene drafts, structural summaries, and editorial reconstruction rather than the poem’s prose.",
+      "notice": "Unofficial reference for a public-domain epic. Manuscript scenes contain Samuel Butler’s complete narrative prose from Project Gutenberg eBook 1727; Gutenberg front matter, per-book summaries, footnotes, appendices, and end matter are excluded.",
       "worldId": "odyssey-world",
       "cover": "library/the-odyssey/art/cover.png"
     },
