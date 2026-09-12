@@ -266,14 +266,14 @@
       "author": "H. G. Wells",
       "blurb": "Martian cylinders fall into the familiar landscape of Surrey and London, overturning Victorian confidence as separated witnesses struggle through invasion, flight, and occupation.",
       "data": "the-war-of-the-worlds.pwk",
-      "dataBytes": 280667,
+      "dataBytes": 635210,
       "counts": {
         "characters": 14,
         "chapters": 27,
         "events": 54,
         "locations": 32
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked period maps and public-domain Henrique Alvim Corrêa illustrations are recorded in Lore.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. It includes the complete novel text from Project Gutenberg eBook 36; Gutenberg packaging is excluded. Editorial scene divisions, chronology, maps, and illustration provenance are documented in Lore.",
       "worldId": "war-of-the-worlds-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/War%20of%20the%20worlds%20live%201906%20cover.jpg?width=960"
     },
@@ -368,33 +368,16 @@
       "author": "Baroness Orczy",
       "blurb": "A hidden English League races across revolutionary France while Marguerite Blakeney struggles to protect her brother, restore trust, and reach the Channel escape.",
       "data": "the-scarlet-pimpernel.pwk",
-      "dataBytes": 253757,
+      "dataBytes": 760998,
       "counts": {
         "characters": 15,
         "chapters": 31,
         "events": 37,
         "locations": 15
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Period cartography and public-domain illustration sources are linked in the file.",
+      "notice": "Unofficial reference for a public-domain novel. Manuscript scenes reproduce the complete narrative from Project Gutenberg eBook 60; Gutenberg front and end matter are excluded. Period cartography and public-domain illustration sources are linked in the file.",
       "worldId": "scarlet-pimpernel-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thescarletpimpernel1908.jpg?width=1200"
-    },
-    {
-      "id": "the-three-musketeers",
-      "title": "The Three Musketeers",
-      "author": "Alexandre Dumas",
-      "blurb": "A young Gascon joins Athos, Porthos, and Aramis as court secrets, English diamonds, Milady de Winter, and the siege of La Rochelle turn friendship into a test of loyalty.",
-      "data": "the-three-musketeers.pwk",
-      "dataBytes": 464829,
-      "counts": {
-        "characters": 25,
-        "chapters": 67,
-        "events": 68,
-        "locations": 25
-      },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked historical maps and public-domain illustrations are recorded in Lore.",
-      "worldId": "three-musketeers-world",
-      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dartagnan-musketeers%20-%20Maurice%20Leloir.jpg?width=1200"
     },
     {
       "id": "the-woman-in-white",
@@ -555,14 +538,14 @@
       "author": "Jack London",
       "blurb": "Buck is stolen from California and remade by the Klondike trail, where labour, leadership, devotion, and loss draw him toward the wolf pack.",
       "data": "the-call-of-the-wild.pwk",
-      "dataBytes": 273587,
+      "dataBytes": 459799,
       "counts": {
         "characters": 21,
         "chapters": 7,
         "events": 39,
         "locations": 18
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an explicitly editorial chronology, not the novel’s prose. Original map and illustration provenance is recorded in Lore.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. It includes the complete novel text from Project Gutenberg eBook 215; Gutenberg packaging is excluded. Editorial structure, chronology, maps, and illustration provenance are documented in Lore.",
       "worldId": "call-wild-world",
       "cover": "library/the-call-of-the-wild/art/world.jpg"
     },
@@ -599,6 +582,23 @@
       "notice": "Unofficial reference for a public-domain novel. Manuscript scenes reproduce the complete narrative of all 135 chapters and the Epilogue from Project Gutenberg eBook 2701; Etymology, Extracts, Gutenberg front matter, and end matter are excluded.",
       "worldId": "moby-dick-world",
       "cover": "library/moby-dick/art/world.png"
+    },
+    {
+      "id": "the-three-musketeers",
+      "title": "The Three Musketeers",
+      "author": "Alexandre Dumas",
+      "blurb": "A young Gascon joins Athos, Porthos, and Aramis as court secrets, English diamonds, Milady de Winter, and the siege of La Rochelle turn friendship into a test of loyalty.",
+      "data": "the-three-musketeers.pwk",
+      "dataBytes": 1825649,
+      "counts": {
+        "characters": 25,
+        "chapters": 67,
+        "events": 68,
+        "locations": 25
+      },
+      "notice": "Unofficial reference for a public-domain novel. Manuscript scenes reproduce the complete English narrative from Project Gutenberg eBook 1257; Gutenberg front and end matter are excluded.",
+      "worldId": "three-musketeers-world",
+      "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dartagnan-musketeers%20-%20Maurice%20Leloir.jpg?width=1200"
     }
   ]
 }
