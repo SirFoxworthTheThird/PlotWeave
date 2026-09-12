@@ -164,14 +164,14 @@
       "author": "Arthur Conan Doyle",
       "blurb": "Holmes and Watson follow a family curse from London clues to Dartmoor, where an inheritance plot hides behind the legend of a spectral hound.",
       "data": "the-hound-of-the-baskervilles.pwk",
-      "dataBytes": 228488,
+      "dataBytes": 639102,
       "counts": {
         "characters": 19,
         "chapters": 15,
         "events": 66,
         "locations": 26
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and Sidney Paget illustrations are recorded in Lore.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. The manuscript contains the complete narrative text of Project Gutenberg eBook #2852 across all 15 chapters; Gutenberg packaging is excluded. Linked maps and public-domain illustrations are recorded in Lore.",
       "worldId": "hound-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Houn-42%20-%20Frontispiece%20(Hound%20of%20Baskervilles).jpg?width=960"
     },
