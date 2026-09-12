@@ -453,14 +453,14 @@
       "author": "H. G. Wells",
       "blurb": "A physicist who erases his visible body discovers that secrecy, hunger, weather, fear, and violence make invisibility a prison as much as a power.",
       "data": "the-invisible-man.pwk",
-      "dataBytes": 277067,
+      "dataBytes": 568623,
       "counts": {
         "characters": 18,
         "chapters": 29,
         "events": 47,
-        "locations": 37
+        "locations": 36
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial chronology, not the novel’s prose. Period maps, original interpretive plans, and illustration sources are recorded in Lore.",
+      "notice": "Unofficial reading-mode edition of a public-domain novel. The manuscript contains the complete narrative text from Project Gutenberg eBook #5230, covering Chapters I–XXVIII and the Epilogue; Gutenberg packaging and the contents list are excluded. Structural summaries, event divisions, chronology, maps, and state notes are editorial.",
       "worldId": "invisible-man-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wells%20-%20The%20Invisible%20Man%20-%20Pearson%20cover%201897.jpg?width=900"
     },
