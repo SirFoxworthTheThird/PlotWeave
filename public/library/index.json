@@ -232,14 +232,14 @@
       "author": "H. G. Wells",
       "blurb": "A Victorian inventor travels to the year 802,701, where the Eloi, Morlocks, and a still more distant dying Earth overturn every simple faith in progress.",
       "data": "the-time-machine.pwk",
-      "dataBytes": 229822,
+      "dataBytes": 421834,
       "counts": {
         "characters": 14,
         "chapters": 17,
         "events": 46,
         "locations": 16
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked period maps and public-domain Norman Saunders and Virgil Finlay illustrations are recorded in Lore.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. It includes the complete novel text from Project Gutenberg eBook 35; Gutenberg packaging is excluded. Editorial scene divisions, chronology, maps, and illustration provenance are documented in Lore.",
       "worldId": "time-machine-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Time%20Machine%20by%20Norman%20Saunders.jpg?width=960"
     },
