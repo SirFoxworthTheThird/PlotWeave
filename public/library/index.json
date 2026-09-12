@@ -351,14 +351,14 @@
       "author": "Wilkie Collins",
       "blurb": "A sacred yellow diamond vanishes from Rachel Verinder's locked cabinet, drawing a chain of partial narrators through concealed love, material clues, financial pressure, and a missing memory.",
       "data": "the-moonstone.pwk",
-      "dataBytes": 359966,
+      "dataBytes": 1475934,
       "counts": {
         "characters": 27,
         "chapters": 57,
         "events": 76,
         "locations": 34
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked historical maps and public-domain Harper's Weekly illustrations are recorded in Lore.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. The manuscript contains the complete narrative text of Project Gutenberg eBook #155 across all 57 modeled sections; Gutenberg packaging and front matter are excluded. Linked maps and public-domain illustrations are recorded in Lore.",
       "worldId": "moonstone-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Moonstone%20novel%20-%20frontispiece.png?width=1000"
     },
