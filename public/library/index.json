@@ -147,14 +147,14 @@
       "author": "Oscar Wilde",
       "blurb": "A portrait bears the age and corruption hidden behind Dorian Gray’s unchanging beauty.",
       "data": "the-picture-of-dorian-gray.pwk",
-      "dataBytes": 295632,
+      "dataBytes": 838651,
       "counts": {
         "characters": 26,
         "chapters": 20,
         "events": 83,
         "locations": 32
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked historical maps and public-domain artwork sources are recorded in Lore.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. The manuscript contains the complete preface and narrative text of Project Gutenberg eBook #174 across all 20 chapters; Gutenberg packaging is excluded. Linked maps and public-domain illustrations are recorded in Lore.",
       "worldId": "dorian-gray-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Houghton%20HEW%2012.10.15%20-%20The%20Picture%20of%20Dorian%20Gray%2C%201891%20(cover).jpg?width=960"
     },
