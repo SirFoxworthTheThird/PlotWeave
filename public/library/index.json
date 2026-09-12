@@ -130,14 +130,14 @@
       "author": "Robert Louis Stevenson",
       "blurb": "Utterson follows Hyde through doors, wills, murder evidence, chemical secrets, and sealed testimony toward Jekyll’s divided identity.",
       "data": "strange-case-of-dr-jekyll-and-mr-hyde.pwk",
-      "dataBytes": 174794,
+      "dataBytes": 376626,
       "counts": {
         "characters": 15,
         "chapters": 10,
         "events": 47,
         "locations": 24
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked map and artwork sources are recorded in Lore.",
+      "notice": "Unofficial reading-mode edition of a public-domain novel. The manuscript contains the complete narrative text from Project Gutenberg eBook #43; Gutenberg packaging and the contents list are excluded. Structural summaries, event divisions, chronology, maps, and state notes are editorial.",
       "worldId": "jekyll-hyde-world",
       "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Dr._Jekyll_and_Mr._Hyde_LCCN2014635954.jpg/960px-Dr._Jekyll_and_Mr._Hyde_LCCN2014635954.jpg"
     },
