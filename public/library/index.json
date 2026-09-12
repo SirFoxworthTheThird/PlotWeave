@@ -113,14 +113,14 @@
       "author": "Mary Shelley",
       "blurb": "Walton’s polar letters frame Victor Frankenstein’s confession and the Creature’s own history of creation, rejection, and revenge.",
       "data": "frankenstein.pwk",
-      "dataBytes": 324601,
+      "dataBytes": 859382,
       "counts": {
         "characters": 24,
         "chapters": 28,
         "events": 88,
         "locations": 61
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel’s prose. Linked map sources and licensing notes are recorded in Lore.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. The manuscript contains the complete narrative text of Project Gutenberg eBook #84 across four letters and 24 chapters; Gutenberg packaging is excluded. Linked maps and public-domain illustrations are recorded in Lore.",
       "worldId": "frankenstein-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Frontispiece%20to%20Frankenstein%201831.jpg?width=960"
     },
