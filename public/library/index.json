@@ -504,14 +504,14 @@
       "author": "L. Frank Baum",
       "blurb": "A cyclone, a road of yellow brick, and four travellers asking a wizard for the four things they already have.",
       "data": "the-wonderful-wizard-of-oz.pwk",
-      "dataBytes": 581102,
+      "dataBytes": 811908,
       "counts": {
         "characters": 21,
         "chapters": 24,
-        "events": 87,
+        "events": 86,
         "locations": 55
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and an editorial calendar, not the novel’s prose. W. W. Denslow’s 1900 illustrations are public domain and ship with the book. The maps are the world author’s own work and are not public domain; SOURCES.md and the Lore say so.",
+      "notice": "Unofficial reading-mode edition of a public-domain novel. The manuscript contains the complete Project Gutenberg eBook #55 text, including Baum’s Introduction; Gutenberg packaging and illustration placeholders are excluded. Structural summaries, event divisions and the calendar are editorial. W. W. Denslow’s 1900 illustrations are public domain and ship with the book. The maps are the world author’s own work and are not public domain; SOURCES.md and the Lore say so.",
       "worldId": "wizard-of-oz-world",
       "cover": "library/the-wonderful-wizard-of-oz/art/cover.jpg"
     },
