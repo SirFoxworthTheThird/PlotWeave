@@ -249,14 +249,14 @@
       "author": "Jules Verne",
       "blurb": "Aronnax, Conseil, and Ned Land become unwilling passengers aboard Captain Nemo’s Nautilus, crossing a hidden ocean world where discovery, captivity, compassion, and vengeance converge.",
       "data": "twenty-thousand-leagues-under-the-seas.pwk",
-      "dataBytes": 606452,
+      "dataBytes": 1236447,
       "counts": {
         "characters": 16,
         "chapters": 46,
         "events": 92,
         "locations": 70
       },
-      "notice": "Unofficial reference for a public-domain novel. This example contains original structural summaries and editorial reconstruction, not the novel's prose. Linked period maps, an interpretive Nautilus plan, and public-domain Hetzel illustrations are recorded in Lore.",
+      "notice": "Unofficial reading-mode reference for a public-domain novel. The manuscript contains the complete narrative text of Project Gutenberg eBook #164 across all 46 chapters; Gutenberg packaging and front matter are excluded. Linked maps and public-domain illustrations are recorded in Lore.",
       "worldId": "twenty-thousand-leagues-under-the-seas-world",
       "cover": "https://commons.wikimedia.org/wiki/Special:Redirect/file/20000%20title%200a.jpg?width=960"
     },
